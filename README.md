@@ -1,5 +1,2 @@
-# 안녕하세요. 김태현입니다.
--전기전자공학부 21학번 2학년 2학기 재학중입니다.
--2001.09.02
--INFP
--Kuit 웹 파트
+# Frontend-Assignments
+Repository for the Frontend Development Team's assignments in KUIT. Submit your weekly assignment, collaborate with fellow developers, and refine your skills in crafting captivating user interfaces and experiences 👍
