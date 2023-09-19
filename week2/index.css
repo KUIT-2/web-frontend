@@ -1,0 +1,134 @@
+/* Global Styles */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/* Daangn Styles */
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  justify-content: space-between;
+  border-bottom: 1px gainsboro solid;
+  background-color: white;
+  position: sticky;
+  top: 0;
+}
+.header__btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+.header__loc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+.header__loc--title {
+  font-weight: 700;
+  font-size: 18px;
+}
+.header__loc-img {
+  height: 14px;
+  width: 14px;
+}
+.list {
+  padding: 0 16px;
+  margin-bottom: 50px;
+}
+.item__container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px gainsboro solid;
+}
+.item__img {
+  border-radius: 4px;
+}
+.item__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.item__content--top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.item__content--title {
+  font-size: 16px;
+  font-weight: 400;
+}
+.item__inform {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.item__inform p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8c8c8c;
+}
+.item__content--price {
+  font-weight: 700;
+  font-size: 15px;
+  color: #ff7e36;
+}
+.item__reacts {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  gap: 4px;
+}
+.item__reacts div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+}
+
+.item__reacts div p {
+  color: #8c8c8c;
+  font-size: 12px;
+  font-weight: 400;
+}
+.item__comment--img {
+  width: 14px;
+  height: 14px;
+}
+.nav__list {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 0;
+  width: 100%;
+  z-index: 5;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px gainsboro solid;
+}
+.nav__item {
+  display: flex;
+  flex-basis: 20%;
+  flex-direction: column;
+  align-items: center;
+}
+.nav__item--img {
+  width: 20px;
+  height: 20px;
+}
+.nav__item--name {
+  font-weight: 400;
+  font-size: 10px;
+}
