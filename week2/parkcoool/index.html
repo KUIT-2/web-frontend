@@ -3,13 +3,234 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet" />
         <link rel="stylesheet" href="index.css" />
-        <link rel="stylesheet" href="reset.css" />
         <title>당근</title>
     </head>
     <body>
-        <section class="header"></section>
-        <body class="container"></body>
-        <nav class="bottom-bar"></nav>
+        <section class="header">
+            <div class="region">
+                군자동
+                <button class="img-btn">
+                    <img src="./assets/expand_arrow.png" width="14" height="14" alt="내 동네 선택" />
+                </button>
+            </div>
+            <div class="btn-container">
+                <button class="img-btn">
+                    <img src="./assets/search.svg" width="24" height="24" alt="검색" />
+                </button>
+                <button class="img-btn">
+                    <img src="./assets/menu.svg" width="24" height="24" alt="메뉴" />
+                </button>
+                <button class="img-btn">
+                    <img src="./assets/notification.png" width="24" height="24" alt="알림" />
+                </button>
+            </div>
+        </section>
+        <div class="container">
+            <section class="tag-container">
+                <button class="tag">동네소식</button>
+                <button class="tag">🙌 같이해요</button>
+                <button class="tag">동네질문</button>
+                <button class="tag">동네맛집</button>
+                <button class="tag">취미생활</button>
+            </section>
+            <section class="ad-container">
+                <div class="ad">
+                    <img src="./assets/장도연.png" width="40" height="40" alt="장도연" />
+                    <div class="ad-message">
+                        <h1>당근이웃과 함께하는 장도연의 동네생활!🥕</h1>
+                        <h2>가나다님 지금 바로 구경해보세요!</h2>
+                    </div>
+                </div>
+            </section>
+            <section class="article-container">
+                <article>
+                    <div class="article-body">
+                        <div class="tag">🙌 같이해요</div>
+                        <div class="thumbnail">
+                            <h1><span class="category">모집중</span>맥주마실 사람~~</h1>
+                            <h2>쪽지 주세요 고고!!</h2>
+                        </div>
+                        <div class="des-container">
+                            <div class="des">
+                                <img src="./assets/chat.png" width="16" height="16" alt="참여 대상" />
+                                누구나 참여 가능
+                            </div>
+                            <div class="des">
+                                <img src="./assets/user.png" width="16" height="16" alt="참여 인원" />
+                                2/4명 참여
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="author">
+                                <span>요우우</span>
+                                <span>·</span>
+                                <span>화양동</span>
+                            </div>
+                            <div>3분 전</div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-body">
+                        <div class="tag">동네질문</div>
+                        <div class="thumbnail">
+                            <h1>
+                                <span class="category">Q.</span>혼밥은 다들 어디서 하시나요? 뻘쭘하지 않고 사장님들께 안
+                                미안한 곳, 어디든 리스트업해서 한번씩 가보려구요. 부탁드립니다!
+                            </h1>
+                        </div>
+                        <div class="info">
+                            <div class="author">
+                                <span>도우영</span>
+                                <span>·</span>
+                                <span>화양동</span>
+                            </div>
+                            <div>15분 전</div>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <button class="img-txt-btn">
+                            <img src="./assets/ok.svg" width="16" height="16" alt="궁금해요" />
+                            궁금해요
+                        </button>
+                        <button class="img-txt-btn">
+                            <img src="./assets/comment.svg" width="16" height="16" alt="답변" />
+                            답변 2
+                        </button>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-body">
+                        <div class="tag">동네맛집</div>
+                        <div class="thumbnail">
+                            <h1>송정동 밥집 추천 부탁드려요<br />퇴근하고 뭐 해먹기 귀찮을때 먹을만한 곳이요.</h1>
+                            <a href="#" class="detail">... 더보기</a>
+                        </div>
+                        <div class="info">
+                            <div class="author">
+                                <span>카리</span>
+                                <span>·</span>
+                                <span>화양동</span>
+                            </div>
+                            <div>17분 전</div>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <button class="img-txt-btn">
+                            <img src="./assets/happy.png" width="16" height="16" alt="공감하기" />
+                            공감하기
+                        </button>
+                        <button class="img-txt-btn">
+                            <img src="./assets/comment.svg" width="16" height="16" alt="댓글" />
+                            댓글 2
+                        </button>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-body">
+                        <div class="tag">분실/실종센터</div>
+                        <div class="thumbnail">
+                            <h1>
+                                <span class="category">찾아요</span>카드 지갑을 분실했습니다. 발견하시면 사례하겠습니다.
+                                꼭 찾아주세요.
+                            </h1>
+                        </div>
+                        <div class="picture-container">
+                            <img src="./assets/card01.jpg" />
+                            <img src="./assets/card02.jpg" />
+                        </div>
+                        <div class="location">
+                            <div class="location-icon"></div>
+                            <div class="location-des">
+                                <h1>파리게이츠</h1>
+                                <h2>서울특별시 광진구 동일로 350</h2>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="author">
+                                <span>Maro</span>
+                                <span>·</span>
+                                <span>중곡동</span>
+                            </div>
+                            <div>1시간 전</div>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <button class="img-txt-btn">
+                            <img src="./assets/happy.png" width="16" height="16" alt="공감하기" />
+                            공감하기
+                        </button>
+                        <button class="img-txt-btn">
+                            <img src="./assets/comment.svg" width="16" height="16" alt="댓글" />
+                            댓글쓰기
+                        </button>
+                    </div>
+                </article>
+                <article>
+                    <div class="article-body">
+                        <div class="tag">분실/실종센터</div>
+                        <div class="thumbnail">
+                            <h1>
+                                <span class="category">찾아요</span>카드 지갑을 분실했습니다. 발견하시면 사례하겠습니다.
+                                꼭 찾아주세요.
+                            </h1>
+                        </div>
+                        <div class="picture-container">
+                            <img src="./assets/card01.jpg" />
+                            <img src="./assets/card02.jpg" />
+                        </div>
+                        <div class="location">
+                            <div class="location-icon"></div>
+                            <div class="location-des">
+                                <h1>파리게이츠</h1>
+                                <h2>서울특별시 광진구 동일로 350</h2>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="author">
+                                <span>Maro</span>
+                                <span>·</span>
+                                <span>중곡동</span>
+                            </div>
+                            <div>1시간 전</div>
+                        </div>
+                    </div>
+                    <div class="article-footer">
+                        <button class="img-txt-btn">
+                            <img src="./assets/happy.png" width="16" height="16" alt="공감하기" />
+                            공감하기
+                        </button>
+                        <button class="img-txt-btn">
+                            <img src="./assets/comment.svg" width="16" height="16" alt="댓글" />
+                            댓글쓰기
+                        </button>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <nav class="bottom-bar">
+            <button class="nav-item">
+                <img src="./assets/home.svg" width="24" height="24" alt="홈" />
+                홈
+            </button>
+            <button class="nav-item">
+                <img src="./assets/news.svg" width="24" height="24" alt="홈" />
+                동네생활
+            </button>
+            <button class="nav-item">
+                <img src="./assets/place.png" width="24" height="24" alt="홈" />
+                내 근처
+            </button>
+            <button class="nav-item">
+                <img src="./assets/message.png" width="24" height="24" alt="홈" />
+                채팅
+            </button>
+            <button class="nav-item">
+                <img src="./assets/account.png" width="24" height="24" alt="홈" />
+                나의 당근
+            </button>
+        </nav>
     </body>
 </html>
