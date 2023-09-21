@@ -1,0 +1,79 @@
+/* Global styles */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/* Daangn Styles */
+.home-header {
+  position: relative;
+}
+
+.home-header header {
+  position: absolute;
+  display: flex;
+  padding: 12px 16px;
+  width: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.home-header .home-header__icon-container,
+.home-header .home-header__location-container {
+  display: flex;
+  align-items: center;
+}
+
+.home-header .home-header__icon-container {
+  gap: 16px;
+}
+
+.home-header .home-header__location-container {
+  gap: 6px;
+}
+
+.home-header .home-header__location-container img {
+  margin-bottom: 4px; /* 약간 아래에 위치해 있어서 임의로 옮김 */
+}
+
+.home-header__location-container .location__now {
+  color: #000;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.navigation-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 0 10px;
+  border-top: 1px solid #d9d9d9;
+}
+
+.navigation-bar .bar__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  .bar__img {
+    height: 57%;
+  }
+
+  .bar__info {
+    color: #000;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+  }
+}
