@@ -19,6 +19,7 @@ button {
   width: 100%;
   justify-content: space-between;
   box-sizing: border-box;
+  border-bottom: 1px solid #D9D9D9;
 }
 
 .home-header .home-header__icon-container,
@@ -36,19 +37,113 @@ button {
 }
 
 .home-header .home-header__location-container img {
-  margin-bottom: 4px; /* 약간 아래에 위치해 있어서 임의로 옮김 */
+  margin-bottom: 3px; /* 약간 아래에 위치해 있어서 임의로 옮김 */
 }
 
 .home-header__location-container .location__now {
   color: #000;
-  font-family: Inter;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 28px;
 }
 
+.product-list {
+  padding: 16px;
+  padding-top: 54px;
+  padding-bottom: 58px;
+}
+
+.product-list > li {
+  padding: 16px 0;
+  border-bottom: 1px solid #D9D9D9;
+}
+
+.product-list .product-container {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.product-list li:last-child {
+  border-bottom: none;
+}
+
+.product-container .product__image {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.product-container .product__info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product__info .info__desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.info__desc h2 {
+  color: #000;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.info__desc .info__desc--additional {
+  display: flex;
+  gap: 4px;
+}
+
+.info__desc .info__desc--additional span {
+  color: #8C8C8C;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.info__desc .info__price {
+  color: #FF7E36;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.product__info .info__reaction {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.info__reaction .reaction-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.reaction-container span {
+  color: #8C8C8C;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+} 
+
 .navigation-bar {
+  background: #FFF;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   position: fixed;
@@ -65,7 +160,7 @@ button {
   gap: 4px;
 
   .bar__img {
-    height: 57%;
+    height: 24px;
   }
 
   .bar__info {
