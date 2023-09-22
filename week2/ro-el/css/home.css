@@ -13,13 +13,14 @@ button {
 }
 
 .home-header header {
-  position: absolute;
+  position: fixed;
   display: flex;
   padding: 12px 16px;
   width: 100%;
   justify-content: space-between;
   box-sizing: border-box;
   border-bottom: 1px solid #D9D9D9;
+  background: #FFF;
 }
 
 .home-header .home-header__icon-container,
@@ -90,6 +91,7 @@ button {
 }
 
 .info__desc h2 {
+  text-align: start;
   color: #000;
   font-family: Inter;
   font-size: 16px;
