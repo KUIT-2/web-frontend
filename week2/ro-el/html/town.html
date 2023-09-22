@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/town.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <title>동네생활</title>
+  </head>
+
+  <body>
+    <!-- 상단 헤더 -->
+    <section class="town-header">
+      <header>
+        <button class="town-header__location-container">
+          <span class="location__now">군자동</span>
+          <img src="../assets/under-chevron.svg" alt="select location" />
+        </button>
+        <div class="town-header__icon-container">
+          <button type="button">
+            <img src="../assets/search.svg" alt="search" />
+          </button>
+          <button type="button">
+            <img src="../assets/menu.svg" alt="search" />
+          </button>
+          <button type="button">
+            <img src="../assets/notification.svg" alt="search" />
+          </button>
+        </div>
+      </header>
+    </section>
+
+    <!-- 필터 / 배너 / 게시글 리스트 -->
+    <section class="town">
+      <div class="town__filter-container">
+        <button type="button">
+          <span class="filter__option">동네소식</span>
+        </button>
+        <button type="button">
+          <span class="filter__option">🙌 같이해요</span>
+        </button>
+        <button type="button">
+          <span class="filter__option">취미생활</span>
+        </button>
+        <button type="button">
+          <span class="filter__option">동네맛집</span>
+        </button>
+        <button type="button">
+          <span class="filter__option">동네질문</span>
+        </button>
+      </div>
+
+      <div class="town__banner-container">
+        <img src="http://placehold.co/40" alt="" class="banner__image" />
+        <div class="banner__info">
+          <h2 class="info__title">당근이웃과 함께하는 장도연의 동네생활!🥕</h2>
+          <span class="info__text">공룡알님 지금 바로 구경해보세요!</span>
+        </div>
+      </div>
+
+      <ul class="town__post-list">
+        <li>
+          <button type="button" class="post-container">
+            <span class="post__category">동네질문</span>
+            <div class="post__content">내용</div>
+            <div class="post__content">내용 축약시 더보기</div>
+            <div class="post_images">사진</div>
+            <div class="post__location">위치 북마크</div>
+            <div class="post__desc">기타</div>
+          </button>
+          <div class="post__reaction">
+            <button type="button" class="reaction__emotion">
+              <img src="../assets/smile-circle.svg" alt="check smile">
+              <span>공감하기</span>
+            </button>
+            <button type="button" class="reaction__comment">
+              <img src="../assets/comment-gray.svg" alt="check smile">
+              <span>댓글 2</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 하단바 -->
+    <nav class="navigation-bar">
+      <button
+        type="button"
+        class="bar__container"
+        onclick="location.href='./home.html'"
+      >
+        <img src="../assets/home.svg" class="bar__img" alt="home" />
+        <span class="bar__info">홈</span>
+      </button>
+      <button
+        type="button"
+        class="bar__container"
+        onclick="location.href='./town.html'"
+      >
+        <img
+          src="../assets/news-black.svg"
+          class="bar__img"
+          alt="town life selected"
+        />
+        <spa class="bar__info" n>동네생활</spa>
+      </button>
+      <button type="button" class="bar__container" onclick="location.href='#'">
+        <img src="../assets/place-marker.svg" class="bar__img" alt="nearby" />
+        <span class="bar__info">내 근처</span>
+      </button>
+      <button type="button" class="bar__container" onclick="location.href='#'">
+        <img src="../assets/chat.svg" class="bar__img" alt="chats" />
+        <span class="bar__info">채팅</span>
+      </button>
+      <button type="button" class="bar__container" onclick="location.href='#'">
+        <img src="../assets/user.svg" class="bar__img" alt="my profile" />
+        <span class="bar__info">나의 당근</span>
+      </button>
+    </nav>
+  </body>
+</html>
