@@ -62,9 +62,9 @@ body {
 }
 
 .new-post {
-    position: fixed;
+    position: absolute;
     cursor: pointer;
-    bottom: 74px;
+    bottom: calc(100% + 16px);
     right: 16px;
     padding: 12px;
     border: none;
@@ -308,13 +308,15 @@ body {
     z-index: 2;
     bottom: 0;
     width: 100%;
-    bottom: 0;
+}
+
+.bottom-bar > nav {
     display: flex;
     padding: 8px 0;
     background: #fff;
 }
 
-.bottom-bar > .nav-item {
+.bottom-bar > nav > .nav-item {
     width: 100%;
     padding: 0;
     border: none;
