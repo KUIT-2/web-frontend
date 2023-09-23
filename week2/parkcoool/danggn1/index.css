@@ -125,19 +125,15 @@ article > .product > .product-reaction > div {
     font-weight: 400;
 }
 
-.float-btn {
-    padding: 12px;
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 16px;
-    right: 16px;
-    z-index: 1;
-    border-radius: 100px;
-    background: #ff7e36;
-    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12);
+.bottom-bar {
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    flex-grow: 0;
 }
 
-.bottom-bar {
+.bottom-bar > nav {
     width: 100%;
     display: flex;
     padding: 8px 0;
@@ -145,14 +141,22 @@ article > .product > .product-reaction > div {
     background: #fff;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    bottom: 0;
-    z-index: 2;
-    flex-grow: 0;
 }
 
-.bottom-bar > button {
+.bottom-bar > nav > button {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.float-btn {
+    padding: 12px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: calc(100% + 16px);
+    right: 16px;
+    z-index: 1;
+    border-radius: 100px;
+    background: #ff7e36;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12);
 }
