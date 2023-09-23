@@ -7,6 +7,10 @@ button {
   /* outline: inherit; */
 }
 
+header {
+  z-index: 1000;
+}
+
 /* Daangn Styles */
 .town-header {
   position: relative;
@@ -51,7 +55,7 @@ button {
 
 .town {
   padding-top: 54px;
-  padding-bottom: 58px;
+  /* padding-bottom: 58px; */
 }
 
 .town .town__filter-container {
@@ -346,22 +350,13 @@ align-items: stretch; 로 해결 안 됨
   font-weight: 400;
 }
 
-.add-product {
-  width: 48px;
-  height: 48px;
-  padding: 12px;
-  position: fixed;
-  bottom: 74px;
-  right: 16px;
-  border-radius: 100%;
-  background-color: #FF7E36;
-}
-
 .navigation-bar {
   background: #FFF;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  position: fixed;
+  /* display: grid; */
+  /* grid-template-columns: repeat(5, 1fr); */
+  /* position: fixed; */
+  display: flex;
+  position: sticky;
   bottom: 0;
   width: 100%;
   padding: 8px 0 10px;
@@ -369,6 +364,7 @@ align-items: stretch; 로 해결 안 됨
 }
 
 .navigation-bar .bar__container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -386,4 +382,16 @@ align-items: stretch; 로 해결 안 됨
     font-weight: 400;
     line-height: 14px;
   }
+}
+
+.navigation-bar .add-product {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  position: absolute;
+  bottom: calc(100% + 16px);
+  /* bottom: 74px; */
+  right: 16px;
+  border-radius: 100%;
+  background-color: #FF7E36;
 }
