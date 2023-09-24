@@ -4,20 +4,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gogo</title>
+    <title>hoho</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="reset.css">
 </head>
 
 <body>
     <!-- 상단  -->
-    <header class="post-header">
-
+    <header class="list-header">
+        <div class="list-header__icon-container">
+            <span>군자동</span>
+            <button type="button">
+                <img src="./assets/down-chevron.svg" alt="ather place">
+            </button>
+        </div>
+        <div class="list-header__icon-container">
+            <button type="button">
+                <img src="./assets/search.svg" alt="go search">
+            </button>
+            <button type="button">
+                <img src="./assets/menu.svg" alt="other menu">
+            </button>
+            <button type="button">
+                <img src="./assets/bell.svg" alt="ather place">
+            </button>
+        </div>
     </header>
-    <!-- 게시글 -->
-    <article class="post"></article>
+    <!-- 게시글 리스트 -->
+    <article class="list">
+        <button class="product__container">
+            <div class="product__img">
+                <img src="./assets/img1.svg" alt="상품1" class="product__img">
+            </div>
+            <div class="product__text">
+                <div class="product__name">
+                    <span>에어팟 프로</span>
+                </div>
+                <div class="product__desc">
+                    <span>군자동</span>
+                    <span>·</span>
+                    <span>3일 전</span>
+                </div>
+                <div class="product__price">
+                    <span>220,000원</span>
+                </div>
+            </div>
+            <div class="product__reaction">
+                <img src="./assets/chat.svg" alt="chat">
+                <span>3</span>
+                <img src="./assets/heart.svg" alt="heart">
+                <span>11</span>
+            </div>
+        </button>
+        <button class="product__container">
+            <div class="product__img">
+                <img src="./assets/img2.svg" alt="상품2" class="product__img">
+            </div>
+            <div class="product__text">
+                <div class="product__name">
+                    <span>바이레도 블랑쉬 50ml</span>
+                </div>
+                <div class="product__desc">
+                    <span>광진구 구의제3동</span>
+                    <span>·</span>
+                    <span>28초 전</span>
+                </div>
+                <div class="product__price">
+                    <span>4,000원</span>
+                </div>
+            </div>
+            <div class="product__reaction">
+
+                <img src="./assets/heart.svg" alt="heart">
+                <span>2</span>
+            </div>
+        </button>
+        <button class="product__container">
+            <div class="product__img">
+                <img src="./assets/img3.svg" alt="상품3" class="product__img">
+            </div>
+            <div class="product__text">
+                <div class="product__name">
+                    <span>샌드위치</span>
+                </div>
+                <div class="product__desc">
+                    <span>동대문구 휘경동</span>
+                    <span>·</span>
+                    <span>끌올 59초 전</span>
+                </div>
+                <div class="product__price">
+                    <span>8,000원</span>
+                </div>
+            </div>
+        </button>
+        <button class="product__container">
+            <div class="product__img">
+                <img src="./assets/img4.svg" alt="상품4" class="product__img">
+            </div>
+            <div class="product__text">
+                <div class="product__name">
+                    <span>아이폰 13프로맥스</span>
+                </div>
+                <div class="product__desc">
+                    <span>군자동</span>
+                    <span>·</span>
+                    <span>1일 전</span>
+                </div>
+                <div class="product__price">
+                    <span>1,000,000원</span>
+                </div>
+            </div>
+        </button>
+        <button class="product__container">
+            <div class="product__img">
+                <img src="./assets/img5.svg" alt="상품5" class="product__img">
+            </div>
+            <div class="product__text">
+                <div class="product__name">
+                    <span>커피머신</span>
+                </div>
+                <div class="product__desc">
+                    <span>구리시 교문1동</span>
+                    <span>·</span>
+                    <span>1초 전</span>
+                </div>
+                <div class="product__price">
+                    <span>100,000원</span>
+                </div>
+            </div>
+        </button>
+    </article>
     <!-- 하단 바-->
-    <nav class="bottom-bar"></nav>
+    <nav class="bottom-bar">
+        <div class="bottom-bar__plus">
+            <button>
+                <img src="./assets/plus.svg" alt="plusmenu">
+            </button>
+        </div>
+        <div class="bottom-bar__othermenu">
+            <button class="bottom-bar__button">
+                <img src="./assets/home.svg" alt="home">
+                <span>홈</span>
+            </button>
+            <button class="bottom-bar__button">
+                <img src="./assets/news.svg" alt="news">
+                <span>동네생활</span>
+            </button>
+            <button class="bottom-bar__button">
+                <img src="./assets/placemarker.svg" alt="placemarker">
+                <span>내 근처</span>
+            </button>
+            <button class="bottom-bar__button">
+                <img src="./assets/chat2.svg" alt="chat2">
+                <span>채팅</span>
+            </button>
+            <button class="bottom-bar__button">
+                <img src="./assets/user.svg" alt="user">
+                <span>나의 당근</span>
+            </button>
+        </div>
+
+    </nav>
 </body>
 
 </html>
