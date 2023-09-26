@@ -1,15 +1,52 @@
 const todoListEl = document.getElementById('todoList');
 const todoInputEl = document.getElementById('todoInput');
-
 const API_URL = 'http://localhost:3001/todos';
+let isEditing = false;
 
 fetch(API_URL)
   .then((response) => response.json())
   .then((data) => renderTodo(data));
 
 const updateTodo = (todoId, originalTitle) => {
-  const todoItem = document.querySelector(`#todo-${todoId}`);
-  // mission
+  // 하나의 Todo가 수정되게만 설정
+  if (!isEditing) {
+    isEditing = true;
+    const todoItem = document.querySelector(`#todo-${todoId}`);
+    const itemEditInput = document.createElement('input');
+    itemEditInput.value = originalTitle;
+    itemEditInput.id = `editInput-${todoId}`;
+    todoItem.append(itemEditInput);
+    const itemEditBtn = document.createElement('button');
+    itemEditBtn.textContent = '저장';
+    todoItem.append(itemEditBtn);
+    itemEditBtn.onclick = () => {
+      const title = itemEditInput.value;
+      const date = new Date();
+      const createdAt = date.toDateString();
+      if (!title) return;
+      const newTodo = {
+        id: date.getTime(),
+        title,
+        createdAt,
+      };
+      fetch(API_URL + '/' + todoId, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...newTodo, completed: false }),
+      })
+        .then((response) => response.json())
+        .then(() => {
+          isEditing = false;
+          itemEditInput.remove();
+          itemEditBtn.remove();
+          return fetch(API_URL);
+        })
+        .then((response) => response.json())
+        .then((data) => renderTodo(data));
+    };
+  }
 };
 
 const renderTodo = (newTodos) => {
