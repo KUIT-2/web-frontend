@@ -13,6 +13,7 @@ const renderTodo = (newTodos) => {
   newTodos.forEach((todo) => {
     const listEl = document.createElement("li");
     listEl.textContent = todo.title;
+    listEl.id = `todo-${todo.id}`;
 
     const deleteEl = document.createElement("span");
     deleteEl.textContent = "🗑️";
@@ -29,13 +30,12 @@ const renderTodo = (newTodos) => {
 const addTodo = () => {
   const title = todoInputEl.value;
   const date = new Date();
-  const createdAt = new Date().toDateString();
-  console.log("=================", createdAt, "=================");
+  const createdAt = date.toDateString();
 
   if (!title) return;
 
   const newTodo = {
-    id: date.toISOString(),
+    id: date.getTime(),
     title,
     createdAt,
   };
@@ -48,13 +48,12 @@ const addTodo = () => {
     body: JSON.stringify({ ...newTodo, completed: false }),
   })
     .then((response) => response.json())
-    .then((newTodo) => {
+    .then(() => {
       todoInputEl.value = "";
       return fetch(API_URL);
     })
     .then((response) => response.json())
     .then((data) => renderTodo(data));
-  renderTodo(todos);
 };
 
 const deleteTodo = (todoId) => {
@@ -68,5 +67,3 @@ const deleteTodo = (todoId) => {
     .then((response) => response.json())
     .then((data) => renderTodo(data));
 };
-
-renderTodo(todos);
