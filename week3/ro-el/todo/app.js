@@ -1,26 +1,12 @@
-let todos = [
-  {
-    id: 1,
-    title: "Web 3주차 강의 듣기",
-    completed: true,
-    createdAt: "2023-09-27",
-  },
-  {
-    id: 2,
-    title: "Web 3주차 미션하기",
-    completed: false,
-    createdAt: "2023-09-27",
-  },
-  {
-    id: 3,
-    title: "Web 3주차 스터디",
-    completed: false,
-    createdAt: "2023-09-27",
-  },
-];
-
 const todoListEl = document.getElementById("todoList");
 const todoInputEl = document.getElementById("todoInput");
+
+const API_URL = "http://localhost:8080/todos";
+
+fetch(API_URL)
+  .then((response) => response.json())
+  .then((data) => renderTodo(data));
+/* fetch(API_URL)이 Response를 감싼 Promise를 반환 */
 
 const renderTodo = (newTodos) => {
   todoListEl.innerHTML = ""; // 기존 todo 비우기 (같은 Todo가 추가되는 것을 방지)
@@ -48,22 +34,39 @@ const addTodo = () => {
 
   if (!title) return;
 
-  todos.push({
+  const newTodo = {
     id: date.toISOString(),
     title,
     createdAt,
-  });
+  };
 
+  fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ...newTodo, completed: false }),
+  })
+    .then((response) => response.json())
+    .then((newTodo) => {
+      todoInputEl.value = "";
+      return fetch(API_URL);
+    })
+    .then((response) => response.json())
+    .then((data) => renderTodo(data));
   renderTodo(todos);
 };
 
 const deleteTodo = (todoId) => {
-  const deletedTodo = todos.filter((todo) => {
-    return todo.id != todoId;
-  });
-
-  todos = deletedTodo;
-  renderTodo(todos);
+  fetch(API_URL + "/" + todoId, {
+    method: "DELETE",
+  })
+    .then(() => {
+      todoInputEl.value = "";
+      return fetch(API_URL);
+    })
+    .then((response) => response.json())
+    .then((data) => renderTodo(data));
 };
 
 renderTodo(todos);

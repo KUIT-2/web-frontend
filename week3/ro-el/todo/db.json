@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Web 3주차 강의 듣기",
+      "completed": true,
+      "createdAt": "2023-09-27"
+    },
+    {
+      "id": 2,
+      "title": "Web 3주차 미션하기",
+      "completed": false,
+      "createdAt": "2023-09-27"
+    },
+    {
+      "id": 3,
+      "title": "Web 3주차 스터디",
+      "completed": false,
+      "createdAt": "2023-09-27"
+    }
+  ]
+}
