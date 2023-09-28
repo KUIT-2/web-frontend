@@ -58,16 +58,34 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #626262
+  color: #626262;
 }
 li:last-child {
   border-bottom: none;
 }
 
-.deleteBtn {
+#todoList li div {
+  display: flex;
+  gap: 10px;
+}
+#todoList li div:first-child{
+  width: 100%;
+}
+#todoList li .update-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#todoList li .update-container input {
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #61d8e5;
+}
+
+.editBtn, .deleteBtn, .updateBtn {
   cursor: pointer;
-  color: #ff0000;
+  /* color: #ff0000; */
 }
-.deleteBtn:hover {
+/* .editBtn:hover {
   text-decoration: underline;
-}
+} */

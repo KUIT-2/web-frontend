@@ -17,6 +17,18 @@
       "title": "Web 3주차 스터디",
       "completed": false,
       "createdAt": "2023-09-27"
+    },
+    {
+      "id": 1695920561926,
+      "title": "수정한 이름",
+      "createdAt": "Fri Sep 29 2023",
+      "completed": false
+    },
+    {
+      "id": 1695921551711,
+      "title": "test modify 2",
+      "createdAt": "Fri Sep 29 2023",
+      "completed": false
     }
   ]
 }
