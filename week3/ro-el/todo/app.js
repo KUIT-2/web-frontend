@@ -10,7 +10,10 @@ const API_URL = "http://localhost:8080/todos";
 
 fetch(API_URL)
   .then((response) => response.json())
-  .then((data) => renderTodo(data));
+  .then((data) => {
+    const todos = data.filter((todo) => !todo.completed); // 완료하지 않은 Todo만 표시
+    renderTodo(todos);
+  });
 /* fetch(API_URL)이 Response를 감싼 Promise를 반환 */
 
 const renderTodo = (newTodos) => {

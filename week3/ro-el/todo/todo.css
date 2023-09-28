@@ -81,6 +81,9 @@ li:last-child {
   border: none;
   border-bottom: 1px solid #61d8e5;
 }
+#todoList li .update-container input:focus {
+  outline: none;
+}
 
 .editBtn, .deleteBtn, .updateBtn {
   cursor: pointer;
