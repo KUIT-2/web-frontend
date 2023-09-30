@@ -1,3 +1,28 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": 1695957777596,
+      "title": "1",
+      "createdAt": "Fri Sep 29 2023",
+      "completed": false
+    },
+    {
+      "id": 1695957780906,
+      "title": "2",
+      "createdAt": "Fri Sep 29 2023",
+      "completed": false
+    },
+    {
+      "id": 1695957784387,
+      "title": "3",
+      "createdAt": "Fri Sep 29 2023",
+      "completed": false
+    },
+    {
+      "id": 1696047078431,
+      "title": "4",
+      "createdAt": "Sat Sep 30 2023",
+      "completed": false
+    }
+  ]
 }
