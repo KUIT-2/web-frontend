@@ -10,7 +10,6 @@ const updateTodo = (todoId, originalTitle) => {
   const todoItem = document.querySelector(`#todo-${todoId}`);
   const newChildNodes = Array.from(todoItem.childNodes).map(
     (childNode, index) => {
-      console.log(childNode);
       todoItem.removeChild(childNode);
       if (index === 0) {
         const todoItemInputNode = document.createElement('input');
@@ -121,5 +120,3 @@ const deleteTodo = (todoId) => {
   todo = deletedTodo;
   renderTodo(todo);
 };
-
-renderTodo(todos);
