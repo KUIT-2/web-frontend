@@ -82,6 +82,9 @@ const updateTodo = (todoId, originalTitle) => {
   inputElement.type = "text";
   inputElement.value = originalTitle;
 
+  todoItem.parentNode.replaceChild(inputElement, todoItem);
+  // todoItem.append(inputElement);
+
   //eventTarget.addEventListener('eventType', function)
 
   inputElement.addEventListener("keydown", (event) => {
@@ -91,8 +94,9 @@ const updateTodo = (todoId, originalTitle) => {
       fetch(API_URL + "/" + todoId, {
         method: "PATCH", headers: { 'Content-Type': 'application/json' }
         , body: JSON.stringify({ title: updatedTitle })
+
       })
     }
   });
-  todoItem.parentNode.replaceChild(inputElement, todoItem);
+
 };
