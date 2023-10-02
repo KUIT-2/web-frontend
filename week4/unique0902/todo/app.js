@@ -69,6 +69,44 @@ fetch(API_URL)
     .then(function (response) { return response.json(); })
     .then(function (data) { return renderTodo(data); });
 // document onLoad eventListener
+var sortByTime = function () { return __awaiter(_this, void 0, void 0, function () {
+    var todoArr;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetchTodos()];
+            case 1:
+                todoArr = _a.sent();
+                todoArr.sort(function (a, b) {
+                    if (a.completed || b.completed)
+                        return 0;
+                    return a.id - b.id;
+                });
+                renderTodo(todoArr);
+                return [2 /*return*/];
+        }
+    });
+}); };
+var sortByString = function () { return __awaiter(_this, void 0, void 0, function () {
+    var todoArr;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetchTodos()];
+            case 1:
+                todoArr = _a.sent();
+                todoArr.sort(function (a, b) {
+                    if (a.completed && b.completed)
+                        return 0;
+                    if (a.title > b.title)
+                        return 1;
+                    if (a.title < b.title)
+                        return -1;
+                    return 0;
+                });
+                renderTodo(todoArr);
+                return [2 /*return*/];
+        }
+    });
+}); };
 var updateTodo = function (todoId, originalTitle) {
     // 하나의 Todo가 수정되게만 설정
     if (!isEditing) {
@@ -141,6 +179,7 @@ var retryTodo = function (todo) {
 };
 var renderTodo = function (newTodos) {
     todoListEl.innerHTML = '';
+    completedListEl.innerHTML = '';
     newTodos.forEach(function (todo) {
         if (todo.completed) {
             var listEl = document.createElement('li');

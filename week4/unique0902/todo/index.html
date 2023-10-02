@@ -8,6 +8,10 @@
   <body>
     <div class="app">
       <div class="header">My Todos</div>
+      <div>
+        <button onclick="sortByString()">가나다순 정렬</button>
+        <button onclick="sortByTime()">시간순 정렬</button>
+      </div>
       <div class="inputContainer">
         <input id="todoInput" placeholder="What needs to be done?" />
         <button onclick="addTodo()">Add</button>

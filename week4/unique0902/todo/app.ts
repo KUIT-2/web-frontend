@@ -26,6 +26,26 @@ fetch(API_URL)
   .then((data) => renderTodo(data));
 // document onLoad eventListener
 
+const sortByTime = async () => {
+  const todoArr: Array<Todo> = await fetchTodos();
+  todoArr.sort((a: Todo, b: Todo) => {
+    if (a.completed || b.completed) return 0;
+    return a.id - b.id;
+  });
+  renderTodo(todoArr);
+};
+
+const sortByString = async () => {
+  const todoArr: Array<Todo> = await fetchTodos();
+  todoArr.sort((a: Todo, b: Todo) => {
+    if (a.completed && b.completed) return 0;
+    if (a.title > b.title) return 1;
+    if (a.title < b.title) return -1;
+    return 0;
+  });
+  renderTodo(todoArr);
+};
+
 const updateTodo = (todoId: number, originalTitle: string) => {
   // 하나의 Todo가 수정되게만 설정
   if (!isEditing) {
@@ -100,6 +120,7 @@ const retryTodo = (todo: Todo) => {
 
 const renderTodo = (newTodos: Array<Todo>) => {
   todoListEl.innerHTML = '';
+  completedListEl.innerHTML = '';
   newTodos.forEach((todo: Todo) => {
     if (todo.completed) {
       const listEl = document.createElement('li');
