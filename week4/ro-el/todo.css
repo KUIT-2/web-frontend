@@ -26,7 +26,7 @@ body {
 .inputContainer {
   display: flex;
 }
-#todoInput {
+#todoInput, .todoInput {
   flex: 1;
   /* flex: 1; means
   flex-grow: 1;

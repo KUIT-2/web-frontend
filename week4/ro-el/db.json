@@ -4,30 +4,54 @@
       "id": 1,
       "title": "Web 3주차 강의 듣기",
       "completed": true,
-      "createdAt": "2023-09-27"
+      "createdAt": "Wed Sep 27 2023"
     },
     {
       "id": 2,
       "title": "Web 3주차 미션하기",
-      "completed": false,
-      "createdAt": "2023-09-27"
+      "completed": true,
+      "createdAt": "Wed Sep 27 2023"
     },
     {
       "id": 3,
       "title": "Web 3주차 스터디",
-      "completed": false,
-      "createdAt": "2023-09-27"
+      "completed": true,
+      "createdAt": "Wed Sep 27 2023"
     },
     {
-      "id": 1695920561926,
-      "title": "수정한 이름",
-      "createdAt": "Fri Sep 29 2023",
+      "id": 4,
+      "title": "Web 4주차 강의/실습",
+      "completed": true,
+      "createdAt": "Wed Oct 04 2023"
+    },
+    {
+      "id": 5,
+      "title": "Web 4주차 미션",
+      "completed": false,
+      "createdAt": "Wed Oct 04 2023"
+    },
+    {
+      "id": 6,
+      "title": "Web 5주차 강의/실습",
+      "completed": false,
+      "createdAt": "Wed Oct 04 2023"
+    },
+    {
+      "id": 7,
+      "title": "Web 5주차 미션",
+      "completed": false,
+      "createdAt": "Wed Oct 04 2023"
+    },
+    {
+      "id": 1696405363307,
+      "title": "왜 엔터를 치면 두 번 추가가?",
+      "createdAt": "Wed Oct 04 2023",
       "completed": false
     },
     {
-      "id": 1695921551711,
-      "title": "test modify 2",
-      "createdAt": "Fri Sep 29 2023",
+      "id": 1696405366131,
+      "title": "되는 것일가?",
+      "createdAt": "Wed Oct 04 2023",
       "completed": false
     }
   ]
