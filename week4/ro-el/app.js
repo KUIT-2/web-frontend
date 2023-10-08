@@ -115,7 +115,6 @@ var addTodo = function () { return __awaiter(_this, void 0, void 0, function () 
             case 0:
                 title = todoInputEl.value;
                 date = new Date();
-                ㄴ;
                 createdAt = date.toDateString();
                 if (!title)
                     return [2 /*return*/];
