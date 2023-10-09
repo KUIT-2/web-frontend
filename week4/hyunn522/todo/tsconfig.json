@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "strict": true,                                             /* Skip type checking all .d.ts files. */
+    "strict": true,
   }
 }

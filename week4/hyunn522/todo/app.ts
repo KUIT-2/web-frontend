@@ -5,11 +5,9 @@ todoInputEl.addEventListener('keypress', (event) => {
     if (event.key === "Enter") {
         const newTitle = todoInputEl.value.trim();
         if (!newTitle) return;
-
         addTodo();
     }
 });
-
 
 let isEditing = false;
 
@@ -42,7 +40,6 @@ const initInputEl = async (response: Response): Promise<Todo> => {
 fetch(API_URL)
     .then((response) => response.json())
     .then((data) => renderTodo(data));
-
 
 const renderTodo = (newTodos: Todo[]) => {
 
@@ -98,7 +95,6 @@ const addTodo = async () => {
     initInputEl(postResponse);
     const newTodos = await fetchTodos();
     renderTodo(newTodos);
-
         // .then((response) => response.json())
         // .then(newTodo => {
         //     todoInputEl.value = "";
@@ -106,7 +102,6 @@ const addTodo = async () => {
         // })
         // .then((response) => response.json())
         // .then((data) => renderTodo(data));
-    
 }
 
 const deleteTodo = async (todoId: number) => {
@@ -120,7 +115,6 @@ const deleteTodo = async (todoId: number) => {
         // .then((response) => response.json())
         // .then((data) => renderTodo(data));
 }
-
 
 const updateTodo = async (todoId: number, originalTitle: string) => {
     if(isEditing) {
@@ -206,9 +200,6 @@ const updateTodo = async (todoId: number, originalTitle: string) => {
         parentEl.replaceChild(todoItem, todoContainer);
         isEditing = false;
     })
-
-    
-
 }
 
 // renderTodo(todos);
