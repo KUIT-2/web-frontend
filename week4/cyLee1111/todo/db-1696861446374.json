@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": 1695583514152,
+      "title": "A",
+      "createdAt": "Mon Sep 25 2023",
+      "completed": false
+    },
+    {
+      "id": 1696118833921,
+      "title": "B",
+      "createdAt": "Sun Oct 01 2023",
+      "completed": false
+    },
+    {
+      "id": 1696123866943,
+      "title": "C",
+      "createdAt": "Sun Oct 01 2023",
+      "completed": false
+    }
+  ]
+}
