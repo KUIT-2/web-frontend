@@ -11,6 +11,18 @@ const BASE_URL = 'http://localhost:5000';
 const TODO_RELATIVE_URL = '/todos';
 const TODO_API_URL = `${BASE_URL}${TODO_RELATIVE_URL}`;
 
+enum HTTPMethod {
+  post = 'POST',
+  put = 'PUT',
+  delete = 'DELETE',
+}
+
+const CONTENT_TYPE = 'Content-Type';
+const APPLICATION_JSON = 'application/json';
+
+const BUTTON = 'button';
+const INPUT = 'input';
+
 document.addEventListener('DOMContentLoaded', async () => {
   const response = await fetch(TODO_API_URL);
   const data = await response.json();
@@ -40,9 +52,9 @@ const updateTodo = (todoId: number, originalTitle: string): void => {
           const repsonse = await fetch(`${TODO_API_URL}/${todoId}`);
           const data = await repsonse.json();
           await fetch(`${TODO_API_URL}/${todoId}`, {
-            method: 'PUT',
+            method: HTTPMethod.put,
             headers: {
-              'Content-Type': 'application/json',
+              [CONTENT_TYPE]: APPLICATION_JSON,
             },
             body: JSON.stringify({
               ...data,
@@ -101,9 +113,9 @@ const addTodo = async () => {
 
   // TODO: updated existing field using PATCH instead of POST based on Restful API
   await fetch(TODO_API_URL, {
-    method: 'POST',
+    method: HTTPMethod.post,
     headers: {
-      'Content-Type': 'application/json',
+      [CONTENT_TYPE]: APPLICATION_JSON,
     },
     body: JSON.stringify({ ...newTodo, completed: false }),
   });
@@ -117,7 +129,7 @@ const addTodo = async () => {
 
 const deleteTodo = async (todoId: number): Promise<void> => {
   await fetch(`${TODO_API_URL}/${todoId}`, {
-    method: 'DELETE',
+    method: HTTPMethod.delete,
   });
 
   const response = await fetch(TODO_API_URL);
