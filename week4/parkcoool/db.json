@@ -1,3 +1,16 @@
 {
-    "todos": []
+  "todos": [
+    {
+      "id": 1697603282731,
+      "title": "dfsdfsd",
+      "createdAt": "Wed Oct 18 2023",
+      "completed": false
+    },
+    {
+      "id": 1697603346319,
+      "title": "adsfcvx",
+      "createdAt": "Wed Oct 18 2023",
+      "completed": false
+    }
+  ]
 }
