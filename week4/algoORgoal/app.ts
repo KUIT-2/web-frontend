@@ -1,3 +1,6 @@
+// TODO: handle Network Erorrs
+// TODO: sort todos by date or alphanumerically
+
 interface Todo {
   id: number;
   title: string;
