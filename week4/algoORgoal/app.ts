@@ -15,6 +15,7 @@ enum HTTPMethod {
   post = 'POST',
   put = 'PUT',
   delete = 'DELETE',
+  patch = 'PATCH',
 }
 
 const CONTENT_TYPE = 'Content-Type';
@@ -51,16 +52,17 @@ const updateTodo = (todoId: number, originalTitle: string): void => {
         todoItemButtonNode.onclick = async () => {
           const repsonse = await fetch(`${TODO_API_URL}/${todoId}`);
           const data = await repsonse.json();
+
           await fetch(`${TODO_API_URL}/${todoId}`, {
-            method: HTTPMethod.put,
+            method: HTTPMethod.patch,
             headers: {
               [CONTENT_TYPE]: APPLICATION_JSON,
             },
             body: JSON.stringify({
-              ...data,
               title: todoItemInputNode.value,
             }),
           });
+
           const updatedResponse = await fetch(TODO_API_URL);
           const updatedData = await updatedResponse.json();
           renderTodo(updatedData);
@@ -111,7 +113,6 @@ const addTodo = async () => {
     createdAt,
   };
 
-  // TODO: updated existing field using PATCH instead of POST based on Restful API
   await fetch(TODO_API_URL, {
     method: HTTPMethod.post,
     headers: {
