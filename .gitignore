@@ -1,0 +1,6 @@
+node_modules
+
+**/db.json
+
+/week4/*/app.js
+/week3/algoORgoal/db.json
