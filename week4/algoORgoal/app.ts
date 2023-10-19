@@ -54,9 +54,6 @@ const updateTodo = (todoId: number, originalTitle: string): void => {
         todoItemButtonNode.textContent = '✅';
         todoItemButtonNode.onclick = async () => {
           try {
-            const repsonse = await fetch(`${TODO_API_URL}/${todoId}`);
-            const data = await repsonse.json();
-
             await fetch(`${TODO_API_URL}/${todoId}`, {
               method: HTTPMethod.patch,
               headers: {
@@ -129,7 +126,7 @@ const addTodo = async () => {
       body: JSON.stringify({ ...newTodo, completed: false }),
     });
   } catch (error) {
-    alert('something went wrong. Please try agian later.');
+    alert('Something went wrong. Please try again later.');
   }
 
   // TODO: add updatedTODO to the existing todos instead of fetching
