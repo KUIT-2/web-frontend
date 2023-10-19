@@ -53,22 +53,26 @@ const updateTodo = (todoId: number, originalTitle: string): void => {
         todoItemButtonNode.type = 'button';
         todoItemButtonNode.textContent = '✅';
         todoItemButtonNode.onclick = async () => {
-          const repsonse = await fetch(`${TODO_API_URL}/${todoId}`);
-          const data = await repsonse.json();
+          try {
+            const repsonse = await fetch(`${TODO_API_URL}/${todoId}`);
+            const data = await repsonse.json();
 
-          await fetch(`${TODO_API_URL}/${todoId}`, {
-            method: HTTPMethod.patch,
-            headers: {
-              [CONTENT_TYPE]: APPLICATION_JSON,
-            },
-            body: JSON.stringify({
-              title: todoItemInputNode.value,
-            }),
-          });
+            await fetch(`${TODO_API_URL}/${todoId}`, {
+              method: HTTPMethod.patch,
+              headers: {
+                [CONTENT_TYPE]: APPLICATION_JSON,
+              },
+              body: JSON.stringify({
+                title: todoItemInputNode.value,
+              }),
+            });
 
-          const updatedResponse = await fetch(TODO_API_URL);
-          const updatedData = await updatedResponse.json();
-          renderTodo(updatedData);
+            const updatedResponse = await fetch(TODO_API_URL);
+            const updatedData = await updatedResponse.json();
+            renderTodo(updatedData);
+          } catch (error) {
+            alert('Something went wrong. Please try again later.');
+          }
         };
 
         const newChildNode = document.createElement('span');
@@ -116,13 +120,17 @@ const addTodo = async () => {
     createdAt,
   };
 
-  await fetch(TODO_API_URL, {
-    method: HTTPMethod.post,
-    headers: {
-      [CONTENT_TYPE]: APPLICATION_JSON,
-    },
-    body: JSON.stringify({ ...newTodo, completed: false }),
-  });
+  try {
+    await fetch(TODO_API_URL, {
+      method: HTTPMethod.post,
+      headers: {
+        [CONTENT_TYPE]: APPLICATION_JSON,
+      },
+      body: JSON.stringify({ ...newTodo, completed: false }),
+    });
+  } catch (error) {
+    alert('something went wrong. Please try agian later.');
+  }
 
   // TODO: add updatedTODO to the existing todos instead of fetching
   const updatedResponse = await fetch(TODO_API_URL);
@@ -132,11 +140,14 @@ const addTodo = async () => {
 };
 
 const deleteTodo = async (todoId: number): Promise<void> => {
-  await fetch(`${TODO_API_URL}/${todoId}`, {
-    method: HTTPMethod.delete,
-  });
-
-  const response = await fetch(TODO_API_URL);
-  const updatedTodos: Todos = await response.json();
-  renderTodo(updatedTodos);
+  try {
+    await fetch(`${TODO_API_URL}/${todoId}`, {
+      method: HTTPMethod.delete,
+    });
+    const response = await fetch(TODO_API_URL);
+    const updatedTodos: Todos = await response.json();
+    renderTodo(updatedTodos);
+  } catch (error) {
+    alert('Something went wrong. Please try again later.');
+  }
 };
