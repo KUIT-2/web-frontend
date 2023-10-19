@@ -1,18 +1,6 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "3주차 강의 만들기",
-      "completed": false,
-      "createdAt": "2023-09-25"
-    },
-    {
-      "id": 2,
-      "title": "클라우드웹서비스 과제",
-      "completed": false,
-      "createdAt": "2023-09-23"
-    },
-    {
       "id": 3,
       "title": "kuit 강의",
       "createdAt": "Sat Sep 30 2023",
@@ -20,8 +8,8 @@
     },
     {
       "id": 1696082715296,
-      "title": "산협프 과제",
-      "createdAt": "Sat Sep 30 2023",
+      "title": "케이랩",
+      "createdAt": "Thu Oct 19 2023",
       "completed": false
     }
   ]
