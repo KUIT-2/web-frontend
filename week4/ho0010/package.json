@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "tsc": "^2.0.4",
+    "typescript": "^5.2.2",
+    "watch": "^1.0.2"
+  }
+}
