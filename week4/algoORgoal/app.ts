@@ -118,12 +118,12 @@ const renderTodo = (newTodos: Todos): void => {
     listElement.textContent = todo.title;
     listElement.id = `todo-${todo.id}`;
 
-    const deleteElement = document.createElement('span');
+    const deleteElement = document.createElement('button');
     deleteElement.textContent = '🗑️';
     deleteElement.className = 'deleteBtn';
     deleteElement.onclick = () => deleteTodo(todo.id);
 
-    const updateElement = document.createElement('span');
+    const updateElement = document.createElement('button');
     updateElement.textContent = '✏️';
     updateElement.className = 'deleteBtn';
     updateElement.onclick = () => updateTodo(todo.id, todo.title);
