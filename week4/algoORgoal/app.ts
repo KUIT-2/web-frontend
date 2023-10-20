@@ -157,6 +157,8 @@ const renderTodo = (newTodos: Todos): void => {
         listElement.style.backgroundColor = '#eee';
       }
 
+      const buttonElements = document.createElement('span');
+
       const deleteElement = document.createElement('button');
       deleteElement.textContent = '🗑️';
       deleteElement.className = 'deleteBtn';
@@ -173,9 +175,10 @@ const renderTodo = (newTodos: Todos): void => {
       completeElement.onclick = () =>
         toggleTodoCompletion(todo.id, todo.completed);
 
-      listElement.append(deleteElement);
-      listElement.append(updateElement);
-      listElement.append(completeElement);
+      buttonElements.append(deleteElement);
+      buttonElements.append(updateElement);
+      buttonElements.append(completeElement);
+      listElement.append(buttonElements);
       todoListElement.append(listElement);
     });
 };
