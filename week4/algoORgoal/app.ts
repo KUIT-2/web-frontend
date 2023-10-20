@@ -111,27 +111,73 @@ const updateTodo = (todoId: number, originalTitle: string): void => {
   newChildNodes.map((newChildNode) => todoItem.appendChild(newChildNode));
 };
 
+const toggleTodoCompletion = async (
+  todoId: number,
+  completed: boolean
+): Promise<void> => {
+  try {
+    console.log('0');
+    console.log(todoId);
+    console.log(completed);
+
+    await fetch(`${TODO_API_URL}/${todoId}`, {
+      method: HTTPMethod.patch,
+      headers: {
+        [CONTENT_TYPE]: APPLICATION_JSON,
+      },
+      body: JSON.stringify({
+        completed: !completed,
+      }),
+    });
+    console.log({ completed: !completed });
+    const response = await fetch(`${TODO_API_URL}`);
+    const todos: Todos = await response.json();
+    renderTodo(todos);
+  } catch (error) {
+    console.log(error);
+    console.log('Something went wrong. Please try again.');
+  }
+};
+
 const renderTodo = (newTodos: Todos): void => {
   todoListElement.textContent = '';
-  newTodos.map((todo) => {
-    const listElement = document.createElement('li');
-    listElement.textContent = todo.title;
-    listElement.id = `todo-${todo.id}`;
+  newTodos
+    .sort((a: Todo, b: Todo): number => {
+      if (a.completed === false && b.completed === true) {
+        return -1;
+      }
+      return 1;
+    })
+    .map((todo) => {
+      const listElement = document.createElement('li');
+      listElement.textContent = todo.title;
+      listElement.id = `todo-${todo.id}`;
 
-    const deleteElement = document.createElement('button');
-    deleteElement.textContent = '🗑️';
-    deleteElement.className = 'deleteBtn';
-    deleteElement.onclick = () => deleteTodo(todo.id);
+      if (todo.completed) {
+        listElement.style.backgroundColor = '#eee';
+      }
 
-    const updateElement = document.createElement('button');
-    updateElement.textContent = '✏️';
-    updateElement.className = 'deleteBtn';
-    updateElement.onclick = () => updateTodo(todo.id, todo.title);
+      const deleteElement = document.createElement('button');
+      deleteElement.textContent = '🗑️';
+      deleteElement.className = 'deleteBtn';
+      deleteElement.onclick = () => deleteTodo(todo.id);
 
-    listElement.append(deleteElement);
-    listElement.append(updateElement);
-    todoListElement.append(listElement);
-  });
+      const updateElement = document.createElement('button');
+      updateElement.textContent = '✏️';
+      updateElement.className = 'deleteBtn';
+      updateElement.onclick = () => updateTodo(todo.id, todo.title);
+
+      const completeElement = document.createElement('button');
+      completeElement.textContent = todo.completed ? '❌' : '✅';
+      completeElement.className = 'deleteBtn';
+      completeElement.onclick = () =>
+        toggleTodoCompletion(todo.id, todo.completed);
+
+      listElement.append(deleteElement);
+      listElement.append(updateElement);
+      listElement.append(completeElement);
+      todoListElement.append(listElement);
+    });
 };
 
 const addTodo = async () => {
