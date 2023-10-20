@@ -8,8 +8,15 @@
   </head>
   <body>
     <div class="app">
-      <div class="header">My Todos</div>
-      <div class="inputContainer">
+      <div class="header">
+        <span class="header__title">My Todos</span>
+        <span class="header__buttons">
+          <button type="button" onclick="sortTodo('a-z')">A-Z</button>
+          |
+          <button type="button" onclick="sortTodo('date')">Date</button>
+        </span>
+      </div>
+      <div class="inputContainer" id="inputContainer">
         <input
           type="text"
           name="todoInput"

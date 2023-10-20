@@ -38,6 +38,34 @@ const todoInputElement = document.getElementById(
   'todoInput'
 ) as HTMLInputElement;
 
+const sortTodo = async (sortBy: string) => {
+  console.log(sortBy);
+  try {
+    const response = await fetch(`${TODO_API_URL}`);
+    const todos: Todos = await response.json();
+    const sortedTodos = todos.sort((a: Todo, b: Todo) => {
+      switch (sortBy) {
+        case 'a-z':
+          if (a.title <= b.title) {
+            return -1;
+          } else {
+            return 1;
+          }
+        case 'date':
+          return (
+            new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+          );
+        default:
+          throw new Error('TypeError');
+      }
+    });
+
+    renderTodo(sortedTodos);
+  } catch (error) {
+    console.log('Something went wrong. Please try agian.');
+  }
+};
+
 const updateTodo = (todoId: number, originalTitle: string): void => {
   const todoItem = document.querySelector(`#todo-${todoId}`) as HTMLElement;
   const newChildNodes = Array.from(todoItem.childNodes).map(
