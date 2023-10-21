@@ -1,6 +1,5 @@
 node_modules
+tempCodeRunnerFile.exe
 
-**/db.json
-
-/week4/*/app.js
-/week3/algoORgoal/db.json
+## MAC OS ##
+.DS_Store
