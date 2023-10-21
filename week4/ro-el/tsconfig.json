@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "strict": true // 모든 파일 검사를 엄격하게 진행
+  }
+}
+/*
+ts compiler가 어떻게 js로 변환할 지에 대한 설정 정보
+
+- html이 js만 읽을 수 있기 때문에, ts to js 과정이 필요함
+- `tsc file_name.ts`를 실행하면 file_name.js 파일이 생성되고, html 파일은 해당 js 파일을 읽고 실행함
+- 매번 위 명령어를 실행하는 것이 번거롭기 때문에 실시간 반영을 해주는 옵션을 사용한다.
+  - `tsc --watch file_name.ts`
+*/
