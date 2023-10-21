@@ -1,0 +1,8 @@
+//타입스크립트 컴파일러가 어떻게 자바스크립트로 변환할지에 대한 설정
+//app.ts -> app.js
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "strict": true //True :모든 파일 검사를 빡세게 해준다. -> 경고같은거도 해줌
+    }
+}
