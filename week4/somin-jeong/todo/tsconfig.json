@@ -1,0 +1,9 @@
+// typescript 컴파일러가 어떻게 javascript로 변환할지에 대한 설정과 규칙을 제공
+// html파일은 js파일만 읽을 수 있으므로 app.ts를 app.js파일로 바꿔주는 것이 필요 -> 이를 typescript 라이브러리가 해줌
+// tsc 명령을 실행할 때 컴파일러가 tsconfig.json파일을 읽어서 설정을 불러옴
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "strict": true
+    }
+}

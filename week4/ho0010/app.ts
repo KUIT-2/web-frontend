@@ -1,16 +1,43 @@
-const todoListEl = document.getElementById("todoList");
-const todoInputEl = document.getElementById("todoInput");
+const todoListEl = document.getElementById("todoList") as HTMLElement;
+const todoInputEl = document.getElementById("todoInput") as HTMLInputElement;
 //todoInputEl객체를 선언하는것 "todoInput" id를 가진 객체에 접근
-
 const API_URL = "http://localhost:8080/todos";
+
+interface Todo {
+    id: number;
+    title: string;
+    createdAt: string;
+    completed: boolean;
+}
+
+interface Todos {
+    todos: Todo[];
+}
+
+// const fetchTodos = async (): Promise<Todos> => {
+//     const response = await fetch(API_URL);
+//     const data = await response.json();
+//     return data;
+// }
+
+const fetchData = async () => {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    renderTodo(data);
+};
+
+window.onload = fetchData;
+
 // api_url에 정보를 요청하는것
-fetch(API_URL)
-    .then((response) => response.json())
-    .then((data) => renderTodo(data));
+// fetch(API_URL)
+//     .then((response) => response.json())
+//     .then((data) => renderTodo(data));
+//document onload eventlistner
+
 //data = newTodos
-const renderTodo = (newTodos) => { // newtodos 데이터를 받는다
+const renderTodo = (newTodos: Todo[]) => { // newtodos 데이터를 받는다
     todoListEl.innerHTML = ""; //todoListEl이라는 html 요소의 내용을 빈 문자열로 설정 이것은 todo 목록을 업데이트하기전에 이전 목록을 지우는 역할
-    newTodos.forEach((todo) => { //각 todo 항목에 대한 반복
+    newTodos.forEach((todo: Todo) => { //각 todo 항목에 대한 반복
         //newTodos는 배열요소임(이것을 console.log로 직접 확인할 수 있음)
         const listEl = document.createElement("li");
         //html li tag 요소 생성
@@ -36,7 +63,7 @@ const renderTodo = (newTodos) => { // newtodos 데이터를 받는다
     });
 };
 
-const addTodo = () => {
+const addTodo = async () => {
     const title = todoInputEl.value;
     const date = new Date();
     const createdAt = date.toDateString();
@@ -49,7 +76,7 @@ const addTodo = () => {
         createdAt,
     };
 
-    fetch(API_URL, {
+    await fetch(API_URL, {
         method: "POST", // post 요청 새로운 todo항목을 추가하는데 사용
         headers: {
             "Content-Type": "application/json",
@@ -57,27 +84,45 @@ const addTodo = () => {
         body: JSON.stringify({ ...newTodo, completed: false }),
     }) // 
 
-        .then((response) => response.json())
-        .then(() => {
-            todoInputEl.value = "";
-            return fetch(API_URL);
-            //업데이트된 할일목록을 가져오기 위함
-        })
-        .then((response) => response.json())
-        .then((data) => renderTodo(data));
+    todoInputEl.value = "";
+
+    // .then((response) => response.json())
+    // .then(() => {
+
+    //     return fetch(API_URL);
+    //     //업데이트된 할일목록을 가져오기 위함
+    // })
+
+    await fetchData();
+
+    // .then((response) => response.json())
+    // .then((data) => renderTodo(data));
 };
 
-const deleteTodo = (todoId) => {
-    fetch(API_URL + "/" + todoId, {
+// const deleteTodo = (todoId) => {
+//     fetch(API_URL + "/" + todoId, {
+//         method: "DELETE",
+//     })
+//         .then(() => fetch(API_URL))
+//         .then((response) => response.json())
+//         .then((data) => renderTodo(data));
+// };
+const deleteTodo = async (todoId: number) => {
+    await fetch(API_URL + "/" + todoId, {
         method: "DELETE",
     })
-        .then(() => fetch(API_URL))
-        .then((response) => response.json())
-        .then((data) => renderTodo(data));
-};
 
-const updateTodo = (todoId, originalTitle) => {
-    const todoItem = document.querySelector(`#todo-${todoId}`);
+    await fetchData();
+
+    // const newTodos = await fetchTodos();
+    // renderTodo(newTodos.todos);
+
+}
+
+
+
+const updateTodo = async (todoId: number, originalTitle: string) => {
+    const todoItem = document.querySelector(`#todo-${todoId}`) as HTMLElement;
 
     const inputElement = document.createElement("input");
     inputElement.type = "text";
@@ -86,19 +131,23 @@ const updateTodo = (todoId, originalTitle) => {
     todoItem.innerHTML = "";
     todoItem.append(inputElement);
 
-    inputElement.addEventListener("keydown", (event) => {
+    inputElement.addEventListener("keydown", async (event) => {
         if (event.key === "Enter") {
             const updatedTitle = inputElement.value;
 
-            fetch(API_URL + "/" + todoId, {
+            await fetch(API_URL + "/" + todoId, {
                 method: "PATCH", headers: { 'Content-Type': 'application/json' }
                 , body: JSON.stringify({ title: updatedTitle })
             })
-                .then(() => fetch(API_URL))
-                .then((response) => response.json())
-                .then((data) => renderTodo(data));
+
+            await fetchData();
+            //         .then(() => fetch(API_URL))
+            //         .then((response) => response.json())
+            //         .then((data) => renderTodo(data));
+            // }
         }
-    });
+    })
+
 
 
 
