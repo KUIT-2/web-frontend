@@ -12,7 +12,7 @@ const Header = (props) => {
           backgroundColor: "gray",
         }}
       >
-        Hello {hasName && name} 
+        Hello {hasName && name}
       </h1>
       <h2>....</h2>
       <div>{children}</div>
