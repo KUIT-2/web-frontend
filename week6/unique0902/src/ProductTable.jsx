@@ -2,10 +2,16 @@ import React from 'react';
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
-const ProductTable = ({ products, filterText, inStockOnly, deleteProduct }) => {
+const ProductTable = ({
+  products,
+  filterText,
+  inStockOnly,
+  deleteProduct,
+  editProduct,
+}) => {
   const rows = [];
   let lastCategory = null;
-
+  let nowTimeKey = Date.now();
   products
     .sort((a, b) => a.category > b.category)
     .map((product) => {
@@ -29,11 +35,12 @@ const ProductTable = ({ products, filterText, inStockOnly, deleteProduct }) => {
       rows.push(
         <ProductRow
           product={product}
-          key={product.name}
+          key={nowTimeKey}
           deleteProduct={deleteProduct}
+          editProduct={editProduct}
         />
       );
-
+      nowTimeKey++;
       lastCategory = product.category;
     });
 

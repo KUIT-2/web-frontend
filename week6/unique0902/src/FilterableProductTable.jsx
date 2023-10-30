@@ -7,6 +7,13 @@ const FilterableProductTable = ({ products, setProducts }) => {
   const [filterText, setFilterText] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
 
+  const emptyProduct = {
+    category: '',
+    price: '',
+    stocked: true,
+    name: '',
+  };
+
   const addProduct = (newProduct) => {
     setProducts((previousData) => [...previousData, newProduct]);
     // products = [{}, {}, {}, {}, ..., {}]
@@ -15,6 +22,17 @@ const FilterableProductTable = ({ products, setProducts }) => {
   const deleteProduct = (deletedName) => {
     setProducts((previousData) =>
       previousData.filter((val) => val.name !== deletedName)
+    );
+  };
+  const editProduct = (name, newProduct) => {
+    setProducts((previousData) =>
+      previousData.map((val) => {
+        if (val.name === name) {
+          return newProduct;
+        } else {
+          return val;
+        }
+      })
     );
   };
 
@@ -31,8 +49,13 @@ const FilterableProductTable = ({ products, setProducts }) => {
         filterText={filterText}
         inStockOnly={inStockOnly}
         deleteProduct={deleteProduct}
+        editProduct={editProduct}
       />
-      <InputBar addProduct={addProduct} />
+      <InputBar
+        product={emptyProduct}
+        addProduct={addProduct}
+        isEditing={false}
+      />
     </div>
   );
 };

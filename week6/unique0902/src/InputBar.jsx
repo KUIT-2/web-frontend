@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 
-const InputBar = ({ addProduct }) => {
+const InputBar = ({ product, addProduct, handleEditProduct, isEditing }) => {
   const [newProduct, setNewProduct] = useState({
-    category: '',
-    price: '',
-    stocked: true,
-    name: '',
+    ...product,
   });
 
   const handleChange = (value, label) => {
     setNewProduct({ ...newProduct, [label]: value });
   };
 
-  const handleAddNewProduct = () => {
-    addProduct(newProduct);
+  const handleClickProductBtn = () => {
+    if (isEditing) {
+      handleEditProduct(newProduct);
+    } else {
+      addProduct(newProduct);
+    }
   };
 
   return (
@@ -42,9 +43,9 @@ const InputBar = ({ addProduct }) => {
         onChange={(e) => handleChange(e.target.value, 'name')}
         placeholder='name...'
       />
-      <button onClick={handleAddNewProduct} type={'button'}>
+      <button onClick={handleClickProductBtn} type={'button'}>
         {/* type=button이 없을 경우 버튼 누르면 새로고침됨 */}
-        add new prduct
+        {isEditing ? 'edit prduct' : 'add new prduct'}
       </button>
     </form>
   );
