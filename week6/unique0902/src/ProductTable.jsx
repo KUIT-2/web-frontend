@@ -12,8 +12,9 @@ const ProductTable = ({
   const rows = [];
   let lastCategory = null;
   let nowTimeKey = Date.now();
-  products
-    .sort((a, b) => a.category > b.category)
+  const productsCopy = [...products];
+  productsCopy
+    .sort((a, b) => (a.category > b.category ? 1 : -1))
     .map((product) => {
       if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
         return;
