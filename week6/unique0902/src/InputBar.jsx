@@ -14,6 +14,7 @@ const InputBar = ({ product, addProduct, handleEditProduct, isEditing }) => {
       handleEditProduct(newProduct);
     } else {
       addProduct(newProduct);
+      setNewProduct({ category: '', price: '', stocked: true, name: '' });
     }
   };
 
