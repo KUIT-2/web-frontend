@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductsType } from './App';
+import { ProductType, ProductsType } from './App';
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
@@ -7,37 +7,50 @@ interface ProductTablePropsTypes {
   products: ProductsType;
   filterText: string;
   isStockOnly: boolean;
+  deleteProduct: (targetProduct: ProductType) => void;
+  editProduct: (targetProduct: ProductType) => void;
 }
 
 export default function ProductTable({
   products,
   filterText,
   isStockOnly,
+  deleteProduct,
+  editProduct,
 }: ProductTablePropsTypes) {
   const rows: React.ReactNode[] = [];
   let lastCategory: string | null = null;
 
-  products.map((product) => {
-    if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
-      return;
-    }
+  products
+    .sort((a, b) => (a.category < b.category ? -1 : 1))
+    .map((product) => {
+      if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+        return;
+      }
 
-    if (isStockOnly && !product.stocked) {
-      return;
-    }
+      if (isStockOnly && !product.stocked) {
+        return;
+      }
 
-    if (product.category !== lastCategory) {
+      if (product.category !== lastCategory) {
+        rows.push(
+          <ProductCategoryRow
+            category={product.category}
+            key={product.category}
+          />
+        );
+      }
       rows.push(
-        <ProductCategoryRow
-          category={product.category}
-          key={product.category}
+        <ProductRow
+          product={product}
+          key={product.name}
+          deleteProduct={deleteProduct}
+          editProduct={editProduct}
         />
       );
-    }
-    rows.push(<ProductRow product={product} key={product.name} />);
 
-    lastCategory = product.category;
-  });
+      lastCategory = product.category;
+    });
 
   return (
     <table>
