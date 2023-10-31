@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const InputBar = ({ addProduct }) => {
+const InputBar = ({ addProduct, handleEditProduct, isEditing }) => {
   const [newProduct, setNewProduct] = useState({
     category: "",
     price: "",
@@ -14,6 +14,10 @@ const InputBar = ({ addProduct }) => {
 
   const handleAddNewProduct = () => {
     addProduct(newProduct);
+  };
+
+  const handleEditClick = () => {
+    handleEditProduct(newProduct);
   };
 
   return (
@@ -42,10 +46,14 @@ const InputBar = ({ addProduct }) => {
         onChange={(e) => handleChange(e.target.value, "name")}
         placeholder="name..."
       />
-      <button onClick={handleAddNewProduct} type={"button"}>
-        {/* type=button이 없을 경우 버튼 누르면 새로고침됨 */}
-        add new prduct
-      </button>
+      {isEditing ? (
+        <button onClick={handleEditClick}>edit product</button>
+      ) : (
+        <button onClick={handleAddNewProduct} type={"button"}>
+          {/* type=button이 없을 경우 버튼 누르면 새로고침됨 */}
+          add new prduct
+        </button>
+      )}
     </form>
   );
 };
