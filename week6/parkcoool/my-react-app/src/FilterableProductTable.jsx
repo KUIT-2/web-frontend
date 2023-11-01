@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import SearchBar from "./SearchBar";
-import ProductTable from "./ProductTable";
+import ProductTableContainer from "./ProductTableContainer";
 
 const FilterableProductTable = ({ products, setProducts }) => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -10,7 +10,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
         <div>
             <h1>Product Manager</h1>
             <SearchBar setSearchQuery={setSearchQuery} setInStockOnly={setInStockOnly} />
-            <ProductTable
+            <ProductTableContainer
                 products={products}
                 setProducts={setProducts}
                 searchQuery={searchQuery}
