@@ -4,6 +4,7 @@ import ProductRow from "./ProductRow";
 
 const ProductTable = ({ products, filterText, inStockOnly, editProduct, deleteProduct }) => {
     let lastCategory = null;
+
     const filteredProducts = products
         .sort((a, b) => (a.category > b.category ? 1 : -1))
         .filter((product) => {

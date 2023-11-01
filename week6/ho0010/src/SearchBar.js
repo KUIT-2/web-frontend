@@ -14,7 +14,7 @@ const SearchBar = ({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyC
         <input type={"text"}
             placeholder="Search..."
             value={filterText}
-            onChange={(e) => onFilterTextChange(e.target.value)}
+            onChange={(e) => handleTextChange(e.target.value)}
         />
         <lable>
             <input type={"checkbox"}

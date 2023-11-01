@@ -14,7 +14,7 @@ const App = () => {
     ]
   )
   return <FilterableProductTable products={products} setProducts={setProducts} />;
-  //Filter~ 컴퍼넌트에 products란 prop에 PRODUCTS라는 객체 전달?
+  //Filter~ 컴퍼넌트에 products란 prop에 PRODUCTS라는 객체 전달
 }
 
 export default App;
