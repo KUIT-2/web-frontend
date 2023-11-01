@@ -15,7 +15,12 @@ const App = () => {
         { id: 8, category: "Snacks", price: "$2", stocked: true, name: "Candy" },
     ]);
 
-    return <FilterableProductTable products={products} setProducts={setProducts} />;
+    let id = 9;
+    const getID = () => {
+        return id++;
+    };
+
+    return <FilterableProductTable products={products} setProducts={setProducts} getID={getID} />;
 };
 
 export default App;

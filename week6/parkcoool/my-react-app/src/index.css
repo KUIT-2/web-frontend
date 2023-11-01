@@ -1,4 +1,16 @@
-.searchBar {
+.topBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.topBar > * {
+    width: 100%;
+}
+
+form {
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -6,7 +18,7 @@
     border-radius: 5px;
 }
 
-.searchBar > input[type="text"] {
+form input[type="text"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -14,14 +26,14 @@
 
 .productTableContainer {
     display: flex;
-    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
-    margin: 10px 0;
-    overflow-x: auto;
+    gap: 5px;
 }
 
 .productTable {
-    width: 500px;
+    min-width: max(30%, 200px);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -57,7 +69,8 @@
     border-radius: 5px;
 }
 
-.productTable button {
+button,
+input[type="submit"] {
     border: none;
     background: none;
     cursor: pointer;
@@ -68,7 +81,8 @@
     border-radius: 5px;
 }
 
-.productTable button:hover {
+button:hover,
+input[type="submit"]:hover {
     background: rgb(220, 220, 220);
 }
 
