@@ -1,0 +1,50 @@
+.searchBar {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.searchBar > input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.productTableContainer {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 10px 0;
+}
+
+.productTable {
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.productTable tr > td {
+    padding: 0 5px;
+}
+
+.productTable tr > td:nth-child(1) {
+    width: 100%;
+}
+
+.productTable button {
+    border: none;
+    background: none;
+}
+
+.productTable > caption {
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+}
+
+.productTable tr {
+    height: 30px;
+}
