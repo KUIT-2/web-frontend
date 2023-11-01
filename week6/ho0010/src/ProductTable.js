@@ -2,31 +2,17 @@ import React from "react";
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
-const ProductTable = ({ products, filterText, inStockOnly }) => {
-    const rows = []
+const ProductTable = ({ products, filterText, inStockOnly, editProduct, deleteProduct }) => {
     let lastCategory = null;
-
-    products.map((product) => {
-        if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
-            return;
-        }
-
-        if (inStockOnly && !product.stocked) {
-            return;
-        }
-
-        if (product.category !== lastCategory) {
-            rows.push(<ProductCategoryRow
-                category={product.category}
-                key={product.category}
-            />
-            );
-        }
-        rows.push(<ProductRow product={product} key={product.name} />);
-
-        lastCategory = product.category;
-    })
-
+    const filteredProducts = products
+        .sort((a, b) => (a.category > b.category ? 1 : -1))
+        .filter((product) => {
+            const filterTextMatch = product.name
+                .toLowerCase()
+                .includes(filterText.toLowerCase());
+            const inStockCheck = !inStockOnly || product.stocked;
+            return filterTextMatch && inStockCheck;
+        });
     return (
         <table>
             <thead>
@@ -36,7 +22,25 @@ const ProductTable = ({ products, filterText, inStockOnly }) => {
                 </tr>
             </thead>
             <tbody>
-                {rows}
+                {filteredProducts.map((product, index) => {
+                    const categoryRow = product.category !== lastCategory && (
+                        <ProductCategoryRow
+                            category={product.category}
+                            key={product.category}
+                        />
+                    );
+                    lastCategory = product.category;
+                    return (
+                        <React.Fragment key={index}>
+                            {categoryRow}
+                            <ProductRow
+                                product={product}
+                                deleteProduct={deleteProduct}
+                                editProduct={editProduct}
+                            />
+                        </React.Fragment>
+                    );
+                })}
             </tbody>
         </table>
     );
