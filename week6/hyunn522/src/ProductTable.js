@@ -6,7 +6,9 @@ const ProductTable = ({ products, filterText, inStockOnly }) => {
     const rows = [];
     let lastCategory = null;
 
-    products.map((product) => {
+    products
+        .sort((a, b) => (a.category > b.category ? 1 : -1))
+        .map((product) => {
         
         if (product.name.toLowerCase().indexOf(filterText.toLowerCase()) == -1) {
             return;
