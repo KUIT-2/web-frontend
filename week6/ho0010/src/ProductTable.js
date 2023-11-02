@@ -4,9 +4,9 @@ import ProductRow from "./ProductRow";
 
 const ProductTable = ({ products, filterText, inStockOnly, deleteProduct }) => {
     let lastCategory = null;
-    {/*console.log(deleteProduct);*/ }
+
     const filteredProducts = products
-        .sort((a, b) => (a.category > b.category ? 1 : -1))
+        .sort((a, b) => (a.category > b.category))
         .filter((product) => {
             const filterTextMatch = product.name
                 .toLowerCase()

@@ -16,13 +16,13 @@ const SearchBar = ({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyC
             value={filterText}
             onChange={handleTextChange}
         />
-        <lable>
+        <label>
             <input type={"checkbox"}
                 checked={inStockOnly}
                 onChange={handleCheckboxChange}
             />
             Only show products in stock
-        </lable>
+        </label>
     </form>
 };
 
