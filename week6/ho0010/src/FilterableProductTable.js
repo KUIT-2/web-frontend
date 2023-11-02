@@ -13,6 +13,11 @@ const FilterableProductTable = ({ products, setProducts }) => {
         // products = [{},{},{}, ...,{}] 
         //newProducts = [...products, {newProduct}]
     }
+    const deleteProduct = (deleteProductName) => {
+        setProducts(products.filter((product) => product.name !== deleteProductName))
+        // const newProductList = products.filter((it) => it.name !== deleteProductName)
+        // setProducts(newProductList)
+    }
 
     return (<div>
         <SearchBar filterText={filterText}
@@ -24,8 +29,10 @@ const FilterableProductTable = ({ products, setProducts }) => {
             products={products}
             filterText={filterText}
             inStockOnly={inStockOnly}
+            deleteProduct={deleteProduct}
         />
         <InputBar addProduct={addProduct} />
+
     </div>
     );
 };

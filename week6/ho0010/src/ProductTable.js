@@ -2,9 +2,9 @@ import React from "react";
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
-const ProductTable = ({ products, filterText, inStockOnly, editProduct, deleteProduct }) => {
+const ProductTable = ({ products, filterText, inStockOnly, deleteProduct }) => {
     let lastCategory = null;
-
+    {/*console.log(deleteProduct);*/ }
     const filteredProducts = products
         .sort((a, b) => (a.category > b.category ? 1 : -1))
         .filter((product) => {
@@ -37,7 +37,7 @@ const ProductTable = ({ products, filterText, inStockOnly, editProduct, deletePr
                             <ProductRow
                                 product={product}
                                 deleteProduct={deleteProduct}
-                                editProduct={editProduct}
+
                             />
                         </React.Fragment>
                     );
