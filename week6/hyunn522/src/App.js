@@ -2,7 +2,6 @@ import { useState } from "react";
 import FilterableProductTable from "./FilterableProductTable"
 
 const App = () => {
-
   const [products, setProducts] = useState([
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
     { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },

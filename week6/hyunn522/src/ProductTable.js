@@ -2,9 +2,10 @@ import React from 'react'
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
-const ProductTable = ({ products, filterText, inStockOnly }) => {
+const ProductTable = ({ products, filterText, inStockOnly, setProducts }) => {
     const rows = [];
     let lastCategory = null;
+
 
     products
         .sort((a, b) => (a.category > b.category ? 1 : -1))
@@ -27,7 +28,7 @@ const ProductTable = ({ products, filterText, inStockOnly }) => {
             );
         }
 
-        rows.push(<ProductRow product={product} key={product.name}/>);
+        rows.push(<ProductRow product={product} key={product.name} setProducts={setProducts}/>);
 
         lastCategory = product.category;
     })
