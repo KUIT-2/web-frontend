@@ -15,6 +15,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
     }
     const deleteProduct = (deleteProductName) => {
         setProducts(products.filter((product) => product.name !== deleteProductName))
+        // 내장함수인 filter를 이용해 false가 나오면 객체 제외
         // const newProductList = products.filter((it) => it.name !== deleteProductName)
         // setProducts(newProductList)
     }

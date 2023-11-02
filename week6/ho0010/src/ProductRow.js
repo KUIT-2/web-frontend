@@ -4,7 +4,6 @@ const ProductRow = ({ product, deleteProduct }) => {
     // { category: "Fruits", price: "$1", stocked: true, name: "Apple" }
     const handleDeleteProduct = (e) => {
         deleteProduct(product.name)
-
     }
 
     return <tr>
