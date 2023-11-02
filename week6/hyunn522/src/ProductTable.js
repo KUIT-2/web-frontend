@@ -2,7 +2,7 @@ import React from 'react'
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
-const ProductTable = ({ products, filterText, inStockOnly, setProducts }) => {
+const ProductTable = ({ products, filterText, inStockOnly, setProducts, deleteProduct }) => {
     const rows = [];
     let lastCategory = null;
 
@@ -28,7 +28,7 @@ const ProductTable = ({ products, filterText, inStockOnly, setProducts }) => {
             );
         }
 
-        rows.push(<ProductRow product={product} key={product.name} setProducts={setProducts}/>);
+        rows.push(<ProductRow product={product} key={product.name} setProducts={setProducts} deleteProduct={deleteProduct}/>);
 
         lastCategory = product.category;
     })

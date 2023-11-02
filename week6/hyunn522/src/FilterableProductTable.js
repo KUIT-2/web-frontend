@@ -14,6 +14,14 @@ const FilterableProductTable = ({ products, setProducts }) => {
     // newProducts = [...produdcts, { newProduct }] // 기존 배열 수정하지 않고 새로운 배열 생성해서 뒤에 데이터 추가
   };
 
+  const deleteProduct = (product, ...rest) => {
+    setProducts((prev) => {
+      // prev 배열에서 product 객체 필터링
+      const newProducts = prev.filter((p) => p !== product);
+      return newProducts;
+    });
+  }
+
   return (
     <div>
         <SearchBar
@@ -25,7 +33,8 @@ const FilterableProductTable = ({ products, setProducts }) => {
           products={products}
           filterText={filterText}
           inStockOnly={inStockOnly}
-          setProducts={setProducts}/>
+          setProducts={setProducts}
+          deleteProduct={deleteProduct}/>
         <InputBar addProduct={addProduct} />
     </div>
   );
