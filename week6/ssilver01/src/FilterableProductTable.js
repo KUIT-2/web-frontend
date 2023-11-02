@@ -13,12 +13,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
 
   //splice : 요소를 삭제하거나 교체하여 배열의 내용을 변경
   const deleteProduct = (deletedProduct) => {
-    const index = products.findIndex((val) => val.name === deletedProduct);
-    if (index !== -1) {
-      const newProductsArray = [...products];
-      newProductsArray.splice(index, 1);
-      setProducts(newProductsArray);
-    }
+    setProducts(products.filter((product) => product.name !== deletedProduct));
   };
   return (
     <div>
