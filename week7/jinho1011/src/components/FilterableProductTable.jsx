@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import SearchBar from "./SearchBar";
 import ProductTable from "./ProductTable";
 import InputBar from "./InputBar";
@@ -9,9 +10,15 @@ const FilterableProductTable = ({ products, setProducts }) => {
 
   const addProduct = (newProduct) => {
     setProducts((previousData) => [...previousData, newProduct]);
-    // products = [{}, {}, {}, {}, ..., {}]
-    // newProducts = [...products, { newProduct }]
   };
+
+  const filteredProducts = products.filter((product) => {
+    const nameMatches = product.name
+      .toLowerCase()
+      .includes(filterText.toLowerCase());
+    const stockMatches = !inStockOnly || product.stocked;
+    return nameMatches && stockMatches;
+  });
 
   return (
     <div>
@@ -21,11 +28,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
         onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly}
       />
-      <ProductTable
-        products={products}
-        filterText={filterText}
-        inStockOnly={inStockOnly}
-      />
+      <ProductTable products={filteredProducts} />
       <InputBar addProduct={addProduct} />
     </div>
   );
