@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/soeun/Desktop/web-frontend/week4/ssilver01/todo",
+      "program": "/Users/soeun/Desktop/web-frontend/week4/ssilver01/todo/build/Debug/outDebug"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": 3,
+      "title": "kuit 강의",
+      "createdAt": "Sat Sep 30 2023",
+      "completed": false
+    },
+    {
+      "id": 1696082715296,
+      "title": "케이랩",
+      "createdAt": "Thu Oct 19 2023",
+      "completed": false
+    }
+  ]
+}

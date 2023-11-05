@@ -1,1 +1,8 @@
 node_modules
+
+
+.vscode/
+tempCodeRunnerFile.exe
+
+## MAC OS ##
+.DS_Store
