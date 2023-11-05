@@ -1,0 +1,93 @@
+.topBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.topBar > * {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.productTableContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.productTable {
+    min-width: max(30%, 200px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.productTable tr > td {
+    padding: 0;
+    height: 30px;
+}
+
+.productTable tr > td.name {
+    width: calc((100% - 60px) * 0.6);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.productTable tr > td.price {
+    width: calc((100% - 60px) * 0.4);
+    text-align: end;
+}
+
+.productTable tr > td.btn {
+    width: 30px;
+}
+
+.productTable tr > td > input[type="text"] {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button,
+input[type="submit"] {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: rgb(220, 220, 220);
+}
+
+.productTable > caption {
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+}
