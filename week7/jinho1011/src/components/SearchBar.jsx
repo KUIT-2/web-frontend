@@ -1,5 +1,9 @@
 import React from "react";
 
+import * as S from "./SearchBar.styles";
+
+import Input from "./Input";
+
 const SearchBar = ({
   filterText,
   inStockOnly,
@@ -15,8 +19,8 @@ const SearchBar = ({
   };
 
   return (
-    <form>
-      <input
+    <S.SearchForm>
+      <Input
         type={"text"}
         value={filterText}
         placeholder="Search..."
@@ -30,7 +34,7 @@ const SearchBar = ({
         />
         Only show products in stock
       </label>
-    </form>
+    </S.SearchForm>
   );
 };
 

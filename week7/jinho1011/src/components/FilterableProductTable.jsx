@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import SearchBar from "./SearchBar";
 import ProductTable from "./ProductTable";
-import InputBar from "./InputBar";
+import ProductForm from "./ProductForm";
 
 const FilterableProductTable = ({ products, setProducts }) => {
   const [filterText, setFilterText] = useState("");
@@ -29,7 +29,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
         onInStockOnlyChange={setInStockOnly}
       />
       <ProductTable products={filteredProducts} />
-      <InputBar addProduct={addProduct} />
+      <ProductForm addProduct={addProduct} />
     </div>
   );
 };
