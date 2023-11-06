@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import InputBar from "./InputBar";
+import ProductForm from "./ProductForm";
 
 const ProductRow = ({ product, deleteProduct, editProduct }) => {
   // { category: "Fruits", price: "$1", stocked: true, name: "Apple" }
@@ -24,7 +24,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
     return (
       <tr>
         <td>
-          <InputBar isEditing={true} handleEditProduct={handleEditProduct} />
+          <ProductForm isEditing={true} handleEditProduct={handleEditProduct} />
         </td>
         <button onClick={handleCancelClick}>❌</button>
       </tr>

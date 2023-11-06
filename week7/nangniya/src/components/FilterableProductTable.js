@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import ProductTable from "./ProductTable";
-import InputBar from "./InputBar";
+import ProductFrom from "./ProductForm";
 
 const FilterableProductTable = ({ products, setProducts }) => {
   const [filterText, setFilterText] = useState("");
@@ -13,17 +13,17 @@ const FilterableProductTable = ({ products, setProducts }) => {
     // newProducts = [...products, { newProduct }]
   };
 
-  const deleteProduct = (targetProduct) => {
+  const deleteProduct = (targetProductName) => {
     setProducts((prev) =>
-      prev.filter((product) => product.name !== targetProduct)
+      prev.filter((product) => product.name !== targetProductName)
     );
   };
 
-  const editProduct = (name, newProduct) => {
+  const editProduct = (originalName, updatedProduct) => {
     setProducts((prev) =>
       prev.map((product) => {
-        if (product.name === name) {
-          return newProduct;
+        if (product.name === originalName) {
+          return updatedProduct;
         } else {
           return product;
         }
@@ -52,7 +52,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
         deleteProduct={deleteProduct}
         editProduct={editProduct}
       />
-      <InputBar addProduct={addProduct} />
+      <ProductFrom addProduct={addProduct} />
     </div>
   );
 };
