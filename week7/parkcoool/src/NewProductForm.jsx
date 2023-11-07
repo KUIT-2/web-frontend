@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-const addProduct = (category, name, price, getID, setProducts) => {
+const addProduct = (category, name, price, setProducts) => {
     setProducts((prevProducts) => {
         const newProducts = [...prevProducts];
         for (const product of newProducts) {
@@ -10,7 +11,7 @@ const addProduct = (category, name, price, getID, setProducts) => {
             }
         }
         newProducts.push({
-            id: getID(),
+            id: uuidv4(),
             category: category,
             price: price,
             stocked: true,
@@ -20,7 +21,7 @@ const addProduct = (category, name, price, getID, setProducts) => {
     });
 };
 
-const NewProductForm = ({ setProducts, getID }) => {
+const NewProductForm = ({ setProducts }) => {
     const [newCategory, setNewCategory] = useState("");
     const [newName, setNewName] = useState("");
     const [newPrice, setNewPrice] = useState("");
@@ -30,7 +31,7 @@ const NewProductForm = ({ setProducts, getID }) => {
             className="newProduct"
             onSubmit={(e) => {
                 e.preventDefault();
-                addProduct(newCategory, newName, newPrice, getID, setProducts);
+                addProduct(newCategory, newName, newPrice, setProducts);
             }}
         >
             <input

@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import ProductTableContainer from "./ProductTableContainer";
 import NewProductForm from "./NewProductForm";
 
-const FilterableProductTable = ({ products, setProducts, getID }) => {
+const FilterableProductTable = ({ products, setProducts }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [inStockOnly, setInStockOnly] = useState(false);
     return (
@@ -12,7 +12,7 @@ const FilterableProductTable = ({ products, setProducts, getID }) => {
             <h1>Product Manager</h1>
             <div className="topBar">
                 <SearchBar setSearchQuery={setSearchQuery} setInStockOnly={setInStockOnly} />
-                <NewProductForm setProducts={setProducts} getID={getID} />
+                <NewProductForm setProducts={setProducts} />
             </div>
             <ProductTableContainer
                 products={products}
