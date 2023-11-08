@@ -1,4 +1,6 @@
 import React from 'react';
+import Input from './Input';
+import * as S from './SearchBar.styles';
 
 interface SearchBarPropsTypes {
   filterText: string;
@@ -26,12 +28,11 @@ export default function SearchBar({
   };
 
   return (
-    <form>
-      <input
-        type='text'
+    <S.SearchForm>
+      <Input
         placeholder='Search...'
         value={filterText}
-        onChange={handleFilterTextChange}
+        onValueChange={handleFilterTextChange}
       />
       <label>
         <input
@@ -41,6 +42,6 @@ export default function SearchBar({
         />
         Only show products in stock
       </label>
-    </form>
+    </S.SearchForm>
   );
 }
