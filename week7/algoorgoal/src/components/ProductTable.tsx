@@ -23,9 +23,6 @@ export default function ProductTable({
   deleteProduct,
   editProduct,
 }: ProductTablePropsTypes) {
-  const rows: React.ReactNode[] = [];
-  let lastCategory: string | null = null;
-
   const productsByCategory = products.reduce(
     (accumulator: productsByCategoryType, product) => {
       const productsInTargetCategory = accumulator[product.category] || [];
