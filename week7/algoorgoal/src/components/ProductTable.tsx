@@ -2,7 +2,6 @@ import React from 'react';
 import { ProductType, ProductsType } from '../routes/Products';
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
-import { render } from '@testing-library/react';
 
 interface ProductTablePropsTypes {
   products: ProductsType;
