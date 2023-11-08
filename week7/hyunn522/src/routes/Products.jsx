@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FilterableProductTable from "../FilterableProductTable"
+import FilterableProductTable from "../components/FilterableProductTable"
 
 const Products = () => {
     const [products, setProducts] = useState([

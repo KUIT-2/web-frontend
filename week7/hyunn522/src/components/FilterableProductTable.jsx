@@ -8,6 +8,15 @@ const FilterableProductTable = ({ products, setProducts }) => {
   const [filterText, setFilterText] = useState(""); 
   const [inStockOnly, setInStockOnly] = useState(true);
 
+  const filterdProducts = products.filter((product) => {
+    const nameMatches = product.name
+      .toLowerCase()
+      .includes(filterText.toLowerCase());
+    const stockMatches = !inStockOnly || product.stocked;
+  
+    return nameMatches && stockMatches;  
+  })
+
   const addProduct = (newProduct) => {
     setProducts((prev) => [...prev, newProduct]); // 기존의 데이터를 비구조화 할당 후 새로운 데이터 추가
     // products = [{}, {}, ..., {}]
@@ -30,9 +39,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
           onFilterTextChange={setFilterText} 
           onInStockOnlyChange={setInStockOnly}/>
         <ProductTable
-          products={products}
-          filterText={filterText}
-          inStockOnly={inStockOnly}
+          products={filterdProducts}
           setProducts={setProducts}
           deleteProduct={deleteProduct}/>
         <InputBar addProduct={addProduct} />
