@@ -13,13 +13,13 @@ export default function ProductRow({
   editProduct,
 }: ProductRowPropsType) {
   const { name, price, stocked } = product;
-  const [isEditing, setIsEditModeOn] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const [newName, setNewName] = useState('');
   const [newPrice, setNewPrice] = useState('');
 
   const handleEditModeChange = () =>
-    setIsEditModeOn((isEditModeOn) => !isEditModeOn);
+    setIsEditing((currentIsEditing) => !currentIsEditing);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>,
