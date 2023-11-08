@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-
 import * as S from "./ProductForm.styles";
-
 import Input from "./Input";
 
-const ProductForm = ({ addProduct }) => {
+const ProductForm = ({ addProduct, handleEditProduct, isEditing }) => {
   const [newProduct, setNewProduct] = useState({
     category: "",
     price: "",
@@ -21,8 +19,12 @@ const ProductForm = ({ addProduct }) => {
     addProduct(newProduct);
   };
 
+  const handleEditClick = () => {
+    handleEditProduct(newProduct);
+  };
+
   return (
-    <S.Form>
+    <S.Form isEditing={isEditing}>
       <Input
         type={"text"}
         value={newProduct.category}
@@ -49,9 +51,16 @@ const ProductForm = ({ addProduct }) => {
           onChange={(e) => handleChange(e.target.checked, "stocked")}
         />
       </div>
-      <button onClick={handleAddNewProduct} type={"button"}>
-        add new prduct
-      </button>
+      {isEditing ? (
+        <S.Button onClick={handleEditClick} type={"button"}>
+          edit product
+        </S.Button>
+      ) : (
+        <S.Button onClick={handleAddNewProduct} type={"button"}>
+          {/* type=button이 없을 경우 버튼 누르면 새로고침됨 */}
+          add new prduct
+        </S.Button>
+      )}
     </S.Form>
   );
 };

@@ -1,5 +1,4 @@
 import React from "react";
-import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
 const ProductTable = ({ products, deleteProduct, editProduct }) => {
@@ -10,7 +9,7 @@ const ProductTable = ({ products, deleteProduct, editProduct }) => {
   }, {});
 
   return (
-    <div>
+    <div style={{ marginBottom: "250px" }}>
       {Object.keys(productsByCategory).map((category) => (
         <div key={category}>
           <h3>{category}</h3>
