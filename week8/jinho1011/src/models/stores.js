@@ -1,4 +1,4 @@
-const store = [
+const stores = [
   {
     id: 1,
     name: "샐로리 한남점",
@@ -39,3 +39,5 @@ const store = [
     ],
   },
 ];
+
+export default stores;
