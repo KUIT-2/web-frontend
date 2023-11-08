@@ -13,7 +13,7 @@ export default function ProductRow({
   editProduct,
 }: ProductRowPropsType) {
   const { name, price, stocked } = product;
-  const [isEditModeOn, setIsEditModeOn] = useState(false);
+  const [isEditing, setIsEditModeOn] = useState(false);
 
   const [newName, setNewName] = useState('');
   const [newPrice, setNewPrice] = useState('');
@@ -37,19 +37,19 @@ export default function ProductRow({
     }
   };
 
-  const renderedEditableName = !isEditModeOn ? (
+  const renderedEditableName = !isEditing ? (
     name
   ) : (
     <input type='text' onChange={(event) => handleChange(event, 'name')} />
   );
 
-  const renderedEditablePrice = !isEditModeOn ? (
+  const renderedEditablePrice = !isEditing ? (
     price
   ) : (
     <input type='text' onChange={(event) => handleChange(event, 'price')} />
   );
 
-  const renderedEditButton = !isEditModeOn ? (
+  const renderedEditButton = !isEditing ? (
     <button type='button' onClick={handleEditModeChange}>
       ✏️
     </button>
