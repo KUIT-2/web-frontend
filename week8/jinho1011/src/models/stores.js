@@ -38,6 +38,56 @@ const stores = [
       },
     ],
   },
+  {
+    id: 2,
+    name: "그린가든 강남점",
+    rate: 4.7,
+    reviewCnt: 2451,
+    minDeliveryTime: 15,
+    maxDeliveryTime: 25,
+    deliveryFee: 2500,
+    menus: [
+      {
+        id: 1,
+        name: "아보카도 그린 샐러드",
+        isBest: true,
+        price: 8900,
+        ingredients: "아보카도, 케일, 시금치, 퀴노아, 레몬 드레싱",
+      },
+      {
+        id: 2,
+        name: "베리 믹스 샐러드",
+        isBest: false,
+        price: 8500,
+        ingredients: "블루베리, 라즈베리, 스트로베리, 믹스 그린, 요거트 드레싱",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "헬시키친 홍대입구",
+    rate: 4.8,
+    reviewCnt: 1784,
+    minDeliveryTime: 20,
+    maxDeliveryTime: 35,
+    deliveryFee: 1500,
+    menus: [
+      {
+        id: 1,
+        name: "쿼리노아 비트 샐러드",
+        isBest: true,
+        price: 9200,
+        ingredients: "비트, 쿼리노아, 아몬드, 양배추, 사과 사이더 드레싱",
+      },
+      {
+        id: 2,
+        name: "펌프킨 넛 샐러드",
+        isBest: false,
+        price: 8700,
+        ingredients: "호박, 피칸, 크랜베리, 아루굴라, 발사믹 드레싱",
+      },
+    ],
+  },
 ];
 
 export default stores;
