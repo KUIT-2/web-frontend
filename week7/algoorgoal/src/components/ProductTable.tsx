@@ -5,8 +5,6 @@ import ProductRow from './ProductRow';
 
 interface ProductTablePropsTypes {
   products: ProductsType;
-  filterText: string;
-  isStockOnly: boolean;
   deleteProduct: (targetProduct: ProductType) => void;
   editProduct: (targetProduct: ProductType) => void;
 }
@@ -17,8 +15,6 @@ type productsByCategoryType = {
 
 export default function ProductTable({
   products,
-  filterText,
-  isStockOnly,
   deleteProduct,
   editProduct,
 }: ProductTablePropsTypes) {

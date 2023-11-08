@@ -54,8 +54,6 @@ export default function FilterableProductTable({
       />
       <ProductTable
         products={filteredProducts}
-        filterText={filterText}
-        isStockOnly={isStockOnly}
         deleteProduct={deleteProduct}
         editProduct={editProduct}
       />
