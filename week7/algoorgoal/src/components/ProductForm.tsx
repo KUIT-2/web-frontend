@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { ProductType } from '../routes/Products';
 
-interface InputBarType {
+import { ProductType } from '../routes/Products';
+import Input from './Input';
+
+import * as S from './ProductForm.styles';
+
+interface ProductFormPropsType {
   addProduct: (product: ProductType) => void;
 }
 
@@ -12,7 +16,7 @@ const initialNewProduct = {
   name: '',
 };
 
-export default function InputBar({ addProduct }: InputBarType) {
+export default function ProductForm({ addProduct }: ProductFormPropsType) {
   const [newProduct, setNewProduct] = useState(initialNewProduct);
 
   const handleChange = (value: string | boolean, label: string) => {
@@ -23,13 +27,14 @@ export default function InputBar({ addProduct }: InputBarType) {
   };
 
   const handleNewProduct = () => {
+    // todo: prevent product from being added when input is complete
     const currentTime = new Date().getTime();
     addProduct({ id: currentTime, ...newProduct });
     setNewProduct(initialNewProduct);
   };
 
   return (
-    <>
+    <S.Form>
       <label htmlFor='category'>category...</label>
       <select
         name='category'
@@ -40,28 +45,27 @@ export default function InputBar({ addProduct }: InputBarType) {
         <option value='Vegetables'>Vegetables</option>
       </select>
 
-      <input
-        type=''
+      <Input
         value={newProduct.price}
-        onChange={(event) => handleChange(event.target.value, 'price')}
+        onValueChange={(event) => handleChange(event.target.value, 'price')}
         placeholder='price...'
       />
-
-      <label>is stocked</label>
-      <input
-        type='checkbox'
-        checked={newProduct.stocked}
-        onChange={(event) => handleChange(event.target.checked, 'stocked')}
-      />
-      <input
-        type='text'
+      <div>
+        <label>is stocked</label>
+        <input
+          type='checkbox'
+          checked={newProduct.stocked}
+          onChange={(event) => handleChange(event.target.checked, 'stocked')}
+        />
+      </div>
+      <Input
         value={newProduct.name}
-        onChange={(event) => handleChange(event.target.value, 'name')}
+        onValueChange={(event) => handleChange(event.target.value, 'name')}
         placeholder='name...'
       />
       <button onClick={handleNewProduct} type='button'>
         add new product
       </button>
-    </>
+    </S.Form>
   );
 }

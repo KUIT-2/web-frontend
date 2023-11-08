@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import ProductTable from './ProductTable';
 import { ProductType, ProductsType } from '../routes/Products';
-import InputBar from './InputBar';
+import ProductForm from './ProductForm';
 
 interface FilterableProductTablePropsType {
   products: ProductsType;
@@ -57,7 +57,7 @@ export default function FilterableProductTable({
         deleteProduct={deleteProduct}
         editProduct={editProduct}
       />
-      <InputBar addProduct={addProduct} />
+      <ProductForm addProduct={addProduct} />
     </>
   );
 }
