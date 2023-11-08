@@ -1,10 +1,10 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Home from "../pages/Home";
-import Stores from "../pages/Stores";
-import Store from "../pages/Store";
-import Cart from "../pages/Cart";
+import Home from "./Home/Home";
+import Stores from "./Stores/Stores";
+import Store from "./Store/Store";
+import Cart from "./Cart/Cart";
 
 const Router = () => {
   const router = createBrowserRouter([

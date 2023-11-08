@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import stores from "../models/stores";
+import stores from "../../models/stores";
 
 const Store = () => {
   const { storeId } = useParams();
