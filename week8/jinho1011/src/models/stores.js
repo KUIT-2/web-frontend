@@ -6,6 +6,7 @@ const stores = [
     reviewCnt: 3919,
     minDeliveryTime: 13,
     maxDeliveryTime: 30,
+    minDeliveryPrice: 13000,
     deliveryFee: 2000,
     menus: [
       {
@@ -45,6 +46,7 @@ const stores = [
     reviewCnt: 2451,
     minDeliveryTime: 15,
     maxDeliveryTime: 25,
+    minDeliveryPrice: 12000,
     deliveryFee: 2500,
     menus: [
       {
@@ -70,6 +72,7 @@ const stores = [
     reviewCnt: 1784,
     minDeliveryTime: 20,
     maxDeliveryTime: 35,
+    minDeliveryPrice: 10000,
     deliveryFee: 1500,
     menus: [
       {
