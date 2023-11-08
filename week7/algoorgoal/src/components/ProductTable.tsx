@@ -38,11 +38,11 @@ export default function ProductTable({
     {}
   );
 
-  const renderedProductsByCategory = Object.keys(productsByCategory).map(
-    (category) => (
+  const renderedProductsByCategory = Object.entries(productsByCategory).map(
+    ([category, productsInCategory]) => (
       <div key={category}>
         <ProductCategoryRow category={category} />
-        {productsByCategory[category].map((product) => (
+        {productsInCategory.map((product) => (
           <ProductRow
             product={product}
             deleteProduct={deleteProduct}
