@@ -36,7 +36,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
         />
         <ProductTable
             products={filteredProducts}
-            deleteProduct={deleteProduct} s
+            deleteProduct={deleteProduct}
         />
         <ProductForm addProduct={addProduct} />
 

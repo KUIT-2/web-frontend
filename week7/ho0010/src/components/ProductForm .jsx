@@ -4,6 +4,9 @@ import * as S from "./ProductForm.styles";
 
 import Input from "./Input";
 
+import Button from "./Button";
+
+
 const ProductForm = ({ addProduct }) => {
     const [newProduct, setNewProduct] = useState({
         category: "",
@@ -48,10 +51,10 @@ const ProductForm = ({ addProduct }) => {
                     onChange={(e) => handleChange(e.target.checked, "stocked")}
                 />
             </div>
-            <button onClick={handleAddNewProduct} type={"button"}>
+            <Button onClick={handleAddNewProduct} type={"button"}>
                 {/* type = button이 없으면 버튼 누르면 새로고침됨 */}
                 add new product
-            </button>
+            </Button>
         </S.Form>
     )
 
