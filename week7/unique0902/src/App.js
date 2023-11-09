@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FilterableProductTable from './FilterableProductTable';
+import FilterableProductTable from './components/FilterableProductTable';
 
 const App = () => {
   const [products, setProducts] = useState([
