@@ -28,15 +28,22 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
   }
   return (
     <li className={styles.li}>
-      <div style={{ color: product.stocked ? 'black' : 'red' }}>
+      <div
+        className={styles.name}
+        style={{ color: product.stocked ? 'black' : 'red' }}
+      >
         {product.name}
       </div>
-      <div>{product.price}</div>
-      <div>
-        <button onClick={handleDeleteProduct}>❌</button>
+      <div className={styles.price}>{product.price}</div>
+      <div className={styles.btnDiv}>
+        <button className={styles.btn} onClick={handleDeleteProduct}>
+          ❌
+        </button>
       </div>
-      <div>
-        <button onClick={handleClickEditBtn}>🖍</button>
+      <div className={styles.btnDiv}>
+        <button className={styles.btn} onClick={handleClickEditBtn}>
+          🖍
+        </button>
       </div>
     </li>
   );
