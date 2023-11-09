@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
-import styles from './InputBar.module.css';
-const EditInputBar = ({ product, handleEditProduct }) => {
-  const [newProduct, setNewProduct] = useState({
-    ...product,
-  });
+import styles from './ProductForm.module.css';
+
+const ProductForm = ({ product, handleSubmit }) => {
+  const [newProduct, setNewProduct] = useState(
+    product
+      ? { ...product }
+      : {
+          category: '',
+          price: '',
+          stocked: true,
+          name: '',
+        }
+  );
 
   const handleChange = (value, label) => {
     setNewProduct({ ...newProduct, [label]: value });
   };
 
-  const handleClickProductBtn = () => {
-    handleEditProduct(newProduct);
+  const handleClickBtn = () => {
+    handleSubmit(newProduct);
+    setNewProduct({ category: '', price: '', stocked: true, name: '' });
   };
 
   return (
@@ -43,12 +52,12 @@ const EditInputBar = ({ product, handleEditProduct }) => {
         onChange={(e) => handleChange(e.target.value, 'name')}
         placeholder='name...'
       />
-      <button onClick={handleClickProductBtn} type={'button'}>
+      <button onClick={handleClickBtn} type={'button'}>
         {/* type=button이 없을 경우 버튼 누르면 새로고침됨 */}
-        edit prduct!
+        submit
       </button>
     </form>
   );
 };
 
-export default EditInputBar;
+export default ProductForm;

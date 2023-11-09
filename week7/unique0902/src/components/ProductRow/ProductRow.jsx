@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import EditInputBar from '../InputBar/EditInputBar';
+import ProductForm from '../ProductForm/ProductForm';
 import styles from './ProductRow.module.css';
 
 const ProductRow = ({ product, deleteProduct, editProduct }) => {
@@ -18,10 +18,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
     return (
       <li>
         <div>
-          <EditInputBar
-            product={product}
-            handleEditProduct={handleEditProduct}
-          />
+          <ProductForm product={product} handleSubmit={handleEditProduct} />
         </div>
       </li>
     );

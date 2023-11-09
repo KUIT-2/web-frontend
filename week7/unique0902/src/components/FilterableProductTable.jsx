@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import ProductTable from './ProductTable/ProductTable';
-import AddInputBar from './InputBar/AddInputBar';
+import ProductForm from './ProductForm/ProductForm';
 
 const FilterableProductTable = ({ products, setProducts }) => {
   const [filterText, setFilterText] = useState('');
@@ -48,7 +48,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
         deleteProduct={deleteProduct}
         editProduct={editProduct}
       />
-      <AddInputBar addProduct={addProduct} />
+      <ProductForm handleSubmit={addProduct} />
     </div>
   );
 };

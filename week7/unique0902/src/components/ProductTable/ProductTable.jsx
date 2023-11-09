@@ -12,13 +12,13 @@ const ProductTable = ({ products, deleteProduct, editProduct }) => {
   return (
     <div>
       <ProductTableHead />
-      {Object.keys(productsByCategory).map((category) => (
+      {Object.keys(productsByCategory).map((category, index) => (
         <div className={styles.table} key={category}>
           <h3 className={styles.category}>{category}</h3>
           <ul className={styles.list}>
             {productsByCategory[category].map((product) => (
               <ProductRow
-                key={product.name}
+                key={product.name + index + Date.now()}
                 product={product}
                 deleteProduct={deleteProduct}
                 editProduct={editProduct}
