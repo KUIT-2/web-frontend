@@ -3,7 +3,6 @@ import { useState } from 'react';
 import InputBar from './InputBar';
 
 const ProductRow = ({ product, deleteProduct, editProduct }) => {
-  // { category: "Fruits", price: "$1", stocked: true, name: "Apple" }
   const [isEditing, setIsEditing] = useState(false);
   const handleDeleteProduct = () => {
     deleteProduct(product.name);
@@ -16,30 +15,30 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
   };
   if (isEditing) {
     return (
-      <tr>
-        <td colSpan={4}>
+      <li>
+        <div>
           <InputBar
             product={product}
             handleEditProduct={handleEditProduct}
             isEditing={true}
           />
-        </td>
-      </tr>
+        </div>
+      </li>
     );
   }
   return (
-    <tr>
-      <td style={{ color: product.stocked ? 'black' : 'red' }}>
+    <li>
+      <div style={{ color: product.stocked ? 'black' : 'red' }}>
         {product.name}
-      </td>
-      <td>{product.price}</td>
-      <td>
+      </div>
+      <div>{product.price}</div>
+      <div>
         <button onClick={handleDeleteProduct}>❌</button>
-      </td>
-      <td>
+      </div>
+      <div>
         <button onClick={handleClickEditBtn}>🖍</button>
-      </td>
-    </tr>
+      </div>
+    </li>
   );
 };
 

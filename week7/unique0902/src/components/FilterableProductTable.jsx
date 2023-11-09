@@ -16,8 +16,6 @@ const FilterableProductTable = ({ products, setProducts }) => {
 
   const addProduct = (newProduct) => {
     setProducts((previousData) => [...previousData, newProduct]);
-    // products = [{}, {}, {}, {}, ..., {}]
-    // newProducts = [...products, { newProduct }]
   };
   const deleteProduct = (deletedName) => {
     setProducts((previousData) =>
@@ -36,6 +34,14 @@ const FilterableProductTable = ({ products, setProducts }) => {
     );
   };
 
+  const filteredProducts = products.filter((product) => {
+    const nameMatches = product.name
+      .toLowerCase()
+      .includes(filterText.toLowerCase());
+    const stockMatches = !inStockOnly || product.stocked;
+    return nameMatches && stockMatches;
+  });
+
   return (
     <div>
       <SearchBar
@@ -45,9 +51,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
         onInStockOnlyChange={setInStockOnly}
       />
       <ProductTable
-        products={products}
-        filterText={filterText}
-        inStockOnly={inStockOnly}
+        products={filteredProducts}
         deleteProduct={deleteProduct}
         editProduct={editProduct}
       />
