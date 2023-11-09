@@ -1,6 +1,5 @@
 import React from 'react';
-import ProductCategoryRow from './ProductCategoryRow';
-import ProductRow from './ProductRow';
+import ProductRow from './ProductRow/ProductRow';
 
 const ProductTable = ({ products, deleteProduct, editProduct }) => {
   const productsByCategory = products.reduce((acc, product) => {

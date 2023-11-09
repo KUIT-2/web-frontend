@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import EditInputBar from './EditInputBar';
+import EditInputBar from '../InputBar/EditInputBar';
+import styles from './ProductRow.module.css';
 
 const ProductRow = ({ product, deleteProduct, editProduct }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -26,7 +27,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
     );
   }
   return (
-    <li>
+    <li className={styles.li}>
       <div style={{ color: product.stocked ? 'black' : 'red' }}>
         {product.name}
       </div>

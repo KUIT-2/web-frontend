@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from './SearchBar.module.css';
 const SearchBar = ({
   filterText,
   inStockOnly,
@@ -15,9 +15,10 @@ const SearchBar = ({
   };
 
   return (
-    <form>
+    <form className={styles.form}>
       <input
         type={'text'}
+        className={styles.input}
         value={filterText}
         placeholder='Search...'
         onChange={handleTextChange}
