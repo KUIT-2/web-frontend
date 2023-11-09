@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import InputBar from './InputBar';
+import EditInputBar from './EditInputBar';
 
 const ProductRow = ({ product, deleteProduct, editProduct }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -17,10 +17,9 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
     return (
       <li>
         <div>
-          <InputBar
+          <EditInputBar
             product={product}
             handleEditProduct={handleEditProduct}
-            isEditing={true}
           />
         </div>
       </li>

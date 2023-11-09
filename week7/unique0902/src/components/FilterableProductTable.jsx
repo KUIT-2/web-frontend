@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import ProductTable from './ProductTable';
-import InputBar from './InputBar';
+import AddInputBar from './AddInputBar';
 
 const FilterableProductTable = ({ products, setProducts }) => {
   const [filterText, setFilterText] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
-
-  const emptyProduct = {
-    category: '',
-    price: '',
-    stocked: true,
-    name: '',
-  };
 
   const addProduct = (newProduct) => {
     setProducts((previousData) => [...previousData, newProduct]);
@@ -55,11 +48,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
         deleteProduct={deleteProduct}
         editProduct={editProduct}
       />
-      <InputBar
-        product={emptyProduct}
-        addProduct={addProduct}
-        isEditing={false}
-      />
+      <AddInputBar addProduct={addProduct} />
     </div>
   );
 };
