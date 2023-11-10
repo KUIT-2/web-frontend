@@ -17,7 +17,7 @@ const ProductRow = ({ product, deleteProductRow }) => {
     </S.nameTd>
     <S.priceTd>{product.price}</S.priceTd>
     <td>
-      <S.buttonStyle type={"button"} onClick={() => handleDeleteProduct(product)}>✖️</S.buttonStyle>
+      <S.Button type={"button"} onClick={() => handleDeleteProduct(product)}>✖️</S.Button>
       </td>
   </tr>
   );

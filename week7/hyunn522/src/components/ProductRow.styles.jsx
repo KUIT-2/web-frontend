@@ -11,7 +11,7 @@ export const priceTd = styled.td`
     padding: 5px;
 `;
 
-export const buttonStyle = styled.td`
+export const Button = styled.td`
     padding: 0 10px;
     cursor: pointer;
 `;

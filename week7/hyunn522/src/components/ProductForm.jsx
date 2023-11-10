@@ -51,9 +51,9 @@ const ProductForm = ({ addProduct }) => {
                 onChange={(e) => handleChange(e.target.value, "stocked")}
             />
         </div>
-        <button onClick={handleAddNewProduct} type={"button"}>
+        <S.Button onClick={handleAddNewProduct} type={"button"}>
             add new product
-        </button>
+        </S.Button>
     </S.Form>
   )
 }
