@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ProductType } from '../hooks/useProducts';
+import useIsEditing from '../hooks/useIsEditing';
+import useInputFields from '../hooks/useInputFields';
 
 interface ProductRowPropsType {
   product: ProductType;
@@ -13,19 +15,12 @@ export default function ProductRow({
   editProduct,
 }: ProductRowPropsType) {
   const { name, price, stocked } = product;
-  const [isEditing, setIsEditing] = useState(false);
-
-  const [inputFields, setInputFields] = useState({ name: '', price: '' });
-
-  const toggleEditing = () =>
-    setIsEditing((currentIsEditing) => !currentIsEditing);
+  const { isEditing, toggleIsEditing } = useIsEditing();
+  const { inputFields, editInputFields } = useInputFields();
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setInputFields((currentInputFields) => ({
-      ...currentInputFields,
-      [name]: value,
-    }));
+    editInputFields(name, value);
   };
 
   const renderedEditableName = !isEditing ? (
@@ -51,14 +46,14 @@ export default function ProductRow({
   );
 
   const handleFinishEditing = () => {
-    toggleEditing();
+    toggleIsEditing();
 
     const { name, price } = inputFields;
     editProduct({ ...product, name, price });
   };
 
   const renderedEditButton = !isEditing ? (
-    <button type='button' onClick={toggleEditing}>
+    <button type='button' onClick={toggleIsEditing}>
       ✏️
     </button>
   ) : (
