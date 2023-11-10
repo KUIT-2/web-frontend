@@ -1,0 +1,19 @@
+.row {
+    height: 40px;
+}
+
+.btnCol {
+    width: 40px;
+}
+
+.editBtn {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.editBtn:hover {
+    background-color: #ccc;
+}

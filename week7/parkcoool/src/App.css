@@ -1,0 +1,29 @@
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.modalBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    border: none;
+    background-color: #3498db;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}
+
+.modalBtn:hover {
+    background-color: #2980b9;
+}
