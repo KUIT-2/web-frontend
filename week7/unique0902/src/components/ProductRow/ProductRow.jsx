@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import ProductForm from '../ProductForm/ProductForm';
+import EditProductForm from '../ProductForm/EditProductForm';
 import styles from './ProductRow.module.css';
 
 const ProductRow = ({ product, deleteProduct, editProduct }) => {
@@ -18,7 +18,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
     return (
       <li>
         <div>
-          <ProductForm product={product} handleSubmit={handleEditProduct} />
+          <EditProductForm product={product} editProduct={handleEditProduct} />
         </div>
       </li>
     );
