@@ -9,7 +9,9 @@ interface ProductRowProps {
 }
 
 const handleClick = (product: Product, setModalState: React.Dispatch<React.SetStateAction<ModalState>>) => {
-    setModalState((prevState) => ({ ...prevState, enabled: true, product: product } as ModalState));
+    setModalState(
+        (prevState) => ({ ...prevState, title: "Edit Exsiting Item", enabled: true, product: product } as ModalState)
+    );
 };
 
 const ProductRow: React.FC<ProductRowProps> = ({ product, setModalState }) => {

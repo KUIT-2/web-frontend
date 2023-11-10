@@ -7,6 +7,7 @@ export interface Product {
 }
 
 export interface ModalState {
+    title: string;
     enabled: boolean;
     product: Product;
 }

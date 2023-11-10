@@ -38,11 +38,13 @@ const App = () => {
     return (
         <>
             {modalState.enabled && (
-                <Modal product={modalState.product} setProducts={setProducts} setModalState={setModalState} />
+                <Modal ModalState={modalState} setProducts={setProducts} setModalState={setModalState} />
             )}
             <button
                 className="modalBtn"
-                onClick={() => setModalState((prevState) => ({ enabled: true, product: emptyProudct } as ModalState))}
+                onClick={() =>
+                    setModalState({ title: "Add New Item", enabled: true, product: emptyProudct } as ModalState)
+                }
             >
                 +
             </button>
