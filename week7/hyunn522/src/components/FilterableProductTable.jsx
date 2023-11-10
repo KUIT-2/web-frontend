@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SearchBar from './SearchBar'
 import ProductTable from './ProductTable'
-import InputBar from './InputBar';
+import ProductForm from './ProductForm';
 
 const FilterableProductTable = ({ products, setProducts }) => {
   //filterText, inStockOnly를 기준으로 user에게 데이터가 필터링돼서 보여짐
@@ -40,9 +40,8 @@ const FilterableProductTable = ({ products, setProducts }) => {
           onInStockOnlyChange={setInStockOnly}/>
         <ProductTable
           products={filterdProducts}
-          setProducts={setProducts}
-          deleteProduct={deleteProduct}/>
-        <InputBar addProduct={addProduct} />
+          deleteProductRow={deleteProduct}/>
+        <ProductForm addProduct={addProduct} />
     </div>
   );
 };

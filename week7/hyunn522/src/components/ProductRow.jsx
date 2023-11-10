@@ -1,21 +1,23 @@
 import React from 'react'
 
-const ProductRow = ({ product, deleteProduct }) => {
+import * as S from './ProductRow.styles'
+
+const ProductRow = ({ product, deleteProductRow }) => {
   // {category: "Fruits", price: "$1", stocked: true, name: "Apple"}
 
 
   const handleDeleteProduct = (product) => {
-    deleteProduct(product);
+    deleteProductRow(product);
   }
 
   return (
   <tr>
-    <td style={{ color: product.stocked ? "black" : "red" }}>
+    <S.nameTd style={{ color: product.stocked ? "black" : "red" }}>
       {product.name}
-    </td>
-    <td>{product.price}</td>
+    </S.nameTd>
+    <S.priceTd>{product.price}</S.priceTd>
     <td>
-      <button type={"button"} onClick={() => handleDeleteProduct(product)}>✖️</button>
+      <S.buttonStyle type={"button"} onClick={() => handleDeleteProduct(product)}>✖️</S.buttonStyle>
       </td>
   </tr>
   );

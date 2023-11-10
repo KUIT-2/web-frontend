@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
-const InputBar = ({ addProduct }) => {
+import * as S from './ProductForm.styles';
+
+import Input from './Input';
+
+const ProductForm = ({ addProduct }) => {
     const [newProduct, setNewProduct] = useState({
         category: "",
         price: "",
@@ -13,42 +17,45 @@ const InputBar = ({ addProduct }) => {
     }
 
     const handleAddNewProduct = () => {
+        // product 정보가 입력되지 않았을 때 막는 로직
         addProduct(newProduct);
     }
 
 
   return (
-    <form>
-        <input
+    <S.Form>
+        <Input
           type={"text"}
           value={newProduct.category}
           placeholder="category..."
           onChange={(e) => handleChange(e.target.value, "category")} 
         //   onChange={(e) => setNewProduct({...newProduct, category: "changed"})}
         />
-        <input
+        <Input
             type={"text"}
             value={newProduct.price}
             placeholder="price..."
             onChange={(e) => handleChange(e.target.value, "price")}
         />
-        <label>IsStocked</label>
-        <input
-            type={"checkbox"}
-            checked={newProduct.stocked}
-            onChange={(e) => handleChange(e.target.value, "stocked")}
-        />
-        <input
+        <Input
             type={"text"}
             value={newProduct.name}
             placeholder="name..."
             onChange={(e) => handleChange(e.target.value, "name")}
         />
+        <div>
+            <label>IsStocked</label>
+            <input
+                type={"checkbox"}
+                checked={newProduct.stocked}
+                onChange={(e) => handleChange(e.target.value, "stocked")}
+            />
+        </div>
         <button onClick={handleAddNewProduct} type={"button"}>
             add new product
         </button>
-    </form>
+    </S.Form>
   )
 }
 
-export default InputBar
+export default ProductForm;
