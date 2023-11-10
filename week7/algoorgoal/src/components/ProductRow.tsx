@@ -15,55 +15,54 @@ export default function ProductRow({
   const { name, price, stocked } = product;
   const [isEditing, setIsEditing] = useState(false);
 
-  const [newName, setNewName] = useState('');
-  const [newPrice, setNewPrice] = useState('');
+  const [inputFields, setInputFields] = useState({ name: '', price: '' });
 
-  const handleEditModeChange = () =>
+  const toggleEditing = () =>
     setIsEditing((currentIsEditing) => !currentIsEditing);
 
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    label: string
-  ) => {
-    switch (label) {
-      case 'name':
-        setNewName(event.target.value);
-        break;
-      case 'price':
-        setNewPrice(event.target.value);
-        break;
-      default:
-        break;
-    }
+  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setInputFields((currentInputFields) => ({
+      ...currentInputFields,
+      [name]: value,
+    }));
   };
 
   const renderedEditableName = !isEditing ? (
     name
   ) : (
-    <input type='text' onChange={(event) => handleChange(event, 'name')} />
+    <input
+      type='text'
+      name='name'
+      value={inputFields.name}
+      onChange={handleTextChange}
+    />
   );
 
   const renderedEditablePrice = !isEditing ? (
     price
   ) : (
-    <input type='text' onChange={(event) => handleChange(event, 'price')} />
+    <input
+      type='text'
+      name='price'
+      value={inputFields.price}
+      onChange={handleTextChange}
+    />
   );
 
+  const handleFinishEditing = () => {
+    toggleEditing();
+
+    const { name, price } = inputFields;
+    editProduct({ ...product, name, price });
+  };
+
   const renderedEditButton = !isEditing ? (
-    <button type='button' onClick={handleEditModeChange}>
+    <button type='button' onClick={toggleEditing}>
       ✏️
     </button>
   ) : (
-    <button
-      type='button'
-      onClick={() =>
-        editProduct({
-          ...product,
-          name: newName,
-          price: newPrice,
-        })
-      }
-    >
+    <button type='button' onClick={handleFinishEditing}>
       ✅
     </button>
   );
