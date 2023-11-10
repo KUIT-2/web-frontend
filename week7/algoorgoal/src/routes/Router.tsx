@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './Home';
 import Products from './Products';
 

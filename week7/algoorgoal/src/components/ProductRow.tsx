@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProductType } from '../routes/Products';
+import { ProductType } from '../hooks/useProducts';
 
 interface ProductRowPropsType {
   product: ProductType;

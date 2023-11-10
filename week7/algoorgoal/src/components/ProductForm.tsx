@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ProductType } from '../routes/Products';
+import { ProductType } from '../hooks/useProducts';
 import Input from './Input';
 
 import * as S from './ProductForm.styles';

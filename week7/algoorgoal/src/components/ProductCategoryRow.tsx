@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductType } from '../routes/Products';
+import { ProductType } from '../hooks/useProducts';
 
 interface ProductCategoryRowPropsType {
   category: ProductType['category'];

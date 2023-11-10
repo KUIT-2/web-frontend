@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductType, ProductsType } from '../routes/Products';
+import { ProductType, ProductsType } from '../hooks/useProducts';
 import ProductCategoryRow from './ProductCategoryRow';
 import ProductRow from './ProductRow';
 
