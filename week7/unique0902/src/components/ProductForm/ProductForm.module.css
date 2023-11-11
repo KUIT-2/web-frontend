@@ -18,6 +18,7 @@
 }
 .checkbox {
   width: 10%;
+  text-align: center;
 }
 .name {
   width: 30%;
@@ -27,9 +28,10 @@
   background: none;
   padding: 1em 0;
   border-radius: 2em;
-  border: 1px gray solid;
+  border: 1px darkgray solid;
   cursor: pointer;
 }
 .btn:hover {
   background-color: gray;
+  color: white;
 }
