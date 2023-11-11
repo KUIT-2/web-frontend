@@ -28,3 +28,8 @@
 .btn:hover {
   transform: scale(1.1);
 }
+.editForm {
+  display: flex;
+  flex-direction: row;
+  gap: 0.4em;
+}

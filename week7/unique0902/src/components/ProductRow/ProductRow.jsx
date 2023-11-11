@@ -14,11 +14,15 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
   const handleClickEditBtn = () => {
     setIsEditing(true);
   };
+  const handleClickCancelEditBtn = () => {
+    setIsEditing(false);
+  };
   if (isEditing) {
     return (
       <li>
-        <div>
+        <div className={styles.editForm}>
           <EditProductForm product={product} editProduct={handleEditProduct} />
+          <button onClick={handleClickCancelEditBtn}>cancel</button>
         </div>
       </li>
     );
