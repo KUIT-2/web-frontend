@@ -5,6 +5,9 @@
   /* width: 98vw; */
   display: flex;
   flex-direction: row;
+  color: gray;
+  font-size: 1rem;
+  font-weight: 600;
 }
 .name {
   width: 40%;
