@@ -23,15 +23,7 @@
 .name {
   width: 30%;
 }
-.btn {
+.btnWrapper {
   width: 10%;
-  background: none;
   padding: 1em 0;
-  border-radius: 2em;
-  border: 1px darkgray solid;
-  cursor: pointer;
-}
-.btn:hover {
-  background-color: gray;
-  color: white;
 }

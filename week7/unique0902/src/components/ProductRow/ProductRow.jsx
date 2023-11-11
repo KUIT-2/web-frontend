@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import Button from '../Button/Button';
 import EditProductForm from '../ProductForm/EditProductForm';
 import styles from './ProductRow.module.css';
 
@@ -22,7 +23,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
       <li>
         <div className={styles.editForm}>
           <EditProductForm product={product} editProduct={handleEditProduct} />
-          <button onClick={handleClickCancelEditBtn}>cancel</button>
+          <Button handleClick={handleClickCancelEditBtn}>cancel</Button>
         </div>
       </li>
     );

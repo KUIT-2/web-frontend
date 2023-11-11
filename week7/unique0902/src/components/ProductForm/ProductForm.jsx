@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../Button/Button';
 import styles from './ProductForm.module.css';
 
 const ProductForm = ({ product, handleSubmit }) => {
@@ -56,10 +57,9 @@ const ProductForm = ({ product, handleSubmit }) => {
         onChange={(e) => handleChange(e.target.value, 'name')}
         placeholder='name...'
       />
-      <button className={styles.btn} onClick={handleClickBtn} type={'button'}>
-        {/* type=button이 없을 경우 버튼 누르면 새로고침됨 */}
-        submit
-      </button>
+      <div className={styles.btnWrapper}>
+        <Button handleClick={handleClickBtn}>submit</Button>
+      </div>
     </form>
   );
 };
