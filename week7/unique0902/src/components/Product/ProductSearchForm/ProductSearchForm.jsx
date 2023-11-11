@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ProductSearchForm.module.css';
-import SearchBar from '../SearchBar/SearchBar';
+import SearchBar from '../../SearchBar/SearchBar';
 const ProductSearchForm = ({
   filterText,
   inStockOnly,

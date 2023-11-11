@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 import styles from './ProductForm.module.css';
 
 const ProductForm = ({ product, handleSubmit }) => {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import ProductTable from './ProductTable/ProductTable';
-import AddProductForm from './ProductForm/AddProductForm';
+import ProductTable from '../ProductTable/ProductTable';
+import AddProductForm from '../ProductForm/AddProductForm';
 import styles from './FilterableProductTable.module.css';
-import ProductSearchForm from './ProductSearchForm/ProductSearchForm';
+import ProductSearchForm from '../ProductSearchForm/ProductSearchForm';
 const FilterableProductTable = ({ products, setProducts }) => {
   const [filterText, setFilterText] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
