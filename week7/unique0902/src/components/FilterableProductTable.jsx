@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import SearchBar from './SearchBar/SearchBar';
 import ProductTable from './ProductTable/ProductTable';
 import AddProductForm from './ProductForm/AddProductForm';
 import styles from './FilterableProductTable.module.css';
+import ProductSearchForm from './ProductSearchForm/ProductSearchForm';
 const FilterableProductTable = ({ products, setProducts }) => {
   const [filterText, setFilterText] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
@@ -37,7 +37,7 @@ const FilterableProductTable = ({ products, setProducts }) => {
 
   return (
     <div className={styles.wrapper}>
-      <SearchBar
+      <ProductSearchForm
         filterText={filterText}
         inStockOnly={inStockOnly}
         onFilterTextChange={setFilterText}

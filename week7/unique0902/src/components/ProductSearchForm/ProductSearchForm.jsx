@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './SearchBar.module.css';
+import styles from './ProductSearchForm.module.css';
 import { AiOutlineSearch } from 'react-icons/ai';
-const SearchBar = ({
+const ProductSearchForm = ({
   filterText,
   inStockOnly,
   onFilterTextChange,
@@ -39,4 +39,4 @@ const SearchBar = ({
   );
 };
 
-export default SearchBar;
+export default ProductSearchForm;
