@@ -32,7 +32,7 @@ const ProductForm = ({ product, handleSubmit }) => {
         placeholder='category...'
       />
       <input
-        type={'text'}
+        type={'number'}
         className={`${styles.input} ${styles.price}`}
         value={newProduct.price}
         onChange={(e) => handleChange(e.target.value, 'price')}

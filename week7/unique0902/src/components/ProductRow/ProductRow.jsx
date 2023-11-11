@@ -31,7 +31,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
       >
         {product.name}
       </div>
-      <div className={styles.price}>{product.price}</div>
+      <div className={styles.price}>{'$' + product.price}</div>
       <div className={styles.btnDiv}>
         <button className={styles.btn} onClick={handleDeleteProduct}>
           ❌
