@@ -1,10 +1,22 @@
 .input {
   border-radius: 20px;
-  padding: 1em 1em;
+  padding: 1em 1em 1em 2em;
 }
 .form {
   display: flex;
   flex-direction: row;
+  justify-content: right;
   align-items: center;
-  gap: 4px;
+  gap: 1em;
+  padding: 1em;
+}
+.inputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.icon {
+  position: absolute;
+  left: 0.5em;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './SearchBar.module.css';
+import { AiOutlineSearch } from 'react-icons/ai';
 const SearchBar = ({
   filterText,
   inStockOnly,
@@ -16,13 +17,6 @@ const SearchBar = ({
 
   return (
     <form className={styles.form}>
-      <input
-        type={'text'}
-        className={styles.input}
-        value={filterText}
-        placeholder='Search...'
-        onChange={handleTextChange}
-      />
       <label>
         <input
           type={'checkbox'}
@@ -31,6 +25,16 @@ const SearchBar = ({
         />
         Only show products in stock
       </label>
+      <div className={styles.inputWrapper}>
+        <AiOutlineSearch className={styles.icon} />
+        <input
+          type={'search'}
+          className={styles.input}
+          value={filterText}
+          placeholder='Search...'
+          onChange={handleTextChange}
+        />
+      </div>
     </form>
   );
 };
