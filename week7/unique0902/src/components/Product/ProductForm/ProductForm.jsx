@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '../../Button/Button';
+import TextButton from '../../Button/TextButton/TextButton';
 import styles from './ProductForm.module.css';
 
 const ProductForm = ({ product, handleSubmit }) => {
@@ -58,7 +58,7 @@ const ProductForm = ({ product, handleSubmit }) => {
         placeholder='name...'
       />
       <div className={styles.btnWrapper}>
-        <Button handleClick={handleClickBtn}>submit</Button>
+        <TextButton handleClick={handleClickBtn}>submit</TextButton>
       </div>
     </form>
   );

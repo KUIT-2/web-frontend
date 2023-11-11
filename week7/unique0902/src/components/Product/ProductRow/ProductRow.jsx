@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import Button from '../../Button/Button';
+import IconButton from '../../Button/IconButton/IconButton';
+import TextButton from '../../Button/TextButton/TextButton';
 import EditProductForm from '../ProductForm/EditProductForm';
 import styles from './ProductRow.module.css';
 
@@ -23,7 +24,7 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
       <li>
         <div className={styles.editForm}>
           <EditProductForm product={product} editProduct={handleEditProduct} />
-          <Button handleClick={handleClickCancelEditBtn}>cancel</Button>
+          <TextButton handleClick={handleClickCancelEditBtn}>cancel</TextButton>
         </div>
       </li>
     );
@@ -38,14 +39,10 @@ const ProductRow = ({ product, deleteProduct, editProduct }) => {
       </div>
       <div className={styles.price}>{'$' + product.price}</div>
       <div className={styles.btnDiv}>
-        <button className={styles.btn} onClick={handleDeleteProduct}>
-          ❌
-        </button>
+        <IconButton handleClick={handleDeleteProduct}>❌</IconButton>
       </div>
       <div className={styles.btnDiv}>
-        <button className={styles.btn} onClick={handleClickEditBtn}>
-          🖍
-        </button>
+        <IconButton handleClick={handleClickEditBtn}>🖍</IconButton>
       </div>
     </li>
   );
