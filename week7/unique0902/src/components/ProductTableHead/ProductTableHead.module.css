@@ -2,7 +2,7 @@
   width: 20%;
 }
 .ul {
-  width: 98vw;
+  /* width: 98vw; */
   display: flex;
   flex-direction: row;
 }

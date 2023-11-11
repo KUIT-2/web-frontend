@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 98vw;
+  /* width: 98vw; */
   border-bottom: 1px black solid;
 }
 .category {
