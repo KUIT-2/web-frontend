@@ -7,31 +7,31 @@ import Store from "./Store/Store";
 import Cart from "./Cart/Cart";
 
 const Router = () => {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      children: [
+    const router = createBrowserRouter([
         {
-          index: true,
-          element: <Home />,
+            path: "/",
+            children: [
+                {
+                    index: true,
+                    element: <Home />,
+                },
+                {
+                    path: "/store",
+                    element: <Stores />,
+                },
+                {
+                    path: "/store/:storeId",
+                    element: <Store />,
+                },
+                {
+                    path: "/cart",
+                    element: <Cart />,
+                },
+            ],
         },
-        {
-          path: "/store",
-          element: <Stores />,
-        },
-        {
-          path: "/store/:storeId",
-          element: <Store />,
-        },
-        {
-          path: "/cart",
-          element: <Cart />,
-        },
-      ],
-    },
-  ]);
+    ]);
 
-  return <RouterProvider router={router} />;
+    return <RouterProvider router={router} />;
 };
 
 export default Router;
