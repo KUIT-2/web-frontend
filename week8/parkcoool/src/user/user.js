@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 const initialState = {
-    address: "",
+    address: "능동로 120 (건국대학교)",
 };
 
 const useUser = create((set) => ({

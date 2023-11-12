@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./Home.module.css";
 import cateogries from "../../models/categories";
-import useCartStore from "../../store/cartStore";
+import useUser from "../../user/user";
 
 const CategoryBtn = ({ category }) => {
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ const CategoryBtn = ({ category }) => {
 };
 
 const Home = () => {
-    const address = useCartStore((state) => state.address);
+    const address = useUser((state) => state.address);
     return (
         <div>
             <div className="header">

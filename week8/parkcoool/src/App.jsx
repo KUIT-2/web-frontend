@@ -1,3 +1,4 @@
+import React from "react";
 import Router from "./pages";
 import styles from "./App.module.css";
 
