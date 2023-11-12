@@ -1,0 +1,26 @@
+.row {
+    height: 40px;
+}
+
+.btnCol {
+    width: 40px;
+}
+
+.editBtn {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.textBox {
+    height: 2rem;
+    padding: 0 0.5rem;
+    border-radius: 10px;
+}
+
+.editBtn:hover {
+    background-color: #ccc;
+}

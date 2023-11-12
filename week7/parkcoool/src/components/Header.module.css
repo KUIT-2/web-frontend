@@ -1,0 +1,15 @@
+.header {
+    position: sticky;
+    top: 0;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ebebeb;
+}
+
+.title {
+    font-size: 1.5rem;
+}

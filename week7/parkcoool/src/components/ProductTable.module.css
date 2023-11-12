@@ -1,0 +1,11 @@
+.table {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    min-width: 300px;
+    padding: 5px;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
