@@ -58,3 +58,63 @@
     font-size: 14px;
     font-weight: 600;
 }
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px 0 4px 24px;
+    gap: 13px;
+}
+
+.title {
+    color: #191f28;
+    font-family: Pretendard;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.addressBtn {
+    color: #333d4b;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.foodContainer {
+    padding: 70px 24px 0 24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 10px;
+}
+
+.foodBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px;
+    width: 108px;
+    border-radius: 8px;
+    background: #fafafb;
+    border: none;
+    cursor: pointer;
+}
+
+.foodBtn > img {
+    width: 28px;
+    height: 28px;
+}
+
+.foodBtn > span {
+    color: #333d4b;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-weight: 600;
+}
