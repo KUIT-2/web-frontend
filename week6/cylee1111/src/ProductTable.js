@@ -11,7 +11,7 @@ const ProductTable = ({
   let lastCategory = null;
 
   const filteredProducts = products
-    .sort((a, b) => (a.category > b.category ? 1 : -1)) // 카테고리 정렬
+    .sort((a, b) => (a.category > b.category)) // 카테고리 정렬
     .filter((product) => {
       const filterTextMatch = product.name
         .toLowerCase()
