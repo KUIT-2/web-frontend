@@ -20,7 +20,13 @@ const Store = () => {
     }, []);
 
     if (!store) {
-        return <div>가게를 찾을 수 없어요 🥺</div>;
+        return (
+            <div>
+                <div className="header">
+                    <h1>가게를 찾을 수 없어요 🥺</h1>
+                </div>
+            </div>
+        );
     }
 
     return (

@@ -24,7 +24,7 @@ const Home = () => {
     const address = useCartStore((state) => state.address);
     return (
         <div>
-            <div className={styles.header}>
+            <div className="header">
                 <h1 className={styles.title}>오늘은 무엇을 먹을까요?</h1>
                 <button className={styles.addressBtn}>
                     {address}(으)로 배달 {">"}
@@ -36,7 +36,7 @@ const Home = () => {
                 })}
                 <CategoryBtn
                     category={{
-                        id: -1,
+                        id: 0,
                         kor: "더보기",
                         eng: "more",
                     }}

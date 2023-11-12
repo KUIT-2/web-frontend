@@ -1,6 +1,7 @@
 const stores = [
     {
         id: 1,
+        categoryId: 2,
         name: "샐로리 한남점",
         rate: 4.9,
         reviewCnt: 3919,
@@ -41,6 +42,7 @@ const stores = [
     },
     {
         id: 2,
+        categoryId: 2,
         name: "그린가든 강남점",
         rate: 4.7,
         reviewCnt: 2451,
@@ -67,6 +69,7 @@ const stores = [
     },
     {
         id: 3,
+        categoryId: 2,
         name: "헬시키친 홍대입구",
         rate: 4.8,
         reviewCnt: 1784,
