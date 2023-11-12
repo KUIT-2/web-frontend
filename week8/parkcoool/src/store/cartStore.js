@@ -6,8 +6,7 @@ const initialState = {
 };
 
 const useCartStore = create((set) => ({
-    store: initialState.store,
-    menus: initialState.menus,
+    ...initialState,
 
     addMenu: (menu) => {
         set((state) => ({ ...state, menus: [...state.menus, menu] }));
