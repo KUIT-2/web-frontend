@@ -16,7 +16,7 @@ const Router = () => {
                     element: <Home />,
                 },
                 {
-                    path: "/store",
+                    path: "/stores/:categoryId",
                     element: <Stores />,
                 },
                 {
