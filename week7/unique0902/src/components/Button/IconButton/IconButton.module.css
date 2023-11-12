@@ -1,0 +1,9 @@
+.btn {
+  background-color: white;
+  border-radius: 100%;
+  padding: 0.4em;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.1);
+}

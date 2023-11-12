@@ -1,0 +1,29 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 0.5em;
+}
+.input {
+  border-radius: 20px;
+  padding: 1em 1em;
+}
+.category {
+  width: 30%;
+}
+.price {
+  width: 10%;
+  margin-left: 0px;
+}
+.checkbox {
+  width: 10%;
+  text-align: center;
+}
+.name {
+  width: 30%;
+}
+.btnWrapper {
+  width: 10%;
+  padding: 1em 0;
+}

@@ -1,0 +1,29 @@
+.category {
+  width: 20%;
+}
+.ul {
+  /* width: 98vw; */
+  display: flex;
+  flex-direction: row;
+  color: gray;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.name {
+  width: 40%;
+}
+.price {
+  width: 20%;
+}
+.delete,
+.edit {
+  width: 20%;
+  text-align: center;
+}
+.wrapper {
+  width: 80%;
+  padding: 0 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

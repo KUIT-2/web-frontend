@@ -1,0 +1,23 @@
+.table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* width: 98vw; */
+  border-bottom: 1px black solid;
+}
+.category {
+  width: 20%;
+  margin: 0;
+  color: gray;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.list {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px gray solid;
+  padding: 1em 2em;
+  margin: 0;
+  gap: 4px;
+}
