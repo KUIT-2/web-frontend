@@ -3,29 +3,14 @@ import ProductTable from '../ProductTable/ProductTable';
 import AddProductForm from '../ProductForm/AddProductForm';
 import styles from './FilterableProductTable.module.css';
 import ProductSearchForm from '../ProductSearchForm/ProductSearchForm';
-const FilterableProductTable = ({ products, setProducts }) => {
+const FilterableProductTable = ({
+  products,
+  addProduct,
+  deleteProduct,
+  editProduct,
+}) => {
   const [filterText, setFilterText] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
-
-  const addProduct = (newProduct) => {
-    setProducts((previousData) => [...previousData, newProduct]);
-  };
-  const deleteProduct = (deletedName) => {
-    setProducts((previousData) =>
-      previousData.filter((val) => val.name !== deletedName)
-    );
-  };
-  const editProduct = (name, newProduct) => {
-    setProducts((previousData) =>
-      previousData.map((val) => {
-        if (val.name === name) {
-          return newProduct;
-        } else {
-          return val;
-        }
-      })
-    );
-  };
 
   const filteredProducts = products.filter((product) => {
     const nameMatches = product.name
