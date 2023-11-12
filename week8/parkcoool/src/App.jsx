@@ -1,14 +1,9 @@
 import Router from "./pages";
+import styles from "./App.module.css";
 
 function App() {
-    const style = {
-        margin: "0 auto",
-        width: "50vw",
-        minWidth: "320px",
-    };
-
     return (
-        <div style={style}>
+        <div className={styles.app}>
             <Router />
         </div>
     );

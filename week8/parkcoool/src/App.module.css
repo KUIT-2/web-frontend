@@ -1,0 +1,15 @@
+@media (min-width: 768px) {
+    .app {
+        width: 768px;
+    }
+}
+
+@media (max-width: 768px) {
+    .app {
+        width: 100%;
+    }
+}
+
+.app {
+    margin: 0 auto;
+}

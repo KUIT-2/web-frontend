@@ -6,7 +6,7 @@ import useCartStore from "../../store/cartStore";
 const FoodBtn = (food) => {
     const imgPath = food.eng === "more" ? "/img/more.svg" : `/img/${food.eng}.png`;
     return (
-        <button className="foodBtn" key={food.eng}>
+        <button className={styles.foodBtn} key={food.eng}>
             <img src={imgPath} alt={food.kor} />
             <span>{food.kor}</span>
         </button>
@@ -17,13 +17,13 @@ const Home = () => {
     const address = useCartStore((state) => state.address);
     return (
         <div>
-            <div className="header">
-                <h1>오늘은 무엇을 먹을까요?</h1>
-                <button>
+            <div className={styles.header}>
+                <h1 className={styles.title}>오늘은 무엇을 먹을까요?</h1>
+                <button className={styles.addressBtn}>
                     {address}(으)로 배달 {">"}
                 </button>
             </div>
-            <div className="foodContainer">
+            <div className={styles.foodContainer}>
                 {[
                     { eng: "pizza", kor: "피자" },
                     { eng: "salad", kor: "샐러드" },
