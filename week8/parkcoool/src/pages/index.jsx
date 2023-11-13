@@ -6,6 +6,8 @@ import Stores from "./Stores/Stores";
 import Store from "./Store/Store";
 import Cart from "./Cart/Cart";
 
+import OrderBar from "../components/OrderBar/OrderBar";
+
 const Router = () => {
     const router = createBrowserRouter([
         {
@@ -31,7 +33,12 @@ const Router = () => {
         },
     ]);
 
-    return <RouterProvider router={router} />;
+    return (
+        <div>
+            <RouterProvider router={router} />
+            <OrderBar />
+        </div>
+    );
 };
 
 export default Router;

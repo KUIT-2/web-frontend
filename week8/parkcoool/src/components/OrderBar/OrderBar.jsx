@@ -1,5 +1,6 @@
 import React from "react";
 import useCartStore from "../../store/cartStore";
+import styles from "./OrderBar.module.css";
 
 const OrderBar = () => {
     const menus = useCartStore((state) => state.menus);
@@ -7,8 +8,10 @@ const OrderBar = () => {
 
     const handleOrder = () => {};
 
+    if (!store || menus.length === 0) return null;
+
     return (
-        <div>
+        <div className={styles.orderBar}>
             <div>총 주문금액</div>
             <div>{menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0)}원</div>
             <button onClick={handleOrder} type="button">

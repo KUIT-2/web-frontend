@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import MenuItem from "../../components/MenuItem/MenuItem";
-import OrderBar from "../../components/OrderBar/OrderBar";
 import styles from "./Store.module.css";
 
 import stores from "../../models/stores";
@@ -11,9 +10,7 @@ import useCartStore from "../../store/cartStore";
 const Store = () => {
     const { storeId } = useParams();
     const setStore = useCartStore((state) => state.setStore);
-
     const store = stores.find((s) => s.id.toString() === storeId);
-
     useEffect(() => {
         if (store) {
             setStore(store);
@@ -65,7 +62,6 @@ const Store = () => {
                     return <MenuItem key={menu.id} isBest={index === 0} menu={menu} />;
                 })}
             </div>
-            <OrderBar />
         </div>
     );
 };
