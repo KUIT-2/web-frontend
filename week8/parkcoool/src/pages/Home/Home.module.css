@@ -29,6 +29,18 @@
     background: #fafafb;
     border: none;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.categoryBtn:hover {
+    filter: brightness(0.9);
+    transform: scale(1.02);
+}
+
+.categoryBtn:active,
+.categoryBtn:focus {
+    filter: brightness(0.8);
+    transform: scale(0.98);
 }
 
 .categoryBtn > img {

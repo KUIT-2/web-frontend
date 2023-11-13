@@ -21,7 +21,6 @@ const Stores = () => {
     }
 
     const storesInCategory = stores.filter((store) => store.categoryId === category.id);
-    
 
     return (
         <div>
