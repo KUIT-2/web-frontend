@@ -9,6 +9,9 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  height: 100vh;
+  background: url('../asset/cool-background.png');
+  background-size: cover;
 }
 
 ul {
