@@ -33,18 +33,36 @@ const Store = () => {
     return (
         <div>
             <div className="header">
-                <h1>{store.name}</h1>
-            </div>
-            <div clasName={styles.rating}>
-                <span clssName={styles.score}>{store.rate}</span>
-                <span className={styles.review}>리뷰 {store.reviewCnt.toLocaleString()}</span>
-            </div>
-            <div clasName={styles.info}>
-                <p></p>
+                <div className={styles.titleContainer}>
+                    <h1>{store.name}</h1>
+                </div>
+                <div className={styles.ratingContainer}>
+                    <span className={styles.rating}>
+                        <img src="/img/yellow_star.svg" alt="평점"></img>
+                        {store.rate}
+                    </span>
+                    <span className={styles.review}>리뷰 {store.reviewCnt.toLocaleString()}</span>
+                </div>
+                <div className={styles.infoContainer}>
+                    <p>
+                        <span className={styles.key}>결제방법</span>
+                        <span className={styles.value}>{"토스결제만 현장결제 안 됨"}</span>
+                    </p>
+                    <p>
+                        <span className={styles.key}>최소주문</span>
+                        <span className={styles.value}>{store.minDeliveryPrice.toLocaleString()}원</span>
+                    </p>
+                    <p>
+                        <span className={styles.key}>배달시간</span>
+                        <span className={styles.value}>
+                            약 {store.minDeliveryTime}-{store.maxDeliveryTime}분
+                        </span>
+                    </p>
+                </div>
             </div>
             <div>
-                {store.menus.map((menu) => {
-                    return <MenuItem key={menu.id} menu={menu} />;
+                {store.menus.map((menu, index) => {
+                    return <MenuItem key={menu.id} isBest={index === 0} menu={menu} />;
                 })}
             </div>
             <OrderBar />

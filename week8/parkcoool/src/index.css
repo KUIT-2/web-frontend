@@ -12,10 +12,9 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 25px 0 4px 24px;
-    gap: 13px;
 }
 
-.header > h1 {
+.header h1 {
     color: #191f28;
     font-family: Pretendard;
     font-size: 26px;

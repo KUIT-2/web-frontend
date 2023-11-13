@@ -25,10 +25,14 @@ const Home = () => {
     return (
         <div>
             <div className="header">
-                <h1 className={styles.title}>오늘은 무엇을 먹을까요?</h1>
-                <button className={styles.addressBtn}>
-                    {address}(으)로 배달 {">"}
-                </button>
+                <div className={styles.titleContainer}>
+                    <h1 className={styles.title}>오늘은 무엇을 먹을까요?</h1>
+                </div>
+                <div className={styles.addressContainer}>
+                    <button className={styles.addressBtn}>
+                        {address}(으)로 배달 {">"}
+                    </button>
+                </div>
             </div>
             <div className={styles.categoryContainer}>
                 {cateogries.map((category) => {

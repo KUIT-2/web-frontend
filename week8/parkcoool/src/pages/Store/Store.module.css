@@ -1,0 +1,140 @@
+.titleContainer {
+    margin-bottom: 9px;
+}
+
+.ratingContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 21px;
+}
+
+.ratingContainer > .rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: #4e5968;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.ratingContainer > .review {
+    color: #4e5968;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.infoContainer > p {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.infoContainer .key {
+    color: #4e5968;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.infoContainer .value {
+    color: #4e5968;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.menu {
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.menu > .left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.menu > .left > img {
+    border-radius: 50%;
+}
+
+.menu > .left > .info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu > .left > .info > .name {
+    color: #333d4b;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    gap: 6px;
+}
+
+.menu > .left > .info > .name > .best {
+    color: #3182f6;
+}
+
+.menu > .left > .info > .price {
+    color: #6b7684;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.menu > .left > .info > .ingredients {
+    color: #6b7684;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.menu > .addBtn {
+    padding: 8px 14px 8px 15px;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #3182f6;
+    border: none;
+    color: #fff;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu > .addBtn:hover {
+    filter: brightness(0.9);
+}
+
+.menu > .addBtn:active,
+.menu > .addBtn:focus {
+    filter: brightness(0.8);
+}
