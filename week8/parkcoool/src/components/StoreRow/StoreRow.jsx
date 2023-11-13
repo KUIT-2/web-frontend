@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Stores.module.css";
+import styles from "../../pages/Stores/Stores.module.css";
 
 const StoreRow = ({ store, index }) => {
     const navigate = useNavigate();

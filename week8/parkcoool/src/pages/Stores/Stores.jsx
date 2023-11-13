@@ -4,7 +4,7 @@ import styles from "./Stores.module.css";
 
 import categories from "../../models/categories";
 import stores from "../../models/stores";
-import StoreRow from "./StoreRow";
+import StoreRow from "../../components/StoreRow/StoreRow";
 
 const Stores = () => {
     const { categoryId } = useParams();
