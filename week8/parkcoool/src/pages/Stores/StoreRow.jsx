@@ -1,9 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Stores.module.css";
 
 const StoreRow = ({ store, index }) => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(`/store/${store.id}`);
+    };
+
     return (
-        <div className={styles.store} tabIndex="0">
+        <div className={styles.store} onClick={handleClick} tabIndex="0">
             <img src="http://placehold.co/54" alt={store.name}></img>
             <div className={styles.description}>
                 {index <= 2 && <h1>{index + 1}위</h1>}
