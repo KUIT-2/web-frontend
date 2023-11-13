@@ -3,12 +3,19 @@ import ProductTable from '../ProductTable/ProductTable';
 import AddProductForm from '../ProductForm/AddProductForm';
 import styles from './FilterableProductTable.module.css';
 import ProductSearchForm from '../ProductSearchForm/ProductSearchForm';
+import { Product } from '../../../store/type/product';
+type Props = {
+  products: Product[];
+  addProduct: (newProduct: Product) => void;
+  deleteProduct: (deletedName: string) => void;
+  editProduct: (name: string, newProduct: Product) => void;
+};
 const FilterableProductTable = ({
   products,
   addProduct,
   deleteProduct,
   editProduct,
-}) => {
+}: Props) => {
   const [filterText, setFilterText] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
 
@@ -33,7 +40,7 @@ const FilterableProductTable = ({
         deleteProduct={deleteProduct}
         editProduct={editProduct}
       />
-      <AddProductForm addProduct={addProduct} />
+      <AddProductForm product={null} addProduct={addProduct} />
     </div>
   );
 };

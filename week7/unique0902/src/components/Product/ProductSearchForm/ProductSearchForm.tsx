@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import styles from './ProductSearchForm.module.css';
 import SearchBar from '../../SearchBar/SearchBar';
+
+type Props = {
+  filterText: string;
+  inStockOnly: boolean;
+  onFilterTextChange: (text: string) => void;
+  onInStockOnlyChange: (checked: boolean) => void;
+};
+
 const ProductSearchForm = ({
   filterText,
   inStockOnly,
   onFilterTextChange,
   onInStockOnlyChange,
-}) => {
-  const handleTextChange = (e) => {
+}: Props) => {
+  const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     onFilterTextChange(e.target.value);
   };
 
-  const handleCheckboxChange = (e) => {
+  const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     onInStockOnlyChange(e.target.checked);
   };
 

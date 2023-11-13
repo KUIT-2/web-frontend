@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import styles from './SearchBar.module.css';
 import { AiOutlineSearch } from 'react-icons/ai';
 
-export default function SearchBar({ handleChange, value }) {
+type Props = {
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+};
+
+export default function SearchBar({ handleChange, value }: Props) {
   return (
     <div className={styles.inputWrapper}>
       <AiOutlineSearch className={styles.icon} />

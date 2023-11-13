@@ -1,16 +1,23 @@
 import React from 'react';
 import { useState } from 'react';
+import { Product } from '../../../store/type/product';
 import IconButton from '../../Button/IconButton/IconButton';
 import TextButton from '../../Button/TextButton/TextButton';
 import EditProductForm from '../ProductForm/EditProductForm';
 import styles from './ProductRow.module.css';
 
-const ProductRow = ({ product, deleteProduct, editProduct }) => {
+type Props = {
+  product: Product;
+  deleteProduct: (name: string) => void;
+  editProduct: (name: string, newProduct: Product) => void;
+};
+
+const ProductRow = ({ product, deleteProduct, editProduct }: Props) => {
   const [isEditing, setIsEditing] = useState(false);
   const handleDeleteProduct = () => {
     deleteProduct(product.name);
   };
-  const handleEditProduct = (newProduct) => {
+  const handleEditProduct = (newProduct: Product) => {
     editProduct(product.name, newProduct);
   };
   const handleClickEditBtn = () => {

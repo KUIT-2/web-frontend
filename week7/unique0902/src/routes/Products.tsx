@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 
 import FilterableProductTable from '../components/Product/FilterableProductTable/FilterableProductTable';
 import productsReducer from '../hooks/product-reducer';
+import { Product } from '../store/type/product.d';
 
 const Products = () => {
   const [products, dispatch] = useReducer(productsReducer, [
@@ -13,13 +14,13 @@ const Products = () => {
     { category: 'Vegetables', price: '1', stocked: true, name: 'Peas' },
   ]);
 
-  const addProduct = (newProduct) => {
+  const addProduct = (newProduct: Product) => {
     dispatch({ type: 'added', newProduct });
   };
-  const deleteProduct = (deletedName) => {
+  const deleteProduct = (deletedName: string) => {
     dispatch({ type: 'deleted', deletedName });
   };
-  const editProduct = (name, newProduct) => {
+  const editProduct = (name: string, newProduct: Product) => {
     dispatch({ type: 'edited', name, newProduct });
   };
 

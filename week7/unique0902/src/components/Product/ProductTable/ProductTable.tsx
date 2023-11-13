@@ -1,13 +1,28 @@
 import React from 'react';
+import { Product } from '../../../store/type/product';
 import ProductRow from '../ProductRow/ProductRow';
 import ProductTableHead from '../ProductTableHead/ProductTableHead';
 import styles from './ProductTable.module.css';
-const ProductTable = ({ products, deleteProduct, editProduct }) => {
-  const productsByCategory = products.reduce((acc, product) => {
-    acc[product.category] = acc[product.category] || [];
-    acc[product.category].push(product);
-    return acc;
-  }, {});
+
+type Props = {
+  products: Product[];
+  deleteProduct: (name: string) => void;
+  editProduct: (name: string, newProduct: Product) => void;
+};
+
+type ProductsByCategory = {
+  [key: string]: Product[];
+};
+
+const ProductTable = ({ products, deleteProduct, editProduct }: Props) => {
+  const productsByCategory = products.reduce(
+    (acc: ProductsByCategory, product) => {
+      acc[product.category] = acc[product.category] || [];
+      acc[product.category].push(product);
+      return acc;
+    },
+    {}
+  );
 
   return (
     <div>

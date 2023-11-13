@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import { Product } from '../../../store/type/product';
 import TextButton from '../../Button/TextButton/TextButton';
 import styles from './ProductForm.module.css';
 
-const ProductForm = ({ product, handleSubmit }) => {
+// TODO: product 받아오기
+type Props = {
+  product: Product | null;
+  handleSubmit: (newProduct: Product) => void;
+};
+const ProductForm = ({ product, handleSubmit }: Props) => {
   const [newProduct, setNewProduct] = useState(
     product
       ? { ...product }
@@ -14,7 +20,7 @@ const ProductForm = ({ product, handleSubmit }) => {
         }
   );
 
-  const handleChange = (value, label) => {
+  const handleChange = (value: string | boolean, label: string) => {
     setNewProduct({ ...newProduct, [label]: value });
   };
 
