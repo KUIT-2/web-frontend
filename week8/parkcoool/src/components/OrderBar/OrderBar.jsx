@@ -12,9 +12,13 @@ const OrderBar = () => {
 
     return (
         <div className={styles.orderBar}>
-            <div>총 주문금액</div>
-            <div>{menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0)}원</div>
-            <button onClick={handleOrder} type="button">
+            <div className={styles.priceContainer}>
+                <div className={styles.title}>총 주문금액</div>
+                <div className={styles.price}>
+                    {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0).toLocaleString()}원
+                </div>
+            </div>
+            <button onClick={handleOrder} type="button" className={`${styles.orderBtn} primaryBtn`}>
                 {store?.name}에서 주문하기
             </button>
         </div>

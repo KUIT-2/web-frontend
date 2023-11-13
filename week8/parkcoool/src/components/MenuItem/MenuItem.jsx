@@ -22,7 +22,7 @@ const MenuItem = ({ menu, isBest }) => {
                     <p className={styles.ingredients}>{menu.ingredients}</p>
                 </div>
             </div>
-            <button onClick={handleAddMenu} className={styles.addBtn}>
+            <button onClick={handleAddMenu} className={`${styles.addBtn} primaryBtn`}>
                 담기
             </button>
         </div>

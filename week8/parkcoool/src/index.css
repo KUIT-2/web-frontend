@@ -21,3 +21,25 @@ body {
     font-weight: 700;
     margin: 0;
 }
+
+.primaryBtn {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #3182f6;
+    border: none;
+    color: #fff;
+    font-family: Pretendard;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.primaryBtn:hover {
+    filter: brightness(0.9);
+}
+
+.primaryBtn:active,
+.primaryBtn:focus {
+    filter: brightness(0.8);
+}

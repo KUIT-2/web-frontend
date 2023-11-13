@@ -116,25 +116,6 @@
 
 .menu > .addBtn {
     padding: 8px 14px 8px 15px;
-    display: flex;
-    justify-self: center;
-    align-items: center;
-    border-radius: 8px;
-    background: #3182f6;
-    border: none;
-    color: #fff;
-    font-family: Pretendard;
     font-size: 13px;
     font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
-.menu > .addBtn:hover {
-    filter: brightness(0.9);
-}
-
-.menu > .addBtn:active,
-.menu > .addBtn:focus {
-    filter: brightness(0.8);
 }
