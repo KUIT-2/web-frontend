@@ -24,7 +24,9 @@ const Store = () => {
 
   return (
     <div>
-      <BackButton />
+      <header>
+        <BackButton />
+      </header>
       <section>
         <h1>{store.name}</h1>
         <div>

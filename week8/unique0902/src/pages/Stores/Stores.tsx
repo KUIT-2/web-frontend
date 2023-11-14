@@ -5,7 +5,9 @@ import StoreListItem from '../../components/StoreListItem/StoreListItem';
 const Stores = () => {
   return (
     <div>
-      <BackButton />
+      <header>
+        <BackButton />
+      </header>
       <h2>샐러드</h2>
       <StoreListItem />
       <StoreListItem />
