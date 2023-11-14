@@ -1,7 +1,12 @@
-import React from "react";
+import React from 'react';
 
 const Stores = () => {
-  return <div>Stores</div>;
+  return (
+    <div>
+      <button>{'<'}</button>
+      <h2>샐러드</h2>
+    </div>
+  );
 };
 
 export default Stores;

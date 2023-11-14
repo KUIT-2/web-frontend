@@ -1,7 +1,7 @@
-import React from "react";
-
+import React from 'react';
+import { Normalize } from 'styled-normalize';
 const Cart = () => {
-  return <div>Cart</div>;
+  return <div></div>;
 };
 
 export default Cart;
