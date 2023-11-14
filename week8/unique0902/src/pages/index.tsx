@@ -5,11 +5,13 @@ import Home from './Home/Home';
 import Stores from './Stores/Stores';
 import Store from './Store/Store';
 import Cart from './Cart/Cart';
+import Root from './Root/Root';
 
 const Router = () => {
   const router = createBrowserRouter([
     {
       path: '/',
+      element: <Root />,
       children: [
         {
           index: true,
@@ -23,11 +25,11 @@ const Router = () => {
           path: '/store/:storeId',
           element: <Store />,
         },
-        {
-          path: '/cart',
-          element: <Cart />,
-        },
       ],
+    },
+    {
+      path: '/cart',
+      element: <Cart />,
     },
   ]);
 
