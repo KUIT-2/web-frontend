@@ -1,12 +1,12 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import PriceSumFooter from '../../components/PriceSumFooter/PriceSumFooter';
+import { Outlet } from 'react-router-dom';
+import OrderBar from '../../components/OrderBar/OrderBar';
 
 const Root: React.FC = () => {
   return (
     <div>
       <Outlet />
-      <PriceSumFooter />
+      <OrderBar />
     </div>
   );
 };
