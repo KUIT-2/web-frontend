@@ -1,10 +1,10 @@
 import React from 'react';
-import { Normalize } from 'styled-normalize';
+import BackButton from '../../components/Button/BackButton';
 const Cart = () => {
   return (
     <div>
       <header>
-        <button>{'<'}</button>
+        <BackButton />
         <button>주문취소</button>
       </header>
       <section>

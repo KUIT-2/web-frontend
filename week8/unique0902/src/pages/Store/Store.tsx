@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import MenuItem from '../../components/MenuItem/MenuItem';
 
 import stores from '../../models/stores';
 import useCartStore from '../../api/cartStore';
+import BackButton from '../../components/Button/BackButton';
 
 const Store = () => {
   const { storeId } = useParams();
   const setStore = useCartStore((state) => state.setStore);
 
   const store = stores.find((s) => s.id.toString() === storeId);
-
   useEffect(() => {
     if (store) {
       setStore(store);
@@ -24,7 +24,7 @@ const Store = () => {
 
   return (
     <div>
-      <button>{'<'}</button>
+      <BackButton />
       <section>
         <h1>{store.name}</h1>
         <div>
