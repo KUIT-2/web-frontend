@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Back from '../../images/Back.svg';
 
+import { useNavigate } from 'react-router-dom';
+
 const Top = styled.div`
     height: 41px;
     width: 390px;
@@ -28,9 +30,16 @@ const OrderCancel = styled.div`
 `;
 
 const TopBar = () => {
+    const navigate = useNavigate();
+
+    const handleGoBack = () => {
+      // 뒤로가기
+      navigate(-1);
+    };
+
     return (
       <Top>
-        <BackBtn src={Back} alt="back"/>
+        <BackBtn onClick={handleGoBack} src={Back} alt="back"/>
         <OrderCancel>주문취소</OrderCancel>
       </Top>
     );

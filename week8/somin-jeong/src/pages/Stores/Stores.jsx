@@ -6,6 +6,8 @@ import OrderBar from "../../components/OrderBar/OrderBar";
 
 import styled from 'styled-components';
 
+import stores from "../../models/stores";
+
 const Title = styled.div`
   color: #191F28;
   font-family: Pretendard-Bold;
@@ -24,7 +26,9 @@ const Stores = () => {
     <div>
       <TopBar />
       <Title>샐러드</Title>
-      <StoreItem />
+      {stores.map((store) => {
+        return <StoreItem key={store.id} store={store} />
+      })}
       <OrderBar />
     </div>
   )

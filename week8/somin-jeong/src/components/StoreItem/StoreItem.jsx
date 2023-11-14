@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Star from '../../images/Star2.svg';
 
+import { useNavigate } from 'react-router-dom';
+
 const StoreImage = styled.div`
     width: 54px;
     height: 54px;
@@ -57,21 +59,28 @@ const Delivery = styled.div`
     line-height: normal;
 `;
 
-const StoreItem = () => {
-  return (
-    <Store>
-        <StoreImage />
-        <div>
-            <Ranking>1위</Ranking>
-            <StoreName>샐로리 한남점</StoreName>
-            <Review>
-                <ReviewStar src={Star} alt="star" />
-                <ReviewPoint>4.9 (3,919)</ReviewPoint>
-            </Review>
-            <Delivery>13분~30분 ∙ 배달비 2,000원</Delivery>
-        </div>
-    </Store>
-  )
+const StoreItem = ({ store }) => {
+    const navigate = useNavigate();
+
+    const handleEnterStore = () => {
+        navigate(`/store/${store.id}`);
+        console.log("ddd")
+    };
+
+    return (
+        <Store onClick={handleEnterStore} type="button">
+            <StoreImage />
+            <div>
+                <Ranking>{store.ranking}</Ranking>
+                <StoreName>{store.name}</StoreName>
+                <Review>
+                    <ReviewStar src={Star} alt="star" />
+                    <ReviewPoint>{store.rate} ({store.reviewCnt})</ReviewPoint>
+                </Review>
+                <Delivery>{store.minDeliveryTime}~{store.maxDeliveryTime} ∙ 배달비 {store.deliveryFee}원</Delivery>
+            </div>
+        </Store>
+    )
 }
 
 export default StoreItem
