@@ -7,7 +7,7 @@ const Store = styled.div`
   height: 110px
 `;
 
-const StoreImage = styled.div`
+const MenuImage = styled.div`
   box-sizing: border-box;
   border-radius: 27px;
   background: #ECECEC;
@@ -69,7 +69,7 @@ const MenuItem = ({ menu }) => {
 
   return (
     <Store>
-      <StoreImage />
+      <MenuImage />
       <MenuInfo>
         <MenuName>{menu.name}</MenuName>
         <Menu>{menu.price}원</Menu>
