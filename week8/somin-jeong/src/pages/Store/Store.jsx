@@ -8,19 +8,19 @@ import TopBar from "../../components/TopBar/TopBar";
 import stores from "../../models/stores";
 import useCartStore from "../../store/cartStore";
 
+import Star from '../../images/Star.svg';
+
 import styled from 'styled-components';
 
-const Title = styled.h1`
+const Title = styled.div`
   color: #191F28;
   font-family: Pretendard-Bold;
   font-size: 26px;
   line-height: normal;
   display: flex;
-  padding: 26px 225px 2px 24px;
+  padding: 26px 0px 2px 24px;
   align-items: center;
   margin: 0px;
-  width: 141px;
-  height: 31px;
 `;
 
 const Review = styled.div`
@@ -29,6 +29,7 @@ const Review = styled.div`
   height: 38px;
   box-sizing: border-box;
   padding: 6px 230px 12px 23px;
+  align-items: center;
 `;
 
 const ReviewPoint = styled.span`
@@ -49,11 +50,10 @@ const ReviewCount = styled.span`
   padding: 1px 0px 0px 0px;
 `;
 
-const Star = styled.div`
+const StarImage = styled.img`
   width: 18px;
   height: 19px;
-  box-sizing: border-box;
-  padding: 7px 5px 12px 23px;
+  margin-right: 5px;
 `;
 
 const OrderInfo = styled.div`
@@ -70,6 +70,7 @@ const OrderInfo = styled.div`
 const Info = styled.div`
   padding-bottom: 13px;
   border-bottom: 1px solid #E5E8EB;
+  width: 390px;
 `;
 
 const MenuCategory = styled.div`
@@ -101,7 +102,7 @@ const Store = () => {
       <TopBar />
       <Title>{store.name}</Title>
       <Review>
-        <Star src="../../images/Star.svg" alt="star" />
+        <StarImage src={Star} alt="star" />
         <ReviewPoint>4.9</ReviewPoint>
         <ReviewCount>리뷰3,919</ReviewCount>
       </Review>
