@@ -15,7 +15,10 @@ const MenuItem = ({ menu }: Props) => {
 
   return (
     <div>
-      <h3>{menu.name}</h3>
+      <div>
+        <h3>{menu.name}</h3>
+        {menu.isBest && <p>BEST</p>}
+      </div>
       <span>{menu.price}</span>
       <p>{menu.ingredients}</p>
       <button onClick={handleAddMenu} type='button'>
