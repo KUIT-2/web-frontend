@@ -24,6 +24,7 @@ const Store = () => {
 
   return (
     <div>
+      <button>{'<'}</button>
       <section>
         <h1>{store.name}</h1>
         <div>
