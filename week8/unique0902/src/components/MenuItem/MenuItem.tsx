@@ -1,7 +1,12 @@
 import React from 'react';
 import useCartStore from '../../api/cartStore';
+import { Menu } from '../../store/type/menu';
 
-const MenuItem = ({ menu }) => {
+type Props = {
+  menu: Menu;
+};
+
+const MenuItem = ({ menu }: Props) => {
   const addMenu = useCartStore((state) => state.addMenu);
 
   const handleAddMenu = () => {
