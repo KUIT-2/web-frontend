@@ -5,6 +5,8 @@ import Back from '../../images/Back.svg';
 
 import { useNavigate } from 'react-router-dom';
 
+import useCartStore from "../../store/cartStore";
+
 const Top = styled.div`
     height: 41px;
     width: 390px;
@@ -29,7 +31,7 @@ const OrderCancel = styled.div`
     margin: 9px 15px 10px 0px;
 `;
 
-const TopBar = () => {
+const TopBar = ({ subBtn }) => {
     const navigate = useNavigate();
 
     const handleGoBack = () => {
@@ -37,10 +39,14 @@ const TopBar = () => {
       navigate(-1);
     };
 
+    const handleOrderCancel = () => {
+      navigate(`/store`);
+    };
+
     return (
       <Top>
         <BackBtn onClick={handleGoBack} src={Back} alt="back"/>
-        <OrderCancel>주문취소</OrderCancel>
+        <OrderCancel onClick={handleOrderCancel}>{subBtn}</OrderCancel>
       </Top>
     );
   };

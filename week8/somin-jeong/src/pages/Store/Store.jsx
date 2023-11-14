@@ -103,8 +103,8 @@ const Store = () => {
       <Title>{store.name}</Title>
       <Review>
         <StarImage src={Star} alt="star" />
-        <ReviewPoint>4.9</ReviewPoint>
-        <ReviewCount>리뷰3,919</ReviewCount>
+        <ReviewPoint>{store.rate}</ReviewPoint>
+        <ReviewCount>리뷰{store.reviewCnt}</ReviewCount>
       </Review>
       <Info>
         <OrderInfo>
@@ -113,11 +113,11 @@ const Store = () => {
         </OrderInfo>
         <OrderInfo>
           <div>최소주문</div>
-          <div>13,000원</div>
+          <div>{store.minDeliveryPrice}원</div>
         </OrderInfo>
         <OrderInfo>
           <div>배달시간</div>
-          <div>약 15-25분</div>
+          <div>약 {store.minDeliveryTime}-{store.maxDeliveryTime}분</div>
         </OrderInfo>
       </Info>
       <MenuCategory>샐러드</MenuCategory>

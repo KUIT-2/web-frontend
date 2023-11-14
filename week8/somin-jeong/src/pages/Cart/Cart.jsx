@@ -175,14 +175,21 @@ const OrderBtn = styled.div`
 
 const Cart = () => {
   const menus = useCartStore((state) => state.menus);
+  const store = useCartStore((state) => state.store);
+
+  const totalPrice = menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0);
 
   return (
     <div>
-      <TopBar />
+      <TopBar subBtn={"주문취소"}/>
       <OrderStore>
-        <StoreName>샐로리 한남점</StoreName>
-        <PriceLimit>최소금액 미달</PriceLimit>
-        <LimitImg src={Limit} alt="limit" />
+        <StoreName>{store.name}</StoreName>
+        <div>
+          {store.minDeliveryPrice > totalPrice+store.deliveryFee && <PriceLimit>최소금액 미달</PriceLimit> }
+        </div>
+        <div>
+          {store.minDeliveryPrice > totalPrice+store.deliveryFee && <LimitImg src={Limit} alt="limit" /> }
+        </div>
       </OrderStore>
       <div>
         {
@@ -199,19 +206,19 @@ const Cart = () => {
       <BorderWhite />
       <OrderPrice>
         <TextStyle>주문금액</TextStyle>
-        <PriceStyle>10,600원</PriceStyle>
+        <PriceStyle>{totalPrice}원</PriceStyle>
       </OrderPrice>
       <DeliveryPrice>
         <TextStyle>배달요금</TextStyle>
-        <PriceStyle>2,000원</PriceStyle>
+        <PriceStyle>{store.deliveryFee}원</PriceStyle>
       </DeliveryPrice>
       <TotalPay>
         <TotalPriceTextStyle>총 결제금액</TotalPriceTextStyle>
-        <TotalPriceStyle>12,600원</TotalPriceStyle>
+        <TotalPriceStyle>{totalPrice+store.deliveryFee}원</TotalPriceStyle>
       </TotalPay>
       <OrderBar>
-        <LimitPrice>최소 주문금액 13,000원</LimitPrice>
-        <OrderBtn>12,600원 결제하기</OrderBtn>
+        <LimitPrice>최소 주문금액 {store.minDeliveryPrice}원</LimitPrice>
+        <OrderBtn>{totalPrice+store.deliveryFee}원 결제하기</OrderBtn>
       </OrderBar>
     </div>
   );
