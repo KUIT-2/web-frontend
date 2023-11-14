@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-import MenuItem from "../../components/MenuItem/MenuItem";
-import OrderBar from "../../components/OrderBar/OrderBar";
+import MenuItem from '../../components/MenuItem/MenuItem';
+import OrderBar from '../../components/OrderBar/OrderBar';
 
-import stores from "../../models/stores";
-import useCartStore from "../../store/cartStore";
+import stores from '../../models/stores';
+import useCartStore from '../../api/cartStore';
 
 const Store = () => {
   const { storeId } = useParams();

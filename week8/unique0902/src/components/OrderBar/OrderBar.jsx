@@ -1,5 +1,5 @@
-import React from "react";
-import useCartStore from "../../store/cartStore";
+import React from 'react';
+import useCartStore from '../../api/cartStore';
 
 const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
@@ -13,7 +13,7 @@ const OrderBar = () => {
       <div>
         {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0)}원
       </div>
-      <button onClick={handleOrder} type="button">
+      <button onClick={handleOrder} type='button'>
         {store?.name}에서 주문하기
       </button>
     </div>

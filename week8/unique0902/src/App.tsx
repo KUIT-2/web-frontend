@@ -1,5 +1,5 @@
-import Router from "./pages";
-import { Normalize } from "styled-normalize";
+import Router from './pages';
+import { Normalize } from 'styled-normalize';
 
 function App() {
   return (

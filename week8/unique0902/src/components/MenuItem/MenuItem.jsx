@@ -1,5 +1,5 @@
-import React from "react";
-import useCartStore from "../../store/cartStore";
+import React from 'react';
+import useCartStore from '../../api/cartStore';
 
 const MenuItem = ({ menu }) => {
   const addMenu = useCartStore((state) => state.addMenu);
@@ -13,7 +13,7 @@ const MenuItem = ({ menu }) => {
       <h3>{menu.name}</h3>
       <span>{menu.price}</span>
       <p>{menu.ingredients}</p>
-      <button onClick={handleAddMenu} type="button">
+      <button onClick={handleAddMenu} type='button'>
         담기
       </button>
     </div>

@@ -1,30 +1,30 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Home from "./Home/Home";
-import Stores from "./Stores/Stores";
-import Store from "./Store/Store";
-import Cart from "./Cart/Cart";
+import Home from './Home/Home';
+import Stores from './Stores/Stores';
+import Store from './Store/Store';
+import Cart from './Cart/Cart';
 
 const Router = () => {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: '/',
       children: [
         {
           index: true,
           element: <Home />,
         },
         {
-          path: "/store",
+          path: '/store',
           element: <Stores />,
         },
         {
-          path: "/store/:storeId",
+          path: '/store/:storeId',
           element: <Store />,
         },
         {
-          path: "/cart",
+          path: '/cart',
           element: <Cart />,
         },
       ],
