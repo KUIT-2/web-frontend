@@ -32,6 +32,11 @@ const MenuName = styled.span`
   font-family: Pretendard-SemiBold;
   font-size: 17px;
   line-height: normal;
+  margin-right: 6px; 
+`;
+
+const BestMenu = styled.div`
+  display : flex;
 `;
 
 const Menu = styled.span`
@@ -39,6 +44,13 @@ const Menu = styled.span`
   font-family: Pretendard-Medium;
   font-size: 13px;
   font-style: normal;
+  line-height: normal;
+`;
+
+const Best = styled.div`
+  color: #3182F6;
+  font-family: Pretendard-SemiBold;
+  font-size: 17px;
   line-height: normal;
 `;
 
@@ -71,7 +83,12 @@ const MenuItem = ({ menu }) => {
     <Store>
       <MenuImage />
       <MenuInfo>
-        <MenuName>{menu.name}</MenuName>
+        <BestMenu>
+          <MenuName>{menu.name}</MenuName>
+          <div>
+            {menu.isBest && <Best>BEST</Best>}
+          </div>
+        </BestMenu>
         <Menu>{menu.price}원</Menu>
         <Menu>{menu.ingredients}</Menu>
       </MenuInfo>

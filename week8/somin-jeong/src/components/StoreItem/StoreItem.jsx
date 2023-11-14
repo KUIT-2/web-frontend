@@ -64,7 +64,6 @@ const StoreItem = ({ store }) => {
 
     const handleEnterStore = () => {
         navigate(`/store/${store.id}`);
-        console.log("ddd")
     };
 
     return (

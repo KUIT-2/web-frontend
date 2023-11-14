@@ -53,14 +53,14 @@ const Button = styled.div`
     margin: 48px 20px 46px 0px;
 `;
 
-const OrderItem = () => {
+const OrderItem = ({ menu }) => {
   return (
     <Menu>
         <MenuImage />
         <MenuInfo>
-            <MenuName>토마토 샐러드</MenuName>
-            <MenuPrice>추천소스, 채소볼, 베이컨추가, 시저드레싱 추가</MenuPrice>
-            <MenuPrice>10,600원</MenuPrice>
+            <MenuName>{menu.name}</MenuName>
+            <MenuPrice>{menu.ingredients}</MenuPrice>
+            <MenuPrice>{menu.price}원</MenuPrice>
         </MenuInfo>
         <MenuCount>1개</MenuCount>
         <Button>{'>'}</Button>

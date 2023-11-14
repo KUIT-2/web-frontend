@@ -2,6 +2,8 @@ import React from "react";
 import useCartStore from "../../store/cartStore";
 import styled from 'styled-components';
 
+import { useNavigate } from 'react-router-dom';
+
 const OrderBottomBar = styled.div`
   position: fixed;
   bottom: 0;
@@ -57,8 +59,11 @@ const Button = styled.div`
 
 const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
+  const navigate = useNavigate();
 
-  const handleOrder = () => {};
+  const handleOrder = () => {
+    navigate(`/cart`);
+  };
 
   return (
     <OrderBottomBar>

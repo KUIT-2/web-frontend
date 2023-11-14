@@ -8,6 +8,8 @@ import styled from 'styled-components';
 import Plus from '../../images/Plus.svg';
 import Limit from '../../images/PriceLimit.svg';
 
+import useCartStore from "../../store/cartStore";
+
 const OrderStore = styled.div`
   display: flex;
   border-top: 16px solid #F2F4F6;
@@ -144,6 +146,7 @@ const OrderBar = styled.div`
   position: fixed;
   bottom: 0;
   box-sizing: border-box;
+  background: #FFF;
 `;
 
 const LimitPrice = styled.div`
@@ -171,6 +174,8 @@ const OrderBtn = styled.div`
 `;
 
 const Cart = () => {
+  const menus = useCartStore((state) => state.menus);
+
   return (
     <div>
       <TopBar />
@@ -180,7 +185,11 @@ const Cart = () => {
         <LimitImg src={Limit} alt="limit" />
       </OrderStore>
       <div>
-        <OrderItem />
+        {
+          menus.map((menu) => {
+            return <OrderItem key={menu.id} menu={menu} />
+          })
+        }
       </div>
       <MoreInput>
         <MoreInputText>더 담기</MoreInputText>
