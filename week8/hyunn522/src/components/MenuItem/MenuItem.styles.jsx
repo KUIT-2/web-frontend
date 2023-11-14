@@ -5,6 +5,7 @@ const detailStyle = styled.span`
     font-family: "Pretendard-Medium";
     font-size: 13px;
     line-height: normal;
+    margin-top: 5px;
 `;
 
 export const MenuItemContainer = styled.div`
@@ -16,7 +17,6 @@ export const MenuItemImg = styled.img`
     width: 54px;
     height: 54px;
     margin-top: 12px;
-    border: 1px solid #000;
     border-radius: 27px;
     background: #eee;
 `;
@@ -33,13 +33,10 @@ export const MenuItemName = styled.span`
     font-size: 17px;
 `;
 
-export const MenuItemPrice = styled(detailStyle)`
-    margin-top: 5px;
-`;
+export const MenuItemPrice = styled(detailStyle)``;
 
 export const MenuItemDetail = styled(detailStyle)`
     width: 201px;
-    margin-top: 5px;
 `;
 
 export const MenuItemAddBtn = styled.button`

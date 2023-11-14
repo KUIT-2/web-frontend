@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StoreHeader = styled.div`
     display: flex;
-    height: 41px;
     padding: 10px;
     align-items: center;
 `;

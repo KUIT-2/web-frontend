@@ -56,11 +56,11 @@ const Store = () => {
         {store.menus.map((menu) => {
           return <MenuItem key={menu.id} menu={menu} />;
         })}
-        <div style={{"width":"100%","height":"77px"}}></div>
+        <div style={{"width":"100%","height":"77px"}} />
       </div>
       <OrderBar />
     </div>
   )
 }
 
-export default Store
+export default Store;
