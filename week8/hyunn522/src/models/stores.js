@@ -37,6 +37,20 @@ const stores = [
           price: 7600,
           ingredients: "치킨, 고구마, 견과류, 크래배리, 오리엔탈",
         },
+        {
+          id: 5,
+          name: "연어 샐러드",
+          isBest: false,
+          price: 9800,
+          ingredients: "훈제연어 슬라이스, 양상추, 베이비채소, 양파, 케이퍼",
+        },
+        {
+          id: 6,
+          name: "우삼겹 메밀면 샐러드",
+          isBest: false,
+          price: 8900,
+          ingredients: "우삼겹, 메밀면, 오이, 양상추, 호두, 옥수수, 참깨 드레싱",
+        },
       ],
     },
     {
