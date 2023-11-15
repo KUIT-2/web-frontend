@@ -7,6 +7,7 @@ import Store from "./Store/Store";
 import Cart from "./Cart/Cart";
 
 import OrderBar from "../components/OrderBar/OrderBar";
+import Modal from "../components/Modal/Modal";
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -37,6 +38,7 @@ const Router = () => {
         <div>
             <RouterProvider router={router} />
             <OrderBar />
+            <Modal />
         </div>
     );
 };
