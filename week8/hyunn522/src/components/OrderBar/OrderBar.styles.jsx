@@ -15,6 +15,12 @@ export const OrderContainer = styled.div`
     box-shadow: 0px -8px 16px 0px rgba(0, 0, 0, 0.10);
 `;
 
+export const OrderNothing = styled(StoreRate)`
+    margin-top: 16px;
+    margin-left: 24px;
+    align-items: center;
+`;
+
 export const OrderPrice = styled.div`
     display: flex;
     flex-direction: column;
