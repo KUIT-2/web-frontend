@@ -11,7 +11,24 @@ const Cart = () => {
     const handleAddMore = () => {
         navigate(`/store/${store.id}`);
     };
+
     const isEnoughPrice = getTotal() < store.minDeliveryPrice;
+
+    const menuSet = {};
+    // key: menu의 id
+    // value: 기존 menu 정보에 count 속성이 추가된 object
+    menus.forEach((menu) => {
+        if (!(menu.id in menuSet))
+            menuSet[menu.id] = {
+                ...menu,
+                count: 1,
+            };
+        else
+            menuSet[menu.id] = {
+                ...menu,
+                count: menuSet[menu.id].count + 1,
+            };
+    });
 
     return (
         <div>
@@ -25,6 +42,9 @@ const Cart = () => {
                 )}
             </div>
             <div className={styles.itemContainer}>
+                {Object.entries(menuSet).map(([key, value]) => (
+                    <Item key={key} menu={value} />
+                ))}
                 <button className={styles.addMore} onClick={handleAddMore}>
                     더 담기 +
                 </button>
@@ -43,6 +63,23 @@ const Cart = () => {
                     <span>총 결제금액</span>
                     <span>{(getTotal() + store.deliveryFee).toLocaleString()}원</span>
                 </span>
+            </div>
+        </div>
+    );
+};
+
+const Item = ({ menu }) => {
+    return (
+        <div className={styles.item}>
+            <img src="http://placehold.co/54" alt={menu.name}></img>
+            <div className={styles.itemInfo}>
+                <h1>{menu.name}</h1>
+                <p>{menu.ingredients} 추가</p>
+                <p>{(menu.price * menu.count).toLocaleString()}원</p>
+            </div>
+            <div className={styles.itemModify}>
+                <span>{menu.count.toLocaleString()}개</span>
+                <button>{">"}</button>
             </div>
         </div>
     );
