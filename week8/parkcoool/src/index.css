@@ -22,24 +22,36 @@ body {
     margin: 0;
 }
 
-.primaryBtn {
+.primaryBtn,
+.secondaryBtn {
     display: flex;
     justify-self: center;
     align-items: center;
     border-radius: 8px;
-    background: #3182f6;
     border: none;
-    color: #fff;
     font-family: Pretendard;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 
-.primaryBtn:hover {
+.primaryBtn {
+    background: #3182f6;
+    color: #fff;
+}
+
+.secondaryBtn {
+    background: #f2f4f6;
+    color: #505967;
+}
+
+.primaryBtn:hover,
+.secondaryBtn:hover {
     filter: brightness(0.9);
 }
 
 .primaryBtn:active,
-.primaryBtn:focus {
+.primaryBtn:focus,
+.secondaryBtn:active,
+.secondaryBtn:focus {
     filter: brightness(0.8);
 }

@@ -16,5 +16,38 @@
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    padding: 22px;
+}
+
+.modalContent > .title {
+    color: #191f28;
+    font-family: Pretendard;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.modalContent > .description {
+    color: #6b7684;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 22px;
+}
+
+.modalContent > .btnContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 9px;
+}
+
+.modalContent > .btnContainer > button {
+    display: flex;
+    padding: 17px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
 }

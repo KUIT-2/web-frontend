@@ -19,7 +19,7 @@ const Modal = () => {
             <div className={styles.modalContent}>
                 <h1 className={styles.title}>주문서에는 같은 가게만 담을 수 있어요</h1>
                 <p className={styles.description}>새로 담고 이전에 담은 메뉴는 삭제할까요?</p>
-                <div>
+                <div className={styles.btnContainer}>
                     <button type="button" className="secondaryBtn" onClick={handleCancel}>
                         취소
                     </button>
