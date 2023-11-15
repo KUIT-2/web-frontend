@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { IoIosArrowBack } from 'react-icons/io';
 
-export const NavTop = styled.div`
-position:fixed;
-bottom:0;
-display: flex;
-`
+export const Icon = styled(IoIosArrowBack)`
+margin : 15px 0px 0px 7px;  
+font-size: 1.5em;
+  cursor: pointer;
+`;

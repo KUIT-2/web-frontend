@@ -10,13 +10,15 @@ const OrderBar = () => {
 
   return (
     <S.OrderBar>
-      <div>총 주문금액</div>
-      <div>
-        {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0)}원
-      </div>
-      <button onClick={handleOrder} type="button">
-        {store?.name}에서 주문하기
-      </button>
+      <S.OrderBarLeft>
+        <div>총 주문금액</div>
+        <S.Bold>
+          {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0)}원
+        </S.Bold>
+      </S.OrderBarLeft>
+      <S.OrderBarButton onClick={handleOrder} type="button">
+        {store?.name}주문하기
+      </S.OrderBarButton>
     </S.OrderBar>
   );
 };

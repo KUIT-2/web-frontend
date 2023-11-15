@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Icon } from './NavTop.styles';
 
 const NavTop = () => {
 
@@ -10,9 +11,7 @@ const NavTop = () => {
   }
 
   return (
-
-    <img alt='back' onClick={handelBack} src="{week8\ho0010\src\asset\arrowBack.svg}" />
-
+    <Icon alt='back' onClick={handelBack} />
   )
 }
 export default NavTop
