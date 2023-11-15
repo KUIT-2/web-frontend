@@ -118,4 +118,5 @@
     padding: 8px 14px 8px 15px;
     font-size: 13px;
     font-weight: 500;
+    white-space: nowrap;
 }
