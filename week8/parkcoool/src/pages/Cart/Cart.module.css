@@ -1,0 +1,148 @@
+.storeInfo {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.storeInfo > h1 {
+    color: #6b7684;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.storeInfo > .lowPrice {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #f04452;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.itemContainer {
+    width: 100%;
+}
+
+.item {
+    width: 100%;
+    padding: 16px 24px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item > .itemInfo {
+    display: flex;
+    gap: 16px;
+}
+
+.item > .itemInfo > .itemDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item > .itemInfo > .itemDescription > h1 {
+    color: #333d4b;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.item > .itemInfo > .itemDescription > p {
+    color: #6b7684;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.item > .itemModify {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.item > .itemModify > span {
+    color: #6b7684;
+    white-space: nowrap;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.item > .itemModify > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.addMore {
+    width: 100%;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    color: #3182f6;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.addMore:hover {
+    background: #fafafb;
+    filter: brightness(0.9);
+}
+
+.addMore:active,
+.addMore:focus {
+    background: #fafafb;
+    filter: brightness(0.8);
+}
+
+.price > .sub {
+    display: flex;
+    padding: 8px 24px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price > .sub > span:nth-child(1) {
+    color: #8b95a1;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.price > .sub > span:nth-child(2) {
+    color: #505967;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.price > .total {
+    display: flex;
+    padding: 16px 24px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price > .total > span:nth-child(1) {
+    color: #4e5968;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.price > .total > span:nth-child(2) {
+    color: #4e5968;
+    font-family: Pretendard;
+    font-size: 17px;
+    font-weight: 500;
+}

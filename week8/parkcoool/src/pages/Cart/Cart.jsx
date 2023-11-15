@@ -50,11 +50,11 @@ const Cart = () => {
                 </button>
             </div>
             <div className={styles.price}>
-                <span>
+                <span className={styles.sub}>
                     <span>주문금액</span>
                     <span>{getTotal().toLocaleString()}원</span>
                 </span>
-                <span>
+                <span className={styles.sub}>
                     <span>배달요금</span>
                     <span>{store.deliveryFee.toLocaleString()}원</span>
                 </span>
@@ -71,15 +71,19 @@ const Cart = () => {
 const Item = ({ menu }) => {
     return (
         <div className={styles.item}>
-            <img src="http://placehold.co/54" alt={menu.name}></img>
             <div className={styles.itemInfo}>
-                <h1>{menu.name}</h1>
-                <p>{menu.ingredients} 추가</p>
-                <p>{(menu.price * menu.count).toLocaleString()}원</p>
+                <img src="http://placehold.co/54" alt={menu.name}></img>
+                <div className={styles.itemDescription}>
+                    <h1>{menu.name}</h1>
+                    <p>{menu.ingredients} 추가</p>
+                    <p>{(menu.price * menu.count).toLocaleString()}원</p>
+                </div>
             </div>
             <div className={styles.itemModify}>
                 <span>{menu.count.toLocaleString()}개</span>
-                <button>{">"}</button>
+                <button>
+                    <img src="/img/arrow.svg" alt={menu.name}></img>
+                </button>
             </div>
         </div>
     );
