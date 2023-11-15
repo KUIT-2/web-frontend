@@ -7,7 +7,6 @@ const OrderBar = () => {
     const store = useCartStore((state) => state.store);
 
     const handleOrder = () => {};
-
     if (!store || menus.length === 0) return null;
 
     return (

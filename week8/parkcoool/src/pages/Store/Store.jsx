@@ -52,7 +52,7 @@ const Store = () => {
             </div>
             <div>
                 {store.menus.map((menu, index) => {
-                    return <MenuItem key={menu.id} isBest={index === 0} menu={menu} />;
+                    return <MenuItem key={menu.id} isBest={index === 0} store={store} menu={menu} />;
                 })}
             </div>
         </div>

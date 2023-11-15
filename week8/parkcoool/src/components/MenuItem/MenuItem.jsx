@@ -3,8 +3,8 @@ import useCartStore from "../../store/cartStore";
 import styles from "../../pages/Store/Store.module.css";
 
 const MenuItem = ({ store, menu, isBest }) => {
-    const addMenu = useCartStore((state) => state.addMenu);
     const setStore = useCartStore((state) => state.setStore);
+    const addMenu = useCartStore((state) => state.addMenu);
 
     const handleAddMenu = () => {
         setStore(store);
