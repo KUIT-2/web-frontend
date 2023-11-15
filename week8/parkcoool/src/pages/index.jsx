@@ -1,5 +1,5 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Home from "./Home/Home";
 import Stores from "./Stores/Stores";
@@ -10,36 +10,17 @@ import OrderBar from "../components/OrderBar/OrderBar";
 import Modal from "../components/Modal/Modal";
 
 const Router = () => {
-    const router = createBrowserRouter([
-        {
-            path: "/",
-            children: [
-                {
-                    index: true,
-                    element: <Home />,
-                },
-                {
-                    path: "/stores/:categoryId",
-                    element: <Stores />,
-                },
-                {
-                    path: "/store/:storeId",
-                    element: <Store />,
-                },
-                {
-                    path: "/cart",
-                    element: <Cart />,
-                },
-            ],
-        },
-    ]);
-
     return (
-        <div>
-            <RouterProvider router={router} />
+        <BrowserRouter>
             <OrderBar />
             <Modal />
-        </div>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/stores/:categoryId" element={<Stores />} />
+                <Route path="/store/:storeId" element={<Store />} />
+                <Route path="/cart" element={<Cart />} />
+            </Routes>
+        </BrowserRouter>
     );
 };
 

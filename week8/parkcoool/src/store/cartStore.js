@@ -52,6 +52,15 @@ const useCartStore = create((set) => ({
             }));
         }
     },
+
+    getTotal: () => {
+        let total = 0;
+        set((state) => {
+            total = state.menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0);
+            return state;
+        });
+        return total;
+    },
 }));
 
 export default useCartStore;
