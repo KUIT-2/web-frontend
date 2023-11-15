@@ -92,6 +92,7 @@
     font-family: Pretendard;
     font-size: 17px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .addMore:hover {
