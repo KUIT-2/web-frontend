@@ -37,6 +37,12 @@ const useCartStore = create((set) => ({
   setStore: (store) => {
     set((state) => ({ ...state, store: store }));
   },
+  clearMenus: () => {
+    set((state) => ({ ...state, menus: [], menuCounts: {} }));
+  },
+  clearStore: () => {
+    set((state) => ({ ...state, store: undefined }));
+  }
 }));
 
 export default useCartStore;

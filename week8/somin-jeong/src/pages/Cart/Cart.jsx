@@ -184,16 +184,22 @@ const Cart = () => {
 
   const totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * menuCounts[currentMenu.id]), 0);
 
+  if (!store) {
+    return <div>메뉴를 먼저 담아주세요 🥺</div>;
+  }
+
   return (
     <div>
       <TopBar subBtn={"주문취소"}/>
       <OrderStore>
-        <StoreName>{store.name}</StoreName>
         <div>
-          {store.minDeliveryPrice > totalPrice+store.deliveryFee && <PriceLimit>최소금액 미달</PriceLimit> }
+          <StoreName>{store.name}</StoreName>
         </div>
         <div>
-          {store.minDeliveryPrice > totalPrice+store.deliveryFee && <LimitImg src={Limit} alt="limit" /> }
+          { store.minDeliveryPrice > totalPrice+store.deliveryFee && <PriceLimit>최소금액 미달</PriceLimit> }
+        </div>
+        <div>
+          { store.minDeliveryPrice > totalPrice+store.deliveryFee && <LimitImg src={Limit} alt="limit" /> }
         </div>
       </OrderStore>
       <div>
