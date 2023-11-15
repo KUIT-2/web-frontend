@@ -10,11 +10,16 @@ const MenuItem = ({ menu }) => {
         addMenu(menu);
     };
 
+    const bestMenu = menu.isBest;
+
     return (
         <S.MenuItemContainer>
             <S.MenuItemImg></S.MenuItemImg>
             <S.MenuItemDesc>
-                <S.MenuItemName>{menu.name}</S.MenuItemName>
+                <S.MenuItemHeader>
+                    <S.MenuItemName>{menu.name}</S.MenuItemName>
+                    {bestMenu ? <S.MenuItemBest>BEST</S.MenuItemBest> : ''}
+                </S.MenuItemHeader>
                 <S.MenuItemPrice>{menu.price}</S.MenuItemPrice>
                 <S.MenuItemDetail>{menu.ingredients}</S.MenuItemDetail>
             </S.MenuItemDesc>

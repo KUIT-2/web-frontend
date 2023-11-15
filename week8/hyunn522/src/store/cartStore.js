@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 const initialState = {
-    store: undefined,
+    store: '',
     menus: []
 }
 

@@ -27,8 +27,17 @@ export const MenuItemDesc = styled.div`
     flex-direction: column;
 `;
 
+export const MenuItemHeader = styled.div``;
+
 export const MenuItemName = styled.span`
     color: #333D4B;
+    font-family: "Pretendard-SemiBold";
+    font-size: 17px;
+`;
+
+export const MenuItemBest = styled.span`
+    margin-left: 6px;
+    color: #3182F6;
     font-family: "Pretendard-SemiBold";
     font-size: 17px;
 `;
