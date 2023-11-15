@@ -5,11 +5,16 @@ import styles from "./Cart.module.css";
 import useCartStore from "../../store/cartStore";
 
 const Cart = () => {
-    const { store, menus, getTotal } = useCartStore((state) => state);
+    const { store, menus, getTotal, reset } = useCartStore((state) => state);
     const navigate = useNavigate();
 
     const handleAddMore = () => {
         navigate(`/store/${store.id}`);
+    };
+    const handlePurchase = () => {
+        alert(`${getTotal().toLocaleString()}원 결제 완료`);
+        reset();
+        navigate("/");
     };
 
     const isEnoughPrice = getTotal() < store.minDeliveryPrice;
@@ -58,11 +63,16 @@ const Cart = () => {
                     <span>배달요금</span>
                     <span>{store.deliveryFee.toLocaleString()}원</span>
                 </span>
-
                 <span className={styles.total}>
                     <span>총 결제금액</span>
                     <span>{(getTotal() + store.deliveryFee).toLocaleString()}원</span>
                 </span>
+            </div>
+            <div className={styles.order}>
+                <p>최소 주문금액 {store.minDeliveryPrice.toLocaleString()}원</p>
+                <button className={`primaryBtn ${styles.orderBtn}`} onClick={handlePurchase} disabled={isEnoughPrice}>
+                    {getTotal().toLocaleString()}원 결제하기
+                </button>
             </div>
         </div>
     );

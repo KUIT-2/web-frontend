@@ -34,6 +34,16 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
+.primaryBtn:not(:disabled),
+.secondaryBtn:not(:disabled) {
+    cursor: pointer;
+}
+
+.primaryBtn:disabled,
+.secondaryBtn:disabled {
+    cursor: not-allowed;
+}
+
 .primaryBtn {
     background: #3182f6;
     color: #fff;
@@ -44,14 +54,14 @@ body {
     color: #505967;
 }
 
-.primaryBtn:hover,
-.secondaryBtn:hover {
+.primaryBtn:hover:not(:disabled),
+.secondaryBtn:hover:not(:disabled) {
     filter: brightness(0.9);
 }
 
-.primaryBtn:active,
-.primaryBtn:focus,
-.secondaryBtn:active,
-.secondaryBtn:focus {
+.primaryBtn:active:not(:disabled),
+.primaryBtn:focus:not(:disabled),
+.secondaryBtn:active:not(:disabled),
+.secondaryBtn:focus:not(:disabled) {
     filter: brightness(0.8);
 }

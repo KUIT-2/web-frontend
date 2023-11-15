@@ -53,6 +53,10 @@ const useCartStore = create((set) => ({
         }
     },
 
+    reset: () => {
+        set(initialState);
+    },
+
     getTotal: () => {
         let total = 0;
         set((state) => {
