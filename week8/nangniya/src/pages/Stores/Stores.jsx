@@ -1,56 +1,21 @@
 import React from "react";
 import stores from "../../models/stores";
-import styled from "styled-components";
+import * as S from "./Stores.styles";
 import { Link } from "react-router-dom";
-
-const Wrapper = styled.div`
-  display: flex;
-  height: 116px;
-  padding: 20px;
-  gap: 15px;
-`;
-const StoreImage = styled.div`
-  border-radius: 10px;
-  background-color: #ececec;
-  width: 64px;
-  height: 64px;
-`;
-const StoreBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-  p {
-    margin: 2px 0;
-    display: flex;
-    align-items: center;
-  }
-  span {
-    color: #6b7684;
-    font-size: 12px;
-  }
-`;
-
-const FoodMenu = styled.div`
-  display: flex;
-  align-items: flex-end;
-  height: 59px;
-  padding: 0 20px;
-  font-weight: bold;
-  font-size: 20px;
-`;
+import OrderBar from "../../components/OrderBar/OrderBar";
 
 const Stores = () => {
   return (
-    <>
-      <FoodMenu>샐러드</FoodMenu>
+    <S.Container>
+      <S.FoodCategory>샐러드</S.FoodCategory>
       {stores.map((store) => (
         <Link
           to={`/store/${store.id}`}
           style={{ textDecoration: "none", color: "inherit" }}
         >
-          <Wrapper key={store.id}>
-            <StoreImage />
-            <StoreBox>
+          <S.Wrapper key={store.id}>
+            <S.StoreImage />
+            <S.StoreBox>
               <p>{store.id}위</p>
               <p>{store.name}</p>
               <p>
@@ -64,11 +29,12 @@ const Stores = () => {
                 </span>
                 •<span>배달비 {store.deliveryFee}원</span>
               </p>
-            </StoreBox>
-          </Wrapper>
+            </S.StoreBox>
+          </S.Wrapper>
         </Link>
       ))}
-    </>
+      <OrderBar />
+    </S.Container>
   );
 };
 
