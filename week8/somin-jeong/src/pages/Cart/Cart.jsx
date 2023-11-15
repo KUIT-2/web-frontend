@@ -173,11 +173,16 @@ const OrderBtn = styled.div`
   bottom: 0;
 `;
 
+const BottemPadding = styled.div`
+  height: 100px;
+`;
+
 const Cart = () => {
   const menus = useCartStore((state) => state.menus);
   const store = useCartStore((state) => state.store);
+  const menuCounts = useCartStore((state) => state.menuCounts);
 
-  const totalPrice = menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0);
+  const totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * menuCounts[currentMenu.id]), 0);
 
   return (
     <div>
@@ -216,6 +221,7 @@ const Cart = () => {
         <TotalPriceTextStyle>총 결제금액</TotalPriceTextStyle>
         <TotalPriceStyle>{totalPrice+store.deliveryFee}원</TotalPriceStyle>
       </TotalPay>
+      <BottemPadding></BottemPadding>
       <OrderBar>
         <LimitPrice>최소 주문금액 {store.minDeliveryPrice}원</LimitPrice>
         <OrderBtn>{totalPrice+store.deliveryFee}원 결제하기</OrderBtn>

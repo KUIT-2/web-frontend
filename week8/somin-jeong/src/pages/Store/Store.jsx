@@ -81,6 +81,10 @@ const MenuCategory = styled.div`
   line-height: normal;
 `;
 
+const BottemPadding = styled.div`
+  height: 77px;
+`;
+
 const Store = () => {
   const { storeId } = useParams();
   const setStore = useCartStore((state) => state.setStore);
@@ -126,6 +130,7 @@ const Store = () => {
           return <MenuItem key={menu.id} menu={menu} />;
         })}
       </div>
+      <BottemPadding></BottemPadding>
       <OrderBar />
     </div>
   );

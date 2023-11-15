@@ -21,6 +21,10 @@ const Title = styled.div`
   height: 31px;
 `;
 
+const BottemPadding = styled.div`
+  height: 77px;
+`;
+
 const Stores = () => {
   return (
     <div>
@@ -29,6 +33,7 @@ const Stores = () => {
       {stores.map((store) => {
         return <StoreItem key={store.id} store={store} />
       })}
+      <BottemPadding></BottemPadding>
       <OrderBar />
     </div>
   )
