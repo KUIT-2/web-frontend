@@ -7,8 +7,8 @@ border-top-left-radius : 0.4em;
 border-top-right-radius : 0.4em;
 bottom:0px;
 box-shadow: 0px -2px 4px -2px black ;
-width:300px;
-height:60px;
+width:390px;
+height:80px;
 background-color:#ffffff;
 `
 
@@ -16,8 +16,8 @@ export const OrderBarLeft = styled.div`
 display:flex;
 flex-direction:column;
 padding:10px;
-gap:5px;
-font-size: 10px;
+gap:5px;    
+font-size: 15px;
 
 `
 export const OrderBarButton = styled.button`

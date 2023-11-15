@@ -17,7 +17,7 @@ const OrderBar = () => {
         </S.Bold>
       </S.OrderBarLeft>
       <S.OrderBarButton onClick={handleOrder} type="button">
-        {store?.name}주문하기
+        주문하기
       </S.OrderBarButton>
     </S.OrderBar>
   );

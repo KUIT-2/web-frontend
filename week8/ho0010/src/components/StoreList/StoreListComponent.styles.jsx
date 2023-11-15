@@ -28,6 +28,6 @@ font-weight : bold;
 
 export const TextRate = styled.div`
 color: #6B7684;
-font-size : 0.7em;
+font-size : 0.8em;
 
 `
