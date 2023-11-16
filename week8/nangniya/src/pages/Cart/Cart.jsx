@@ -39,7 +39,7 @@ const Cart = () => {
       <Header isCartPage={true} />
       <S.StoreTitle>
         <h3>{store.name}</h3>
-        {totalPrice < store.minDeliveryPrice ? (
+        {totalPrice + store.deliveryFee < store.minDeliveryPrice ? (
           <span>
             최소금액 미달
             <Warning />
