@@ -4,7 +4,7 @@ import StoreListItem from '../../components/StoreListItem/StoreListItem';
 
 const Stores = () => {
   return (
-    <div>
+    <React.Fragment>
       <header>
         <BackButton />
       </header>
@@ -12,7 +12,7 @@ const Stores = () => {
       <StoreListItem />
       <StoreListItem />
       <StoreListItem />
-    </div>
+    </React.Fragment>
   );
 };
 
