@@ -11,6 +11,7 @@ export const MenuItemInformDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 400px;
 `;
 export const MenuItemNameSect = styled.section`
   display: flex;
