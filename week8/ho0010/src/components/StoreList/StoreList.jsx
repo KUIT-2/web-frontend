@@ -16,3 +16,4 @@ const StoreList = () => {
 }
 
 export default StoreList;
+

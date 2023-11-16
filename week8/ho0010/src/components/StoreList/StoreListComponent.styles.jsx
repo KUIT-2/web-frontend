@@ -4,6 +4,7 @@ export const StoreListComponent = styled.div`
 margin : 16px;
 display: flex;
 
+
 `
 export const StoreImg = styled.div`
     background-color : #E2E2E2;

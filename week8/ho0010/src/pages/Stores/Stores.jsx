@@ -3,7 +3,6 @@ import NavTop from "../../components/Nav/NavTop";
 import StoresCategory from "../../components/StoreList/StoresCategory";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import StoreList from "../../components/StoreList/StoreList";
-
 const Stores = () => {
   return (
     <div>
@@ -11,12 +10,13 @@ const Stores = () => {
       <StoresCategory />
       <StoreList />
       <OrderBar />
-    </div>
 
+    </div>
   )
 };
 
 export default Stores;
+
 
 
 

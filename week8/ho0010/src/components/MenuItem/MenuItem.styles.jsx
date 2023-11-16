@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const MenuListComponent = styled.div`
-margin:30px;
+margin:15px;
 display:flex;
 width:390px;
 height:110px;
+align-items:center;
 `
 export const MenuImg = styled.div`
 background-color : #E2E2E2;
@@ -18,7 +19,9 @@ export const MenuText = styled.div`
 display :flex;
 flex-direction : column;
 margin-left : 20px;
+width:230px;
 gap:4px;
+justify-items:center;
 `
 export const MenuName = styled.div`
 font-weight: bold;
@@ -49,5 +52,8 @@ height:32px;
 color: #ffffff;
 font-size:12px;
 border:none;
-
+`
+export const ImgContainer = styled.div`
+display:flex;
+align-items:center;
 `

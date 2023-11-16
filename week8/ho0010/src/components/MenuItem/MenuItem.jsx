@@ -10,7 +10,9 @@ const MenuItem = ({ menu }) => {
 
   return (
     <S.MenuListComponent>
-      <S.MenuImg />
+      <S.ImgContainer>
+        <S.MenuImg />
+      </S.ImgContainer>
       <S.MenuText>
         <S.MenuName>{menu.name}</S.MenuName>
         <S.MenuPrice>{menu.price}원</S.MenuPrice>

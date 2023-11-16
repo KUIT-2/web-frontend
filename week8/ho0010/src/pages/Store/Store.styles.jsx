@@ -8,6 +8,7 @@ margin:20px;
 font-weight: 600;
 width:390px;
 
+
 `;
 
 export const StoreInfText = styled.div`
