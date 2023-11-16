@@ -14,9 +14,9 @@ const CartMenuItem: React.FC<Props> = ({ menu }: Props) => {
     <MenuItemSec>
       <StoreItemImg src='' alt='' />
       <MenuItemInformDiv>
-        <ItemName>토마토 샐러드</ItemName>
-        <ItemInform>추천소스, 채소볼, 베이컨추가, 시저드레싱 추가</ItemInform>
-        <ItemInform>10600원</ItemInform>
+        <ItemName>{menu.name}</ItemName>
+        <ItemInform>{menu.ingredients}</ItemInform>
+        <ItemInform>{menu.price}원</ItemInform>
       </MenuItemInformDiv>
       <ItemInform>1개</ItemInform>
       <OrderIconWrapper>
