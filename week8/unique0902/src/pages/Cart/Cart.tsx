@@ -1,12 +1,10 @@
 import React from 'react';
 import BackButton from '../../components/Button/BackButton';
-import { ItemInform, ItemName } from '../../styles/ItemStyle';
 import {
   CartCancelBtn,
   CartHeader,
   OrderAddMoreBtn,
   OrderHeaderWrapper,
-  OrderIconWrapper,
   OrderWarningMinPrice,
   OrderSect,
   OrderStoreText,
@@ -20,16 +18,8 @@ import {
   OrderFooterText,
   OrderFooter,
 } from './Cart.styles';
-import {
-  AiOutlineRight,
-  AiOutlinePlus,
-  AiOutlineExclamationCircle,
-} from 'react-icons/ai';
-import { StoreItemImg } from '../../components/StoreListItem/StoreListItem.styles';
-import {
-  MenuItemInformDiv,
-  MenuItemSec,
-} from '../../components/MenuItem/MenuItem.styles';
+import { AiOutlinePlus, AiOutlineExclamationCircle } from 'react-icons/ai';
+
 import useCartStore from '../../api/cartStore';
 import CartMenuItem from '../../components/CartMenuItem/CartMenuItem';
 const Cart = () => {
@@ -61,20 +51,34 @@ const Cart = () => {
       <OrderPriceSumSect>
         <OrderPriceRowSect>
           <OrderPriceTitle>주문금액</OrderPriceTitle>
-          <OrderPriceText>10600원</OrderPriceText>
+          <OrderPriceText>
+            {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0)}원
+          </OrderPriceText>
         </OrderPriceRowSect>
         <OrderPriceRowSect>
           <OrderPriceTitle>배달요금</OrderPriceTitle>
-          <OrderPriceText>2000원</OrderPriceText>
+          <OrderPriceText>{store?.deliveryFee}원</OrderPriceText>
         </OrderPriceRowSect>
         <OrderPriceRowSect>
           <OrderTotalPriceTitle>총 결제금액</OrderTotalPriceTitle>
-          <OrderTotalPriceText>12600원</OrderTotalPriceText>
+          <OrderTotalPriceText>
+            {store
+              ? menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) +
+                store.deliveryFee
+              : 0}
+            원
+          </OrderTotalPriceText>
         </OrderPriceRowSect>
       </OrderPriceSumSect>
       <OrderFooter>
         <OrderFooterText>최소 주문금액 130000원</OrderFooterText>
-        <OrderFooterBtn>12600원 결제하기</OrderFooterBtn>
+        <OrderFooterBtn>
+          {store
+            ? menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) +
+              store.deliveryFee
+            : 0}
+          원 결제하기
+        </OrderFooterBtn>
       </OrderFooter>
     </React.Fragment>
   );
