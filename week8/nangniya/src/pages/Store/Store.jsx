@@ -1,24 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import * as S from "./Store.styles";
-
 import MenuItem from "../../components/MenuItem/MenuItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
-
 import stores from "../../models/stores";
-import useCartStore from "../../store/cartStore";
+import Header from "../../components/Header/Header";
 
 const Store = () => {
   const { storeId } = useParams();
-  const setStore = useCartStore((state) => state.setStore);
-
   const store = stores.find((s) => s.id.toString() === storeId);
-
-  // useEffect(() => {
-  //   if (store) {
-  //     setStore(store);
-  //   }
-  // }, []);
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -26,6 +16,7 @@ const Store = () => {
 
   return (
     <S.Container>
+      <Header />
       <div>
         <S.StoreInfo>
           <h1>{store.name}</h1>

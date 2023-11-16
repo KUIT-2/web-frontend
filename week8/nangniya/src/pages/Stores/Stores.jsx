@@ -3,10 +3,12 @@ import stores from "../../models/stores";
 import * as S from "./Stores.styles";
 import { Link } from "react-router-dom";
 import OrderBar from "../../components/OrderBar/OrderBar";
+import Header from "../../components/Header/Header";
 
 const Stores = () => {
   return (
     <S.Container>
+      <Header />
       <S.FoodCategory>샐러드</S.FoodCategory>
       {stores.map((store) => (
         <Link
