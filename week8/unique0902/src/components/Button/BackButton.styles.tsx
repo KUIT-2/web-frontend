@@ -5,8 +5,10 @@ export const Button = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   &:hover {
     color: #8b939e;
   }
+  margin-left: 0.5em;
+  margin-top: 0.5em;
 `;

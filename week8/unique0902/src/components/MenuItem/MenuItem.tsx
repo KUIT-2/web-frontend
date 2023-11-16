@@ -15,12 +15,15 @@ const MenuItem = ({ menu }: Props) => {
 
   return (
     <div>
+      <img src='' alt='' />
       <div>
-        <h3>{menu.name}</h3>
-        {menu.isBest && <p>BEST</p>}
+        <div>
+          <h3>{menu.name}</h3>
+          {menu.isBest && <p>BEST</p>}
+        </div>
+        <span>{menu.price}</span>
+        <p>{menu.ingredients}</p>
       </div>
-      <span>{menu.price}</span>
-      <p>{menu.ingredients}</p>
       <button onClick={handleAddMenu} type='button'>
         담기
       </button>
