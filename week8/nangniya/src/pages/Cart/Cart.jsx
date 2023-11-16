@@ -4,6 +4,7 @@ import styled from "styled-components";
 import useCartStore from "../../store/cartStore";
 import { ReactComponent as Warning } from "../../images/warning.svg";
 import Button from "../../components/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   margin-top: 40px;
@@ -32,18 +33,12 @@ const BottomBox = styled.div`
   }
 `;
 
-const CartBoxWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-top: 16px solid #ececec;
-  border-bottom: 16px solid #ececec;
-  padding: 20px;
-`;
-
 const StoreTitle = styled.div`
   display: flex;
   justify-content: space-between;
   font-weight: bold;
+  border-top: 16px solid #ececec;
+  padding: 20px;
   h3 {
     color: #6b7684;
   }
@@ -56,7 +51,7 @@ const StoreTitle = styled.div`
 const CartBox = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 20px;
 `;
 
 const MenuImage = styled.div`
@@ -109,9 +104,17 @@ const AddMore = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-top: 1px solid #ececec;
+  color: #3182f6;
+  font-weight: bold;
+  font-size: 17px;
+  border-bottom: 16px solid #ececec;
+  padding: 20px;
+  height: 80px;
 `;
 
 const Cart = () => {
+  const navigate = useNavigate();
   const store = useCartStore((state) => state.store);
   const menus = useCartStore((state) => state.menus);
   const totalPrice = menus.reduce(
@@ -129,28 +132,32 @@ const Cart = () => {
   return (
     <Container>
       <Header isCartPage={true} />
-      <CartBoxWrapper>
-        <StoreTitle>
-          <h3>{store.name}</h3>
-          {totalPrice < store.minDeliveryPrice ? (
-            <span>
-              최소금액 미달
-              <Warning />
-            </span>
-          ) : null}
-        </StoreTitle>
-        {menus.map((menu) => (
-          <CartBox>
-            <MenuImage />
-            <MenuInfo>
-              <h3>{menu.name}</h3>
-              <span>{menu.ingredients}</span>
-              <span>{menu.price.toLocaleString()}원</span>
-            </MenuInfo>
-          </CartBox>
-        ))}
-        <AddMore></AddMore>
-      </CartBoxWrapper>
+      <StoreTitle>
+        <h3>{store.name}</h3>
+        {totalPrice < store.minDeliveryPrice ? (
+          <span>
+            최소금액 미달
+            <Warning />
+          </span>
+        ) : null}
+      </StoreTitle>
+      {menus.map((menu) => (
+        <CartBox>
+          <MenuImage />
+          <MenuInfo>
+            <h3>{menu.name}</h3>
+            <span>{menu.ingredients}</span>
+            <span>{menu.price.toLocaleString()}원</span>
+          </MenuInfo>
+        </CartBox>
+      ))}
+      <AddMore
+        onClick={() => {
+          navigate(`/store/${store.id}`);
+        }}
+      >
+        더 담기 +
+      </AddMore>
       <OrderInfo>
         <p className="individual-info">
           <span>주문금액</span>
