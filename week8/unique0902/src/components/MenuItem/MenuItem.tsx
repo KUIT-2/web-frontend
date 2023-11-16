@@ -1,6 +1,7 @@
 import React from 'react';
 import useCartStore from '../../api/cartStore';
 import { Menu } from '../../store/type/menu';
+import { Store } from '../../store/type/store';
 import { ItemBest, ItemInform, ItemName } from '../../styles/ItemStyle';
 import PrimaryBtn from '../Button/PrimaryBtn/PrimaryBtn';
 import {
@@ -12,13 +13,16 @@ import {
 
 type Props = {
   menu: Menu;
+  store: Store;
 };
 
-const MenuItem = ({ menu }: Props) => {
+const MenuItem = ({ menu, store }: Props) => {
   const addMenu = useCartStore((state) => state.addMenu);
+  const setStore = useCartStore((state) => state.setStore);
 
   const handleAddMenu = () => {
-    addMenu(menu);
+    addMenu(menu, store.id);
+    setStore(store);
   };
 
   return (
