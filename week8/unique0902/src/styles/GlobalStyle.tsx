@@ -16,6 +16,10 @@ const globalStyles = createGlobalStyle`
     a {
         text-decoration:none;
     }
+    button {
+        border:none;
+        background:none;
+    }
 `;
 
 export default globalStyles;
