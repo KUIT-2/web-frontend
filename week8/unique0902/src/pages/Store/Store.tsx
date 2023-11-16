@@ -46,7 +46,9 @@ const Store = () => {
           <StarWrapper>
             <AiFillStar />
           </StarWrapper>
-          <p>별 4.9 리뷰 3,919</p>
+          <p>
+            별 {store.rate} 리뷰 {store.reviewCnt}
+          </p>
         </StoreReviewWrapper>
 
         <StoreInformWrapper>
@@ -56,11 +58,13 @@ const Store = () => {
           </StoreInformRow>
           <StoreInformRow>
             <StoreInformText>최소주문</StoreInformText>
-            <StoreInformText>13000원</StoreInformText>
+            <StoreInformText>{store.minDeliveryPrice}원</StoreInformText>
           </StoreInformRow>
           <StoreInformRow>
             <StoreInformText>배달시간</StoreInformText>
-            <StoreInformText>약 15~25분</StoreInformText>
+            <StoreInformText>
+              약 {store.minDeliveryTime}~{store.maxDeliveryTime}분
+            </StoreInformText>
           </StoreInformRow>
         </StoreInformWrapper>
       </section>
