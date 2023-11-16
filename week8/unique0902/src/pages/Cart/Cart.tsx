@@ -30,7 +30,12 @@ import {
   MenuItemInformDiv,
   MenuItemSec,
 } from '../../components/MenuItem/MenuItem.styles';
+import useCartStore from '../../api/cartStore';
+import CartMenuItem from '../../components/CartMenuItem/CartMenuItem';
 const Cart = () => {
+  const store = useCartStore((state) => state.store);
+  const menus = useCartStore((state) => state.menus);
+
   return (
     <React.Fragment>
       <CartHeader>
@@ -45,20 +50,10 @@ const Cart = () => {
             <AiOutlineExclamationCircle />
           </OrderWarningMinPrice>
         </OrderHeaderWrapper>
-        <MenuItemSec>
-          <StoreItemImg src='' alt='' />
-          <MenuItemInformDiv>
-            <ItemName>토마토 샐러드</ItemName>
-            <ItemInform>
-              추천소스, 채소볼, 베이컨추가, 시저드레싱 추가
-            </ItemInform>
-            <ItemInform>10600원</ItemInform>
-          </MenuItemInformDiv>
-          <ItemInform>1개</ItemInform>
-          <OrderIconWrapper>
-            <AiOutlineRight />
-          </OrderIconWrapper>
-        </MenuItemSec>
+        {menus.map((menu) => (
+          <CartMenuItem menu={menu} key={menu.id} />
+        ))}
+
         <OrderAddMoreBtn>
           더 담기 <AiOutlinePlus />
         </OrderAddMoreBtn>

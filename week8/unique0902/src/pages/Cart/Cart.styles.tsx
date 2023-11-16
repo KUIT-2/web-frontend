@@ -131,11 +131,12 @@ export const OrderTotalPriceText = styled(OrderPriceText)`
 `;
 
 export const OrderFooter = styled.footer`
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
   display: flex;
   flex-direction: column;
+  background-color: white;
   align-items: center;
   padding: 20px;
   gap: 20px;
