@@ -8,19 +8,39 @@ import {
 } from './StoreListItem.styles';
 
 type Props = {
+  id: number;
+  name: string;
+  rate: number;
+  reviewCnt: number;
+  deliveryFee: number;
+  minDeliveryTime: number;
+  maxDeliveryTime: number;
   ranking?: string;
 };
 
-const StoreListItem: React.FC<Props> = ({ ranking }: Props) => {
+const StoreListItem: React.FC<Props> = ({
+  id,
+  name,
+  rate,
+  reviewCnt,
+  deliveryFee,
+  minDeliveryTime,
+  maxDeliveryTime,
+  ranking,
+}: Props) => {
   return (
-    <Link to={'1'}>
+    <Link to={`${id}`}>
       <StoreItemWrapper>
         <StoreItemImg src='' alt='' />
         <StoreItemDescriptionWrapper>
           {ranking && <ItemName>{ranking}</ItemName>}
-          <ItemName>셀로리 한남점</ItemName>
-          <ItemInform>✨4.9(3,919)</ItemInform>
-          <ItemInform>13분~30분.배달비 2,000원</ItemInform>
+          <ItemName>{name}</ItemName>
+          <ItemInform>
+            ✨{rate}({reviewCnt})
+          </ItemInform>
+          <ItemInform>
+            {minDeliveryTime}분~{maxDeliveryTime}분.배달비 {deliveryFee}원
+          </ItemInform>
         </StoreItemDescriptionWrapper>
       </StoreItemWrapper>
     </Link>
