@@ -6,6 +6,7 @@ import MenuItem from '../../components/MenuItem/MenuItem';
 import stores from '../../models/stores';
 import useCartStore from '../../api/cartStore';
 import BackButton from '../../components/Button/BackButton';
+import { PageTitle, PageTitleSect } from '../../styles/PageStyle';
 
 const Store = () => {
   const { storeId } = useParams();
@@ -28,7 +29,9 @@ const Store = () => {
         <BackButton />
       </header>
       <section>
-        <h1>{store.name}</h1>
+        <PageTitleSect>
+          <PageTitle>{store.name}</PageTitle>
+        </PageTitleSect>
         <div>
           <p>별 4.9 리뷰 3,919</p>
         </div>
