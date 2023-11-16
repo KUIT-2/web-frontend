@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const BackBtn = styled.button`
   color: #191f28;
   background: none;
   border: none;
@@ -9,6 +9,6 @@ export const Button = styled.button`
   &:hover {
     color: #8b939e;
   }
-  margin-left: 0.5em;
-  margin-top: 0.5em;
+  margin-left: 10px;
+  margin-top: 10px;
 `;

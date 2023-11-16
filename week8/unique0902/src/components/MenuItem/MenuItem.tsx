@@ -1,6 +1,7 @@
 import React from 'react';
 import useCartStore from '../../api/cartStore';
 import { Menu } from '../../store/type/menu';
+import PrimaryBtn from '../Button/PrimaryBtn/PrimaryBtn';
 
 type Props = {
   menu: Menu;
@@ -24,9 +25,7 @@ const MenuItem = ({ menu }: Props) => {
         <span>{menu.price}</span>
         <p>{menu.ingredients}</p>
       </div>
-      <button onClick={handleAddMenu} type='button'>
-        담기
-      </button>
+      <PrimaryBtn handleClick={handleAddMenu}>담기</PrimaryBtn>
     </div>
   );
 };
