@@ -2,6 +2,15 @@ import React from 'react';
 import useCartStore from '../../api/cartStore';
 import { Menu } from '../../store/type/menu';
 import PrimaryBtn from '../Button/PrimaryBtn/PrimaryBtn';
+import {
+  MenuItemBest,
+  MenuItemImg,
+  MenuItemInformDiv,
+  MenuItemName,
+  MenuItemNameSect,
+  MenuItemNormalInform,
+  MenuItemSec,
+} from './MenuItem.styles';
 
 type Props = {
   menu: Menu;
@@ -15,18 +24,18 @@ const MenuItem = ({ menu }: Props) => {
   };
 
   return (
-    <div>
-      <img src='' alt='' />
-      <div>
-        <div>
-          <h3>{menu.name}</h3>
-          {menu.isBest && <p>BEST</p>}
-        </div>
-        <span>{menu.price}</span>
-        <p>{menu.ingredients}</p>
-      </div>
+    <MenuItemSec>
+      <MenuItemImg src='' alt='' />
+      <MenuItemInformDiv>
+        <MenuItemNameSect>
+          <MenuItemName>{menu.name}</MenuItemName>
+          {menu.isBest && <MenuItemBest>BEST</MenuItemBest>}
+        </MenuItemNameSect>
+        <MenuItemNormalInform>{menu.price}</MenuItemNormalInform>
+        <MenuItemNormalInform>{menu.ingredients}</MenuItemNormalInform>
+      </MenuItemInformDiv>
       <PrimaryBtn handleClick={handleAddMenu}>담기</PrimaryBtn>
-    </div>
+    </MenuItemSec>
   );
 };
 
