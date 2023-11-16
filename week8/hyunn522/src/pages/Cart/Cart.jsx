@@ -1,37 +1,90 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import stores from "../../models/stores";
 import useCartStore from '../../store/cartStore';
+import CartOrderItem from '../../components/CartOrderItem/CartOrderItem';
 
 import * as S from './Cart.styles';
-import icon from '../../img/icon-arrow-back.svg';
+import back from '../../img/icon-arrow-back.svg';
+import warning from '../../img/icon-warning.svg';
+import plus from '../../img/icon-plus.svg';
 
 const Cart = () => {
   // const { storeId } = useParams();
-  const setStore = useCartStore((state) => state.setStore);
   const store = useCartStore((state) => state.store);
+  const menus = useCartStore((state) => state.menus);
+  const totalPrice = useCartStore((state) => state.totalPrice);
 
-  // const store = stores.find((s) => s.id.toString() === useCartStore.store);
+  const storeLink = '/store/' + store.id;
+  const homeLink = '/home';
+  const sum = totalPrice + store.deliveryFee;
+
+  const setStore = useCartStore((state) => state.setStore);
+  const setInitialized = useCartStore((state) => state.setInitialized);
+
+  const handleCancelOrder = () => {
+    setInitialized();
+    
+    console.log("주문취소")
+  };
 
   useEffect(() => {
     if(store) {
       setStore(store);
     }
-  },[]);
+  },[])
   
   return (
     <div>
       <S.CartHeader>
-        <img src={icon} style={{"width":"24px","height":"24px"}}></img>
-        <S.CartCancel>주문취소</S.CartCancel>
+        <Link to={storeLink}>
+          <img src={back} style={{"width":"24px","height":"24px"}} />
+        </Link>
+        <Link to={homeLink}>
+          <S.CartCancel onClick={handleCancelOrder}>주문취소</S.CartCancel>
+        </Link>
       </S.CartHeader>
       <div style={{"width":"100%","height":"16px","background":"#F2F4F6"}} />
-      <S.CartCategory>
+      <S.CartOrderCategory>
         <S.CartStore>{store.name}</S.CartStore>
-      </S.CartCategory>
+        {totalPrice < store.minDeliveryPrice ? (
+          <S.CartPriceWarning>
+            <S.CartPriceLimitLabel>최소금액 미달</S.CartPriceLimitLabel>
+            <S.CartPriceLimitIcon src={warning} /></S.CartPriceWarning>
+        ) : (<></>)}
+      </S.CartOrderCategory>
+      {menus.map((menu) => {
+          return <CartOrderItem key={menu.id} menu={menu} />;
+        })}
+      <Link to={storeLink} style={{"textDecoration":"none","display": "flex","justifyContent": "center","alignItems":"center","padding": "20px 0px"}}>
+        <S.CartAddBtn>더 담기</S.CartAddBtn>
+        <img src={plus} style={{"width":"16px","height":"16px", "marginLeft": "3px"}} />
+      </Link>
+      <div style={{"width":"100%","height":"16px","background":"#F2F4F6"}} />
+      <div>
+        <S.CartOrderPriceBar>
+          <S.CartOrderPriceLabel>주문금액</S.CartOrderPriceLabel>
+          <S.CartOrderPrice>{totalPrice}원</S.CartOrderPrice>
+        </S.CartOrderPriceBar>
+        <S.CartOrderPriceBar>
+          <S.CartOrderPriceLabel>배달요금</S.CartOrderPriceLabel>
+          <S.CartOrderPrice>{store.deliveryFee}원</S.CartOrderPrice>
+        </S.CartOrderPriceBar>
+        <S.CartOrderSum>
+          <S.CartOrderSumLabel>총 결제금액</S.CartOrderSumLabel>
+          <S.CartOrderSumLabel>{sum}원</S.CartOrderSumLabel>
+        </S.CartOrderSum>
+      </div>
+      <S.CartCtaBar>
+        {totalPrice < store.minDeliveryPrice ? (<>
+            <S.CartCtaLabel>최소 주문금액 {store.minDeliveryPrice}원</S.CartCtaLabel>
+            <S.CartCtaNotBuy>{sum}원 결제하기</S.CartCtaNotBuy></>
+          ) : (
+            <S.CartCtaDoBuy>{sum}원 결제하기</S.CartCtaDoBuy>
+          )}
+      </S.CartCtaBar>
     </div>
   )
 }
 
-export default Cart
+export default Cart;

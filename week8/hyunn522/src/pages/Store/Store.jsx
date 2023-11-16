@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import stores from "../../models/stores";
 import MenuItem from '../../components/MenuItem/MenuItem';
@@ -28,7 +28,9 @@ const Store = () => {
   return (
     <div>
       <S.StoreHeader>
-        <img src={icon} style={{"width":"24px","height":"24px"}}></img>
+        <Link to='/store'>
+          <img src={icon} style={{"width":"24px","height":"24px"}}></img>
+        </Link>
       </S.StoreHeader>
       <S.StoreName>{store.name}</S.StoreName>
       <S.StoreReview>

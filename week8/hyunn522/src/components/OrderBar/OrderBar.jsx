@@ -2,6 +2,7 @@ import React from 'react'
 import useCartStore from '../../store/cartStore';
 
 import * as S from './OrderBar.styles';
+import { Link } from 'react-router-dom';
 
 const OrderBar = () => {
   // const menus = useCartStore((state => state.menus));
@@ -23,9 +24,11 @@ const OrderBar = () => {
           <S.OrderText>총 주문금액</S.OrderText>
           <S.OrderTotalPrice>{totalPrice}원</S.OrderTotalPrice>
       </S.OrderPrice>
-      <S.OrderBtn onClick={handleOrder} type="button">
-          주문하기
-      </S.OrderBtn></>
+      <Link to='/cart'>
+        <S.OrderBtn onClick={handleOrder} type="button">
+            주문하기
+        </S.OrderBtn>
+      </Link></>
       )}
     </S.OrderContainer>
   )

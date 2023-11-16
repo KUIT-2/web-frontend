@@ -16,7 +16,7 @@ export const OrderContainer = styled.div`
 `;
 
 export const OrderNothing = styled(StoreRate)`
-    margin-top: 16px;
+    display: flex;
     margin-left: 24px;
     align-items: center;
 `;

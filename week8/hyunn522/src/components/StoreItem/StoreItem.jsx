@@ -1,10 +1,13 @@
 import React from 'react'
 
 import * as S from "../StoreItem/StoreItem.styles";
+import { Link } from 'react-router-dom';
 
 const StoreItem = ({ store }) => {
+    const link = '/store/' + store.id;
 
     return (
+        <Link to={link} style={{"textDecoration":"none"}}>
         <S.StoreItemContainer>
             <S.StoreItemImg></S.StoreItemImg>
             <S.StoreItemDesc>
@@ -19,6 +22,7 @@ const StoreItem = ({ store }) => {
                 </S.StoreItemDetail>
             </S.StoreItemDesc>
         </S.StoreItemContainer>
+        </Link>
     )
 }
 

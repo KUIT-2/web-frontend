@@ -4,11 +4,17 @@ import useCartStore from '../../store/cartStore';
 import * as S from './MenuItem.styles';
 
 const MenuItem = ({ menu }) => {
+    const store = useCartStore((state) => state.store);
+
     const addMenu = useCartStore((state) => state.addMenu);
-    
+    const calTotalPrice = useCartStore((state) => state.calTotalPrice);
+    const setStore = useCartStore((state) => state.setStore);
 
     const handleAddMenu = () => {
+        setStore(store);
+        // if(store === '없음') { console.log(store); setStore(store); }
         addMenu(menu);
+        calTotalPrice(menu);
     };
 
     const bestMenu = menu.isBest;
