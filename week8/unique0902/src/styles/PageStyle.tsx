@@ -12,3 +12,8 @@ export const PageTitleSect = styled.section`
   padding-left: 24px;
   padding-top: 26px;
 `;
+export const PageFlexRowDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
