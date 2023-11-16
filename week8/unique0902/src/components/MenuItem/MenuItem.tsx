@@ -1,14 +1,12 @@
 import React from 'react';
 import useCartStore from '../../api/cartStore';
 import { Menu } from '../../store/type/menu';
+import { ItemBest, ItemInform, ItemName } from '../../styles/ItemStyle';
 import PrimaryBtn from '../Button/PrimaryBtn/PrimaryBtn';
 import {
-  MenuItemBest,
   MenuItemImg,
   MenuItemInformDiv,
-  MenuItemName,
   MenuItemNameSect,
-  MenuItemNormalInform,
   MenuItemSec,
 } from './MenuItem.styles';
 
@@ -28,11 +26,11 @@ const MenuItem = ({ menu }: Props) => {
       <MenuItemImg src='' alt='' />
       <MenuItemInformDiv>
         <MenuItemNameSect>
-          <MenuItemName>{menu.name}</MenuItemName>
-          {menu.isBest && <MenuItemBest>BEST</MenuItemBest>}
+          <ItemName>{menu.name}</ItemName>
+          {menu.isBest && <ItemBest>BEST</ItemBest>}
         </MenuItemNameSect>
-        <MenuItemNormalInform>{menu.price}</MenuItemNormalInform>
-        <MenuItemNormalInform>{menu.ingredients}</MenuItemNormalInform>
+        <ItemInform>{menu.price}</ItemInform>
+        <ItemInform>{menu.ingredients}</ItemInform>
       </MenuItemInformDiv>
       <PrimaryBtn handleClick={handleAddMenu}>담기</PrimaryBtn>
     </MenuItemSec>
