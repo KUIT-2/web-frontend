@@ -12,6 +12,10 @@ const globalStyles = createGlobalStyle`
     *{
         box-sizing:border-box;
     }
+
+    a {
+        text-decoration:none;
+    }
 `;
 
 export default globalStyles;

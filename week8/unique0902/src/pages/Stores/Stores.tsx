@@ -9,7 +9,7 @@ const Stores = () => {
         <BackButton />
       </header>
       <h2>샐러드</h2>
-      <StoreListItem />
+      <StoreListItem ranking='1위' />
       <StoreListItem />
       <StoreListItem />
     </React.Fragment>
