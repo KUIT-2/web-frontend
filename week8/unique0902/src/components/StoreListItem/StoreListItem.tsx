@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Store } from '../../store/type/store';
 import { ItemInform, ItemName } from '../../styles/ItemStyle';
+import { rounded } from '../../styles/Theme';
 import RoundedImg from '../Img/RoundedImg';
 import {
   StoreItemDescriptionWrapper,
@@ -20,7 +21,7 @@ const StoreListItem: React.FC<Props> = ({ store, ranking }: Props) => {
         <RoundedImg
           src={`${store.img ? `${store.img}` : ''}`}
           alt=''
-          rounded='rounded-100'
+          rounded={rounded.small}
         />
         <StoreItemDescriptionWrapper>
           {ranking && <ItemName>{ranking}</ItemName>}

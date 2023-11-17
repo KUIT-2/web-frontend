@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { PageFlexRowDiv } from '../../styles/PageStyle';
+import { color } from '../../styles/Theme';
 
 export const PrimaryButton = styled.button<{ $isActivated: boolean }>`
   border: none;
@@ -21,7 +22,7 @@ export const CartHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 10px;
-  border-bottom: 16px #f2f4f6 solid;
+  border-bottom: 16px ${color.border} solid;
 `;
 
 export const OrderHeaderWrapper = styled(PageFlexRowDiv)`
@@ -30,7 +31,7 @@ export const OrderHeaderWrapper = styled(PageFlexRowDiv)`
 `;
 
 export const OrderStoreText = styled.h3`
-  color: #6b7684;
+  color: ${color.gray_500};
   font-family: Pretendard;
   font-size: 17px;
   font-style: normal;
@@ -38,7 +39,7 @@ export const OrderStoreText = styled.h3`
   line-height: normal;
 `;
 export const OrderWarningMinPrice = styled(PageFlexRowDiv)`
-  color: #f04452;
+  color: ${color.warning};
   text-align: right;
   font-family: Pretendard;
   font-size: 15px;
@@ -49,7 +50,7 @@ export const OrderWarningMinPrice = styled(PageFlexRowDiv)`
 `;
 
 export const CartCancelBtn = styled.button`
-  color: #333d4b;
+  color: ${color.gray_800};
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -59,15 +60,15 @@ export const CartCancelBtn = styled.button`
   margin-right: 10px;
   cursor: pointer;
   &:hover {
-    color: #a7abb0;
+    color: ${color.gray_500};
   }
 `;
 export const OrderSect = styled.section`
-  border-bottom: 16px #f2f4f6 solid;
+  border-bottom: 16px ${color.border} solid;
 `;
 export const OrderIconWrapper = styled.div`
   font-size: 16px;
-  color: #6b7684;
+  color: ${color.gray_500};
 `;
 export const OrderMenuInformWrapper = styled.section`
   display: flex;
@@ -77,9 +78,9 @@ export const OrderMenuInformWrapper = styled.section`
 `;
 
 export const OrderAddMoreBtn = styled.button`
-  border-top: 1px solid #e5e8eb;
+  border-top: 1px solid ${color.border_top};
   width: 100%;
-  color: #3182f6;
+  color: ${color.primary_500};
   font-family: Pretendard;
   font-size: 17px;
   font-style: normal;
@@ -93,7 +94,7 @@ export const OrderAddMoreBtn = styled.button`
   padding: 19px 0;
   cursor: pointer;
   &:hover {
-    color: #0f2d57;
+    color: ${color.primary_100};
   }
 `;
 
@@ -112,7 +113,7 @@ export const OrderPriceRowSect = styled.section`
 `;
 
 export const OrderPriceText = styled.p`
-  color: #505967;
+  color: ${color.gray_600};
   font-family: Pretendard;
   font-size: 17px;
   font-style: normal;
@@ -121,13 +122,13 @@ export const OrderPriceText = styled.p`
 `;
 
 export const OrderPriceTitle = styled(OrderPriceText)`
-  color: #8b95a1;
+  color: ${color.gray_400};
 `;
 export const OrderTotalPriceTitle = styled(OrderPriceText)`
-  color: #4e5968;
+  color: ${color.gray_700};
 `;
 export const OrderTotalPriceText = styled(OrderPriceText)`
-  color: #4e5968;
+  color: ${color.gray_700};
   font-weight: 600;
 `;
 
@@ -137,13 +138,13 @@ export const OrderFooter = styled.footer`
   bottom: 0;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: ${color.white};
   align-items: center;
   padding: 20px;
   gap: 20px;
 `;
 export const OrderFooterText = styled.p`
-  color: #6b7684;
+  color: ${color.gray_500};
   font-family: Pretendard;
   font-size: 17px;
   font-style: normal;

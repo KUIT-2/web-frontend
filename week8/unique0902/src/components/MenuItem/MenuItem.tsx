@@ -3,6 +3,7 @@ import useCartStore from '../../api/cartStore';
 import { Menu } from '../../store/type/menu';
 import { Store } from '../../store/type/store';
 import { ItemBest, ItemInform, ItemName } from '../../styles/ItemStyle';
+import { rounded } from '../../styles/Theme';
 import PrimaryBtn from '../Button/PrimaryBtn/PrimaryBtn';
 import RoundedImg from '../Img/RoundedImg';
 import {
@@ -30,7 +31,7 @@ const MenuItem = ({ menu, store }: Props) => {
       <RoundedImg
         src={`${menu.img ? `${menu.img}` : ''}`}
         alt=''
-        rounded='rounded-full'
+        rounded={rounded.full}
       />
       <MenuItemInformDiv>
         <MenuItemNameSect>

@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { PageFlexRowDiv } from '../../styles/PageStyle';
+import { color } from '../../styles/Theme';
 
 export const Container = styled.div`
   width: 10px;
 `;
 
 export const StoreInformText = styled.p`
-  color: #4e5968;
+  color: ${color.gray_700};
   font-family: Pretendard;
   font-size: 15px;
   font-style: normal;
@@ -21,7 +22,7 @@ export const StoreInformRow = styled.div`
 `;
 
 export const StarWrapper = styled.div`
-  color: #ffd158;
+  color: ${color.star};
   font-size: 18px;
   margin-right: 5px;
 `;
@@ -36,7 +37,7 @@ export const StoreReviewWrapper = styled(PageFlexRowDiv)`
 `;
 
 export const StoreMenuTitle = styled.h3`
-  color: #6b7684;
+  color: ${color.gray_500};
   font-family: Pretendard;
   font-size: 17px;
   font-style: normal;

@@ -5,6 +5,7 @@ import { MenuItemInformDiv, MenuItemSec } from '../MenuItem/MenuItem.styles';
 import { AiOutlineRight } from 'react-icons/ai';
 import { MenuInCart } from '../../store/type/menu';
 import RoundedImg from '../Img/RoundedImg';
+import { rounded } from '../../styles/Theme';
 type Props = {
   menu: MenuInCart;
 };
@@ -15,7 +16,7 @@ const CartMenuItem: React.FC<Props> = ({ menu }: Props) => {
       <RoundedImg
         src={`${menu.img ? `${menu.img}` : ''}`}
         alt=''
-        rounded='rounded-100'
+        rounded={rounded.small}
       />
       <MenuItemInformDiv>
         <ItemName>{menu.name}</ItemName>

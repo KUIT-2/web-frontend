@@ -1,11 +1,10 @@
 import React from 'react';
-import { Rounded } from '../../store/type/style';
 import { SRoundedImage } from './RoundedImg.styles';
 
 type Props = {
   src: string;
   alt: string;
-  rounded: Rounded;
+  rounded: string;
 };
 
 const RoundedImg: React.FC<Props> = ({ src, alt, rounded }: Props) => {

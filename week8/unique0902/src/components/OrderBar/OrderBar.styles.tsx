@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { color } from '../../styles/Theme';
 
 export const OrderFooter = styled.footer`
   width: 100%;
   box-sizing: border-box;
   position: fixed;
-  background-color: #fff;
+  background-color: ${color.white};
   bottom: 0;
   display: flex;
   flex-direction: row;
@@ -22,12 +23,12 @@ export const OrderSection = styled.section`
 export const OrderSectionTitle = styled.h2`
   font-size: 15px;
   font-weight: 400;
-  color: #6b7684;
+  color: ${color.gray_500};
   margin: 0;
 `;
 export const OrderSectPrice = styled.p`
   font-size: 17px;
   font-weight: 600;
-  color: #4e5968;
+  color: ${color.gray_700};
   margin: 0;
 `;
