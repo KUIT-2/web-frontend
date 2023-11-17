@@ -1,8 +1,7 @@
 import React from 'react'
 
-import useCartStore from '../../store/cartStore';
-
 import * as S from './CartOrderItem.styles'
+import icon from '../../img/icon-right-chevron.svg';
 
 const CartOrderItem = ({ menu }) => {
     // const cnt = useCartStore((state) => state.cnt);
@@ -10,15 +9,18 @@ const CartOrderItem = ({ menu }) => {
     // const addCnt = useCartStore((state) => state.addCnt);
 
   return (
-    <S.MenuItemContainer>
-        <S.MenuItemImg></S.MenuItemImg>
-        <S.MenuItemDesc>
-            <S.MenuItemName>{menu.name}</S.MenuItemName>
-            <S.MenuItemPrice>{menu.ingredients}</S.MenuItemPrice>
-            <S.MenuItemDetail>{menu.price}</S.MenuItemDetail>
-        </S.MenuItemDesc>
-        <S.MenuItemAddBtn>1개</S.MenuItemAddBtn>
-    </S.MenuItemContainer>
+    <S.CartOrderItemContainer>
+        <S.CartOrderItemImg></S.CartOrderItemImg>
+        <S.CartOrderItemDesc>
+            <S.CartOrderItemName>{menu.name}</S.CartOrderItemName>
+            <S.CartOrderItemDetail>--주문옵션--</S.CartOrderItemDetail>
+            <S.CartOrderItemPrice>{menu.price}원</S.CartOrderItemPrice>
+        </S.CartOrderItemDesc>
+        <S.CartOrderItemCount>
+            <S.CartOrderItemLabel>1개</S.CartOrderItemLabel>
+            <S.CartOrderItemIcon src={icon}></S.CartOrderItemIcon>
+        </S.CartOrderItemCount>
+    </S.CartOrderItemContainer>
 )
 }
 

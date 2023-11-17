@@ -10,13 +10,14 @@ const detailStyle = styled.span`
 
 export const MenuItemContainer = styled.div`
     display: flex;
+    align-items: center;
     padding: 16px 24px;
+    
 `;
 
 export const MenuItemImg = styled.img`
     width: 54px;
     height: 54px;
-    margin-top: 12px;
     border-radius: 27px;
     background: #eee;
 `;
@@ -49,7 +50,6 @@ export const MenuItemDetail = styled(detailStyle)`
 `;
 
 export const MenuItemAddBtn = styled.button`
-    margin-top: 24px;
     margin-left: 19px;
     width: 52px;
     height: 32px;
@@ -58,7 +58,6 @@ export const MenuItemAddBtn = styled.button`
     background: #3182F6;
     border-style: none;
     display: inline-flex;
-    padding: 8px 14px 8px 15px;
     justify-content: center;
     align-items: center;
 

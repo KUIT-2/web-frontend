@@ -5,7 +5,7 @@ import useCartStore from '../../store/cartStore';
 import CartOrderItem from '../../components/CartOrderItem/CartOrderItem';
 
 import * as S from './Cart.styles';
-import back from '../../img/icon-arrow-back.svg';
+import back from '../../img/icon-left-chevron.svg';
 import warning from '../../img/icon-warning.svg';
 import plus from '../../img/icon-plus.svg';
 

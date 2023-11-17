@@ -1,16 +1,25 @@
 import styled from "styled-components";
 
-import { MenuItemContainer, MenuItemDesc, MenuItemImg, MenuItemName, MenuItemPrice } from "../MenuItem/MenuItem.styles";
 
+import { 
+    MenuItemContainer, MenuItemDesc, MenuItemImg, MenuItemName, MenuItemPrice, MenuItemDetail, MenuItemAddBtn 
+} from "../MenuItem/MenuItem.styles";
 
-{/* <S.MenuItemContainer>
-<S.MenuItemImg></S.MenuItemImg>
-<S.MenuItemDesc>
-    <S.MenuItemHeader>
-        <S.MenuItemName>{menu.name}</S.MenuItemName>
-    </S.MenuItemHeader>
-    <S.MenuItemPrice>{menu.price}</S.MenuItemPrice>
-    <S.MenuItemDetail>{menu.ingredients}</S.MenuItemDetail>
-</S.MenuItemDesc>
-<S.MenuItemAddBtn onClick={handleAddMenu} type="button">담기</S.MenuItemAddBtn>
-</S.MenuItemContainer> */}
+export const CartOrderItemContainer = styled(MenuItemContainer)``;
+export const CartOrderItemImg = styled(MenuItemImg)``;
+export const CartOrderItemDesc = styled(MenuItemDesc)``;
+export const CartOrderItemName = styled(MenuItemName)``;
+export const CartOrderItemDetail = styled(MenuItemPrice)``;
+export const CartOrderItemPrice = styled(MenuItemDetail)``;
+export const CartOrderItemCount = styled.div`
+    margin-left: 19px;
+    display: flex;
+    justify-content: center;
+`;
+export const CartOrderItemLabel = styled(MenuItemPrice)`
+    font-size: 15px;
+    margin-right: 14px;
+    margin-top: 0px;
+`;
+export const CartOrderItemIcon = styled.img`
+`;

@@ -7,7 +7,7 @@ import OrderBar from '../../components/OrderBar/OrderBar'
 import useCartStore from '../../store/cartStore';
 
 import * as S from './Stores.styles';
-import icon from '../../img/icon-arrow-back.svg';
+import icon from '../../img/icon-left-chevron.svg';
 
 const Stores = () => {
   // const { storeId } = useParams();
