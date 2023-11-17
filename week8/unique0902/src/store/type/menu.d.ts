@@ -4,6 +4,7 @@ export type Menu = {
   isBest: boolean;
   price: number;
   ingredients: string;
+  img?: string;
 };
 export type MenuInCart = {
   id: number;
@@ -12,4 +13,5 @@ export type MenuInCart = {
   price: number;
   ingredients: string;
   cnt: number;
+  img?: string;
 };

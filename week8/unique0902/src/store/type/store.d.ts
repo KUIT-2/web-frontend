@@ -10,4 +10,5 @@ export type Store = {
   minDeliveryPrice: number;
   deliveryFee: number;
   menus: Menu[];
+  img?: string;
 };

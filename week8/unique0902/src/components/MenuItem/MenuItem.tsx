@@ -27,7 +27,7 @@ const MenuItem = ({ menu, store }: Props) => {
 
   return (
     <MenuItemSec>
-      <MenuItemImg src='' alt='' />
+      <MenuItemImg src={`${menu.img ? `${menu.img}` : ''}`} alt='' />
       <MenuItemInformDiv>
         <MenuItemNameSect>
           <ItemName>{menu.name}</ItemName>

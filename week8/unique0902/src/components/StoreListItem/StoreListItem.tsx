@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Store } from '../../store/type/store';
 import { ItemInform, ItemName } from '../../styles/ItemStyle';
 import {
   StoreItemDescriptionWrapper,
@@ -8,38 +9,24 @@ import {
 } from './StoreListItem.styles';
 
 type Props = {
-  id: number;
-  name: string;
-  rate: number;
-  reviewCnt: number;
-  deliveryFee: number;
-  minDeliveryTime: number;
-  maxDeliveryTime: number;
+  store: Store;
   ranking?: string;
 };
 
-const StoreListItem: React.FC<Props> = ({
-  id,
-  name,
-  rate,
-  reviewCnt,
-  deliveryFee,
-  minDeliveryTime,
-  maxDeliveryTime,
-  ranking,
-}: Props) => {
+const StoreListItem: React.FC<Props> = ({ store, ranking }: Props) => {
   return (
-    <Link to={`${id}`}>
+    <Link to={`${store.id}`}>
       <StoreItemWrapper>
-        <StoreItemImg src='' alt='' />
+        <StoreItemImg src={`${store.img ? `${store.img}` : ''}`} alt='' />
         <StoreItemDescriptionWrapper>
           {ranking && <ItemName>{ranking}</ItemName>}
-          <ItemName>{name}</ItemName>
+          <ItemName>{store.name}</ItemName>
           <ItemInform>
-            ✨{rate}({reviewCnt})
+            ✨{store.rate}({store.reviewCnt})
           </ItemInform>
           <ItemInform>
-            {minDeliveryTime}분~{maxDeliveryTime}분.배달비 {deliveryFee}원
+            {store.minDeliveryTime}분~{store.maxDeliveryTime}분.배달비{' '}
+            {store.deliveryFee}원
           </ItemInform>
         </StoreItemDescriptionWrapper>
       </StoreItemWrapper>

@@ -12,7 +12,7 @@ type Props = {
 const CartMenuItem: React.FC<Props> = ({ menu }: Props) => {
   return (
     <MenuItemSec>
-      <StoreItemImg src='' alt='' />
+      <StoreItemImg src={`${menu.img ? `${menu.img}` : ''}`} alt='' />
       <MenuItemInformDiv>
         <ItemName>{menu.name}</ItemName>
         <ItemInform>{menu.ingredients}</ItemInform>
