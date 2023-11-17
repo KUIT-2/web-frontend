@@ -18,7 +18,8 @@
     "styled-normalize": "^8.1.0",
     "typescript": "^5.2.2",
     "web-vitals": "^2.1.0",
-    "zustand": "^4.4.6"
+    "zustand": "^4.4.6",
+    "storybook-addon-react-router-v6": "^2.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
