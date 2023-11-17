@@ -22,7 +22,6 @@ import { AiOutlinePlus, AiOutlineExclamationCircle } from 'react-icons/ai';
 
 // TODO: 최소금액 미달 로직 추가
 // TODO: 주문취소 로직 추가
-// TODO: 더 담기 로직 추가
 // TODO: 이미지 추가
 // TODO: 메뉴 정렬 로직 추가
 // TODO: 반응형 꾸미기 추가
@@ -50,10 +49,14 @@ const Cart = () => {
       <OrderSect>
         <OrderHeaderWrapper>
           <OrderStoreText>{store?.name}</OrderStoreText>
-          <OrderWarningMinPrice>
-            <p>최소금액 미달</p>
-            <AiOutlineExclamationCircle />
-          </OrderWarningMinPrice>
+          {store &&
+            menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) <
+              store.minDeliveryPrice && (
+              <OrderWarningMinPrice>
+                <p>최소금액 미달</p>
+                <AiOutlineExclamationCircle />
+              </OrderWarningMinPrice>
+            )}
         </OrderHeaderWrapper>
         {menus.map((menu) => (
           <CartMenuItem menu={menu} key={menu.id} />
