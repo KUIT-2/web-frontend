@@ -88,6 +88,7 @@ export const CartCtaBar = styled.div`
     align-items: center;
     position: fixed;
     bottom: 0px;
+    background: #FFF;
 `;
 
 export const CartCtaLabel = styled.span`

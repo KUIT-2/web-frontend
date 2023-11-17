@@ -59,7 +59,7 @@ const Cart = () => {
         <img src={plus} style={{"width":"16px","height":"16px", "marginLeft": "3px"}} />
       </Link>
       <div style={{"width":"100%","height":"16px","background":"#F2F4F6"}} />
-      <div>
+      <div style={{marginBottom: "90px"}}>
         <S.CartOrderPriceBar>
           <S.CartOrderPriceLabel>주문금액</S.CartOrderPriceLabel>
           <S.CartOrderPrice>{totalPrice}원</S.CartOrderPrice>
