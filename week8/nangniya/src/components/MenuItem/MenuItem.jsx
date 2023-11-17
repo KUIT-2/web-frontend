@@ -22,6 +22,7 @@ const MenuItem = ({ store, menu }) => {
   return (
     <S.Wrapper>
       <S.MenuImage />
+
       <S.MenuBox>
         <S.MenuName>
           <h3>{menu.name}</h3>

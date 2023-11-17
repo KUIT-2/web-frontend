@@ -2,10 +2,10 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import * as S from "./Cart.styles";
 import useCartStore from "../../store/cartStore";
-import { ReactComponent as Warning } from "../../images/warning.svg";
 import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as RightChevron } from "../../images/rightChevron.svg";
+import { RightChevron } from "../../images";
+import { Warning } from "../../images";
 
 const Cart = () => {
   const navigate = useNavigate();

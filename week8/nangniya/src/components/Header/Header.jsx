@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Chevron } from "../../images/chevron.svg";
+import { LeftChevron } from "../../images";
 import { useNavigate } from "react-router-dom";
 import * as S from "./Header.styles";
 import useCartStore from "../../store/cartStore";
@@ -15,7 +15,7 @@ const Header = ({ isCartPage }) => {
   };
   return (
     <S.StyledDiv>
-      <Chevron onClick={goBack}></Chevron>
+      <LeftChevron onClick={goBack}></LeftChevron>
       {isCartPage ? (
         <S.CancelOrder onClick={cancelOrder}>주문취소</S.CancelOrder>
       ) : null}
