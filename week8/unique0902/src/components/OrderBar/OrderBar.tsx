@@ -26,9 +26,7 @@ const OrderBar = () => {
         </OrderSectPrice>
       </OrderSection>
 
-      <PrimaryBtn handleClick={handleOrder}>
-        {store && store.name + '에서'} 주문하기
-      </PrimaryBtn>
+      <PrimaryBtn handleClick={handleOrder}>주문하기</PrimaryBtn>
     </OrderFooter>
   );
 };
