@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 import { PageFlexRowDiv } from '../../styles/PageStyle';
 
-export const PrimaryButton = styled.button<{ isActivated: boolean }>`
+export const PrimaryButton = styled.button<{ $isActivated: boolean }>`
   border: none;
   cursor: pointer;
   font-size: 1rem;
   &:hover {
-    background-color: ${(props) => (props.isActivated ? '#1d4a89' : '#D0DFFB')};
+    background-color: ${(props) =>
+      props.$isActivated ? '#1d4a89' : '#D0DFFB'};
   }
-  background-color: ${(props) => (props.isActivated ? '#3182F6' : '#D0DFFB')};
+  background-color: ${(props) => (props.$isActivated ? '#3182F6' : '#D0DFFB')};
   color: white;
   padding: 10px 16px;
   border-radius: 8px;

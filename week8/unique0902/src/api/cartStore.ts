@@ -26,7 +26,7 @@ const useCartStore = create<StoresState>((set) => ({
 
   addMenu: (menu: Menu, storeId: number) => {
     set((state: State) => {
-      if (!state.store || state.store.id != storeId) {
+      if (!state.store || state.store.id !== storeId) {
         return { ...state, menus: [menu] };
       } else {
         return { ...state, menus: [...state.menus, menu] };
