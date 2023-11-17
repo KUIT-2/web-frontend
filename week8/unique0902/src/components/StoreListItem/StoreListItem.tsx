@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Store } from '../../store/type/store';
 import { ItemInform, ItemName } from '../../styles/ItemStyle';
+import RoundedImg from '../Img/RoundedImg';
 import {
   StoreItemDescriptionWrapper,
-  StoreItemImg,
   StoreItemWrapper,
 } from './StoreListItem.styles';
 
@@ -17,7 +17,11 @@ const StoreListItem: React.FC<Props> = ({ store, ranking }: Props) => {
   return (
     <Link to={`${store.id}`}>
       <StoreItemWrapper>
-        <StoreItemImg src={`${store.img ? `${store.img}` : ''}`} alt='' />
+        <RoundedImg
+          src={`${store.img ? `${store.img}` : ''}`}
+          alt=''
+          rounded='rounded-100'
+        />
         <StoreItemDescriptionWrapper>
           {ranking && <ItemName>{ranking}</ItemName>}
           <ItemName>{store.name}</ItemName>

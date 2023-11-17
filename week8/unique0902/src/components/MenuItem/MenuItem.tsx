@@ -4,8 +4,8 @@ import { Menu } from '../../store/type/menu';
 import { Store } from '../../store/type/store';
 import { ItemBest, ItemInform, ItemName } from '../../styles/ItemStyle';
 import PrimaryBtn from '../Button/PrimaryBtn/PrimaryBtn';
+import RoundedImg from '../Img/RoundedImg';
 import {
-  MenuItemImg,
   MenuItemInformDiv,
   MenuItemNameSect,
   MenuItemSec,
@@ -27,7 +27,11 @@ const MenuItem = ({ menu, store }: Props) => {
 
   return (
     <MenuItemSec>
-      <MenuItemImg src={`${menu.img ? `${menu.img}` : ''}`} alt='' />
+      <RoundedImg
+        src={`${menu.img ? `${menu.img}` : ''}`}
+        alt=''
+        rounded='rounded-full'
+      />
       <MenuItemInformDiv>
         <MenuItemNameSect>
           <ItemName>{menu.name}</ItemName>

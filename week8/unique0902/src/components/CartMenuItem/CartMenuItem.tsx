@@ -2,9 +2,9 @@ import React from 'react';
 import { OrderIconWrapper } from '../../pages/Cart/Cart.styles';
 import { ItemInform, ItemName } from '../../styles/ItemStyle';
 import { MenuItemInformDiv, MenuItemSec } from '../MenuItem/MenuItem.styles';
-import { StoreItemImg } from '../StoreListItem/StoreListItem.styles';
 import { AiOutlineRight } from 'react-icons/ai';
 import { MenuInCart } from '../../store/type/menu';
+import RoundedImg from '../Img/RoundedImg';
 type Props = {
   menu: MenuInCart;
 };
@@ -12,7 +12,11 @@ type Props = {
 const CartMenuItem: React.FC<Props> = ({ menu }: Props) => {
   return (
     <MenuItemSec>
-      <StoreItemImg src={`${menu.img ? `${menu.img}` : ''}`} alt='' />
+      <RoundedImg
+        src={`${menu.img ? `${menu.img}` : ''}`}
+        alt=''
+        rounded='rounded-100'
+      />
       <MenuItemInformDiv>
         <ItemName>{menu.name}</ItemName>
         <ItemInform>{menu.ingredients}</ItemInform>

@@ -25,10 +25,3 @@ export const MenuItemNameSect = styled.section`
   }
   gap: 6px;
 `;
-
-export const MenuItemImg = styled.img`
-  width: 54px;
-  height: 54px;
-  background: #ececec;
-  border-radius: 27px;
-`;

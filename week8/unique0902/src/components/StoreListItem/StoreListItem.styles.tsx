@@ -25,10 +25,3 @@ export const StoreItemDescriptionWrapper = styled.section`
   flex-direction: column;
   gap: 5px;
 `;
-
-export const StoreItemImg = styled.img`
-  width: 54px;
-  height: 54px;
-  background: #ececec;
-  border-radius: 8px;
-`;
