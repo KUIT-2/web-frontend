@@ -20,7 +20,6 @@ import {
 } from './Cart.styles';
 import { AiOutlinePlus, AiOutlineExclamationCircle } from 'react-icons/ai';
 
-// TODO: 이미지 추가
 // TODO: 반응형 꾸미기 추가
 // TODO: Styled Component 리팩토링
 // TODO: 컴포넌트 분리 리팩토링
