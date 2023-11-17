@@ -30,7 +30,7 @@ const Stores = () => {
   return (
     <div>
       <S.StoresHeader>
-        <img src={icon} style={{"width":"24px","height":"24px"}}></img>
+        <img src={icon} style={{width:"24px",height:"24px"}}></img>
       </S.StoresHeader>
       <S.StoresCategory>샐러드</S.StoresCategory>
       {stores
@@ -38,7 +38,7 @@ const Stores = () => {
         .map((store) => {
           return <StoreItem key={store.ranking} store={store} />;
         })}
-      <div style={{"width":"100%","height":"77px"}} />
+      <div style={{width:"100%",height:"77px"}} />
       <OrderBar />
     </div>
   )

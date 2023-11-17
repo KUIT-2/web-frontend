@@ -20,9 +20,10 @@ export const CartOrderCategory = styled(StoresCategory)`
     padding-right: 25px;
 `;
 
-export const CartStore = styled.span`
+export const CartStoreName = styled.span`
     font-family: "Pretendard-Bold";
     font-size: 17px;
+    color: #6B7684;
 `;
 
 export const CartPriceWarning = styled.span`

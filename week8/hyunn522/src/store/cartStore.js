@@ -4,12 +4,14 @@ const initialState = {
     store: '없음',
     menus: [],
     totalPrice: 0,
+    cnt: 0,
 }
 
 const useCartStore = create((set) => ({
     store: initialState.store,
     menus: initialState.menus,
     totalPrice: initialState.totalPrice,
+    cnt: initialState.cnt,
 
     setInitialized: () => {
         set((state) => ({
@@ -17,6 +19,7 @@ const useCartStore = create((set) => ({
             store: initialState.store,
             menus: initialState.menus,
             totalPrice: initialState.totalPrice,
+            cnt: initialState.cnt,
         }))
     },
     addMenu: (menu) => {
@@ -28,6 +31,9 @@ const useCartStore = create((set) => ({
     setStore: (store) => {
         set((state) => ({...state, store: store}))
     },
+    addCnt: (menu) => {
+        set((state) => ({...state, cnt: state.cnt + 1}));
+    }
 }));
 
 export default useCartStore;

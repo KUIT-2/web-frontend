@@ -5,7 +5,9 @@ import * as S from './MenuItem.styles';
 
 const MenuItem = ({ menu }) => {
     const store = useCartStore((state) => state.store);
+    const menus = useCartStore((state) => state.menus);
 
+    const addCnt = useCartStore((state) => state.addCnt);
     const addMenu = useCartStore((state) => state.addMenu);
     const calTotalPrice = useCartStore((state) => state.calTotalPrice);
     const setStore = useCartStore((state) => state.setStore);
@@ -15,6 +17,11 @@ const MenuItem = ({ menu }) => {
         // if(store === '없음') { console.log(store); setStore(store); }
         addMenu(menu);
         calTotalPrice(menu);
+        // if (menus.map((eachmenu) => {
+        //     if(eachmenu.name == menu.name) { return true; }
+        // })) {
+        //     addCnt(menu);
+        // }
     };
 
     const bestMenu = menu.isBest;

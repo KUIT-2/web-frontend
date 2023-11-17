@@ -16,7 +16,7 @@ const Cart = () => {
   const totalPrice = useCartStore((state) => state.totalPrice);
 
   const storeLink = '/store/' + store.id;
-  const homeLink = '/home';
+  const storesLink = '/store';
   const sum = totalPrice + store.deliveryFee;
 
   const setStore = useCartStore((state) => state.setStore);
@@ -24,8 +24,6 @@ const Cart = () => {
 
   const handleCancelOrder = () => {
     setInitialized();
-    
-    console.log("주문취소")
   };
 
   useEffect(() => {
@@ -40,13 +38,13 @@ const Cart = () => {
         <Link to={storeLink}>
           <img src={back} style={{"width":"24px","height":"24px"}} />
         </Link>
-        <Link to={homeLink}>
+        <Link to={storesLink}>
           <S.CartCancel onClick={handleCancelOrder}>주문취소</S.CartCancel>
         </Link>
       </S.CartHeader>
       <div style={{"width":"100%","height":"16px","background":"#F2F4F6"}} />
       <S.CartOrderCategory>
-        <S.CartStore>{store.name}</S.CartStore>
+        <S.CartStoreName>{store.name}</S.CartStoreName>
         {totalPrice < store.minDeliveryPrice ? (
           <S.CartPriceWarning>
             <S.CartPriceLimitLabel>최소금액 미달</S.CartPriceLimitLabel>
