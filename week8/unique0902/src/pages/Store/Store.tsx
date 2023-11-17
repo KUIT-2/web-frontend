@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
 import MenuItem from '../../components/MenuItem/MenuItem';
 
 import stores from '../../models/stores';
-import useCartStore from '../../api/cartStore';
-import BackButton from '../../components/Button/BackButton';
+import BackButton from '../../components/Button/BackButton/BackButton';
 import { PageTitle, PageTitleSect } from '../../styles/PageStyle';
 import {
   StarWrapper,
@@ -19,14 +18,8 @@ import {
 
 const Store = () => {
   const { storeId } = useParams();
-  // const setStore = useCartStore((state) => state.setStore);
 
   const store = stores.find((s) => s.id.toString() === storeId);
-  // useEffect(() => {
-  //   if (store) {
-  //     setStore(store);
-  //   }
-  // }, []);
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;

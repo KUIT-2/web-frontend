@@ -1,5 +1,5 @@
 import React from 'react';
-import BackButton from '../../components/Button/BackButton';
+import BackButton from '../../components/Button/BackButton/BackButton';
 import {
   CartCancelBtn,
   CartHeader,

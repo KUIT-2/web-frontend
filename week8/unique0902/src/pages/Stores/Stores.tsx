@@ -1,5 +1,5 @@
 import React from 'react';
-import BackButton from '../../components/Button/BackButton';
+import BackButton from '../../components/Button/BackButton/BackButton';
 import StoreListItem from '../../components/StoreListItem/StoreListItem';
 import stores from '../../models/stores';
 import { PageTitle, PageTitleSect } from '../../styles/PageStyle';
