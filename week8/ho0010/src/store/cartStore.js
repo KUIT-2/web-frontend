@@ -3,6 +3,7 @@ import { create } from "zustand";
 const initialState = {
   store: undefined,
   menus: [],
+  menuCount: {}
 };
 
 const useCartStore = create((set) => ({
@@ -16,6 +17,10 @@ const useCartStore = create((set) => ({
   setStore: (store) => {
     set((state) => ({ ...state, store: store }));
   },
+
+  clearMenus: () => {
+    set((state) => ({ ...state, menus: [] }));
+  }
 }));
 
 export default useCartStore;

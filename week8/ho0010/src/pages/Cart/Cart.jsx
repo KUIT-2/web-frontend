@@ -3,21 +3,37 @@ import NavTop from "../../components/Nav/NavTop";
 import styled from "styled-components";
 import useCartStore from "../../store/cartStore";
 import CartItem from "../../components/CartItem/CartItem";
+import { useNavigate } from "react-router-dom";
+
 const Cart = () => {
   const menus = useCartStore((state) => state.menus);
   const store = useCartStore((state) => state.store);
+  const clearMenus = useCartStore((state) => state.clearMenus);
+
+  const TotalPrice = store.deliveryFee + menus.reduce((acc, menus) => acc + menus.price, 0);
+  const MenuTotalPrice = menus.reduce((acc, menus) => acc + menus.price, 0);
+
+  const navigate = useNavigate();
+
+  const handelInputMore = () => {
+    navigate(-1);
+  }
+
+  const handleClearOrder = () => {
+    clearMenus();
+    navigate('/store');
+  }
 
   if (!store) {
     return <div>메뉴를 담아주세요 🥺</div>;
   }
 
-  const TotalPrice = store.deliveryFee + menus.reduce((acc, menus) => acc + menus.price, 0);
 
   return (
     <div>
       <CartTop>
         <NavTop />
-        <CartTopButton>주문취소</CartTopButton>
+        <CartTopButton onClick={handleClearOrder}>주문취소</CartTopButton>
       </CartTop>
 
       <CartMiddle>
@@ -38,12 +54,24 @@ const Cart = () => {
               return <CartItem key={menu.id} menu={menu} />;
             })}
           </MenuInf>
-
         </StoreInf>
-        <InputMore >더 담기 +
-        </InputMore>
+        <InputMore onClick={handelInputMore}>더 담기 + </InputMore>
         <EmptySpace />
       </CartMiddle>
+
+      <CartPrice>
+        <OrderPrice>주문금액 {MenuTotalPrice}</OrderPrice>
+        <DeliveryFee>배달요금 {store.deliveryFee}</DeliveryFee>
+        <CartTotalPrice>총 결제금액 {TotalPrice}</CartTotalPrice>
+      </CartPrice>
+
+      <CartBottom>
+        <MinPrice>최소 주문금액 {store.minDeliveryPrice}</MinPrice>
+
+        <TotalPriceButton>{TotalPrice}원 결제하기</TotalPriceButton>
+      </CartBottom>
+
+
     </div>
   )
 };
@@ -88,4 +116,20 @@ align-items:center;
 const StoreMinPrice = styled.div`
 `
 const MenuInf = styled.div`
+`
+
+
+const CartPrice = styled.div`
+`
+const MinPrice = styled.div`
+`
+const TotalPriceButton = styled.button`
+`
+const OrderPrice = styled.div`
+`
+const DeliveryFee = styled.div`
+`
+const CartBottom = styled.div`
+`
+const CartTotalPrice = styled.div`
 `

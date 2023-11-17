@@ -1,8 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import useCartStore from "../../store/cartStore";
+
 
 
 const CartItem = ({ menu }) => {
+    const menusCount = useCartStore((state) => state.menusCount)
+
+
     return (
         <Item>
             <ItemImg />
@@ -10,6 +15,7 @@ const CartItem = ({ menu }) => {
                 <h4>{menu.name}</h4>
                 <div>추천소스...</div>
                 <div>{menu.price}원</div>
+                <div>{menusCount}</div>
             </ItemInf>
             <ItemNum></ItemNum>
             <div> &gt;</div>

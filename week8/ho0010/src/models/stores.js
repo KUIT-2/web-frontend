@@ -93,7 +93,7 @@ const stores = [
   },
   {
     id: 4,
-    name: "샐로리 한남점",
+    name: "맛있다 한남점",
     rate: 4.9,
     reviewCnt: 3919,
     minDeliveryTime: 13,
@@ -133,7 +133,7 @@ const stores = [
   },
   {
     id: 5,
-    name: "샐로리 한남점",
+    name: "샐러드 한남점",
     rate: 4.9,
     reviewCnt: 3919,
     minDeliveryTime: 13,
@@ -173,7 +173,7 @@ const stores = [
   },
   {
     id: 6,
-    name: "샐로리 한남점",
+    name: "배고파요",
     rate: 4.9,
     reviewCnt: 3919,
     minDeliveryTime: 13,
@@ -212,7 +212,7 @@ const stores = [
     ],
   }, {
     id: 7,
-    name: "샐로리 한남점",
+    name: "목말라요",
     rate: 4.9,
     reviewCnt: 3919,
     minDeliveryTime: 13,

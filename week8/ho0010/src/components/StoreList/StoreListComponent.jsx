@@ -1,8 +1,16 @@
 import React from 'react'
 import * as S from "./StoreListComponent.styles"
+import { useNavigate } from 'react-router-dom'
 const StoreListComponent = ({ store }) => {
+
+    const navigate = useNavigate();
+
+    const handleStoreListComponent = (storeId) => {
+        navigate(`/store/${storeId}`)
+    }
+
     return (
-        <S.StoreListComponent>
+        <S.StoreListComponent onClick={() => handleStoreListComponent(store.id)}>
             <S.StoreImg />
             <S.ComponentText>
                 <S.TextId>{store.id}위</S.TextId>
