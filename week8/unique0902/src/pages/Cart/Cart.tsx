@@ -20,21 +20,36 @@ import {
 } from './Cart.styles';
 import { AiOutlinePlus, AiOutlineExclamationCircle } from 'react-icons/ai';
 
+// TODO: 최소금액 미달 로직 추가
+// TODO: 주문취소 로직 추가
+// TODO: 더 담기 로직 추가
+// TODO: 이미지 추가
+// TODO: 메뉴 정렬 로직 추가
+// TODO: 반응형 꾸미기 추가
+
 import useCartStore from '../../api/cartStore';
 import CartMenuItem from '../../components/CartMenuItem/CartMenuItem';
+import { useNavigate } from 'react-router-dom';
 const Cart = () => {
   const store = useCartStore((state) => state.store);
   const menus = useCartStore((state) => state.menus);
-
+  const clearOrder = useCartStore((state) => state.clearOrder);
+  const handleClickCancelBtn = () => {
+    clearOrder();
+  };
+  const navigate = useNavigate();
+  const handleClickAddMoreBtn = () => {
+    navigate(`/store/${store?.id}`);
+  };
   return (
-    <React.Fragment>
+    <>
       <CartHeader>
         <BackButton />
-        <CartCancelBtn>주문취소</CartCancelBtn>
+        <CartCancelBtn onClick={handleClickCancelBtn}>주문취소</CartCancelBtn>
       </CartHeader>
       <OrderSect>
         <OrderHeaderWrapper>
-          <OrderStoreText>샐로리 한남점</OrderStoreText>
+          <OrderStoreText>{store?.name}</OrderStoreText>
           <OrderWarningMinPrice>
             <p>최소금액 미달</p>
             <AiOutlineExclamationCircle />
@@ -44,7 +59,7 @@ const Cart = () => {
           <CartMenuItem menu={menu} key={menu.id} />
         ))}
 
-        <OrderAddMoreBtn>
+        <OrderAddMoreBtn onClick={handleClickAddMoreBtn}>
           더 담기 <AiOutlinePlus />
         </OrderAddMoreBtn>
       </OrderSect>
@@ -80,7 +95,7 @@ const Cart = () => {
           원 결제하기
         </OrderFooterBtn>
       </OrderFooter>
-    </React.Fragment>
+    </>
   );
 };
 

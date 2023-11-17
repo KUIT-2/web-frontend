@@ -12,6 +12,7 @@ type StoresState = {
   menus: Menu[];
   addMenu: (menu: Menu, storeId: number) => void;
   setStore: (store: Store) => void;
+  clearOrder: () => void;
 };
 
 const initialState: State = {
@@ -37,6 +38,10 @@ const useCartStore = create<StoresState>((set) => ({
   },
   setStore: (store: Store) => {
     set((state: State) => ({ ...state, store: store }));
+  },
+
+  clearOrder: () => {
+    set((state: State) => ({ ...state, store: undefined, menus: [] }));
   },
 }));
 
