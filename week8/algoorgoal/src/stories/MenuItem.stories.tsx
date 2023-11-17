@@ -1,10 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeProvider } from 'styled-components';
-import { Normalize } from 'styled-normalize';
-import theme from '../common/styles/theme';
-import GlobalStyle from '../common/styles/GlobalStyle';
 import MenuItem from '../components/Menu/FoodItem';
 
 const meta = {
@@ -13,17 +9,6 @@ const meta = {
   parameters: {
     layout: 'full screen',
   },
-  decorators: [
-    (Story) => (
-      <>
-        <Normalize />
-        <GlobalStyle />
-        <ThemeProvider theme={theme}>
-          <Story />
-        </ThemeProvider>
-      </>
-    ),
-  ],
   tags: ['autodocs'],
 } satisfies Meta<typeof MenuItem>;
 
