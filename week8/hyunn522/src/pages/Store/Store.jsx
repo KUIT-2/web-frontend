@@ -12,7 +12,7 @@ import icon from '../../img/icon-left-chevron.svg';
 const Store = () => {
   const { storeId } = useParams();
   const setStore = useCartStore((state) => state.setStore);
-
+  
   const store = stores.find((s) => s.id.toString() === storeId);
 
   useEffect(() => {
