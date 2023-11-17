@@ -38,7 +38,7 @@ const Cart = () => {
         <Link to={storeLink}>
           <img src={back} style={{"width":"24px","height":"24px"}} />
         </Link>
-        <Link to={storesLink}>
+        <Link to={storesLink} style={{"textDecoration":"none"}}>
           <S.CartCancel onClick={handleCancelOrder}>주문취소</S.CartCancel>
         </Link>
       </S.CartHeader>

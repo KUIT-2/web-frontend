@@ -11,6 +11,7 @@ export const CartHeader = styled(StoresHeader)`
 export const CartCancel = styled(StoreItemName)`
     margin-top: 0px;
     font-size: 16px;
+    
 `;
 
 export const CartOrderCategory = styled(StoresCategory)`
