@@ -4,9 +4,9 @@ import { ItemInform, ItemName } from '../../styles/ItemStyle';
 import { MenuItemInformDiv, MenuItemSec } from '../MenuItem/MenuItem.styles';
 import { StoreItemImg } from '../StoreListItem/StoreListItem.styles';
 import { AiOutlineRight } from 'react-icons/ai';
-import { Menu } from '../../store/type/menu';
+import { MenuInCart } from '../../store/type/menu';
 type Props = {
-  menu: Menu;
+  menu: MenuInCart;
 };
 
 const CartMenuItem: React.FC<Props> = ({ menu }: Props) => {
@@ -18,7 +18,7 @@ const CartMenuItem: React.FC<Props> = ({ menu }: Props) => {
         <ItemInform>{menu.ingredients}</ItemInform>
         <ItemInform>{menu.price}원</ItemInform>
       </MenuItemInformDiv>
-      <ItemInform>1개</ItemInform>
+      <ItemInform>{menu.cnt}개</ItemInform>
       <OrderIconWrapper>
         <AiOutlineRight />
       </OrderIconWrapper>

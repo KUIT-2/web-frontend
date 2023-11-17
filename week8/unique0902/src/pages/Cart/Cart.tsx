@@ -20,8 +20,6 @@ import {
 } from './Cart.styles';
 import { AiOutlinePlus, AiOutlineExclamationCircle } from 'react-icons/ai';
 
-// TODO: 최소금액 미달 로직 추가
-// TODO: 주문취소 로직 추가
 // TODO: 이미지 추가
 // TODO: 메뉴 정렬 로직 추가
 // TODO: 반응형 꾸미기 추가
@@ -29,6 +27,8 @@ import { AiOutlinePlus, AiOutlineExclamationCircle } from 'react-icons/ai';
 import useCartStore from '../../api/cartStore';
 import CartMenuItem from '../../components/CartMenuItem/CartMenuItem';
 import { useNavigate } from 'react-router-dom';
+import { Menu, MenuInCart } from '../../store/type/menu';
+
 const Cart = () => {
   const store = useCartStore((state) => state.store);
   const menus = useCartStore((state) => state.menus);
@@ -40,6 +40,19 @@ const Cart = () => {
   const handleClickAddMoreBtn = () => {
     navigate(`/store/${store?.id}`);
   };
+
+  const menusInCart = menus.reduce((acc: MenuInCart[], menu) => {
+    const index = acc.findIndex((meunItem) => meunItem.id === menu.id);
+    if (index === -1) {
+      acc.push({ ...menu, cnt: 1 });
+    } else {
+      acc[index].cnt++;
+    }
+    return acc;
+  }, []);
+
+  console.log(menusInCart);
+
   return (
     <>
       <CartHeader>
@@ -58,7 +71,7 @@ const Cart = () => {
               </OrderWarningMinPrice>
             )}
         </OrderHeaderWrapper>
-        {menus.map((menu) => (
+        {menusInCart.map((menu) => (
           <CartMenuItem menu={menu} key={menu.id} />
         ))}
 
