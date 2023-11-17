@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import { PageFlexRowDiv } from '../../styles/PageStyle';
 
-export const PrimaryButton = styled.button`
+export const PrimaryButton = styled.button<{ isActivated: boolean }>`
   border: none;
   cursor: pointer;
   font-size: 1rem;
   &:hover {
-    color: #7dacef;
+    background-color: ${(props) => (props.isActivated ? '#1d4a89' : '#D0DFFB')};
   }
+  background-color: ${(props) => (props.isActivated ? '#3182F6' : '#D0DFFB')};
   color: white;
-  background-color: #3182f6;
   padding: 10px 16px;
   border-radius: 8px;
   border: none;
@@ -153,8 +153,6 @@ export const OrderFooterText = styled.p`
 export const OrderFooterBtn = styled(PrimaryButton)`
   width: 100%;
   border-radius: 16px;
-  background: #d0dffb;
-  color: #fff;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -162,8 +160,4 @@ export const OrderFooterBtn = styled(PrimaryButton)`
   line-height: normal;
   padding-top: 18px;
   padding-bottom: 19px;
-  &:hover {
-    background: #d0dffb;
-    color: #fff;
-  }
 `;

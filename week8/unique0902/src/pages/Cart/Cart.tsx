@@ -62,9 +62,11 @@ const Cart = () => {
           <CartMenuItem menu={menu} key={menu.id} />
         ))}
 
-        <OrderAddMoreBtn onClick={handleClickAddMoreBtn}>
-          더 담기 <AiOutlinePlus />
-        </OrderAddMoreBtn>
+        {store && (
+          <OrderAddMoreBtn onClick={handleClickAddMoreBtn}>
+            더 담기 <AiOutlinePlus />
+          </OrderAddMoreBtn>
+        )}
       </OrderSect>
       <OrderPriceSumSect>
         <OrderPriceRowSect>
@@ -89,8 +91,15 @@ const Cart = () => {
         </OrderPriceRowSect>
       </OrderPriceSumSect>
       <OrderFooter>
-        <OrderFooterText>최소 주문금액 130000원</OrderFooterText>
-        <OrderFooterBtn>
+        <OrderFooterText>
+          최소 주문금액 {store && store.minDeliveryPrice}원
+        </OrderFooterText>
+        <OrderFooterBtn
+          isActivated={
+            menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) >
+            (store ? store.minDeliveryPrice : 10000)
+          }
+        >
           {store
             ? menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) +
               store.deliveryFee
