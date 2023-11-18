@@ -15,7 +15,7 @@ export const PrimaryButton = styled.button<Props>`
   }
   background-color: ${(props) =>
     props.$isActivated ? color.primary_500 : color.primary_100};
-  color: white;
+  color: ${color.white};
   padding: 10px 16px;
   ${(props) =>
     props.$isFull &&
