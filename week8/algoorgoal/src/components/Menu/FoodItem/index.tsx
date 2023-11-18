@@ -29,7 +29,7 @@ const FoodNameWrapper = styled(FoodName)`
 `;
 
 export default function MenuItem({ menuItem }: MenuItemPropsType) {
-  const { name, isBest, ...props } = menuItem;
+  const { id, name, isBest, ...props } = menuItem;
   return (
     <MenuRow justifyContent="space-between">
       <FoodImage />
@@ -46,7 +46,7 @@ export default function MenuItem({ menuItem }: MenuItemPropsType) {
         </FoodNameWrapper>
         <FoodDetail {...props} />
       </FoodInfoWrapper>
-      <AddToCartButton />
+      <AddToCartButton itemId={id} />
     </MenuRow>
   );
 }
