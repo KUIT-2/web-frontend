@@ -39,7 +39,7 @@ export default function MenuItem({ menuItem }: MenuItemPropsType) {
           <span>
             {isBest && (
               <Text color="primary" size="medium">
-                Best
+                BEST
               </Text>
             )}
           </span>
