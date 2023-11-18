@@ -23,7 +23,7 @@ export const Default: Story = {
         pathParams: { storeId: '1' },
       },
       routing: {
-        path: '/store/:storeId',
+        path: '/stores/:storeId',
         handle: 'Store',
       },
     }),

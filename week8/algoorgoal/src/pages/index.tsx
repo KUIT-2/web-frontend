@@ -4,6 +4,7 @@ import Home from './Home';
 import Stores from './Stores';
 import Store from './Store';
 import Cart from './Cart';
+import Order from './Order';
 
 export default function Router() {
   const router = createBrowserRouter([
@@ -21,12 +22,16 @@ export default function Router() {
       element: <Stores />,
     },
     {
-      path: '/store/:storeId',
+      path: '/stores/:storeId',
       element: <Store />,
     },
     {
       path: '/cart',
       element: <Cart />,
+    },
+    {
+      path: '/order',
+      element: <Order />,
     },
   ]);
 
