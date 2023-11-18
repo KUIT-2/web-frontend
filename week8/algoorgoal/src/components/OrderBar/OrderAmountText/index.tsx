@@ -1,5 +1,5 @@
 import React from 'react';
-import Text from '../../../common/components/Text';
+import Text from '../../common/Text';
 
 export default function OrderAmountText() {
   return (

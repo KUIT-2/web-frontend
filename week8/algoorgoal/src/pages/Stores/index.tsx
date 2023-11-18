@@ -1,7 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router';
-import Menu from '../../components/Menu';
-import StoreProfile from '../../components/StoreProfile';
+import Menu from '../../components/Store/Menu';
+import StoreProfile from '../../components/Store/StoreProfile';
 
 export default function Stores() {
   return (

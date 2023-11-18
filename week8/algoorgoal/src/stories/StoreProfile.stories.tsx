@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import StoreProfile from '../components/StoreProfile';
+import StoreProfile from '../components/Store/StoreProfile';
 
 const meta = {
   title: 'week8/StoreProfile',

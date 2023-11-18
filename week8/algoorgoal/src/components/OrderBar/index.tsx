@@ -2,7 +2,7 @@ import React from 'react';
 import useCartStore from '../../store/cartStore';
 import OrderAmountContainer from './OrderAmountContainer';
 import OrderButton from '../OrderButton';
-import Row from '../../common/components/Row';
+import Row from '../common/Row';
 
 export default function OrderBar() {
   const menu = useCartStore((state) => state.menu);

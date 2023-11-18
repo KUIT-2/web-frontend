@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Button from '../../common/components/Button';
-import Text from '../../common/components/Text';
+import Button from '../common/Button';
+import Text from '../common/Text';
 
 export default function OrderButton() {
   return (

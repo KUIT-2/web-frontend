@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Button from '../common/components/Button';
+import Button from '../components/common/Button';
 
 const meta = {
   title: 'week8/Button',

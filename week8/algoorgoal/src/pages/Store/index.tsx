@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import useCartStore from '../../store/cartStore';
 import stores from '../../models/stores';
 import OrderBar from '../../components/OrderBar';
-import Menu from '../../components/Menu';
-import StoreProfile from '../../components/StoreProfile';
+import StoreProfile from '../../components/Store/StoreProfile';
+import Menu from '../../components/Store/Menu';
 
 export default function Store() {
   const { storeId } = useParams();

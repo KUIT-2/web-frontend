@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import BackButton from './BackButton';
 import CancelButton from './CancelButton';
-import Row from '../../common/components/Row';
+import Row from '../common/Row';
 
 interface NavigationRowPropsTypes {
   children: ReactNode;

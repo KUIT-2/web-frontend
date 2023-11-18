@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import FoodCategoryRow from '../components/Menu/FoodCategoryRow';
+import FoodCategoryRow from '../components/Store/Menu/FoodCategoryRow';
 
 const meta = {
   title: 'week8/FoodCategoryRow',
