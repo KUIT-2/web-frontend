@@ -27,6 +27,11 @@ export const PrimaryButton = styled.button<Props>`
     padding-top: 18px;
     padding-bottom: 19px;
   `}
+  ${(props) =>
+    !props.$isActivated &&
+    `
+    cursor:initial; 
+  `}
   border-radius: 8px;
   border: none;
 `;

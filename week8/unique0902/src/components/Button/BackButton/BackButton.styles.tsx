@@ -5,7 +5,7 @@ export const BackBtn = styled.button`
   color: ${color.gray_900};
   font-size: 1.5rem;
   &:hover {
-    color: ${color.gray_500};
+    filter: opacity(0.5) drop-shadow(0 0 0 ${color.gray_500});
   }
   margin-left: 10px;
   margin-top: 10px;

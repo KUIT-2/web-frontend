@@ -16,8 +16,8 @@ import {
   OrderTotalPriceText,
   OrderFooterText,
   OrderFooter,
+  CartMenuItemWrapper,
 } from './Cart.styles';
-import { AiOutlinePlus, AiOutlineExclamationCircle } from 'react-icons/ai';
 
 // TODO: Styled Component 리팩토링
 // TODO: 컴포넌트 분리 리팩토링
@@ -27,6 +27,8 @@ import CartMenuItem from '../../components/CartMenuItem/CartMenuItem';
 import { useNavigate } from 'react-router-dom';
 import { MenuInCart } from '../../store/type/menu';
 import PrimaryBtn from '../../components/Button/PrimaryBtn/PrimaryBtn';
+import { PlusIcn, WarningIcn } from '../../asset/img/icon';
+import { color } from '../../styles/Theme';
 
 const Cart = () => {
   const store = useCartStore((state) => state.store);
@@ -64,17 +66,20 @@ const Cart = () => {
               store.minDeliveryPrice && (
               <OrderWarningMinPrice>
                 <p>최소금액 미달</p>
-                <AiOutlineExclamationCircle />
+                <WarningIcn width={13} height={13} />
               </OrderWarningMinPrice>
             )}
         </OrderHeaderWrapper>
-        {menusInCart.map((menu) => (
-          <CartMenuItem menu={menu} key={menu.id} />
-        ))}
+        <CartMenuItemWrapper>
+          {menusInCart.map((menu) => (
+            <CartMenuItem menu={menu} key={menu.id} />
+          ))}
+        </CartMenuItemWrapper>
 
         {store && (
           <OrderAddMoreBtn onClick={handleClickAddMoreBtn}>
-            더 담기 <AiOutlinePlus />
+            더 담기{' '}
+            <PlusIcn width={16} height={16} stroke={color.primary_500} />
           </OrderAddMoreBtn>
         )}
       </OrderSect>

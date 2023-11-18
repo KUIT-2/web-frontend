@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { AiFillStar } from 'react-icons/ai';
 import MenuItem from '../../components/MenuItem/MenuItem';
 
 import stores from '../../models/stores';
@@ -15,6 +14,8 @@ import {
   StoreMenuTitleWrapper,
   StoreReviewWrapper,
 } from './Store.styles';
+import { StarIcn } from '../../asset/img/icon';
+import { color } from '../../styles/Theme';
 
 const Store = () => {
   const { storeId } = useParams();
@@ -37,7 +38,7 @@ const Store = () => {
 
         <StoreReviewWrapper>
           <StarWrapper>
-            <AiFillStar />
+            <StarIcn width={19} height={19} fill={color.star} />
           </StarWrapper>
           <p>
             별 {store.rate} 리뷰 {store.reviewCnt}

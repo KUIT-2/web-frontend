@@ -48,9 +48,10 @@ export const OrderMenuInformWrapper = styled.section`
   ${flexRowStyle}
   gap: 15px;
 `;
-
+export const CartMenuItemWrapper = styled.div`
+  border-bottom: 1px solid ${color.border_top};
+`;
 export const OrderAddMoreBtn = styled.button`
-  border-top: 1px solid ${color.border_top};
   width: 100%;
   color: ${color.primary_500};
   font-size: 17px;
@@ -61,7 +62,7 @@ export const OrderAddMoreBtn = styled.button`
   padding: 19px 0;
   cursor: pointer;
   &:hover {
-    color: ${color.primary_100};
+    filter: opacity(0.5) drop-shadow(0 0 0 ${color.border_top});
   }
 `;
 

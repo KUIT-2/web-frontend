@@ -11,9 +11,12 @@ import {
 
 const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
+  const store = useCartStore((state) => state.store);
   const navigate = useNavigate();
   const handleOrder = () => {
-    navigate('cart');
+    if (store) {
+      navigate('cart');
+    }
   };
 
   return (
@@ -25,7 +28,7 @@ const OrderBar = () => {
         </OrderSectPrice>
       </OrderSection>
 
-      <PrimaryBtn handleClick={handleOrder} isActivated={true}>
+      <PrimaryBtn handleClick={handleOrder} isActivated={store ? true : false}>
         주문하기
       </PrimaryBtn>
     </OrderFooter>

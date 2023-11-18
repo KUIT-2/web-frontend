@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BackBtn } from './BackButton.styles';
-import { AiOutlineLeft } from 'react-icons/ai';
+import { LeftIcn } from '../../../asset/img/icon';
+import { color } from '../../../styles/Theme';
 const BackButton: React.FC = () => {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -9,7 +10,7 @@ const BackButton: React.FC = () => {
   };
   return (
     <BackBtn onClick={handleClick}>
-      <AiOutlineLeft />
+      <LeftIcn width={24} height={24} fill={color.gray_900} />
     </BackBtn>
   );
 };

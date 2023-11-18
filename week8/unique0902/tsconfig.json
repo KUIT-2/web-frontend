@@ -19,6 +19,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["./src/"],
+  "include": ["./src/", "custom.d.ts"],
   "exclude": ["node_modules/*"]
 }
