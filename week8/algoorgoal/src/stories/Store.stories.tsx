@@ -24,7 +24,7 @@ export const Default: Story = {
       },
       routing: {
         path: '/store/:storeId',
-        handle: 'Profile',
+        handle: 'Store',
       },
     }),
   },
