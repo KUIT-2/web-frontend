@@ -18,3 +18,19 @@ export type Color = {
   border: string;
   border_top: string;
 };
+export type FontSize = {
+  xxs: string;
+  xs: string;
+  xxm: string;
+  xm: string;
+  base: string;
+  md: string;
+  lg: string;
+};
+export type FontWeight = {
+  light: string;
+  normal: string;
+  medium: string;
+  semiBold: string;
+  bold: string;
+};

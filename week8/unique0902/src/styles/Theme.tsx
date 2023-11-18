@@ -1,4 +1,4 @@
-import { Color, Rounded } from '../store/type/style';
+import { Color, FontSize, FontWeight, Rounded } from '../store/type/style';
 
 export const color: Color = {
   primary_500: '#3182F6',
@@ -27,3 +27,20 @@ export const flexRowStyle: string = `
   flex: row;
   align-items: center;
 `;
+
+export const fontSize: FontSize = {
+  xxs: '13px',
+  xs: '15px',
+  xxm: '16px',
+  xm: '17px',
+  base: '22px',
+  md: '26px',
+  lg: '32px',
+};
+export const fontWeight: FontWeight = {
+  light: '300',
+  normal: '400',
+  medium: '500',
+  semiBold: '600',
+  bold: '700',
+};

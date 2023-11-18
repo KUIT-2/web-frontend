@@ -3,7 +3,6 @@ import { color } from '../../../styles/Theme';
 
 export const BackBtn = styled.button`
   color: ${color.gray_900};
-  font-size: 1.5rem;
   &:hover {
     filter: opacity(0.5) drop-shadow(0 0 0 ${color.gray_500});
   }
