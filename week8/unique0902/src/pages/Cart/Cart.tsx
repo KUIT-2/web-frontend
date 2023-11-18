@@ -14,7 +14,6 @@ import {
   OrderPriceText,
   OrderTotalPriceTitle,
   OrderTotalPriceText,
-  OrderFooterBtn,
   OrderFooterText,
   OrderFooter,
 } from './Cart.styles';
@@ -27,6 +26,7 @@ import useCartStore from '../../api/cartStore';
 import CartMenuItem from '../../components/CartMenuItem/CartMenuItem';
 import { useNavigate } from 'react-router-dom';
 import { MenuInCart } from '../../store/type/menu';
+import PrimaryBtn from '../../components/Button/PrimaryBtn/PrimaryBtn';
 
 const Cart = () => {
   const store = useCartStore((state) => state.store);
@@ -104,18 +104,20 @@ const Cart = () => {
         <OrderFooterText>
           최소 주문금액 {store && store.minDeliveryPrice}원
         </OrderFooterText>
-        <OrderFooterBtn
-          $isActivated={
+        <PrimaryBtn
+          handleClick={() => {}}
+          isActivated={
             menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) >
             (store ? store.minDeliveryPrice : 10000)
           }
+          isFull={true}
         >
           {store
             ? menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) +
               store.deliveryFee
             : 0}
           원 결제하기
-        </OrderFooterBtn>
+        </PrimaryBtn>
       </OrderFooter>
     </>
   );

@@ -41,7 +41,9 @@ const MenuItem = ({ menu, store }: Props) => {
         <ItemInform>{menu.price}</ItemInform>
         <ItemInform>{menu.ingredients}</ItemInform>
       </MenuItemInformDiv>
-      <PrimaryBtn handleClick={handleAddMenu}>담기</PrimaryBtn>
+      <PrimaryBtn handleClick={handleAddMenu} isActivated={true}>
+        담기
+      </PrimaryBtn>
     </MenuItemSec>
   );
 };

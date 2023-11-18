@@ -2,20 +2,6 @@ import styled from 'styled-components';
 import { PageFlexRowDiv } from '../../styles/PageStyle';
 import { color } from '../../styles/Theme';
 
-export const PrimaryButton = styled.button<{ $isActivated: boolean }>`
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  &:hover {
-    background-color: ${(props) =>
-      props.$isActivated ? '#1d4a89' : '#D0DFFB'};
-  }
-  background-color: ${(props) => (props.$isActivated ? '#3182F6' : '#D0DFFB')};
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  border: none;
-`;
 export const CartHeader = styled.header`
   display: flex;
   flex: row;
@@ -150,16 +136,4 @@ export const OrderFooterText = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-`;
-
-export const OrderFooterBtn = styled(PrimaryButton)`
-  width: 100%;
-  border-radius: 16px;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  padding-top: 18px;
-  padding-bottom: 19px;
 `;
