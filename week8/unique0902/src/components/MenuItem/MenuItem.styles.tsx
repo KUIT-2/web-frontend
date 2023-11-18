@@ -20,6 +20,7 @@ export const MenuItemNameSect = styled.section`
   @media screen and (max-width: 500px) {
     align-items: flex-start;
   }
+
   gap: 6px;
 `;
 export const MenuItemPrimaryBtnText = styled.p`

@@ -5,6 +5,9 @@ export const StoreItemWrapper = styled.section`
   flex-direction: row;
   padding: 16px 24px;
   gap: 12px;
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export const StoreItemDescriptionWrapper = styled.section`
