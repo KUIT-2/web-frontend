@@ -51,7 +51,10 @@ const Cart = () => {
     }
     return acc;
   }, []);
-
+  const totalMenusPrice = menus.reduce(
+    (acc, currentMenu) => acc + currentMenu.price,
+    0
+  );
   return (
     <>
       <CartHeader>
@@ -61,14 +64,12 @@ const Cart = () => {
       <OrderSect>
         <OrderHeaderWrapper>
           <OrderStoreText>{store?.name}</OrderStoreText>
-          {store &&
-            menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) <
-              store.minDeliveryPrice && (
-              <OrderWarningMinPrice>
-                <p>최소금액 미달</p>
-                <WarningIcn width={13} height={13} />
-              </OrderWarningMinPrice>
-            )}
+          {store && totalMenusPrice < store.minDeliveryPrice && (
+            <OrderWarningMinPrice>
+              <p>최소금액 미달</p>
+              <WarningIcn width={13} height={13} />
+            </OrderWarningMinPrice>
+          )}
         </OrderHeaderWrapper>
         <CartMenuItemWrapper>
           {menusInCart.map((menu) => (
@@ -86,9 +87,7 @@ const Cart = () => {
       <OrderPriceSumSect>
         <OrderPriceRowSect>
           <OrderPriceTitle>주문금액</OrderPriceTitle>
-          <OrderPriceText>
-            {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0)}원
-          </OrderPriceText>
+          <OrderPriceText>{totalMenusPrice}원</OrderPriceText>
         </OrderPriceRowSect>
         <OrderPriceRowSect>
           <OrderPriceTitle>배달요금</OrderPriceTitle>
@@ -97,11 +96,7 @@ const Cart = () => {
         <OrderPriceRowSect>
           <OrderTotalPriceTitle>총 결제금액</OrderTotalPriceTitle>
           <OrderTotalPriceText>
-            {store
-              ? menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) +
-                store.deliveryFee
-              : 0}
-            원
+            {store ? totalMenusPrice + store.deliveryFee : 0}원
           </OrderTotalPriceText>
         </OrderPriceRowSect>
       </OrderPriceSumSect>
@@ -117,11 +112,7 @@ const Cart = () => {
           }
           isFull={true}
         >
-          {store
-            ? menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0) +
-              store.deliveryFee
-            : 0}
-          원 결제하기
+          {store ? totalMenusPrice + store.deliveryFee : 0}원 결제하기
         </PrimaryBtn>
       </OrderFooter>
     </>
