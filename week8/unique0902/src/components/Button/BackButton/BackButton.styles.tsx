@@ -3,9 +3,6 @@ import { color } from '../../../styles/Theme';
 
 export const BackBtn = styled.button`
   color: ${color.gray_900};
-  background: none;
-  border: none;
-  cursor: pointer;
   font-size: 1.5rem;
   &:hover {
     color: ${color.gray_500};

@@ -1,18 +1,15 @@
 import styled from 'styled-components';
-import { color } from '../../styles/Theme';
+import { color, flexRowStyle } from '../../styles/Theme';
 
 export const OrderFooter = styled.footer`
   width: 100%;
-  box-sizing: border-box;
   position: fixed;
   background-color: ${color.white};
   bottom: 0;
-  display: flex;
-  flex-direction: row;
+  ${flexRowStyle}
   padding: 16px 24px;
   justify-content: space-between;
   border-radius: 16px 16px 0px 0px;
-  align-items: center;
   box-shadow: 0px -8px 16px 0px rgba(0, 0, 0, 0.1);
 `;
 export const OrderSection = styled.section`

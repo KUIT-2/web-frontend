@@ -1,10 +1,9 @@
 import styled from 'styled-components';
+import { flexRowStyle } from '../../styles/Theme';
 
 export const MenuItemSec = styled.section`
   padding: 16px 24px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  ${flexRowStyle}
   justify-content: space-between;
 `;
 export const MenuItemInformDiv = styled.div`
@@ -17,9 +16,7 @@ export const MenuItemInformDiv = styled.div`
   }
 `;
 export const MenuItemNameSect = styled.section`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  ${flexRowStyle}
   @media screen and (max-width: 500px) {
     align-items: flex-start;
   }

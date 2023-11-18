@@ -22,11 +22,8 @@ export const PrimaryButton = styled.button<Props>`
     `
     width: 100%;
     border-radius: 16px;
-    font-family: Pretendard;
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     padding-top: 18px;
     padding-bottom: 19px;
   `}

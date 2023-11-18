@@ -8,11 +8,8 @@ export const Container = styled.div`
 
 export const StoreInformText = styled.p`
   color: ${color.gray_700};
-  font-family: Pretendard;
   font-size: 15px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
 `;
 
 export const StoreInformRow = styled.div`
@@ -38,11 +35,8 @@ export const StoreReviewWrapper = styled(PageFlexRowDiv)`
 
 export const StoreMenuTitle = styled.h3`
   color: ${color.gray_500};
-  font-family: Pretendard;
   font-size: 17px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 `;
 export const StoreMenuTitleWrapper = styled.div`
   padding: 26px 24px 11px 24px;

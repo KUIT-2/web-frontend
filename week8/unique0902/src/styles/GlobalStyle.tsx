@@ -11,6 +11,8 @@ const globalStyles = createGlobalStyle`
 
     *{
         box-sizing:border-box;
+        font-family: Pretendard;
+        line-height: normal;
     }
 
     a {
@@ -19,6 +21,7 @@ const globalStyles = createGlobalStyle`
     button {
         border:none;
         background:none;
+        cursor: pointer;
     }
 `;
 

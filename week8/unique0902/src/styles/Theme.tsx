@@ -21,3 +21,9 @@ export const rounded: Rounded = {
   full: '27px',
   small: '8px',
 };
+
+export const flexRowStyle: string = `
+  display: flex;
+  flex: row;
+  align-items: center;
+`;
