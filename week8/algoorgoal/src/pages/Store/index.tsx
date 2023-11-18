@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useCartStore from '../../store/cartStore';
 import stores from '../../models/stores';
-import OrderBar from '../../components/OrderBar';
+import OrderBar from '../../components/common/OrderBar';
 import StoreProfile from '../../components/Store/StoreProfile';
 import Menu from '../../components/Store/Menu';
 

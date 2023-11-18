@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import NavigationRow from '../components/NavigationRow';
-import BackButton from '../components/NavigationRow/BackButton';
-import CancelButton from '../components/NavigationRow/CancelButton';
+import NavigationRow from '../components/common/NavigationRow';
+import BackButton from '../components/common/NavigationRow/BackButton';
+import CancelButton from '../components/common/NavigationRow/CancelButton';
 
 const meta = {
   title: 'week8/NavigationRow',

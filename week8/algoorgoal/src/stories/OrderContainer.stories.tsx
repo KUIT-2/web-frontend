@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import OrderAmountContainer from '../components/OrderBar/OrderAmountContainer';
+import OrderAmountContainer from '../components/common/OrderBar/OrderAmountContainer';
 
 const meta = {
   title: 'week8/OrderAmountContainer',
