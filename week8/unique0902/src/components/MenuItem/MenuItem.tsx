@@ -9,6 +9,7 @@ import RoundedImg from '../Img/RoundedImg';
 import {
   MenuItemInformDiv,
   MenuItemNameSect,
+  MenuItemPrimaryBtnText,
   MenuItemSec,
 } from './MenuItem.styles';
 
@@ -51,7 +52,7 @@ const MenuItem = ({ menu, storeInNowPage }: Props) => {
         <ItemInform>{menu.ingredients}</ItemInform>
       </MenuItemInformDiv>
       <PrimaryBtn handleClick={handleAddMenu} isActivated={true}>
-        담기
+        <MenuItemPrimaryBtnText>담기</MenuItemPrimaryBtnText>
       </PrimaryBtn>
     </MenuItemSec>
   );

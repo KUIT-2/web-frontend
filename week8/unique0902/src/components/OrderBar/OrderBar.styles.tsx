@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color, flexRowStyle } from '../../styles/Theme';
+import { color, flexRowStyle, fontSize, fontWeight } from '../../styles/Theme';
 
 export const OrderFooter = styled.footer`
   width: 100%;
@@ -28,4 +28,9 @@ export const OrderSectPrice = styled.p`
   font-weight: 600;
   color: ${color.gray_700};
   margin: 0;
+`;
+export const OrderBarPrimaryBtnText = styled.p`
+  font-size: ${fontSize.xs};
+  font-weight: ${fontWeight.medium};
+  color: ${color.white};
 `;

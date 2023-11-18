@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { PageFlexRowDiv } from '../../styles/PageStyle';
-import { color, flexRowStyle } from '../../styles/Theme';
+import { color, flexRowStyle, fontSize, fontWeight } from '../../styles/Theme';
 
 export const CartHeader = styled.header`
   ${flexRowStyle}
@@ -110,4 +110,10 @@ export const OrderFooterText = styled.p`
   color: ${color.gray_500};
   font-size: 17px;
   font-weight: 500;
+`;
+
+export const CartPrimaryBtn = styled.p`
+  color: ${color.white};
+  font-size: ${fontSize.xxm};
+  font-weight: ${fontWeight.semiBold};
 `;

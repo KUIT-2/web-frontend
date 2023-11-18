@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { flexRowStyle } from '../../styles/Theme';
+import { color, flexRowStyle, fontSize, fontWeight } from '../../styles/Theme';
 
 export const MenuItemSec = styled.section`
   padding: 16px 24px;
@@ -21,4 +21,9 @@ export const MenuItemNameSect = styled.section`
     align-items: flex-start;
   }
   gap: 6px;
+`;
+export const MenuItemPrimaryBtnText = styled.p`
+  font-size: ${fontSize.xxs};
+  font-weight: ${fontWeight.medium};
+  color: ${color.white};
 `;

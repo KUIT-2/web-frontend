@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useCartStore from '../../api/cartStore';
 import PrimaryBtn from '../Button/PrimaryBtn/PrimaryBtn';
 import {
+  OrderBarPrimaryBtnText,
   OrderFooter,
   OrderSection,
   OrderSectionTitle,
@@ -29,7 +30,7 @@ const OrderBar = () => {
       </OrderSection>
 
       <PrimaryBtn handleClick={handleOrder} isActivated={store ? true : false}>
-        주문하기
+        <OrderBarPrimaryBtnText>주문하기</OrderBarPrimaryBtnText>
       </PrimaryBtn>
     </OrderFooter>
   );
