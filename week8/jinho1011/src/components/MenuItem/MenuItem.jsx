@@ -1,13 +1,6 @@
 import React from "react";
-import useCartStore from "../../store/cartStore";
 
-const MenuItem = ({ menu }) => {
-  const addMenu = useCartStore((state) => state.addMenu);
-
-  const handleAddMenu = () => {
-    addMenu(menu);
-  };
-
+const MenuItem = ({ menu, handleAddMenu }) => {
   return (
     <div>
       <h3>{menu.name}</h3>
