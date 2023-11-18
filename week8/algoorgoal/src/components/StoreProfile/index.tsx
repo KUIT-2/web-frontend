@@ -6,6 +6,7 @@ import StoreDetail from './StoreDetail';
 import Text from '../../common/components/Text';
 import Column from '../../common/components/Column';
 import Row from '../../common/components/Row';
+import useCartStore from '../../store/cartStore';
 
 const ReviewRow = styled(Row)`
   column-gap: 9px;
@@ -18,14 +19,20 @@ const StoreProfileColumn = styled(Column)`
 `;
 
 export default function StoreProfile() {
+  const store = useCartStore((state) => state.store);
+
+  if (!store) {
+    return <>찾을 수 없어요</>;
+  }
+
   return (
     <StoreProfileColumn>
       <Text color="highlight" size="extraLarge" as="h1">
-        샐로리 한남점
+        {store?.name}
       </Text>
       <ReviewRow>
-        <StoreRating rating={4.9} />
-        <StoreReviewCount reviewCount={3919} />
+        <StoreRating rating={store?.rating} />
+        <StoreReviewCount reviewCount={store?.reviewCount} />
       </ReviewRow>
       <StoreDetail />
     </StoreProfileColumn>

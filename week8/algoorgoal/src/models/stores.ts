@@ -4,7 +4,7 @@ export interface StoreType {
   id: number;
   name: string;
   rating: number;
-  reviewCnt: number;
+  reviewCount: number;
   minDeliveryTime: number;
   maxDeliveryTime: number;
   minimumOrderValue: number;
@@ -27,7 +27,7 @@ const stores: StoresType = [
     id: 1,
     name: '샐로리 한남점',
     rating: 4.9,
-    reviewCnt: 3919,
+    reviewCount: 3919,
     minDeliveryTime: 13,
     maxDeliveryTime: 30,
     minimumOrderValue: 13000,
@@ -67,7 +67,7 @@ const stores: StoresType = [
     id: 2,
     name: '그린가든 강남점',
     rating: 4.7,
-    reviewCnt: 2451,
+    reviewCount: 2451,
     minDeliveryTime: 15,
     maxDeliveryTime: 25,
     minimumOrderValue: 12000,
@@ -93,7 +93,7 @@ const stores: StoresType = [
     id: 3,
     name: '헬시키친 홍대입구',
     rating: 4.8,
-    reviewCnt: 1784,
+    reviewCount: 1784,
     minDeliveryTime: 20,
     maxDeliveryTime: 35,
     minimumOrderValue: 10000,
