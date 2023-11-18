@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import StorePaymentMethod from './StorePaymentMethod';
 import StoreMinimumOrderValue from './StoreMinimumOrderValue';
 import StoreDeliveryTime from './StoreDelieveryTime';
+import useCartStore from '../../../store/cartStore';
 
 const DetailsWrapper = styled.span`
   display: flex;
@@ -12,11 +13,20 @@ const DetailsWrapper = styled.span`
 `;
 
 export default function StoreDetail() {
+  const store = useCartStore((state) => state.store);
+
+  if (!store) {
+    return <>찾을 수가 없어요.</>;
+  }
+
   return (
     <DetailsWrapper>
       <StorePaymentMethod paymentMethod="toss" />
-      <StoreMinimumOrderValue minimumOrderValue={13000} />
-      <StoreDeliveryTime minDeliveryTime={12} maxDeliveryTime={40} />
+      <StoreMinimumOrderValue minimumOrderValue={store.minimumOrderValue} />
+      <StoreDeliveryTime
+        minDeliveryTime={store.minDeliveryTime}
+        maxDeliveryTime={store.maxDeliveryTime}
+      />
     </DetailsWrapper>
   );
 }
