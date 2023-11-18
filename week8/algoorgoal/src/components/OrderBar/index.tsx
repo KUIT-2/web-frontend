@@ -5,16 +5,16 @@ import OrderButton from '../OrderButton';
 import Row from '../../common/components/Row';
 
 export default function OrderBar() {
-  const menus = useCartStore((state) => state.menus);
-  const store = useCartStore((state) => state.store);
+  const menu = useCartStore((state) => state.menu);
 
-  const handleOrder = () => {};
+  // todo: handleOrder
+  // const handleOrder = () => {};
 
   return (
     <Row justifyContent="space-between">
       <OrderAmountContainer
-        orderAmount={menus.reduce(
-          (accumulator, menu) => accumulator + menu.price,
+        orderAmount={menu.reduce(
+          (accumulator, menuItem) => accumulator + menuItem.price,
           0,
         )}
       />

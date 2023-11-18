@@ -9,7 +9,7 @@ export interface StoreType {
   maxDeliveryTime: number;
   minDeliveryPrice: number;
   deliveryFee: number;
-  menus: MenusType;
+  menu: MenuType;
 }
 
 export interface MenuItemType {
@@ -20,7 +20,7 @@ export interface MenuItemType {
   ingredients: string;
 }
 
-export type MenusType = Array<MenuItemType>;
+export type MenuType = Array<MenuItemType>;
 
 const stores: StoresType = [
   {
@@ -32,7 +32,7 @@ const stores: StoresType = [
     maxDeliveryTime: 30,
     minDeliveryPrice: 13000,
     deliveryFee: 2000,
-    menus: [
+    menu: [
       {
         id: 1,
         name: '토마토 샐러드',
@@ -72,7 +72,7 @@ const stores: StoresType = [
     maxDeliveryTime: 25,
     minDeliveryPrice: 12000,
     deliveryFee: 2500,
-    menus: [
+    menu: [
       {
         id: 1,
         name: '아보카도 그린 샐러드',
@@ -98,7 +98,7 @@ const stores: StoresType = [
     maxDeliveryTime: 35,
     minDeliveryPrice: 10000,
     deliveryFee: 1500,
-    menus: [
+    menu: [
       {
         id: 1,
         name: '쿼리노아 비트 샐러드',

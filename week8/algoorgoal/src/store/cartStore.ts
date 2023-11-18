@@ -1,14 +1,14 @@
 import { create } from 'zustand';
-import { StoreType, MenuItemType, MenusType } from '../models/stores';
+import { StoreType, MenuItemType, MenuType } from '../models/stores';
 
 const initialState = {
   store: undefined,
-  menus: [],
+  menu: [],
 };
 
 type CartStateType = {
   store: undefined | StoreType;
-  menus: MenusType;
+  menu: MenuType;
   addMenu: (menu: MenuItemType) => void;
   setStore: (store: StoreType) => void;
 };
@@ -16,10 +16,10 @@ type CartStateType = {
 const useCartStore = create<CartStateType>((set) => ({
   ...initialState,
 
-  addMenu(menu) {
+  addMenu(menuItem) {
     set((state) => ({
       ...state,
-      menus: [...state.menus, menu],
+      menu: [...state.menu, menuItem],
     }));
   },
 
