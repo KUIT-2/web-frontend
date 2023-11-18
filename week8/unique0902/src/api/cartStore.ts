@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { Menu } from '../store/type/menu';
 import { Store } from '../store/type/store';
-//TODO: store 초기화 로직 고민
 type State = {
   store: Store | undefined;
   menus: Menu[];
@@ -10,9 +9,10 @@ type State = {
 type StoresState = {
   store: Store | undefined;
   menus: Menu[];
-  addMenu: (menu: Menu, storeId: number) => void;
+  addMenu: (menu: Menu) => void;
+  clearMenu: () => void;
   setStore: (store: Store) => void;
-  clearOrder: () => void;
+  clearAll: () => void;
 };
 
 const initialState: State = {
@@ -24,20 +24,22 @@ const useCartStore = create<StoresState>((set) => ({
   store: initialState.store,
   menus: initialState.menus,
 
-  addMenu: (menu: Menu, storeId: number) => {
+  addMenu: (menu: Menu) => {
     set((state: State) => {
-      if (!state.store || state.store.id !== storeId) {
-        return { ...state, menus: [menu] };
-      } else {
-        return { ...state, menus: [...state.menus, menu] };
-      }
+      return { ...state, menus: [...state.menus, menu] };
+    });
+  },
+
+  clearMenu: () => {
+    set((state: State) => {
+      return { ...state, menus: [] };
     });
   },
   setStore: (store: Store) => {
     set((state: State) => ({ ...state, store: store }));
   },
 
-  clearOrder: () => {
+  clearAll: () => {
     set((state: State) => ({ ...state, store: undefined, menus: [] }));
   },
 }));

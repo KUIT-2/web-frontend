@@ -68,7 +68,7 @@ const Store = () => {
           <StoreMenuTitle>샐러드</StoreMenuTitle>
         </StoreMenuTitleWrapper>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} store={store} />;
+          return <MenuItem key={menu.id} menu={menu} storeInNowPage={store} />;
         })}
       </div>
     </div>

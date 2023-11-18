@@ -14,16 +14,25 @@ import {
 
 type Props = {
   menu: Menu;
-  store: Store;
+  storeInNowPage: Store;
 };
 
-const MenuItem = ({ menu, store }: Props) => {
+const MenuItem = ({ menu, storeInNowPage }: Props) => {
   const addMenu = useCartStore((state) => state.addMenu);
+  const clearMenu = useCartStore((state) => state.clearMenu);
   const setStore = useCartStore((state) => state.setStore);
+  const store = useCartStore((state) => state.store);
 
   const handleAddMenu = () => {
-    addMenu(menu, store.id);
-    setStore(store);
+    if (!store) {
+      setStore(storeInNowPage);
+    } else {
+      if (store.id !== storeInNowPage.id) {
+        clearMenu();
+        setStore(storeInNowPage);
+      }
+    }
+    addMenu(menu);
   };
 
   return (

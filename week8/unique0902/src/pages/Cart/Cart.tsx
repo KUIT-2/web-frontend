@@ -33,9 +33,9 @@ import { color } from '../../styles/Theme';
 const Cart = () => {
   const store = useCartStore((state) => state.store);
   const menus = useCartStore((state) => state.menus);
-  const clearOrder = useCartStore((state) => state.clearOrder);
+  const clearStoreAndMenus = useCartStore((state) => state.clearAll);
   const handleClickCancelBtn = () => {
-    clearOrder();
+    clearStoreAndMenus();
   };
   const navigate = useNavigate();
   const handleClickAddMoreBtn = () => {
