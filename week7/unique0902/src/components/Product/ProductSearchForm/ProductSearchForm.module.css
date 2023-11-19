@@ -1,0 +1,8 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+}
