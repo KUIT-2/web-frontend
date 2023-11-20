@@ -6,6 +6,7 @@ import {
 } from 'storybook-addon-react-router-v6';
 
 import Store from '../pages/Store';
+import Cart from '../pages/Cart';
 
 const meta = {
   title: 'Page/Store',
@@ -20,12 +21,21 @@ export const Default: Story = {
   parameters: {
     reactRouter: reactRouterParameters({
       location: {
-        pathParams: { storeId: '1' },
-      },
-      routing: {
         path: '/stores/:storeId',
-        handle: 'Store',
+        pathParams: {
+          storeId: '1',
+        },
       },
+      routing: [
+        {
+          path: '/stores/:storeId',
+          element: <Store />,
+        },
+        {
+          path: '/cart',
+          element: <Cart />,
+        },
+      ],
     }),
   },
 };
