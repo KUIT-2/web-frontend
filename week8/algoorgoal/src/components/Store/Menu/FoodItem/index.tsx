@@ -49,7 +49,7 @@ export default function MenuItem({ menuItem }: MenuItemPropsType) {
         </FoodNameWrapper>
         <FoodDetail {...props} />
       </FoodInfoWrapper>
-      <AddToCartButton itemId={id} />
+      <AddToCartButton menuItem={menuItem} />
     </MenuRow>
   );
 }

@@ -3,23 +3,23 @@ import { StoreType, MenuItemType, MenuType } from '../models/stores';
 
 const initialState = {
   store: undefined,
-  menu: [],
+  cart: [],
 };
 
 type CartStateType = {
   store: undefined | StoreType;
-  menu: MenuType;
-  addToMenu: (menu: MenuItemType) => void;
+  cart: MenuType;
+  addItemToCart: (menu: MenuItemType) => void;
   setStore: (store: StoreType) => void;
 };
 
 const useCartStore = create<CartStateType>((set) => ({
   ...initialState,
 
-  addToMenu(menuItem) {
+  addItemToCart(menuItem) {
     set((state) => ({
       ...state,
-      menu: [...state.menu, menuItem],
+      cart: [...state.cart, menuItem],
     }));
   },
 

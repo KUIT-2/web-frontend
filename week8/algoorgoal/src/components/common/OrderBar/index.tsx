@@ -1,19 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useCartStore from '../../../store/cartStore';
 import OrderAmountContainer from './OrderAmountContainer';
 import OrderButton from '../../OrderButton';
 import Row from '../Row';
 
 export default function OrderBar() {
-  const menu = useCartStore((state) => state.menu);
-
-  // todo: handleOrder
-  // const handleOrder = () => {};
+  const cart = useCartStore((state) => state.cart);
 
   return (
     <Row justifyContent="space-between">
       <OrderAmountContainer
-        orderAmount={menu.reduce(
+        orderAmount={cart.reduce(
           (accumulator, menuItem) => accumulator + menuItem.price,
           0,
         )}
