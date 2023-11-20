@@ -9,14 +9,14 @@ const initialState = {
 type CartStateType = {
   store: undefined | StoreType;
   menu: MenuType;
-  addMenu: (menu: MenuItemType) => void;
+  addToMenu: (menu: MenuItemType) => void;
   setStore: (store: StoreType) => void;
 };
 
 const useCartStore = create<CartStateType>((set) => ({
   ...initialState,
 
-  addMenu(menuItem) {
+  addToMenu(menuItem) {
     set((state) => ({
       ...state,
       menu: [...state.menu, menuItem],
