@@ -8,11 +8,16 @@ import Row from '../Row';
 export default function OrderBar() {
   const cart = useCartStore((state) => state.cart);
 
+  if (!cart) {
+    return <>주문 불가능</>;
+  }
+
   return (
     <Row justifyContent="space-between">
       <OrderAmountContainer
-        orderAmount={cart.reduce(
-          (accumulator, menuItem) => accumulator + menuItem.price,
+        orderAmount={Object.entries(cart).reduce(
+          (accumulator, [id, { price, quantity }]) =>
+            accumulator + price * quantity,
           0,
         )}
       />
