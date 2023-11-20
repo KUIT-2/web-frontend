@@ -20,6 +20,5 @@ export const Primary: Story = {
     children: '담기',
     width: '54px',
     height: '32px',
-    color: 'primary',
   },
 };

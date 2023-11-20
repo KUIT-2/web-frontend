@@ -10,7 +10,6 @@ export default function AddToCartButton({ itemId }: AddToCartButtonPropsType) {
   return (
     <Button
       type="button"
-      color="primary"
       width="52px"
       height="32px"
       onClick={() => {
