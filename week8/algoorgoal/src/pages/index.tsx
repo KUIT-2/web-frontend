@@ -4,7 +4,7 @@ import Home from './Home';
 import Stores from './Stores';
 import Store from './Store';
 import Cart from './Cart';
-import Order from './Order';
+import Order from './Cart';
 
 export default function Router() {
   const router = createBrowserRouter([

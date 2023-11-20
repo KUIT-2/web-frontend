@@ -5,13 +5,13 @@ import {
   withRouter,
 } from 'storybook-addon-react-router-v6';
 
-import Order from '../pages/Order';
+import Cart from '../pages/Cart';
 
 const meta = {
-  title: 'Page/Order',
-  component: Order,
+  title: 'Page/Cart',
+  component: Cart,
   decorators: [withRouter],
-} satisfies Meta<typeof Order>;
+} satisfies Meta<typeof Cart>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -20,8 +20,8 @@ export const Default: Story = {
   parameters: {
     reactRouter: reactRouterParameters({
       routing: {
-        path: '/order',
-        handle: 'Order',
+        path: '/cart',
+        handle: 'Cart',
       },
     }),
   },
