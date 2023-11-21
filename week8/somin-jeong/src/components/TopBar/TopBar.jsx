@@ -1,11 +1,10 @@
 import React from "react";
 import styled from 'styled-components';
 
-import Back from '../../images/Back.svg';
-
 import { useNavigate } from 'react-router-dom';
 
 import useCartStore from "../../store/cartStore";
+import { BackIcon } from "../../assets/images";
 
 const Top = styled.div`
     height: 41px;
@@ -15,7 +14,7 @@ const Top = styled.div`
     justify-content : space-between;
 `;
 
-const BackBtn = styled.img`
+const BackBtn = styled.div`
     width: 24px;
     height: 24px;
     margin: 7px 0px 10px 10px;
@@ -49,7 +48,9 @@ const TopBar = ({ subBtn }) => {
 
     return (
       <Top>
-        <BackBtn onClick={handleGoBack} src={Back} alt="back"/>
+        <BackBtn onClick={handleGoBack}>
+          <BackIcon />
+        </BackBtn>
         <OrderCancel onClick={handleOrderCancel}>{subBtn}</OrderCancel>
       </Top>
     );

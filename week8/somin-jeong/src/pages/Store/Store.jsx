@@ -8,7 +8,7 @@ import TopBar from "../../components/TopBar/TopBar";
 import stores from "../../models/stores";
 import useCartStore from "../../store/cartStore";
 
-import Star from '../../images/Star.svg';
+import { StarIcon } from "../../assets/images";
 
 import styled from 'styled-components';
 
@@ -50,7 +50,7 @@ const ReviewCount = styled.span`
   padding: 1px 0px 0px 0px;
 `;
 
-const StarImage = styled.img`
+const StarImage = styled.div`
   width: 18px;
   height: 19px;
   margin-right: 5px;
@@ -106,7 +106,9 @@ const Store = () => {
       <TopBar />
       <Title>{store.name}</Title>
       <Review>
-        <StarImage src={Star} alt="star" />
+        <StarImage>
+          <StarIcon />
+        </StarImage>
         <ReviewPoint>{store.rate}</ReviewPoint>
         <ReviewCount>리뷰{store.reviewCnt}</ReviewCount>
       </Review>

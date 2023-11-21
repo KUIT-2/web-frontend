@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-import Star from '../../images/Star2.svg';
+import { Star2Icon } from "../../assets/images";
 
 import { useNavigate } from 'react-router-dom';
 
@@ -39,7 +39,7 @@ const Review = styled.div`
     margin-bottom: 4px;
 `;
 
-const ReviewStar = styled.img`
+const ReviewStar = styled.div`
     width: 13.161px;
     height: 13.161px;
 `;
@@ -73,7 +73,9 @@ const StoreItem = ({ store }) => {
                 <Ranking>{store.ranking}</Ranking>
                 <StoreName>{store.name}</StoreName>
                 <Review>
-                    <ReviewStar src={Star} alt="star" />
+                    <ReviewStar>
+                        <Star2Icon />
+                    </ReviewStar>
                     <ReviewPoint>{store.rate} ({store.reviewCnt})</ReviewPoint>
                 </Review>
                 <Delivery>{store.minDeliveryTime}~{store.maxDeliveryTime} ∙ 배달비 {store.deliveryFee}원</Delivery>

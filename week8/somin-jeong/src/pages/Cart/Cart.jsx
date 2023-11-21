@@ -5,8 +5,8 @@ import OrderItem from "../../components/OrderItem/OrderItem";
 
 import styled from 'styled-components';
 
-import Plus from '../../images/Plus.svg';
-import Limit from '../../images/PriceLimit.svg';
+import { PlusIcon } from "../../assets/images";
+import { LimitIcon } from "../../assets/images";
 
 import useCartStore from "../../store/cartStore";
 
@@ -38,7 +38,7 @@ const PriceLimit = styled.div`
   margin: 27px 6px 13px 147px;
 `;
 
-const LimitImg = styled.img`
+const LimitImg = styled.div`
   width: 13px;
   height: 13px;
   margin: 30px 23px 16px 0px;
@@ -63,7 +63,7 @@ const MoreInputText = styled.div`
   margin-right: 3px;
 `;
 
-const PlusImg = styled.img`
+const PlusImg = styled.div`
   width: 12px;
   height: 12px;
   padding: 2px; 
@@ -199,7 +199,7 @@ const Cart = () => {
           { store.minDeliveryPrice > totalPrice+store.deliveryFee && <PriceLimit>최소금액 미달</PriceLimit> }
         </div>
         <div>
-          { store.minDeliveryPrice > totalPrice+store.deliveryFee && <LimitImg src={Limit} alt="limit" /> }
+          { store.minDeliveryPrice > totalPrice+store.deliveryFee && <LimitImg><LimitIcon /></LimitImg> }
         </div>
       </OrderStore>
       <div>
@@ -211,7 +211,9 @@ const Cart = () => {
       </div>
       <MoreInput>
         <MoreInputText>더 담기</MoreInputText>
-        <PlusImg src={Plus} alt="plus" />
+        <PlusImg>
+          <PlusIcon />
+        </PlusImg>
       </MoreInput>
       <BorderGray />
       <BorderWhite />
