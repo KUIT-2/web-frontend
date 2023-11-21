@@ -16,10 +16,13 @@ const Store = () => {
   const addMenu = useCartStore((state) => state.addMenu);
 
   useEffect(() => {
-    getStore(storeId).then((value) => setStore(value));
+    getStore(storeId)
+      .then((value) => setStore(value))
+      .then(console.log("store: " + store));
   }, [storeId]);
 
   const handleAddMenu = (menu) => {
+    console.log("store: " + store);
     console.log(Object.is(store, storeInCart));
     if (isEqual(storeInCart, store) || storeInCart === undefined) {
       addMenu(menu, store);
