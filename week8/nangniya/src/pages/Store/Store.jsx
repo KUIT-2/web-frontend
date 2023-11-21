@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as S from "./Store.styles";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
-import stores from "../../models/stores";
+import { getStore } from "../../apis/stores";
 import Header from "../../components/Header/Header";
+import useCartStore from "../../store/cartStore";
+import isEqual from "lodash/isEqual";
 
 const Store = () => {
   const { storeId } = useParams();
-  const store = stores.find((s) => s.id.toString() === storeId);
+  const [store, setStore] = useState();
+
+  const storeInCart = useCartStore((state) => state.store);
+  const addMenu = useCartStore((state) => state.addMenu);
+
+  useEffect(() => {
+    getStore(storeId).then((value) => setStore(value));
+  }, [storeId]);
+
+  const handleAddMenu = (menu) => {
+    console.log(Object.is(store, storeInCart));
+    if (isEqual(storeInCart, store) || storeInCart === undefined) {
+      addMenu(menu, store);
+    } else {
+      console.log("한 가게에서만 주문할 수 있습니다.");
+    }
+  };
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -39,7 +57,15 @@ const Store = () => {
         <S.FoodCategory>샐러드</S.FoodCategory>
         <div>
           {store.menus.map((menu) => {
-            return <MenuItem key={menu.id} store={store} menu={menu} />;
+            return (
+              <MenuItem
+                key={menu.id}
+                menu={menu}
+                handleAddMenu={() => {
+                  handleAddMenu(menu);
+                }}
+              />
+            );
           })}
         </div>
       </div>

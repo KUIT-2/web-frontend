@@ -1,6 +1,8 @@
 import Router from "./pages";
 import { Normalize } from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
+import { useEffect } from "react";
+import useCartStore from "./store/cartStore";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -12,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
+  const fetchCart = useCartStore((state) => state.fetchCart);
+  useEffect(() => {
+    fetchCart();
+  }, []);
   return (
     <>
       <Normalize />

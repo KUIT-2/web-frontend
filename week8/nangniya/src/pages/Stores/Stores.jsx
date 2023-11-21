@@ -1,11 +1,20 @@
-import React from "react";
-import stores from "../../models/stores";
+import React, { useState, useEffect } from "react";
+import { getStores } from "../../apis/stores";
 import * as S from "./Stores.styles";
 import { Link } from "react-router-dom";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import Header from "../../components/Header/Header";
 
 const Stores = () => {
+  const [stores, setStores] = useState();
+  useEffect(() => {
+    getStores()
+      .then((value) => setStores(value))
+      .catch((error) => console.error("Error fetching stores:", error));
+  }, []);
+  if (!stores) {
+    return <div>가게들을 찾을 수 없어요 🥺</div>;
+  }
   return (
     <S.Container>
       <Header />
