@@ -5,7 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
-  const store = useCartStore((state) => state.store);
+
+  const menuCount = useCartStore((state) => state.menuCount);
+  const MenuTotalPrice = menus.reduce((acc, menus) => acc + menus.price * menuCount[menus.id], 0);
 
   const navigate = useNavigate();
   const handleOrder = (e) => {
@@ -17,7 +19,7 @@ const OrderBar = () => {
       <S.OrderBarLeft>
         <div>총 주문금액</div>
         <S.Bold>
-          {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0)}원
+          {MenuTotalPrice}원
         </S.Bold>
       </S.OrderBarLeft>
       <S.OrderBarButton onClick={handleOrder} type="button">

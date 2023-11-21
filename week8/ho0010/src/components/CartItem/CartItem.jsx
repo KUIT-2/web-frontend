@@ -5,7 +5,7 @@ import useCartStore from "../../store/cartStore";
 
 
 const CartItem = ({ menu }) => {
-    const menusCount = useCartStore((state) => state.menusCount)
+    const menuCount = useCartStore((state) => state.menuCount[menu.id]);
 
 
     return (
@@ -15,7 +15,7 @@ const CartItem = ({ menu }) => {
                 <h4>{menu.name}</h4>
                 <div>추천소스...</div>
                 <div>{menu.price}원</div>
-                <div>{menusCount}</div>
+                <div>{menuCount}</div>
             </ItemInf>
             <ItemNum></ItemNum>
             <div> &gt;</div>
