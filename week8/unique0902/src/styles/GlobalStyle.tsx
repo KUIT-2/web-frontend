@@ -14,6 +14,9 @@ const globalStyles = createGlobalStyle`
         font-family: Pretendard;
         line-height: normal;
     }
+    ul {
+        list-style:none;
+    }
 
     a {
         text-decoration:none;

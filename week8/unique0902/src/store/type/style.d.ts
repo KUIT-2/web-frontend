@@ -17,9 +17,11 @@ export type Color = {
   star: string;
   border: string;
   border_top: string;
+  category_item_color: string;
 };
 export type FontSize = {
   xxs: string;
+  xcs: string;
   xs: string;
   xxm: string;
   xm: string;

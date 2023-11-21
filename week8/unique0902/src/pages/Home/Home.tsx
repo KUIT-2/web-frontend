@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PizzaIcn } from '../../asset/img/food-category/food-icon';
+import FoodCategories from '../../components/FoodCategories/FoodCategories';
 import {
   PageSubTitle,
   PageTitle,
@@ -16,13 +16,7 @@ const Home = () => {
           한남중앙로 40길 (한남 빌리지)(으)로 배달{' >'}
         </PageSubTitle>
       </PageTitleWithSubSect>
-      <ul>
-        <li>
-          <PizzaIcn width={28} height={28} />
-          <p>피자</p>
-        </li>
-      </ul>
-      <Link to={'store'}>store</Link>
+      <FoodCategories />
     </>
   );
 };

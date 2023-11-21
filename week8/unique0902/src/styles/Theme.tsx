@@ -15,6 +15,7 @@ export const color: Color = {
   star: '#FFD158',
   border: '#f2f4f6',
   border_top: '#e5e8eb',
+  category_item_color: '#FAFAFB',
 };
 
 export const rounded: Rounded = {
@@ -30,6 +31,7 @@ export const flexRowStyle: string = `
 
 export const fontSize: FontSize = {
   xxs: '13px',
+  xcs: '14px',
   xs: '15px',
   xxm: '16px',
   xm: '17px',
