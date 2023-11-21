@@ -33,7 +33,7 @@ const MenuItem = ({ menu, storeInNowPage }: Props) => {
         setStore(storeInNowPage);
       }
     }
-    addMenu(menu);
+    addMenu(menu, storeInNowPage);
   };
 
   return (

@@ -19,8 +19,7 @@ import {
   CartMenuItemWrapper,
 } from './Cart.styles';
 
-// TODO: Styled Component 리팩토링
-// TODO: 컴포넌트 분리 리팩토링
+//TODO: fontweight, font size 정리하기
 
 import useCartStore from '../../api/cartStore';
 import CartMenuItem from '../../components/CartMenuItem/CartMenuItem';
@@ -42,6 +41,7 @@ const Cart = () => {
     navigate(`/store/${store?.id}`);
   };
 
+  //카트 속 메뉴들 정리하는 로직
   const menusInCart = menus.reduce((acc: MenuInCart[], menu) => {
     const index = acc.findIndex((meunItem) => meunItem.id === menu.id);
     if (index === -1) {
@@ -51,6 +51,7 @@ const Cart = () => {
     }
     return acc;
   }, []);
+
   const totalMenusPrice = menus.reduce(
     (acc, currentMenu) => acc + currentMenu.price,
     0

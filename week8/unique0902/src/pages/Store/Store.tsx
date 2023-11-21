@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MenuItem from '../../components/MenuItem/MenuItem';
 
-import stores from '../../models/stores';
 import BackButton from '../../components/Button/BackButton/BackButton';
 import { PageTitle, PageTitleSect } from '../../styles/PageStyle';
 import {
@@ -16,11 +15,16 @@ import {
 } from './Store.styles';
 import { StarIcn } from '../../asset/img/icon';
 import { color } from '../../styles/Theme';
+import { getStore } from '../../models/store';
+import { Store as StoreType } from '../../store/type/store';
 
 const Store = () => {
   const { storeId } = useParams();
+  const [store, setStore] = useState<StoreType | null>();
 
-  const store = stores.find((s) => s.id.toString() === storeId);
+  useEffect(() => {
+    storeId && getStore(storeId).then((value) => setStore(value));
+  }, [storeId]);
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
