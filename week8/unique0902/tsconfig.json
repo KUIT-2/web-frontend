@@ -19,6 +19,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["./src/", "custom.d.ts", "public/food-category"],
+  "include": ["./src/", "custom.d.ts", "public/food-category", "fonts.d.ts"],
   "exclude": ["node_modules/*"]
 }
