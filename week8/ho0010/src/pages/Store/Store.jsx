@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import MenuItem from "../../components/MenuItem/MenuItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import NavTop from "../../components/Nav/NavTop";
-import stores from "../../models/stores";
+//import stores from "../../models/stores";
 import useCartStore from "../../store/cartStore";
 import * as S from "./Store.styles"
 
 const Store = () => {
   const { storeId } = useParams();
-  const setStore = useCartStore((state) => state.setStore);
+  const [store,setStore] = useState();
+  //const setStore = useCartStore((state) => state.setStore);
 
-  const store = stores.find((s) => s.id.toString() === storeId);
+  //const store = stores.find((s) => s.id.toString() === storeId);
 
   useEffect(() => {
     if (store) {
