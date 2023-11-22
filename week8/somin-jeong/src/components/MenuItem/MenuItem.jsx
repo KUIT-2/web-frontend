@@ -1,5 +1,4 @@
 import React from "react";
-import useCartStore from "../../store/cartStore";
 import styled from 'styled-components';
 
 const Store = styled.div`
@@ -72,13 +71,7 @@ const Button = styled.div`
   box-sizing: content-box;
 `;
 
-const MenuItem = ({ menu }) => {
-  const addMenu = useCartStore((state) => state.addMenu);
-
-  const handleAddMenu = () => {
-    addMenu(menu);
-  };
-
+const MenuItem = ({ menu, handleAddMenu }) => {
   return (
     <Store>
       <MenuImage />

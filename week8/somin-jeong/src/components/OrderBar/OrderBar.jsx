@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect }  from "react";
 import useCartStore from "../../store/cartStore";
 import styled from 'styled-components';
 
@@ -67,9 +67,12 @@ const OrderBar = () => {
     navigate(`/cart`);
   };
 
+  let totalPrice = 0;
+
   console.log(menus);
-  const totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * menuCounts[currentMenu.id]), 0);
+  totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * currentMenu.counts), 0);
   console.log(totalPrice);
+  console.log(menuCounts);
 
   return (
     <OrderBottomBar>

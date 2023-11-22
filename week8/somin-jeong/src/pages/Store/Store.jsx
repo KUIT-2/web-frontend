@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import MenuItem from "../../components/MenuItem/MenuItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import TopBar from "../../components/TopBar/TopBar";
 
-import stores from "../../models/stores";
 import useCartStore from "../../store/cartStore";
+import { getStore } from "../../apis/stores"
 
 import { StarIcon } from "../../assets/images";
 
@@ -87,15 +87,19 @@ const BottemPadding = styled.div`
 
 const Store = () => {
   const { storeId } = useParams();
-  const setStore = useCartStore((state) => state.setStore);
-
-  const store = stores.find((s) => s.id.toString() === storeId);
+  const [store, setStore] = useState();
+  const addMenu = useCartStore((state) => state.addMenu);
+  const menus = useCartStore((state) => state.menus);
+  // const setStore = useCartStore((state) => state.setStore);
+  // const store = stores.find((s) => s.id.toString() === storeId);
 
   useEffect(() => {
-    if (store) {
-      setStore(store);
-    }
+    getStore(storeId).then((value) => setStore(value));
   }, []);
+
+  const handleAddMenu = (menu) => {
+    addMenu(menu, store)
+  };
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
@@ -129,7 +133,7 @@ const Store = () => {
       <MenuCategory>샐러드</MenuCategory>
       <div>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} />;
+          return <MenuItem key={menu.id} menu={menu} handleAddMenu={() => handleAddMenu(menu)}/>;
         })}
       </div>
       <BottemPadding></BottemPadding>

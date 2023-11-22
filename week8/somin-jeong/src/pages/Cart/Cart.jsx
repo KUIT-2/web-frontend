@@ -182,7 +182,7 @@ const Cart = () => {
   const store = useCartStore((state) => state.store);
   const menuCounts = useCartStore((state) => state.menuCounts);
 
-  const totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * menuCounts[currentMenu.id]), 0);
+  const totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * currentMenu.counts), 0);
 
   if (!store) {
     return <div>메뉴를 먼저 담아주세요 🥺</div>;

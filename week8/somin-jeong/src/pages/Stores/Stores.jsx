@@ -6,7 +6,7 @@ import OrderBar from "../../components/OrderBar/OrderBar";
 
 import styled from 'styled-components';
 
-import stores from "../../models/stores";
+import stores from "../../apis/stores";
 
 const Title = styled.div`
   color: #191F28;
@@ -30,9 +30,9 @@ const Stores = () => {
     <div>
       <TopBar />
       <Title>샐러드</Title>
-      {stores.map((store) => {
+      {/* {stores.map((store) => {
         return <StoreItem key={store.id} store={store} />
-      })}
+      })} */}
       <BottemPadding></BottemPadding>
       <OrderBar />
     </div>

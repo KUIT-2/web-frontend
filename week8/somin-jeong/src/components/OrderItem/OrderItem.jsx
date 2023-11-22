@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import useCartStore from "../../store/cartStore";
 
 const Menu = styled.div`
   display: flex;
@@ -55,8 +54,6 @@ const Button = styled.div`
 `;
 
 const OrderItem = ({ menu }) => {
-  const menuCounts = useCartStore((state) => state.menuCounts);
-
   return (
     <Menu>
         <MenuImage />
@@ -65,7 +62,7 @@ const OrderItem = ({ menu }) => {
             <MenuPrice>{menu.ingredients}</MenuPrice>
             <MenuPrice>{menu.price}원</MenuPrice>
         </MenuInfo>
-        <MenuCount>{menuCounts[menu.id]}개</MenuCount>
+        <MenuCount>{menu.counts}개</MenuCount>
         <Button>{'>'}</Button>
     </Menu>
   )
