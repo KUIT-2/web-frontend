@@ -99,7 +99,7 @@ export const CartCtaLabel = styled.span`
 `;
 
 export const CartCtaNotBuy = styled.div`
-    margin: 19px 20px;
+    margin: 19px auto;
     padding: 18px 112px;
     border-radius: 16px;
     background: #D0DFFB;   
@@ -107,6 +107,7 @@ export const CartCtaNotBuy = styled.div`
     color: #FFF;
     font-family: "Pretendard-SemiBold";
     font-size: 16px;
+    text-align: center;
 `;
 
 export const CartCtaDoBuy = styled(CartCtaNotBuy)`

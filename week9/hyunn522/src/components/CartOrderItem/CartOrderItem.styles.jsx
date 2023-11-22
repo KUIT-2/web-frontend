@@ -12,9 +12,8 @@ export const CartOrderItemName = styled(MenuItemName)``;
 export const CartOrderItemDetail = styled(MenuItemPrice)``;
 export const CartOrderItemPrice = styled(MenuItemDetail)``;
 export const CartOrderItemCount = styled.div`
-    margin-left: 19px;
     display: flex;
-    justify-content: center;
+    margin-left: auto;
 `;
 export const CartOrderItemLabel = styled(MenuItemPrice)`
     font-size: 15px;
