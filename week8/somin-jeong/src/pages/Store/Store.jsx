@@ -91,9 +91,7 @@ const Store = () => {
   const [price, setPrice] = useState();
   const addMenu = useCartStore((state) => state.addMenu);
   const menus = useCartStore((state) => state.menus);
-  // const setStore = useCartStore((state) => state.setStore);
-  // const store = stores.find((s) => s.id.toString() === storeId);
-
+  
   useEffect(() => {
     getStore(storeId).then((value) => setStore(value));
   }, []);

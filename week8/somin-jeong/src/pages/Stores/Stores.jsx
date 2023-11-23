@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import TopBar from "../../components/TopBar/TopBar";
 import StoreItem from "../../components/StoreItem/StoreItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
+import useCartStore from "../../store/cartStore";
 
 import styled from 'styled-components';
 
-import stores from "../../apis/stores";
+import { getStores } from "../../apis/stores";
 
 const Title = styled.div`
   color: #191F28;
@@ -26,17 +27,42 @@ const BottemPadding = styled.div`
 `;
 
 const Stores = () => {
+  const [stores, setStores] = useState();
+  const menus = useCartStore((state) => state.menus);
+
+  let totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * currentMenu.counts), 0);
+
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const result = await getStores();
+        setStores(result);
+      } catch(error) {
+        console.error('Error fetching stores:', error);
+        setStores([]);
+      }
+    };
+    fetchDataAsync();
+  }, []);
+
   return (
     <div>
       <TopBar />
       <Title>샐러드</Title>
-      {/* {stores.map((store) => {
-        return <StoreItem key={store.id} store={store} />
-      })} */}
+      <div>
+        {stores ? (
+          stores.map((store) => (
+            <StoreItem key={store.id} store={store} />
+          ))
+        ) : (
+          <div>Loading...</div>
+        )}
+      </div>
       <BottemPadding></BottemPadding>
-      <OrderBar />
+      <OrderBar key={totalPrice} price={totalPrice}/>
     </div>
   )
 }
 
-export default Stores
+export default Stores;
