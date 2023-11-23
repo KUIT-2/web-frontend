@@ -4,26 +4,32 @@ import { useParams } from "react-router-dom";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
 import NavTop from "../../components/Nav/NavTop";
-//import stores from "../../models/stores";
-import useCartStore from "../../store/cartStore";
+
 import * as S from "./Store.styles"
+
+import { getStore } from "../../apis/stores";
+import useCartStore from "../../store/cartStore";
 
 const Store = () => {
   const { storeId } = useParams();
   const [store,setStore] = useState();
-  //const setStore = useCartStore((state) => state.setStore);
-
-  //const store = stores.find((s) => s.id.toString() === storeId);
+  const addMenu = useCartStore ((state)=> state.addMenu);
 
   useEffect(() => {
-    if (store) {
-      setStore(store);
-    }
+    getStore(storeId).then(value => setStore(value))
   }, []);
+
+  const handleAddMenu = (menu) => {
+addMenu(menu,store);
+
+  }
+
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;
   }
+
+
 
   return (
     <div>
@@ -38,7 +44,9 @@ const Store = () => {
       <S.StoreCategory>샐러드</S.StoreCategory>
       <div>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} />;
+          return <MenuItem key={menu.id} menu={menu} handleAddMenu = {() => handleAddMenu(menu)} />;
+          // 1. meunitem에 store를 주기
+          // 2. menuitem에 handleAddmenu 주기
         })}
       </div>
       <OrderBar />
