@@ -30,7 +30,6 @@ const Store = () => {
 
   const handleAddMenu = (menu) => {
     addMenu(menu, store);
-
     // setStore(store);
     // // if(store === '없음') { console.log(store); setStore(store); }
     // addMenu(menu);

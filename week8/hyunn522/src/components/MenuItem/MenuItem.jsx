@@ -9,14 +9,10 @@ const MenuItem = ({ menu }) => {
 
     const addCnt = useCartStore((state) => state.addCnt);
     const addMenu = useCartStore((state) => state.addMenu);
-    const calTotalPrice = useCartStore((state) => state.calTotalPrice);
-    const setStore = useCartStore((state) => state.setStore);
 
     const handleAddMenu = () => {
-        setStore(store);
         // if(store === '없음') { console.log(store); setStore(store); }
         addMenu(menu);
-        calTotalPrice(menu);
         // if (menus.map((eachmenu) => {
         //     if(eachmenu.name == menu.name) { return true; }
         // })) {

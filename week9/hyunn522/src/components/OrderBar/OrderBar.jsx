@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useCartStore from '../../store/cartStore';
 
 import * as S from './OrderBar.styles';
 import { Link } from 'react-router-dom';
+import { getSum } from '../../apis/cart';
 
 const OrderBar = () => {
   // const menus = useCartStore((state => state.menus));
   const store = useCartStore((state => state.store));
   const totalPrice = useCartStore((state) => state.totalPrice);
+  const setTotalPrice = useCartStore((state) => state.setTotalPrice);
 
   const handleOrder = () => {};
+
+  useEffect(() => {
+    getSum().then(value => setTotalPrice(value));
+  })
  
   if(!store) {
     return <div>찾으시는 가게가 없어요</div>

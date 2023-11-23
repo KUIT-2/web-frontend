@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { getCart, updateCart } from "../apis/cart";
 
 const initialState = {
     store: '없음',
@@ -7,7 +8,7 @@ const initialState = {
     cnt: 0,
 }
 
-const useCartStore = create((set) => ({
+const useCartStore = create((set, get) => ({
     store: initialState.store,
     menus: initialState.menus,
     totalPrice: initialState.totalPrice,
@@ -23,13 +24,22 @@ const useCartStore = create((set) => ({
         }))
     },
     addMenu: (menu, store) => {
-        set((state) => ({...state, store, menus: [...state.menus, menu], totalPrice: state.totalPrice + menu.price}))
+        set((state) => ({
+            ...state,
+            store,
+            menus: [...state.menus, menu],
+        }))
+        updateCart(store, get().menus);
     },
-    // calTotalPrice: (menu) => {
-    //     set((state) => ({...state, totalPrice: state.totalPrice + menu.price}));
-    // },
-    setStore: (store) => {
+    fetchCart: async () => {
+        const data = await getCart();
+        set(data);
+    },
+    setStore: async (store) => {
         set((state) => ({...state, store: store}))
+    },
+    setTotalPrice: async (price) => {
+        set((state) => ({...state, totalPrice: price}))
     },
     addCnt: (menu) => {
         set((state) => ({...state, cnt: state.cnt + 1}));

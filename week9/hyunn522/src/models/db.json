@@ -1,5 +1,99 @@
 {
-  "cart": {},
+  "cart": {
+    "store": {
+      "id": 1,
+      "name": "샐로리 한남점",
+      "ranking": 1,
+      "rate": 4.9,
+      "reviewCnt": 3919,
+      "minDeliveryTime": 13,
+      "maxDeliveryTime": 30,
+      "minDeliveryPrice": 13000,
+      "deliveryFee": 2000,
+      "menus": [
+        {
+          "id": 1,
+          "name": "토마토 샐러드",
+          "isBest": true,
+          "price": 7600,
+          "ingredients": "계란, 옥수수, 양파, 올리브, 베이컨, 시저드레싱"
+        },
+        {
+          "id": 2,
+          "name": "시저 샐러드",
+          "isBest": false,
+          "price": 6900,
+          "ingredients": "로메인 상추와 크루통이며, 달걀, 올리브유, 레몬 즙, 마늘"
+        },
+        {
+          "id": 3,
+          "name": "리코타치즈 샐러드",
+          "isBest": false,
+          "price": 6900,
+          "ingredients": "리코타치즈, 양상추, 베이비채소, 방울토마토, 블랙올리브"
+        },
+        {
+          "id": 4,
+          "name": "탄단지 샐러드",
+          "isBest": false,
+          "price": 7600,
+          "ingredients": "치킨, 고구마, 견과류, 크래배리, 오리엔탈"
+        },
+        {
+          "id": 5,
+          "name": "연어 샐러드",
+          "isBest": false,
+          "price": 9800,
+          "ingredients": "훈제연어 슬라이스, 양상추, 베이비채소, 양파, 케이퍼"
+        },
+        {
+          "id": 6,
+          "name": "우삼겹 메밀면 샐러드",
+          "isBest": false,
+          "price": 8900,
+          "ingredients": "우삼겹, 메밀면, 오이, 양상추, 호두, 옥수수, 참깨 드레싱"
+        }
+      ]
+    },
+    "menus": [
+      {
+        "id": 1,
+        "name": "토마토 샐러드",
+        "isBest": true,
+        "price": 7600,
+        "ingredients": "계란, 옥수수, 양파, 올리브, 베이컨, 시저드레싱"
+      },
+      {
+        "id": 2,
+        "name": "시저 샐러드",
+        "isBest": false,
+        "price": 6900,
+        "ingredients": "로메인 상추와 크루통이며, 달걀, 올리브유, 레몬 즙, 마늘"
+      },
+      {
+        "id": 1,
+        "name": "토마토 샐러드",
+        "isBest": true,
+        "price": 7600,
+        "ingredients": "계란, 옥수수, 양파, 올리브, 베이컨, 시저드레싱"
+      },
+      {
+        "id": 1,
+        "name": "토마토 샐러드",
+        "isBest": true,
+        "price": 7600,
+        "ingredients": "계란, 옥수수, 양파, 올리브, 베이컨, 시저드레싱"
+      },
+      {
+        "id": 1,
+        "name": "토마토 샐러드",
+        "isBest": true,
+        "price": 7600,
+        "ingredients": "계란, 옥수수, 양파, 올리브, 베이컨, 시저드레싱"
+      }
+    ],
+    "sum": 37300
+  },
   "stores": [
     {
       "id": 1,
@@ -134,7 +228,7 @@
       "id": 6,
       "name": "THE 샐러드가득담은",
       "ranking": 4,
-      "rate": 5.0,
+      "rate": 5,
       "reviewCnt": 27,
       "minDeliveryTime": 13,
       "maxDeliveryTime": 30,
