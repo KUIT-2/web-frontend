@@ -7,7 +7,10 @@ const MenuItem = ({ menu , handleAddMenu}) => {
         <S.MenuImg />
       </S.ImgContainer>
       <S.MenuText>
+        <S.MenuNameCtn>
         <S.MenuName>{menu.name}</S.MenuName>
+        { menu.isBest ? <S.MenuBest>Best</S.MenuBest> : ' '}
+        </S.MenuNameCtn>
         <S.MenuPrice>{menu.price}원</S.MenuPrice>
         <S.MenuIngr>{menu.ingredients}</S.MenuIngr>
       </S.MenuText>

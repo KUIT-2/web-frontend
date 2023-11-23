@@ -57,3 +57,12 @@ export const ImgContainer = styled.div`
 display:flex;
 align-items:center;
 `
+export const MenuNameCtn = styled.div`
+display:flex;
+`
+export const MenuBest = styled.div`
+font-size:17px;
+font-weight:600;
+color: #3182f6;
+margin-left:10px;
+`
