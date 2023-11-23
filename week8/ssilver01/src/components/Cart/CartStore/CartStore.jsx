@@ -3,11 +3,7 @@ import React from "react";
 import * as S from "./CartStore.styles";
 import CartStoreList from './CartStoreList';
 
-const CartStore = ({ store, menus, counts }) => {
-  const totalPrice = menus.reduce(
-    (acc, currentMenu) => acc + currentMenu.price * counts[currentMenu.id],
-    0
-  );
+const CartStore = ({ store, menus, totalPrice, getcounts}) => {
 
   return (
     <>
@@ -25,7 +21,7 @@ const CartStore = ({ store, menus, counts }) => {
           )}
         </span>
       </div>
-      <CartStoreList menus={menus} store={store} counts={counts} />
+      <CartStoreList menus={menus} store={store} getcounts = {getcounts}/>
     </>
   );
 };

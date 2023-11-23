@@ -1,10 +1,15 @@
 import React from "react";
 import * as S from "./CartStoreList.styles";
 
-const CartStoreList = ({store, menus, counts}) => {
+const CartStoreList = ({store, menus, getcounts}) => {
+
+  const uniqueMenus = Array.from(new Set(menus.map(menu => menu.id)))
+  .map(id => menus.find(menu => menu.id === id));
+
+
   return (
     <S.CartItems>
-      {menus.map((menu) => {
+      {uniqueMenus.map((menu) => {
           return<div style={{ marginTop: "19px", display: "flex" }}><div
           style={{
             display: "flex",
@@ -33,7 +38,8 @@ const CartStoreList = ({store, menus, counts}) => {
             display:"flex",
             justifyContent:"center"
           }}>
-            <S.Count>{menu.counts}개</S.Count>
+            {/* 해당 메뉴 개수 반환 */}
+            <S.Count>{getcounts(menu.id)}개</S.Count>
             <S.StyledArrowIcon />
           </div>
         </div>    </div>;

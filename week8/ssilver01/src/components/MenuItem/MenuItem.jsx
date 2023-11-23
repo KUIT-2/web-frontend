@@ -2,12 +2,7 @@ import React from "react";
 import useCartStore from "../../store/cartStore";
 import * as S from "./MenuItem.styles";
 
-const MenuItem = ({ menu }) => {
-  const addMenu = useCartStore((state) => state.addMenu);
-
-  const handleAddMenu = () => {
-    addMenu(menu);
-  };
+const MenuItem = ({ menu, handleAddMenu }) => {
 
   return (
     <div
