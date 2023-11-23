@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 // import stores from '../../models/stores'
 import StoreItem from '../../components/StoreItem/StoreItem'
 import OrderBar from '../../components/OrderBar/OrderBar'
-import useCartStore from '../../store/cartStore';
 
 import * as S from './Stores.styles';
 import icon from '../../img/icon-left-chevron.svg';
@@ -12,11 +11,7 @@ import { getStores } from '../../apis/stores';
 const Stores = () => {
   const [ stores, setStores ] = useState();
 
-  // const store = useCartStore((state => state.store));
 
-  // const setStore = useCartStore((state) => state.setStore);
-
-  // menus가 빈 배열이 아닐 때
   useEffect(() => {
     getStores().then(value => setStores(value));
   },[])

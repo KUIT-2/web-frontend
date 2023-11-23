@@ -28,3 +28,28 @@ export const getSum = async () => {
     const data = await response.json();
     return await data.sum;
 }
+
+export const clearCart = async (store, menus) => {
+
+    await fetch("http://localhost:8080/cart",{
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            store,
+            menus
+        })
+    })
+
+    await fetch("http://localhost:8080/cart",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            sum: 0
+        })
+    })
+    
+}

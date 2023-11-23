@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { getCart, updateCart } from "../apis/cart";
+import { clearCart, getCart, updateCart } from "../apis/cart";
 
 const initialState = {
     store: '없음',
@@ -17,9 +17,7 @@ const useCartStore = create((set, get) => ({
     setInitialized: () => {
         set((state) => ({
             ...state,
-            store: initialState.store,
             menus: initialState.menus,
-            totalPrice: initialState.totalPrice,
             cnt: initialState.cnt,
         }))
     },

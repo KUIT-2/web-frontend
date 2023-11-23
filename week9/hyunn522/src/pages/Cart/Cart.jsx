@@ -8,29 +8,24 @@ import * as S from './Cart.styles';
 import back from '../../img/icon-left-chevron.svg';
 import warning from '../../img/icon-warning.svg';
 import plus from '../../img/icon-plus.svg';
+import { clearCart } from '../../apis/cart';
 
 const Cart = () => {
   // const { storeId } = useParams();
   const store = useCartStore((state) => state.store);
   const menus = useCartStore((state) => state.menus);
   const totalPrice = useCartStore((state) => state.totalPrice);
+  const setInitialized = useCartStore((state) => state.setInitialized)
 
   const storeLink = '/store/' + store.id;
   const storesLink = '/store';
   const sum = totalPrice + store.deliveryFee;
 
-  const setStore = useCartStore((state) => state.setStore);
-  const setInitialized = useCartStore((state) => state.setInitialized);
-
   const handleCancelOrder = () => {
+    clearCart(store, menus);
     setInitialized();
   };
 
-  useEffect(() => {
-    if(store) {
-      setStore(store);
-    }
-  },[])
   
   return (
     <div>

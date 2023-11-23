@@ -12,7 +12,8 @@ import icon from '../../img/icon-left-chevron.svg';
 
 const Store = () => {
   const { storeId } = useParams();
-  const [ store, setStore ] = useState();
+  const store = useCartStore((state)=> state.store)
+  const setStore = useCartStore((state)=> state.setStore)
   const addMenu = useCartStore((state) => state.addMenu)
 
   const menus = useCartStore((state) => state.menus);
@@ -27,6 +28,10 @@ const Store = () => {
   useEffect(() => {
     getStore(storeId).then(value => setStore(value));
   },[])
+
+  if(!store) {
+    return <div>가게를 찾을 수 없어요 🥺</div>
+  }
 
   const handleAddMenu = (menu) => {
     addMenu(menu, store);
@@ -75,7 +80,7 @@ const Store = () => {
       <div style={{"background":"#E5E8EB", "width":"auto", "height":"1px"}}></div>
       <div>
         <S.StoreMenuHeader>샐러드</S.StoreMenuHeader>
-        {store.menus.map((menu) => {
+        {store.menus && store.menus.map((menu) => {
           return (
           <MenuItem
             key={menu.id}
