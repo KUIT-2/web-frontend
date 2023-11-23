@@ -22,12 +22,12 @@ const useCartStore = create((set) => ({
             cnt: initialState.cnt,
         }))
     },
-    addMenu: (menu) => {
-        set((state) => ({...state, menus: [...state.menus, menu]}))
+    addMenu: (menu, store) => {
+        set((state) => ({...state, store, menus: [...state.menus, menu], totalPrice: state.totalPrice + menu.price}))
     },
-    calTotalPrice: (menu) => {
-        set((state) => ({...state, totalPrice: state.totalPrice + menu.price}));
-    },
+    // calTotalPrice: (menu) => {
+    //     set((state) => ({...state, totalPrice: state.totalPrice + menu.price}));
+    // },
     setStore: (store) => {
         set((state) => ({...state, store: store}))
     },

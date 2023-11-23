@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 
-import stores from '../../models/stores'
+// import stores from '../../models/stores'
 import StoreItem from '../../components/StoreItem/StoreItem'
 import OrderBar from '../../components/OrderBar/OrderBar'
 import useCartStore from '../../store/cartStore';
@@ -12,9 +12,13 @@ import icon from '../../img/icon-left-chevron.svg';
 const Stores = () => {
   // const { storeId } = useParams();
   const menus = useCartStore((state => state.menus));
-  const store = useCartStore((state => state.store));
 
-  const setStore = useCartStore((state) => state.setStore);
+  const [ store, setStore ] = useState();
+  const [ stores, setStores ] = useState();
+
+  // const store = useCartStore((state => state.store));
+
+  // const setStore = useCartStore((state) => state.setStore);
 
   // menus가 빈 배열이 아닐 때
   useEffect(() => {

@@ -52,7 +52,7 @@ const Cart = () => {
         ) : (<></>)}
       </S.CartOrderCategory>
       {menus.map((menu) => {
-          return <CartOrderItem menu={menu} />;
+          return <CartOrderItem key={menu.id} menu={menu} />;
         })}
       <Link to={storeLink} style={{"textDecoration":"none","display": "flex","justifyContent": "center","alignItems":"center","padding": "20px 0px"}}>
         <S.CartAddBtn>더 담기</S.CartAddBtn>

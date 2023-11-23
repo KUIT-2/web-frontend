@@ -1,25 +1,46 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom';
 
-import stores from "../../models/stores";
+// import stores from "../../models/stores";
 import MenuItem from '../../components/MenuItem/MenuItem';
 import OrderBar from '../../components/OrderBar/OrderBar';
 import useCartStore from '../../store/cartStore';
+import { getStore } from "../../apis/stores"
 
 import * as S from './Store.styles';
 import icon from '../../img/icon-left-chevron.svg';
 
 const Store = () => {
   const { storeId } = useParams();
-  const setStore = useCartStore((state) => state.setStore);
+  const [ store, setStore ] = useState();
+  const addMenu = useCartStore((state) => state.addMenu)
 
-  const store = stores.find((s) => s.id.toString() === storeId);
+  const menus = useCartStore((state) => state.menus);
 
+  const addCnt = useCartStore((state) => state.addCnt);
+
+  // local db 사용
+  // const store = stores.find((s) => s.id.toString() === storeId);
+  // const setStore = useCartStore((state) => state.setStore);
+
+  // server에서 data 가져옴
   useEffect(() => {
-    if(store) {
-      setStore(store);
-    }
+    getStore(storeId).then(value => setStore(value));
   },[])
+
+  const handleAddMenu = (menu) => {
+    addMenu(menu, store);
+
+    // setStore(store);
+    // // if(store === '없음') { console.log(store); setStore(store); }
+    // addMenu(menu);
+    // calTotalPrice(menu);
+    // // if (menus.map((eachmenu) => {
+    // //     if(eachmenu.name == menu.name) { return true; }
+    // // })) {
+    // //     addCnt(menu);
+    // // }
+  };
 
   if(!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>
@@ -56,7 +77,13 @@ const Store = () => {
       <div>
         <S.StoreMenuHeader>샐러드</S.StoreMenuHeader>
         {store.menus.map((menu) => {
-          return <MenuItem key={menu.id} menu={menu} />;
+          return (
+          <MenuItem
+            key={menu.id}
+            menu={menu}
+            handleAddMenu={()=>handleAddMenu(menu)}
+            />
+          );
         })}
         <div style={{"width":"100%","height":"77px"}} />
       </div>
