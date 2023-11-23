@@ -88,6 +88,7 @@ const BottemPadding = styled.div`
 const Store = () => {
   const { storeId } = useParams();
   const [store, setStore] = useState();
+  const [price, setPrice] = useState();
   const addMenu = useCartStore((state) => state.addMenu);
   const menus = useCartStore((state) => state.menus);
   // const setStore = useCartStore((state) => state.setStore);
@@ -97,8 +98,12 @@ const Store = () => {
     getStore(storeId).then((value) => setStore(value));
   }, []);
 
+  let totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * currentMenu.counts), 0);
+
   const handleAddMenu = (menu) => {
-    addMenu(menu, store)
+    addMenu(menu, store);
+    setPrice(menus.reduce((acc, currentMenu) => acc + (currentMenu.price * currentMenu.counts), 0));
+    totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * currentMenu.counts), 0);
   };
 
   if (!store) {
@@ -137,7 +142,7 @@ const Store = () => {
         })}
       </div>
       <BottemPadding></BottemPadding>
-      <OrderBar />
+      <OrderBar key={store.id} price={totalPrice}/>
     </div>
   );
 };

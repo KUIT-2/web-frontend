@@ -57,29 +57,19 @@ const Button = styled.div`
   box-sizing: content-box;
 `;
 
-const OrderBar = () => {
-  const menus = useCartStore((state) => state.menus);
-  const menuCounts = useCartStore((state) => state.menuCounts);
-
+const OrderBar = ({ price }) => {
   const navigate = useNavigate();
 
   const handleOrder = () => {
     navigate(`/cart`);
   };
 
-  let totalPrice = 0;
-
-  console.log(menus);
-  totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * currentMenu.counts), 0);
-  console.log(totalPrice);
-  console.log(menuCounts);
-
   return (
     <OrderBottomBar>
       <TotalOrder>
         <TotalOrderPriceText>총 주문금액</TotalOrderPriceText>
         <TotalOrderPrice>
-          {totalPrice}원
+          {price}원
         </TotalOrderPrice>
       </TotalOrder>
       <Button onClick={handleOrder} type="button">

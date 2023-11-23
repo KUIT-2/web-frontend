@@ -22,6 +22,8 @@ const useCartStore = create((set, get) => ({
           }
       })
 
+      console.log(...state.menus);
+
       if (menuAlreadyExists) {
         return { ...state, store, ...state.menus};
       }
