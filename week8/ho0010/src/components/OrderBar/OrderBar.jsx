@@ -7,8 +7,7 @@ const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
 
   const menuCount = useCartStore((state) => state.menuCount);
-
-
+  
   const MenuTotalPrice = menus.reduce((acc, menus) => acc + menus.price * menuCount[menus.id], 0);
 
   const navigate = useNavigate();

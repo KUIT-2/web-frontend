@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import StoreListComponent from './StoreListComponent';
 //import stores from '../../models/stores';
-
+import { getStores } from "../../apis/stores";
 const StoreList = () => {
-    const [stores,setStores] = useState();
-
+    const [stores,setStores] = useState([]);
+//초기 상태를 빈 배열로 해줘야함
     useEffect(() => {
-        if (stores) {
-            setStores(stores);
-          }
-      }, []);
-     
+    getStores().then(value => setStores(value))
+    }, []);
+
+
     return (
         <div>
             {stores.map((store) => (
