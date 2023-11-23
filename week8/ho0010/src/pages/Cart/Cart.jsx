@@ -10,8 +10,7 @@ const Cart = () => {
   const store = useCartStore((state) => state.store);
   const clearMenus = useCartStore((state) => state.clearMenus);
 
-  const menuCount = useCartStore((state) => state.menuCount);
-  const MenuTotalPrice = menus.reduce((acc, menus) => acc + menus.price * menuCount[menus.id], 0);
+  const MenuTotalPrice = menus.reduce((acc, menus) => acc + menus.price * menus.menuCount, 0);
   const TotalPrice = store.deliveryFee + MenuTotalPrice
 
   const navigate = useNavigate();

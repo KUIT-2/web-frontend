@@ -1,14 +1,15 @@
-import React,{useEffect} from "react";
+import React from "react";
 import useCartStore from "../../store/cartStore";
 import * as S from "./OrderBar.styles"
 import { useNavigate } from "react-router-dom";
 
 const OrderBar = () => {
+  
   const menus = useCartStore((state) => state.menus);
 
-  const menuCount = useCartStore((state) => state.menuCount);
   
-  const MenuTotalPrice = menus.reduce((acc, menus) => acc + menus.price * menuCount[menus.id], 0);
+  const MenuTotalPrice = menus.reduce((acc, menus) => acc + menus.price * menus.menuCount, 0);
+
 
   const navigate = useNavigate();
   const handleOrder = (e) => {
