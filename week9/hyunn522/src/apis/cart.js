@@ -26,5 +26,5 @@ export const updateCart = async (store, menus) => {
 export const getSum = async () => {
     const response = await fetch("http://localhost:8080/cart");
     const data = await response.json();
-    return data.sum;
+    return await data.sum;
 }

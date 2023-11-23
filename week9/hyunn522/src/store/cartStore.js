@@ -38,7 +38,7 @@ const useCartStore = create((set, get) => ({
     setStore: async (store) => {
         set((state) => ({...state, store: store}))
     },
-    setTotalPrice: async (price) => {
+    setSum: async (price) => {
         set((state) => ({...state, totalPrice: price}))
     },
     addCnt: (menu) => {

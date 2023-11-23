@@ -9,12 +9,12 @@ const OrderBar = () => {
   // const menus = useCartStore((state => state.menus));
   const store = useCartStore((state => state.store));
   const totalPrice = useCartStore((state) => state.totalPrice);
-  const setTotalPrice = useCartStore((state) => state.setTotalPrice);
+  const setSum = useCartStore((state) => state.setSum);
 
   const handleOrder = () => {};
 
   useEffect(() => {
-    getSum().then(value => setTotalPrice(value));
+    getSum().then(value => setSum(value));
   })
  
   if(!store) {
