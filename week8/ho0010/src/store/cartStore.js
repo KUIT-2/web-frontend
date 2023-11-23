@@ -26,7 +26,7 @@ const useCartStore = create((set,get) => ({
         return {
           ...state, store, menus: updatedMenus,
           menuCount: { ...state.menuCount, [menu.id]: state.menuCount[menu.id] + 1 }
-        };
+        };  
       } else {
         return {
           ...state, store, menus: [...state.menus, { ...menu, menuCount: 1 }],
@@ -44,7 +44,10 @@ const useCartStore = create((set,get) => ({
 
   clearMenus: () => {
     set((state) => ({ ...state, menus: [] }));
+    updateCart({},[]); 
+
   }
+
 }));
 
 export default useCartStore;

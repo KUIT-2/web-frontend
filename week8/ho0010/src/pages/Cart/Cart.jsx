@@ -1,18 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavTop from "../../components/Nav/NavTop";
 import styled from "styled-components";
 import useCartStore from "../../store/cartStore";
 import CartItem from "../../components/CartItem/CartItem";
 import { useNavigate } from "react-router-dom";
+import { getCart } from "../../apis/cart";
+
 
 const Cart = () => {
   const menus = useCartStore((state) => state.menus);
   const store = useCartStore((state) => state.store);
   const clearMenus = useCartStore((state) => state.clearMenus);
 
-  const MenuTotalPrice = menus.reduce((acc, menus) => acc + menus.price * menus.menuCount, 0);
-  const TotalPrice = store.deliveryFee + MenuTotalPrice
+  const MenuTotalPrice = menus?.reduce((acc, menus) => acc + menus.price * menus.menuCount, 0);
+  const TotalPrice = store?.deliveryFee + MenuTotalPrice
 
+  
   const navigate = useNavigate();
 
   const handelInputMore = () => {
@@ -23,6 +26,7 @@ const Cart = () => {
     clearMenus();
     navigate('/store');
   }
+
 
 
   if (!store) {
