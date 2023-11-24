@@ -6,7 +6,7 @@ export const getCart = async () => {
 
 export const updateCart = async (store, menus) => {
 
-    const totalPrice = menus.reduce((acc, menu) => acc + menu.price, 0);
+    const totalPrice = menus.reduce((acc, menu) => acc + menu.price * menu.cnt, 0);
 
     await fetch("http://localhost:8080/cart",{
         method: "POST",
@@ -53,3 +53,4 @@ export const clearCart = async (store, menus) => {
     })
     
 }
+

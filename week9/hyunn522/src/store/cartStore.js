@@ -22,11 +22,32 @@ const useCartStore = create((set, get) => ({
         }))
     },
     addMenu: (menu, store) => {
-        set((state) => ({
-            ...state,
-            store,
-            menus: [...state.menus, menu],
-        }))
+        set((state) => {
+            const updatedMenus = state.menus.map((existingMenu) => {
+                // 이미 담은 메뉴일 때
+                if (existingMenu.id === menu.id){
+                    return { ...existingMenu, cnt: (existingMenu.cnt || 0) + 1 };
+                }
+                return existingMenu;
+            });
+
+            // 새로운 menu일 때
+            if (!updatedMenus.some(existingMenu => existingMenu.id === menu.id)) {
+                updatedMenus.push({ ...menu, cnt: 1 });
+            }
+
+            // new sum 계산
+            const newSum = updatedMenus.reduce((acc, menu) => {
+                return acc + (menu.price || 0) * (menu.count || 0);
+            }, 0);
+
+            return {
+                ...state,
+                store,
+                menus: updatedMenus,
+                totalPrice: newSum,
+            };
+        });
         updateCart(store, get().menus);
     },
     fetchCart: async () => {
@@ -39,9 +60,10 @@ const useCartStore = create((set, get) => ({
     setSum: async (price) => {
         set((state) => ({...state, totalPrice: price}))
     },
-    addCnt: (menu) => {
-        set((state) => ({...state, cnt: state.cnt + 1}));
-    }
+    getCnt: (menuId) => {
+        const menu = get().menus.find((m) => m.id === menuId);
+        return menu ? menu.cnt || 0 : 0;
+    },
 }));
 
 export default useCartStore;

@@ -8,6 +8,7 @@ import { getSum } from '../../apis/cart';
 const OrderBar = () => {
   // const menus = useCartStore((state => state.menus));
   const store = useCartStore((state => state.store));
+  const menus = useCartStore((state) => state.menus);
   const totalPrice = useCartStore((state) => state.totalPrice);
   const setSum = useCartStore((state) => state.setSum);
 
@@ -15,7 +16,7 @@ const OrderBar = () => {
 
   useEffect(() => {
     getSum().then(value => setSum(value));
-  })
+  }, [menus, setSum])
  
   if(!store) {
     return <div>찾으시는 가게가 없어요</div>

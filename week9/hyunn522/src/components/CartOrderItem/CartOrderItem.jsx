@@ -9,9 +9,9 @@ import icon from '../../img/icon-right-chevron.svg';
 const CartOrderItem = ({ menu }) => {
     const store = useCartStore((state) => state.store);
     const storeLink = '/store/' + store.id
-    // const cnt = useCartStore((state) => state.cnt);
 
-    // const addCnt = useCartStore((state) => state.addCnt);
+    const cnt = useCartStore.getState().getCnt(menu.id);
+    console.log(cnt);
 
   return (
     <S.CartOrderItemContainer>
@@ -22,7 +22,7 @@ const CartOrderItem = ({ menu }) => {
             <S.CartOrderItemPrice>{menu.price}원</S.CartOrderItemPrice>
         </S.CartOrderItemDesc>
         <S.CartOrderItemCount>
-            <S.CartOrderItemLabel>1개</S.CartOrderItemLabel>
+            <S.CartOrderItemLabel>{cnt}개</S.CartOrderItemLabel>
             <Link to={storeLink}>
                 <S.CartOrderItemIcon src={icon}></S.CartOrderItemIcon>
             </Link>
