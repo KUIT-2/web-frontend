@@ -1,17 +1,26 @@
 import { create } from "zustand";
-import { getCart, updateCart } from "../apis/cart";
+import { getCart, updateCart, clearCart } from "../apis/cart";
 
 const initialState = {
   store: undefined,
   menus: [],
-  menuCounts: {}, // 각 메뉴의 개수를 저장하는 객체
+  menu: undefined
 };
+
+// menus:menu[]
+// menus:cartItem[]
+
+// const cartItem = {
+//   ...menu,
+//   itemId,
+//   createdAt,
+// }
 
 const useCartStore = create((set, get) => ({
   store: initialState.store,
   menus: initialState.menus,
 
-  addMenu: (menu, store) => {
+  addMenu: (menu, store) => { // menu: Menu, store: Store
     set((state) => {
       let menuAlreadyExists = false;
 
@@ -35,7 +44,6 @@ const useCartStore = create((set, get) => ({
       return { ...state, store, menus: updatedMenus };
     });
     updateCart(store, get().menus);
-    
   },
   fetchCart: async () => {
     const data = await getCart();
@@ -44,11 +52,9 @@ const useCartStore = create((set, get) => ({
   setStore: (store) => {
     set((state) => ({ ...state, store: store }));
   },
-  clearMenus: () => {
-    set((state) => ({ ...state, menus: [], menuCounts: {} }));
-  },
-  clearStore: () => {
-    set((state) => ({ ...state, store: undefined }));
+  clearCartMenus: () => {
+    set((state) => ({ ...state, store: undefined, menus: [] }));
+    clearCart({}, []);
   }
 }));
 

@@ -16,3 +16,16 @@ export const updateCart = async (store, menus) => {
         })
     });
 }
+
+export const clearCart = async (store, menus) => {
+    return await fetch("http://localhost:8080/cart", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            store,
+            menus
+        })
+    });
+}

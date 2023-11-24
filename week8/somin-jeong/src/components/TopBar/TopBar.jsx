@@ -32,8 +32,7 @@ const OrderCancel = styled.div`
 
 const TopBar = ({ subBtn }) => {
     const navigate = useNavigate();
-    const clearMenus = useCartStore((state) => state.clearMenus);
-    const clearStore = useCartStore((state) => state.clearStore);
+    const clearCartMenus = useCartStore((state) => state.clearCartMenus);
 
     const handleGoBack = () => {
       // 뒤로가기
@@ -42,8 +41,7 @@ const TopBar = ({ subBtn }) => {
 
     const handleOrderCancel = () => {
       navigate(`/store`);
-      clearMenus();
-      clearStore();
+      clearCartMenus();
     };
 
     return (
