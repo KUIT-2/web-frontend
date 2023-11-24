@@ -1,4 +1,4 @@
-import React, { useEffect }  from "react";
+import React, { useEffect, useState }  from "react";
 import useCartStore from "../../store/cartStore";
 import styled from 'styled-components';
 
@@ -57,12 +57,18 @@ const Button = styled.div`
   box-sizing: content-box;
 `;
 
-const OrderBar = ({ price }) => {
+const OrderBar = () => {
   const navigate = useNavigate();
+  const [price, setPrice] = useState();
+  const menus = useCartStore((state) => state.menus);
 
   const handleOrder = () => {
     navigate(`/cart`);
   };
+
+  useEffect(() => {
+    setPrice(menus.reduce((acc, currentMenu) => acc + (currentMenu.price * currentMenu.counts), 0));
+  });
 
   return (
     <OrderBottomBar>

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import TopBar from "../../components/TopBar/TopBar";
 import StoreItem from "../../components/StoreItem/StoreItem";
 import OrderBar from "../../components/OrderBar/OrderBar";
-import useCartStore from "../../store/cartStore";
 
 import styled from 'styled-components';
 
@@ -28,10 +27,6 @@ const BottemPadding = styled.div`
 
 const Stores = () => {
   const [stores, setStores] = useState();
-  const menus = useCartStore((state) => state.menus);
-
-  let totalPrice = menus.reduce((acc, currentMenu) => acc + (currentMenu.price * currentMenu.counts), 0);
-
 
   useEffect(() => {
     const fetchDataAsync = async () => {
@@ -60,7 +55,7 @@ const Stores = () => {
         )}
       </div>
       <BottemPadding></BottemPadding>
-      <OrderBar key={totalPrice} price={totalPrice}/>
+      <OrderBar />
     </div>
   )
 }

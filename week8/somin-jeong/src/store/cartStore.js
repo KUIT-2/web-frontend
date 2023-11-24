@@ -7,20 +7,11 @@ const initialState = {
   menu: undefined
 };
 
-// menus:menu[]
-// menus:cartItem[]
-
-// const cartItem = {
-//   ...menu,
-//   itemId,
-//   createdAt,
-// }
-
 const useCartStore = create((set, get) => ({
   store: initialState.store,
   menus: initialState.menus,
 
-  addMenu: (menu, store) => { // menu: Menu, store: Store
+  addMenu: (menu, store) => {
     set((state) => {
       let menuAlreadyExists = false;
 
@@ -34,7 +25,7 @@ const useCartStore = create((set, get) => ({
       console.log(...state.menus);
 
       if (menuAlreadyExists) {
-        return { ...state, store, ...state.menus};
+        return { ...state, store, menus: state.menus};
       }
 
       menu.counts = menu.counts + 1;
