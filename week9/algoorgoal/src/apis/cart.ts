@@ -1,5 +1,4 @@
-import { MenuItemType, MenuType } from './../models/stores';
-import { StoreType } from '../models/stores';
+import { MenuItemType, MenuType, StoreType } from '../models/stores';
 
 export const getCart = async () => {
   const response = await fetch('http://localhost:8080/cart');
@@ -7,7 +6,7 @@ export const getCart = async () => {
   return data;
 };
 
-export const updateCart = async (store: StoreType, item: MenuType) =>
+export const updateCart = async (store: StoreType, menu: MenuType) =>
   fetch('http://localhost:8080/cart', {
     method: 'POST',
     headers: {
@@ -15,6 +14,15 @@ export const updateCart = async (store: StoreType, item: MenuType) =>
     },
     body: JSON.stringify({
       store,
-      item,
+      menu,
     }),
+  });
+
+export const deleteCart = async () =>
+  fetch('http://localhost:8080/cart', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({}),
   });
