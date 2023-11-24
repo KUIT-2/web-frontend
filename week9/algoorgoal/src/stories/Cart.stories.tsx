@@ -12,7 +12,7 @@ import Store from '../pages/Store';
 const meta = {
   title: 'Page/Cart',
   component: Cart,
-  decorators: [],
+  decorators: [withRouter],
 } satisfies Meta<typeof Cart>;
 
 export default meta;
@@ -102,7 +102,6 @@ export const Default: Story = {
         </>
       );
     },
-    withRouter,
   ],
   parameters: {
     reactRouter: reactRouterParameters({
