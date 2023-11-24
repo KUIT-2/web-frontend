@@ -11,29 +11,18 @@ import useCartStore from "../../store/cartStore";
 const Store = () => {
 
   const navigate = useNavigate();
+  const addMenu = useCartStore((state) => state.addMenu );
   const clearMenu = useCartStore((state) => state.clearMenu);
-  
-
-  const backArrowClick = () => {
-    alert("지금까지 고른 메뉴를 초기화합니다.");
-    clearMenu();
-    navigate(`/store`);
-  }
-
   const { storeId } = useParams();
   const [store, setStore] = useState();
-  const addMenu = useCartStore((state) => state.addMenu );
-  
   
 
   useEffect(() => {
-    getStore(storeId).then((value) => setStore(value), [storeId]);
-  })
+    getStore(storeId).then((value) => setStore(value));
+  }, [])
 
-  
 
   useEffect(() => {
-    
     if (store) {
       setStore(store);
     }
@@ -43,6 +32,13 @@ const Store = () => {
   const handleAddMenu = (menu) => {
     addMenu(menu, store);
   };
+
+  const backArrowClick = () => {
+    alert("지금까지 고른 메뉴를 초기화합니다.");
+    clearMenu();
+    navigate(`/store`);
+  }
+
 
   if (!store) {
     return <div>가게를 찾을 수 없어요 🥺</div>;

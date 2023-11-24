@@ -15,23 +15,20 @@ const useCartStore = create((set, get) => ({
 
   addMenu: (menu, store) => {
     set((state) => ({ ...state, store, menus: [...state.menus, menu] }));
-
     updateCart(store, get().menus);
-    },
-
-  clearMenu: () => {
-    set((state) => ({ ...state, menus: [], menuCounts : [] }));
-    updateCart(get().store, []);
   },
 
-
-  fetchCart : async() => {
+  clearMenu: () => {
+    set((state) => ({ ...state, menus: [], menuCounts: [] }));
+    updateCart(get().store, []);
+  },
+  fetchCart: async () => {
     const data = await getCart();
     set(data);
   },
 
   countMenu: (menuId) => {
-    
+
     set((state) => {
       const updatedMenuCounts = { ...state.menuCounts, [menuId]: (state.menuCounts[menuId] || 0) + 1 };
       return { ...state, menuCounts: updatedMenuCounts };
@@ -39,7 +36,7 @@ const useCartStore = create((set, get) => ({
   },
 
   getMenuCounts: () => get().menuCounts,
-  
+
 
 }));
 
