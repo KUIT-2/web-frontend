@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Stores.module.css";
 
-import categories from "../../models/categories";
-import stores from "../../models/stores";
 import StoreRow from "../../components/StoreRow/StoreRow";
+
+import { getStoreByCategoryId } from "../../apis/stores";
 
 const Stores = () => {
     const { categoryId } = useParams();
-    const category = categories.find((c) => c.id.toString() === categoryId);
+    const [category, setCategory] = useState();
+    const [stores, setStores] = useState([]);
+
+    useEffect(() => {
+        getStoreByCategoryId(categoryId).then((data) => {
+            setCategory(data);
+        });
+    }, [categoryId]);
+
+    useEffect(() => {
+        if (!category) {
+            return;
+        }
+        getStoreByCategoryId(category.id).then((data) => {
+            setStores(data);
+        });
+    }, [category]);
 
     if (!category) {
         return (
