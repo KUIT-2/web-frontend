@@ -9,3 +9,9 @@ export const getStoreById = async (id) => {
     const data = await reponse.json();
     return data;
 };
+
+export const getStoreByCategoryId = async (categoryId) => {
+    const data = await getStores();
+    const filteredData = data.filter((store) => store.categoryId === categoryId);
+    return filteredData;
+};
