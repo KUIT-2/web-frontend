@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./Home.module.css";
-import cateogries from "../../models/categories";
 import useUser from "../../user/user";
 
 const CategoryBtn = ({ category }) => {
