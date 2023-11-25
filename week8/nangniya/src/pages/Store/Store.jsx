@@ -6,7 +6,6 @@ import OrderBar from "../../components/OrderBar/OrderBar";
 import { getStore } from "../../apis/stores";
 import Header from "../../components/Header/Header";
 import useCartStore from "../../store/cartStore";
-import isEqual from "lodash/isEqual";
 
 const Store = () => {
   const { storeId } = useParams();
@@ -22,7 +21,7 @@ const Store = () => {
   }, [storeId]);
 
   const handleAddMenu = (menu) => {
-    if (isEqual(storeInCart, store) || storeInCart === undefined) {
+    if (storeInCart === undefined || storeInCart.id === store.id) {
       addMenu(menu, store);
     } else {
       console.log("한 가게에서만 주문할 수 있습니다.");
