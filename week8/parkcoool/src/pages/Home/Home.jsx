@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./Home.module.css";
 import useUser from "../../user/user";
 
 import { getCategories } from "../../apis/categories";
-const cateogries = getCategories();
 
 const CategoryBtn = ({ category }) => {
     const navigate = useNavigate();
@@ -23,7 +22,13 @@ const CategoryBtn = ({ category }) => {
 };
 
 const Home = () => {
+    const [categories, setCategories] = useState([]);
     const address = useUser((state) => state.address);
+    useEffect(() => {
+        getCategories().then((data) => {
+            setCategories(data);
+        });
+    }, []);
     return (
         <div>
             <div className="header">
@@ -37,7 +42,7 @@ const Home = () => {
                 </div>
             </div>
             <div className={styles.categoryContainer}>
-                {cateogries.map((category) => {
+                {categories.map((category) => {
                     return <CategoryBtn category={category} key={category.id} />;
                 })}
                 <CategoryBtn

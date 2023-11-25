@@ -4,6 +4,7 @@ import styles from "./Stores.module.css";
 
 import StoreRow from "../../components/StoreRow/StoreRow";
 
+import { getCategoryById } from "../../apis/categories";
 import { getStoreByCategoryId } from "../../apis/stores";
 
 const Stores = () => {
@@ -12,7 +13,7 @@ const Stores = () => {
     const [stores, setStores] = useState([]);
 
     useEffect(() => {
-        getStoreByCategoryId(categoryId).then((data) => {
+        getCategoryById(categoryId).then((data) => {
             setCategory(data);
         });
     }, [categoryId]);
@@ -26,6 +27,7 @@ const Stores = () => {
         });
     }, [category]);
 
+    const storesInCategory = stores.filter((store) => store.categoryId === category.id);
     if (!category) {
         return (
             <div>
@@ -35,9 +37,6 @@ const Stores = () => {
             </div>
         );
     }
-
-    const storesInCategory = stores.filter((store) => store.categoryId === category.id);
-
     return (
         <div>
             <div className="header">
