@@ -4,14 +4,14 @@ import { useParams } from "react-router-dom";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import styles from "./Store.module.css";
 
-import { getStore } from "../../apis/stores";
+import { getStoreById } from "../../apis/stores";
 
 const Store = () => {
     const { storeId } = useParams();
     const [store, setStore] = useState();
 
     useEffect(() => {
-        getStore(storeId).then((data) => {
+        getStoreById(storeId).then((data) => {
             setStore(data);
         });
     }, [storeId]);
