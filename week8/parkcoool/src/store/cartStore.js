@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
+import { updateCart } from "../apis/cart";
+
 const initialState = {
     store: undefined,
     menus: [],
@@ -16,34 +18,41 @@ const useCartStore = create((set) => ({
     addMenu: (store, menu) => {
         set((state) => {
             // 다른 가게의 메뉴를 담기 시도했을 때
-            if (state.store !== undefined && state.store.id !== store.id) {
+            if (state.store && state.store.id !== store.id) {
                 return {
                     ...state,
                     askingStoreSwitch: true,
                     tempState: {
-                        store,
+                        store: store,
                         menus: [menu],
                     },
                 };
             } else {
-                return {
-                    ...state,
-                    store,
-                    menus: [...state.menus, menu],
-                };
+                updateCart(store, [...state.menus, menu]).then((res) => {
+                    set((state) => ({
+                        ...state,
+                        ...res,
+                    }));
+                });
+
+                return state;
             }
         });
     },
 
     switchStore: (switchStore) => {
         if (switchStore === true) {
-            set((state) => ({
-                ...state,
-                store: state.tempState.store,
-                menus: state.tempState.menus,
-                askingStoreSwitch: false,
-                tempState: initialState.tempState,
-            }));
+            set((state) => {
+                updateCart(state.tempState.store, state.tempState.menus).then((res) => {
+                    set((state) => ({
+                        ...state,
+                        ...res,
+                        askingStoreSwitch: false,
+                        tempState: initialState.tempState,
+                    }));
+                });
+                return state;
+            });
         } else {
             set((state) => ({
                 ...state,
@@ -54,6 +63,7 @@ const useCartStore = create((set) => ({
     },
 
     reset: () => {
+        updateCart(initialState.store, initialState.menus);
         set(initialState);
     },
 
