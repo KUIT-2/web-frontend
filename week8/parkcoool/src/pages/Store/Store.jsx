@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import MenuItem from "../../components/MenuItem/MenuItem";
 import styles from "./Store.module.css";
 
+import { getStore } from "../../apis/stores";
+
 const Store = () => {
     const { storeId } = useParams();
-    const store = stores.find((s) => s.id.toString() === storeId);
+    const [store, setStore] = useState();
+
+    useEffect(() => {
+        getStore(storeId).then((data) => {
+            setStore(data);
+        });
+    }, [storeId]);
 
     if (!store) {
         return (
