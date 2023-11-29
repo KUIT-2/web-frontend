@@ -1,11 +1,10 @@
-import React from "react";
-import Header from "../../components/Header/Header";
-import * as S from "./Cart.styles";
-import useCartStore from "../../store/cartStore";
-import Button from "../../components/Button/Button";
-import { useNavigate } from "react-router-dom";
-import { RightChevron } from "../../images";
-import { Warning } from "../../images";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import * as S from './Cart.styles';
+import useCartStore from '../../store/cartStore';
+import Button from '../../components/Button/Button';
+import { RightChevron, Warning } from '../../images';
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -13,7 +12,7 @@ const Cart = () => {
   const menus = useCartStore((state) => state.menus);
   const totalPrice = menus.reduce(
     (acc, currentMenu) => acc + currentMenu.price,
-    0
+    0,
   );
   const groupedMenus = menus.reduce((acc, menu) => {
     const existingMenu = acc.find((m) => m.id === menu.id);
@@ -29,14 +28,14 @@ const Cart = () => {
   if (!store || menus.length === 0) {
     return (
       <S.Container>
-        <Header isCartPage={true} />
+        <Header isCartPage />
         <p>장바구니가 비었습니다.</p>
       </S.Container>
     );
   }
   return (
     <S.Container>
-      <Header isCartPage={true} />
+      <Header isCartPage />
       <S.StoreTitle>
         <h3>{store.name}</h3>
         {totalPrice + store.deliveryFee < store.minDeliveryPrice ? (
@@ -47,7 +46,7 @@ const Cart = () => {
         ) : null}
       </S.StoreTitle>
       {groupedMenus.map((menu) => (
-        <S.CartBox>
+        <S.CartBox key={menu.id}>
           <S.MenuImage />
           <S.MenuInfo>
             <h3>{menu.name}</h3>

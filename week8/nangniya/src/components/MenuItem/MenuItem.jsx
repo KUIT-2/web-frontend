@@ -1,6 +1,6 @@
-import React from "react";
-import * as S from "./MenuItem.styles";
-import Button from "../Button/Button";
+import React from 'react';
+import * as S from './MenuItem.styles';
+import Button from '../Button/Button';
 
 const MenuItem = ({ handleAddMenu, menu }) => {
   return (

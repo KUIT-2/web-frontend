@@ -1,8 +1,9 @@
-import Router from "./pages";
-import { Normalize } from "styled-normalize";
-import { createGlobalStyle } from "styled-components";
-import { useEffect } from "react";
-import useCartStore from "./store/cartStore";
+import React, { useEffect } from 'react';
+import { Normalize } from 'styled-normalize';
+import { createGlobalStyle } from 'styled-components';
+import Router from './pages';
+
+import useCartStore from './store/cartStore';
 
 const GlobalStyle = createGlobalStyle`
   * {

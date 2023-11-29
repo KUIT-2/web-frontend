@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import { getCart, updateCart } from "../apis/cart";
+import { create } from 'zustand';
+import { getCart, updateCart } from '../apis/cart';
 
 const initialState = {
   store: undefined,
@@ -19,7 +19,7 @@ const useCartStore = create((set, get) => ({
     set(data);
   },
   removeStore: () => {
-    set((state) => ({ store: initialState.store, menus: initialState.menus }));
+    set(() => ({ store: initialState.store, menus: initialState.menus }));
     updateCart(initialState.store, initialState.menus);
   },
 }));
