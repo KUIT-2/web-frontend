@@ -1,13 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const Home = () => {
   const navigate = useNavigate();
 
   const GoStoreClick = () => {
     navigate(`/store`);
-  }
+  };
 
   const buttonStyle = {
     position: "relative",
@@ -22,15 +21,13 @@ const Home = () => {
     textDecoration: "none",
     color: "white",
     cursor: "pointer",
-
-    
-        
   };
 
-
-  return <button 
-  style = {buttonStyle}  
-  onClick= {() => GoStoreClick()} >Click to Start</button>;
+  return (
+    <button type ="button" style={buttonStyle} onClick={() => GoStoreClick()}>
+      Click to Start
+    </button>
+  );
 };
 
 export default Home;

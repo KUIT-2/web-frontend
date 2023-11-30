@@ -1,12 +1,10 @@
-import Router from "./pages";
+import React, { useEffect } from "react";
 import { Normalize } from "styled-normalize";
+import Router from "./pages";
 import GlobalStyle from "./GlobalStyle";
-import { useEffect } from "react";
-import { getStore } from "./apis/stores";
 import useCartStore from "./store/cartStore";
 
 function App() {
-
   const fetchCart = useCartStore((state) => state.fetchCart);
 
   useEffect(() => {

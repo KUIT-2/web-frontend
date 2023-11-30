@@ -1,16 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useCartStore from "../../store/cartStore";
-import { useNavigate, useParams } from "react-router-dom";
 import * as S from "./OrderBar.styles";
 
 const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
   const navigate = useNavigate();
 
-
   const handleOrder = () => {
     navigate(`/cart`);
-
   };
 
   return (
@@ -21,7 +19,7 @@ const OrderBar = () => {
           {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0)}원
         </S.TotalPrice>
       </S.BottomWriting>
-      
+
       <S.OrderButton onClick={handleOrder} type="button">
         {/* {store?.name}에서 주문하기 */}
         주문하기

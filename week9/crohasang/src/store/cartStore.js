@@ -12,7 +12,6 @@ const useCartStore = create((set, get) => ({
   menus: initialState.menus,
   menuCounts: initialState.menuCounts,
 
-
   addMenu: (menu, store) => {
     set((state) => ({ ...state, store, menus: [...state.menus, menu] }));
     updateCart(store, get().menus);
@@ -28,16 +27,16 @@ const useCartStore = create((set, get) => ({
   },
 
   countMenu: (menuId) => {
-
     set((state) => {
-      const updatedMenuCounts = { ...state.menuCounts, [menuId]: (state.menuCounts[menuId] || 0) + 1 };
+      const updatedMenuCounts = {
+        ...state.menuCounts,
+        [menuId]: (state.menuCounts[menuId] || 0) + 1,
+      };
       return { ...state, menuCounts: updatedMenuCounts };
     });
   },
 
   getMenuCounts: () => get().menuCounts,
-
-
 }));
 
 export default useCartStore;
