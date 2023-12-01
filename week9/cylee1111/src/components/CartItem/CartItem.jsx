@@ -1,21 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import * as S from "./CartItem.styles"
+import * as S from "./CartItem.styles";
 
-import { NextButton } from "../../assets";
-import { Alert } from "../../assets";
+import { NextButton, Alert } from "../../assets";
 
 import useCartStore from "../../store/cartStore";
 
 const CartItem = () => {
   const store = useCartStore((state) => state.store);
   const menus = useCartStore((state) => state.menus);
-  console.log(menus);
+  // console.log(menus);
 
   // 중복 제거된 메뉴 배열
   const uniqueMenus = Array.from(new Set(menus.map((menu) => menu.name))).map(
-    (menuName) => menus.find((menu) => menu.name === menuName)
+    (menuName) => menus.find((menu) => menu.name === menuName),
   );
 
   // 중복 메뉴 개수 계산
@@ -27,7 +26,7 @@ const CartItem = () => {
   // 총 가격 계산
   const totalPrices = uniqueMenus.reduce(
     (total, menu) => total + menu.price * menuCounts[menu.name],
-    0
+    0,
   );
 
   // 더 담기 버튼 클릭
@@ -35,7 +34,6 @@ const CartItem = () => {
   const handleAddMore = () => {
     navigate(-1);
   };
-  
 
   return (
     <div>
@@ -46,22 +44,26 @@ const CartItem = () => {
             {/* 최소금액미달 조건 분기 */}
             {totalPrices < store?.minDeliveryPrice && (
               <S.LessThanMin>
-                <span>최소금액 미달</span> 
-                <S.Alert><Alert /></S.Alert> 
+                <span>최소금액 미달</span>
+                <S.Alert>
+                  <Alert />
+                </S.Alert>
               </S.LessThanMin>
             )}
-            {uniqueMenus.map((menu, index) =>(
+            {uniqueMenus.map((menu, index) => (
               <S.CartItemContainer key={index}>
-                <S.CartImage></S.CartImage>
+                <S.CartImage />
                 <S.CartDescWrapper>
                   <S.CartName>{menu.name}</S.CartName>
                   <S.CartDesc>{menu.price}원</S.CartDesc>
                 </S.CartDescWrapper>
-                <S.CartDesc>{menuCounts[menu.name]}개</S.CartDesc>                  
+                <S.CartDesc>{menuCounts[menu.name]}개</S.CartDesc>
                 <NextButton />
               </S.CartItemContainer>
-            ))}                 
-            <S.AddMoreBtn type="button" onClick={handleAddMore}>더 담기 +</S.AddMoreBtn>
+            ))}
+            <S.AddMoreBtn type="button" onClick={handleAddMore}>
+              더 담기 +
+            </S.AddMoreBtn>
           </S.Cart>
           <S.CartResultWrapper>
             <S.ResultWrapper>
@@ -75,7 +77,7 @@ const CartItem = () => {
             <S.TotalWrapper>
               <S.Total>총 결제금액</S.Total>
               <S.Total>{totalPrices + store.deliveryFee}원</S.Total>
-            </S.TotalWrapper>              
+            </S.TotalWrapper>
           </S.CartResultWrapper>
           {/* 최소금액미달 조건 분기 */}
           {totalPrices >= store?.minDeliveryPrice ? (

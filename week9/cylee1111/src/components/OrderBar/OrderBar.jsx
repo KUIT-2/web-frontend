@@ -1,12 +1,12 @@
 import React from "react";
-import useCartStore from "../../store/cartStore";
 import { useNavigate } from "react-router-dom";
+import useCartStore from "../../store/cartStore";
 
-import * as S from "./OrderBar.styles"
+import * as S from "./OrderBar.styles";
 
 const OrderBar = () => {
   const menus = useCartStore((state) => state.menus);
-  const store = useCartStore((state) => state.store);
+  // const store = useCartStore((state) => state.store);
   const navigate = useNavigate();
 
   const handleOrder = () => {
@@ -19,7 +19,7 @@ const OrderBar = () => {
         <S.OrderAmountDesc>총 주문금액</S.OrderAmountDesc>
         <S.OrderAmountPrice>
           {menus.reduce((acc, currentMenu) => acc + currentMenu.price, 0)}원
-        </S.OrderAmountPrice>        
+        </S.OrderAmountPrice>
       </S.OrderAmountWrapper>
       <S.OrderBtn onClick={handleOrder} type="button">
         {/* {store?.name}에서 주문하기 */}
