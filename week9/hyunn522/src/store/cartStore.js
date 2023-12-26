@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import { create } from 'zustand';
 import { getCart, updateCart } from '../apis/cart';
 
@@ -37,8 +38,8 @@ const useCartStore = create((set, get) => ({
       }
 
       // new sum 계산
-      const newSum = updatedMenus.reduce((acc) => {
-        return acc + (menu.price || 0) * (menu.count || 0);
+      const newSum = updatedMenus.reduce((acc, m) => {
+        return acc + (m.price || 0) * (m.count || 0);
       }, 0);
 
       return {

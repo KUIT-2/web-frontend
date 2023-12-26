@@ -15,7 +15,7 @@ const MenuItem = ({ menu, handleAddMenu }) => {
         <S.MenuItemPrice>{menu.price}</S.MenuItemPrice>
         <S.MenuItemDetail>{menu.ingredients}</S.MenuItemDetail>
       </S.MenuItemDesc>
-      <S.MenuItemAddBtn onClick={handleAddMenu()} type="button">
+      <S.MenuItemAddBtn onClick={handleAddMenu} type="button">
         담기
       </S.MenuItemAddBtn>
     </S.MenuItemContainer>

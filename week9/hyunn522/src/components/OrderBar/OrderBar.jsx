@@ -12,8 +12,6 @@ const OrderBar = () => {
   const totalPrice = useCartStore((state) => state.totalPrice);
   const setSum = useCartStore((state) => state.setSum);
 
-  const handleOrder = () => {};
-
   useEffect(() => {
     getSum().then((value) => setSum(value));
   }, [menus, setSum]);
@@ -33,9 +31,7 @@ const OrderBar = () => {
             <S.OrderTotalPrice>{totalPrice}원</S.OrderTotalPrice>
           </S.OrderPrice>
           <Link to="/cart">
-            <S.OrderBtn onClick={handleOrder} type="button">
-              주문하기
-            </S.OrderBtn>
+            <S.OrderBtn type="button">주문하기</S.OrderBtn>
           </Link>
         </>
       )}
