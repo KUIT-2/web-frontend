@@ -1,0 +1,6 @@
+export { ReactComponent as BackIcon } from './Back.svg'
+export { ReactComponent as PlusIcon } from './Plus.svg'
+export { ReactComponent as LimitIcon } from './PriceLimit.svg'
+export { ReactComponent as StarIcon } from './Star.svg'
+export { ReactComponent as Star2Icon } from './Star2.svg'
+export { ReactComponent as StoreIcon } from './Store.svg'
